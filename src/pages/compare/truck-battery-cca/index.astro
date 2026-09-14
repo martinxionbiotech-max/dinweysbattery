@@ -1,0 +1,142 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const SITE = "https://dinweysbattery.com";
+
+const comparisonJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Truck Battery CCA Guide: How Much Cold Cranking Amps Does a Truck Need?",
+  "description": "How to choose cold cranking amps (CCA) for a truck battery — why diesel engines need more CCA than gasoline, how climate and engine size set the requirement, and how to specify it correctly.",
+  "image": SITE + "/images/products/145G51-N150.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Martin Wong",
+    "jobTitle": "Sales Director",
+    "worksFor": { "@id": SITE + "/#organization" }
+  },
+  "publisher": { "@id": SITE + "/#organization" },
+  "datePublished": "2026-09-14",
+  "dateModified": "2026-09-14",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": SITE + "/compare/truck-battery-cca/" }
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much CCA does a truck battery need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the engine and climate. Diesel engines need more CCA than gasoline because higher compression makes cold cranking harder, and colder climates need more CCA than warm ones. Match CCA to the engine's cold-start requirement and the OEM specification, not to a higher number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is higher CCA always better for a truck?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not necessarily. The battery must still fit the tray and match the terminal layout. Beyond the engine's requirement, over-specifying CCA adds cost and plate surface you will not use — CCA is a fitment criterion, not a score to maximise."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Truck Battery CCA Guide: How Much Cold Cranking Amps Does a Truck Need? | DINWEY"
+  description="How to choose cold cranking amps (CCA) for a truck battery — why diesel engines need more CCA, how climate and engine size set the requirement, and how to specify correctly."
+  canonical={`${SITE}/compare/truck-battery-cca/`}
+  jsonLd={[comparisonJsonLd, faqJsonLd]}
+>
+  <div class="container section">
+    <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#6b5a54;margin-bottom:16px;">
+      <a href="/">Home</a> &rsaquo; <a href="/compare/">Compare</a> &rsaquo; Truck Battery CCA
+    </nav>
+
+    <h1>Truck Battery CCA Guide: How Much Cold Cranking Amps Does a Truck Need?</h1>
+    <p class="lead">
+      Cold cranking amps is the number that decides whether a truck starts on a cold morning. But the
+      right value is not "more is better" — it is matched to the engine and the climate.
+    </p>
+
+    <div class="takeaways">
+      <strong>Direct answer:</strong> A truck battery&rsquo;s CCA requirement is set by the engine and the climate. <strong>Diesel engines need more CCA than gasoline</strong> because higher compression makes cold cranking harder; <strong>heavier engines need more than lighter ones</strong>; and <strong>colder climates need more than warm ones</strong>. Match CCA to the engine&rsquo;s cold-start demand and the OEM specification — a higher number than required adds cost, not benefit.
+    </div>
+
+    <h2 style="margin-top:32px;">Why diesel trucks need more CCA</h2>
+    <p>
+      A diesel engine compresses air far more than a gasoline engine, so the starter must overcome
+      higher compression at low temperature — where engine oil is thicker and the cranking demand is
+      highest. That is why a truck battery is specified and sold by CCA, and why a truck battery is
+      <strong>not simply a bigger car battery</strong>: it is built with more plate surface area to
+      deliver a higher cold-start burst.
+    </p>
+
+    <h2 style="margin-top:32px;">What actually sets the requirement</h2>
+    <ul>
+      <li><strong>Engine type</strong> — diesel &gt; gasoline; larger displacement &gt; smaller.</li>
+      <li><strong>Climate</strong> — cold climates need a higher CCA than warm ones for the same engine.</li>
+      <li><strong>Electrical load</strong> — telematics, heaters and engine-off accessories raise the reserve requirement as well.</li>
+      <li><strong>Voltage</strong> — a 24V system is two 12V batteries in series; see <a href="/compare/12v-vs-24v/">12V vs 24V</a>.</li>
+    </ul>
+
+    <h2 style="margin-top:32px;">CCA vs Ah: what each tells you for a truck</h2>
+    <p>
+      CCA is starting power; Ah is how long the battery can deliver current before depletion. A cold
+      climate needs CCA; a truck with heavy engine-off loads also needs Ah (and reserve capacity). See
+      the model pages — for example the <a href="/batteries/jis/n200/">190H52 (N200)</a> delivers 200Ah
+      and 1100A CCA, the <a href="/batteries/jis/n150/">145G51 (N150)</a> 135Ah and 900A CCA — to match
+      a specific truck class.
+    </p>
+
+    <h2 style="margin-top:32px;">The standard matters</h2>
+    <p>
+      A CCA number is only meaningful with its test standard. JIS tests at &minus;15&deg;C while
+      EN/SAE test at &minus;18&deg;C, so the same battery prints a different number under each. Always
+      confirm the standard and compare within one standard — see
+      <a href="/compare/jis-vs-din-vs-bci/">JIS vs DIN vs BCI</a>.
+    </p>
+
+    <h2 style="margin-top:32px;">How to specify it</h2>
+    <ol>
+      <li>State the <strong>standard</strong> (JIS, DIN/EN or BCI/SAE).</li>
+      <li>State the <strong>CCA value</strong> and whether it is nominal or batch-tested.</li>
+      <li>State the <strong>group size, terminal orientation and voltage</strong> — CCA is one fitment criterion among several.</li>
+    </ol>
+
+    <h2 style="margin-top:32px;">The Author&rsquo;s Take</h2>
+    <p>
+      <strong>Position:</strong> In my view, the truck CCA mistake to avoid is buying the highest number
+      on the shelf instead of the number the engine actually needs — a battery that does not fit the tray
+      or wastes plate surface on CCA you will never use is a worse buy than the correctly-sized one.
+    </p>
+    <p>
+      <strong>Reasoning:</strong> CCA is a fitment requirement, not a performance score. Diesel, climate
+      and load set the number; the OEM specification is the correct target. Matching it — with the
+      standard stated — gets a reliable start without paying for capacity you cannot use. A supplier who
+      asks for your engine and climate before quoting CCA is doing it right.
+    </p>
+    <p>
+      <strong>Disclosure:</strong> This is my editorial view as a battery manufacturer&rsquo;s technical
+      team, not a laboratory claim. Confirm the correct CCA, group size and voltage for your vehicle.
+    </p>
+
+    <h2 style="margin-top:32px;">Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>How much CCA does a truck battery need?</h3>
+      <p>It depends on the engine and climate. Diesel engines need more CCA than gasoline, heavier engines more than lighter, and colder climates more than warm. Match CCA to the engine's cold-start requirement and the OEM specification.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is higher CCA always better for a truck?</h3>
+      <p>Not necessarily. The battery must still fit the tray and match the terminals. Over-specifying CCA adds cost and plate surface you will not use — CCA is a fitment criterion, not a score to maximise.</p>
+    </div>
+
+    <div style="margin-top:32px;">
+      <a class="cta" href="/products/">Browse Heavy-Duty Batteries</a>
+      <a class="cta cta-outline" href="/contact/" style="margin-left:8px;">Request a Quote</a>
+    </div>
+  </div>
+</BaseLayout>
