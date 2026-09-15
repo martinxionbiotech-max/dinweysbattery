@@ -30,13 +30,44 @@ const referenceListJsonLd = {
     { "@type": "ListItem", "position": 6, "name": "57412 (DIN74)", "url": "https://dinweysbattery.com/batteries/din/din74/" }
   ]
 };
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I replace an N150 with an N200?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if the tray, hold-down and terminal orientation allow the larger case: the N200 is 56 mm wider and 8 mm taller than the N150. It also adds 65 Ah of capacity, so check that the charging system and duty cycle suit the larger bank."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can't I compare JIS and EN cold-cranking figures directly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The standards test at different temperatures and cut-off voltages — JIS tests at −15 °C while EN and SAE test at −18 °C — so the same battery prints a different CCA under each standard. Compare CCA only within one standard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the reference models in the reference table DINWEY stock lines?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. N70, N100, N120, N220, DIN66 and DIN74 are third-party reference only, compiled from independent catalogs for cross-referencing. DINWEY's published stock specifications are the four models above them; anything else is quoted on request."
+      }
+    }
+  ]
+};
 ---
 
 <BaseLayout
   title="DINWEY Truck Battery Models — JIS & DIN Reference"
   description="DINWEY truck battery models — 145G51 (N150), 190H52 (N200), 58827 (DIN88), 60038 (DIN100) with verified specs, plus third-party reference sizes."
   ogType="article"
-  jsonLd={[definedTermSetJsonLd, referenceListJsonLd]}
+  jsonLd={[definedTermSetJsonLd, referenceListJsonLd, faqJsonLd]}
   canonical="/batteries/"
   pageType="CollectionPage"
   breadcrumbs={[
@@ -152,6 +183,49 @@ const referenceListJsonLd = {
       terminal type, polarity and tray dimensions before ordering. DINWEY stock lines are the four models in the
       tables above (145G51, 190H52, 58827, 60038).
     </p>
+
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">What Changes Between the Sizes</h2>
+    <p>
+      The tables above are the specification. The question a buyer actually has is what moves when you step up a size —
+      so the figures below are calculated from those same published values, not from a catalog.
+    </p>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>Model</th><th>Case (L×W×H)</th><th>Capacity</th><th>Cold-cranking</th><th>CCA per Ah</th><th>Reserve capacity</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><a href="/batteries/din/din88/" style="color:#1e5aa8;">58827 (DIN88)</a></td><td>353×175×190 mm</td><td>88 Ah</td><td>800 A (EN)</td><td>9.1</td><td>150 min</td></tr>
+          <tr><td><a href="/batteries/din/din100/" style="color:#1e5aa8;">60038 (DIN100)</a></td><td>393×175×190 mm</td><td>100 Ah</td><td>870 A (EN)</td><td>8.7</td><td>170 min</td></tr>
+          <tr><td><a href="/batteries/jis/n150/" style="color:#1e5aa8;">145G51 (N150)</a></td><td>508×222×212 mm</td><td>135 Ah</td><td>900 A (JIS)</td><td>6.7</td><td>220 min</td></tr>
+          <tr><td><a href="/batteries/jis/n200/" style="color:#1e5aa8;">190H52 (N200)</a></td><td>520×278×220 mm</td><td>200 Ah</td><td>1100 A (JIS)</td><td>5.5</td><td>320 min</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Four things follow from the arithmetic, and they are the reason two "similar" batteries behave differently:
+    </p>
+    <ul>
+      <li><strong>Step DIN88 → DIN100 costs 40 mm of case length</strong> and buys 12 Ah (+14%) and 70 A of EN cold-cranking (+9%). It is the cheapest size step in the range — but it still needs the longer tray.</li>
+      <li><strong>Step N150 → N200 costs 56 mm of width and 8 mm of height</strong> and buys 65 Ah (+48%) and 200 A of JIS CCA (+22%). The capacity jump is far larger than the cranking jump.</li>
+      <li><strong>CCA per amp-hour falls as case size grows</strong> — 9.1 A/Ah on DIN88 versus 5.5 A/Ah on N200. Bigger cases are buying reserve capacity (170 → 320 min), not cranking density. If the requirement is sleeper-cab or hotel load, Ah and RC matter more than the CCA headline.</li>
+      <li><strong>Cross-standard numbers stay incomparable.</strong> The 870 A EN figure and the 900 A JIS figure are measured at different temperatures and cut-off voltages; a DIN100 is not "almost an N150" because the CCA values look close.</li>
+    </ul>
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Can I replace an N150 with an N200?</h3>
+      <p>Only if the tray, hold-down and terminal orientation allow the larger case: the N200 is 56 mm wider and 8 mm taller than the N150. It also adds 65 Ah of capacity, so check that your charging system and duty cycle suit the larger bank before upgrading.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why can't I compare JIS and EN cold-cranking figures directly?</h3>
+      <p>Because the standards test at different temperatures and cut-off voltages — JIS tests at −15 °C while EN and SAE test at −18 °C — so the same physical battery prints a different CCA under each standard. Compare CCA only within one standard; see the <a href="/compare/jis-vs-din-vs-bci/" style="color:#1e5aa8;">standards comparison</a>.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are the reference models in the reference table DINWEY stock lines?</h3>
+      <p>No. N70, N100, N120, N220, DIN66 and DIN74 are listed as third-party reference only, compiled from independent catalogs so you can cross-reference a replacement. DINWEY's published stock specifications are the four models in the first tables; anything else is quoted on request.</p>
+    </div>
 
     <h2 style="color:#0f1f3d;margin-top:40px;">Comparisons &amp; Buying Guides</h2>
     <ul style="margin-bottom:0;">

@@ -8,12 +8,59 @@ const aboutJsonLd = {
   "url": "https://dinweysbattery.com/about/",
   "mainEntity": { "@id": "https://dinweysbattery.com/#organization" }
 };
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is DINWEY a factory or a trading company?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DINWEY is the truck and heavy-duty starting battery brand of Chengguang Power Tech Co., Ltd., a manufacturer founded in 2002 in Jinzhou City, Hebei, China. Batteries are produced end-to-end on the company's own 18 automated assembly lines rather than assembled from outsourced parts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where are DINWEY batteries manufactured?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At the Chengguang Power Tech facility in Jinzhou City, Shijiazhuang, Hebei Province, China — a 200,000 m² plant with 18 automated assembly lines. The facility figures are stated by the manufacturer and are not third-party audited."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What certifications does the factory hold?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The plant operates under an IATF 16949 quality management system, and the manufacturer states ISO 9001:2015, ISO 14001:2015, ISO 45001:2018, OHSAS 18001 and CE marking. Certificate numbers, issuers and scope have not been published on this site yet — ask for them with your quotation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does DINWEY offer OEM and private-label production?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. OEM and private-label supply are part of the product range; branding, packaging, documentation and batch test records are agreed per program. Tell us the group size, CCA and market, and we quote against your specification."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which battery sizes does DINWEY publish specifications for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Four first-party models: 145G51 (N150), 190H52 (N200), 58827 (DIN88) and 60038 (DIN100). BCI Group 31 / 8D is made to order, and six further group sizes (N70, N100, N120, N220, DIN66, DIN74) are listed as third-party reference only — not DINWEY published stock ratings."
+      }
+    }
+  ]
+};
 ---
 
 <BaseLayout
   title="About DINWEY — Heavy-Duty Truck Battery Brand"
   description="DINWEY is the truck and heavy-duty starting battery brand of Chengguang Power Tech Co., Ltd., a manufacturer founded in 2002 in Hebei, China."
-  jsonLd={[aboutJsonLd]}
+  jsonLd={[aboutJsonLd, faqJsonLd]}
 >
   <div class="container section">
     <h1 style="color:#0f1f3d;">About DINWEY</h1>
@@ -46,28 +93,28 @@ const aboutJsonLd = {
     </p>
     <section class="factory-gallery" aria-label="Chengguang Power Tech Co., Ltd. factory">
       <div class="factory-slot">
-        <img src="/images/factory/factory-01.jpg" alt="Chengguang Power Tech Co., Ltd. battery factory" width="1508" height="823" loading="lazy" decoding="async" />
+        <img src="/images/factory/factory-01.jpg" alt="Chengguang Power Tech Co., Ltd. battery factory" width="1200" height="655" loading="lazy" decoding="async" />
       </div>
       <div class="factory-slot">
-        <img src="/images/factory/factory-02.jpg" alt="Chengguang Power Tech Co., Ltd. battery factory" width="1517" height="631" loading="lazy" decoding="async" />
+        <img src="/images/factory/factory-02.jpg" alt="Chengguang Power Tech Co., Ltd. battery factory" width="1200" height="499" loading="lazy" decoding="async" />
       </div>
       <div class="factory-slot">
-        <img src="/images/factory/factory-03.jpg" alt="Chengguang Power Tech Co., Ltd. battery factory" width="1514" height="633" loading="lazy" decoding="async" />
+        <img src="/images/factory/factory-03.jpg" alt="Chengguang Power Tech Co., Ltd. battery factory" width="1200" height="502" loading="lazy" decoding="async" />
       </div>
       <div class="factory-slot">
-        <img src="/images/factory/factory-04.jpg" alt="Chengguang Power Tech Co., Ltd. battery factory" width="1512" height="633" loading="lazy" decoding="async" />
+        <img src="/images/factory/factory-04.jpg" alt="Chengguang Power Tech Co., Ltd. battery factory" width="1200" height="502" loading="lazy" decoding="async" />
       </div>
       <div class="factory-slot">
-        <img src="/images/factory/factory-05.jpg" alt="Chengguang Power Tech Co., Ltd. battery factory" width="1530" height="641" loading="lazy" decoding="async" />
+        <img src="/images/factory/factory-05.jpg" alt="Chengguang Power Tech Co., Ltd. battery factory" width="1200" height="503" loading="lazy" decoding="async" />
       </div>
       <div class="factory-slot">
-        <img src="/images/factory/factory-06.jpg" alt="Chengguang Power Tech Co., Ltd. battery factory" width="1526" height="647" loading="lazy" decoding="async" />
+        <img src="/images/factory/factory-06.jpg" alt="Chengguang Power Tech Co., Ltd. battery factory" width="1200" height="509" loading="lazy" decoding="async" />
       </div>
       <div class="factory-slot">
-        <img src="/images/factory/factory-07.jpg" alt="Chengguang Power Tech Co., Ltd. battery factory" width="1528" height="647" loading="lazy" decoding="async" />
+        <img src="/images/factory/factory-07.jpg" alt="Chengguang Power Tech Co., Ltd. battery factory" width="1200" height="508" loading="lazy" decoding="async" />
       </div>
       <div class="factory-slot">
-        <img src="/images/factory/factory-08.jpg" alt="Chengguang Power Tech Co., Ltd. battery factory" width="1533" height="646" loading="lazy" decoding="async" />
+        <img src="/images/factory/factory-08.jpg" alt="Chengguang Power Tech Co., Ltd. battery factory" width="1200" height="506" loading="lazy" decoding="async" />
       </div>
     </section>
 
@@ -213,5 +260,33 @@ const aboutJsonLd = {
         <li><a href="/selection-tool/" style="color:#1e5aa8;">Battery selection tool</a></li>
       </ul>
     </div>
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Is DINWEY a factory or a trading company?</h3>
+      <p>DINWEY is the truck and heavy-duty starting battery brand of Chengguang Power Tech Co., Ltd., a manufacturer founded in 2002 in Jinzhou City, Hebei, China. Batteries are produced end-to-end on the company's own 18 automated assembly lines rather than assembled from outsourced parts.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Where are DINWEY batteries manufactured?</h3>
+      <p>At the Chengguang Power Tech facility in Jinzhou City, Shijiazhuang, Hebei Province, China — a 200,000 m² plant with 18 automated assembly lines. The facility figures are stated by the manufacturer and are not third-party audited.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What certifications does the factory hold?</h3>
+      <p>The plant operates under an IATF 16949 quality management system, and the manufacturer states ISO 9001:2015, ISO 14001:2015, ISO 45001:2018, OHSAS 18001 and CE marking. Certificate numbers, issuers and scope have not been published on this site yet — ask for them with your quotation.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does DINWEY offer OEM and private-label production?</h3>
+      <p>Yes. OEM and private-label supply are part of the product range; branding, packaging, documentation and batch test records are agreed per program. Tell us the group size, CCA and market, and we quote against your specification.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Which battery sizes does DINWEY publish specifications for?</h3>
+      <p>Four first-party models: 145G51 (N150), 190H52 (N200), 58827 (DIN88) and 60038 (DIN100). BCI Group 31 / 8D is made to order, and six further group sizes (N70, N100, N120, N220, DIN66, DIN74) are listed as third-party reference only — not DINWEY published stock ratings.</p>
+    </div>
+
+    <p class="data-note">
+      Every claim on this page is tracked in the <a href="/data/" style="color:#1e5aa8;">Evidence &amp; Data</a> ledger,
+      including the two we have not yet verified (facility figures and certification documents).
+    </p>
+
   </div>
 </BaseLayout>

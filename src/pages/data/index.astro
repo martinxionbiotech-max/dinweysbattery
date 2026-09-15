@@ -95,12 +95,43 @@ const datasetJsonLd = {
     "dateModified": d.date,
   })),
 };
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why are some fields in the datasets empty?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the manufacturer does not publish them. The policy is stated in the master data itself: fields that are not published are left null and never estimated or interpolated. An empty field means \"not published\", not \"zero\"."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does \"reference\" mean in the model data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It means the value was compiled from third-party catalogs rather than a DINWEY datasheet. Those models are listed so you can cross-reference a replacement; they are not DINWEY published stock ratings and are quoted on request if you need them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How current are these datasets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each JSON file carries its own dateModified value, shown next to the dataset name above. The claim ledger and source registry are updated whenever a claim's status changes — including when a claim is still marked as needing verification."
+      }
+    }
+  ]
+};
 ---
 
 <BaseLayout
   title="Evidence & Data — DINWEY Battery Specifications"
   description="The datasets behind DINWEY battery specs: claim ledger with verification status, source registry by level, master model data and fitment database."
-  jsonLd={[datasetJsonLd]}
+  jsonLd={[datasetJsonLd, faqJsonLd]}
   canonical="/data/"
   pageType="CollectionPage"
   breadcrumbs={[
@@ -239,6 +270,20 @@ const datasetJsonLd = {
       </ul>
     </div>
 
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>Why are some fields in the datasets empty?</h3>
+      <p>Because the manufacturer does not publish them. The policy is stated in the master data itself: fields that are not published are left null and never estimated or interpolated. An empty field means "not published", not "zero".</p>
+    </div>
+    <div class="faq-item">
+      <h3>What does "reference" mean in the model data?</h3>
+      <p>It means the value was compiled from third-party catalogs rather than a DINWEY datasheet. Those models are listed so you can cross-reference a replacement; they are not DINWEY published stock ratings and are quoted on request if you need them.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How current are these datasets?</h3>
+      <p>Each JSON file carries its own dateModified value, shown next to the dataset name above. The claim ledger and source registry are updated whenever a claim's status changes — including when a claim is still marked as needing verification.</p>
+    </div>
     <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;">
       <a class="cta" href="/contact/" style="display:inline-block;background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">Request a Datasheet &amp; Certificate</a>
       <a class="cta" href="/batteries/" style="display:inline-block;background:#1e5aa8;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">Browse Model Specifications</a>

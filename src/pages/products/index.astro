@@ -61,12 +61,43 @@ const collectionJsonLd = {
     },
   ],
 };
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I choose between the JIS and DIN product lines?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "By the vehicle and market you are replacing for: JIS sizes (N150/N200) fit Japanese and Asian trucks, DIN sizes (DIN88/DIN100) fit European trucks. The group size, not the brand, decides fitment — check the tray and terminal orientation, then pick the capacity and CCA the application needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is BCI Group 31 / 8D in stock?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — BCI Group 31 and 8D are made to order and have no published stock specification. Tell us the group size, CCA and quantity and we quote against your specification."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get a datasheet for a specific model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The four stock models (145G51, 190H52, 58827, 60038) have full specification tables on their model pages, and datasheets plus batch test records are available on request from the contact page."
+      }
+    }
+  ]
+};
 ---
 
 <BaseLayout
   title="Truck Battery Product Lines — DINWEY"
   description="DINWEY truck battery product lines: JIS heavy-duty (N150/N200), DIN heavy-duty (DIN88/DIN100), 24V systems, BCI Group 31/8D on request, and fleet/OEM programs."
-  jsonLd={[collectionJsonLd]}
+  jsonLd={[collectionJsonLd, faqJsonLd]}
   canonical="/products/"
   pageType="CollectionPage"
   breadcrumbs={[
@@ -115,6 +146,20 @@ const collectionJsonLd = {
       </ul>
     </div>
 
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>How do I choose between the JIS and DIN product lines?</h3>
+      <p>By the vehicle and market you are replacing for: JIS sizes (N150/N200) fit Japanese and Asian trucks, DIN sizes (DIN88/DIN100) fit European trucks. The group size, not the brand, decides fitment — check the tray and terminal orientation, then pick the capacity and CCA the application needs.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is BCI Group 31 / 8D in stock?</h3>
+      <p>No — BCI Group 31 and 8D are made to order and have no published stock specification. Tell us the group size, CCA and quantity and we quote against your specification.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I get a datasheet for a specific model?</h3>
+      <p>Yes. The four stock models (145G51, 190H52, 58827, 60038) have full specification tables on their model pages, and datasheets plus batch test records are available on request from the contact page.</p>
+    </div>
     <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;">
       <a class="cta" href="/contact/" style="display:inline-block;background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">Request a Datasheet &amp; Quote</a>
       <a class="cta" href="https://wa.me/8613323237275" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">WhatsApp — Contact Now</a>
