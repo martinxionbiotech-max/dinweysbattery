@@ -1,0 +1,118 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const SITE = "https://dinweysbattery.com";
+
+const productLines = [
+  {
+    href: "/products/jis-heavy-duty/",
+    label: "JIS Heavy-Duty Batteries",
+    models: "145G51 (N150) · 190H52 (N200)",
+    desc: "JIS-standard heavy-duty starting batteries for Japanese and Asian trucks — 12V, 135–200 Ah, 900–1100 A CCA (JIS D5301).",
+  },
+  {
+    href: "/products/din-heavy-duty/",
+    label: "DIN Heavy-Duty Batteries",
+    models: "58827 (DIN88) · 60038 (DIN100)",
+    desc: "DIN/EN-standard heavy-duty batteries for European trucks — 12V, 88–100 Ah, 800–870 A EN cold-cranking.",
+  },
+  {
+    href: "/products/24v/",
+    label: "24V Truck Battery Systems",
+    models: "2 × N200 · 2 × DIN100",
+    desc: "Series-paired 24V configurations for heavy trucks, buses and coaches, with cable, isolator and balancing guidance.",
+  },
+  {
+    href: "/products/bci-request/",
+    label: "BCI Group 31 / 8D",
+    models: "On request",
+    desc: "BCI Group 31 and 8D made-to-order lines — no published stock specification; specification confirmed per order.",
+  },
+  {
+    href: "/products/fleet/",
+    label: "Fleet & OEM Solutions",
+    models: "Private label · OEM",
+    desc: "Fleet standardisation, private-label branding and OEM programs with batch documentation and warranty terms.",
+  },
+];
+
+const comparisons = [
+  { href: "/compare/n150-vs-n200/", label: "JIS N150 vs N200 — which one do you need?" },
+  { href: "/compare/din88-vs-din100/", label: "DIN88 vs DIN100 — capacity vs case size" },
+  { href: "/compare/12v-vs-24v/", label: "12V vs 24V truck electrical systems" },
+  { href: "/compare/jis-vs-din-vs-bci/", label: "JIS vs DIN vs BCI — standards compared" },
+  { href: "/compare/truck-battery-cca/", label: "How much CCA does a truck need?" },
+];
+
+const collectionJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ItemList",
+      "@id": SITE + "/products/#list",
+      "name": "DINWEY truck battery product lines",
+      "numberOfItems": productLines.length,
+      "itemListElement": productLines.map((p, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": p.label,
+        "url": SITE + p.href,
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Products — Truck & Heavy-Duty Starting Batteries"
+  description="DINWEY truck battery product lines: JIS heavy-duty (N150/N200), DIN heavy-duty (DIN88/DIN100), 24V systems, BCI Group 31/8D on request, and fleet/OEM programs."
+  jsonLd={[collectionJsonLd]}
+  canonical="/products/"
+  pageType="CollectionPage"
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Products", url: "/products/" }
+  ]}
+>
+  <div class="container section">
+    <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
+      <a href="/" style="color:#1e5aa8;">Home</a> &rsaquo; Products
+    </nav>
+
+    <h1 style="color:#0f1f3d;margin-bottom:12px;">Products</h1>
+    <p class="lead">
+      DINWEY supplies truck and heavy-duty starting batteries (SLI) across the three main standards used
+      in commercial vehicles — JIS, DIN/EN and BCI/SAE — plus 24V series configurations and OEM/private-label
+      programs. Every line is manufactured by Chengguang Power Tech Co., Ltd. (founded 2002) under IATF 16949.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Product Lines</h2>
+    <ul style="list-style:none;padding:0;">
+      {productLines.map((p) => (
+        <li style="margin-bottom:18px;padding:16px 18px;border:1px solid #e5e9f0;border-radius:8px;">
+          <a href={p.href} style="color:#1e5aa8;font-weight:700;font-size:1.05rem;">{p.label}</a>
+          <div style="color:#55606e;font-size:0.88rem;margin:4px 0;">{p.models}</div>
+          <p style="margin:0;color:#334155;">{p.desc}</p>
+        </li>
+      ))}
+    </ul>
+
+    <div style="margin-top:32px;padding:20px;background:#f4f7fb;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin-top:0;">Model-level specifications</h2>
+      <p style="margin-bottom:10px;">
+        Individual model pages carry the full specification table — voltage, capacity (C20), CCA with its test
+        standard, reserve capacity and case dimensions:
+      </p>
+      <ul style="margin-bottom:0;">
+        <li><a href="/batteries/" style="color:#1e5aa8;">All DINWEY battery models (specification reference)</a></li>
+        <li><a href="/compare/" style="color:#1e5aa8;">Model and standard comparisons</a></li>
+        <li><a href="/selection-tool/" style="color:#1e5aa8;">Battery selection tool</a></li>
+      </ul>
+    </div>
+
+    <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;">
+      <a class="cta" href="/contact/" style="display:inline-block;background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">Request a Datasheet &amp; Quote</a>
+      <a class="cta" href="https://wa.me/8613323237275" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">WhatsApp — Contact Now</a>
+    </div>
+  </div>
+</BaseLayout>

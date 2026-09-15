@@ -1,19 +1,16 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const pageJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Privacy Policy",
-  "url": "https://dinweysbattery.com/privacy-policy/",
-  "mainEntity": { "@id": "https://dinweysbattery.com/#organization" }
-};
 ---
 
 <BaseLayout
   title="Privacy Policy — DINWEY Truck & Heavy-Duty Batteries"
   description="DINWEY privacy policy — how we handle contact and inquiry information."
-  jsonLd={[pageJsonLd]}
+  pageType="WebPage"
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Privacy Policy", url: "/privacy-policy/" }
+  ]}
 >
   <div class="container section">
     <h1 style="color:#0f1f3d;">Privacy Policy</h1>

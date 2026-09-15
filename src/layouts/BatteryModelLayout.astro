@@ -55,12 +55,14 @@ const {
 
 const pageTitle = `${model} (${groupLabel}) — ${standard} Heavy-Duty Truck Battery`;
 const ogImage = "/images/og-default.jpg";
+const pageUrl = Astro.url.pathname;
+const SITE = "https://dinweysbattery.com";
 
 // DefinedTerm schema（V2.0 AIO 增强：术语实体标记）
 const definedTermJsonLd = {
   "@context": "https://schema.org",
   "@type": "DefinedTerm",
-  "@id": `https://dinweysbattery.com/batteries/${standard.toLowerCase()}/${model.toLowerCase()}/#${model.toLowerCase()}`,
+  "@id": `${SITE}${pageUrl}#defined-term`,
   "name": model,
   "inDefinedTermSet": {
     "@type": "DefinedTermSet",
@@ -73,17 +75,31 @@ const definedTermJsonLd = {
 const productJsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
+  "@id": `${SITE}${pageUrl}#product`,
   "name": productName,
   "description": description,
-  "image": ogImage,
+  "image": SITE + ogImage,
+  "url": `${SITE}${pageUrl}`,
   "model": model,
+  // sku 只写一手发布的型号码；reference 型号（第三方目录规格）不写，避免虚假标识
+  ...(isReference ? {} : { "sku": model }),
   "brand": { "@type": "Brand", "name": "DINWEY" },
-  "manufacturer": { "@id": "https://dinweysbattery.com/#manufacturer" },
-  "author": {
-    "@type": "Person",
-    "name": "Martin Wong",
-    "jobTitle": "Sales Director",
-    "worksFor": { "@id": "https://dinweysbattery.com/#manufacturer" }
+  "manufacturer": { "@id": SITE + "/#manufacturer" },
+  "category": "Truck starting battery (SLI)",
+  "mainEntityOfPage": { "@id": `${SITE}${pageUrl.replace(/\/$/, "")}/#webpage` },
+  "audience": {
+    "@type": "BusinessAudience",
+    "audienceType": "Truck OEMs, fleet operators, battery distributors and importers"
+  },
+  // B2B 询单销售：按型号/数量/区域/OEM 条款报价，站内不公布价格 —— 不写 price，只给结构完整的询单型 Offer
+  "offers": {
+    "@type": "Offer",
+    "@id": `${SITE}${pageUrl}#offer`,
+    "url": `${SITE}/contact/`,
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "businessFunction": "http://purl.org/goodrelations/v1#Sell",
+    "seller": { "@id": SITE + "/#organization" }
   },
   "additionalProperty": [
     { "@type": "PropertyValue", "name": "Standard", "value": standard },
@@ -94,7 +110,10 @@ const productJsonLd = {
     { "@type": "PropertyValue", "name": "Test Standard", "value": testStandard },
     { "@type": "PropertyValue", "name": "Reserve Capacity", "value": rc },
     { "@type": "PropertyValue", "name": "Dimensions", "value": dimensions }
-  ]
+  ],
+  ...(isReference
+    ? { "disambiguatingDescription": "Third-party reference specification compiled from independent catalogs — not a DINWEY published stock rating." }
+    : {})
 };
 
 const faqJsonLd = {
@@ -108,7 +127,18 @@ const faqJsonLd = {
 };
 ---
 
-<BaseLayout title={pageTitle} description={description} ogImage={ogImage} jsonLd={[definedTermJsonLd, productJsonLd, faqJsonLd]}>
+<BaseLayout
+  title={pageTitle}
+  description={description}
+  ogImage={ogImage}
+  jsonLd={[definedTermJsonLd, productJsonLd, faqJsonLd]}
+  pageType="ItemPage"
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: parentCategory.label, url: parentCategory.href },
+    { name: `${model} (${groupLabel})`, url: pageUrl }
+  ]}
+>
   <div class="container section">
     <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
       <a href="/" style="color:#1e5aa8;">Home</a> &rsaquo;

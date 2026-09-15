@@ -16,6 +16,10 @@ interface Props {
   noindex?: boolean;
   lang?: string;
   dir?: string;
+  /** schema.org page node type: WebPage | ItemPage | CollectionPage | AboutPage | ContactPage */
+  pageType?: string;
+  /** breadcrumb trail (Home first). Omit to keep the default Home › page breadcrumb. */
+  breadcrumbs?: { name: string; url: string }[];
 }
 
 const {
@@ -31,6 +35,8 @@ const {
   noindex = false,
   lang = "en",
   dir = "ltr",
+  pageType = "WebPage",
+  breadcrumbs,
 } = Astro.props;
 
 const SITE = "https://dinweysbattery.com";
@@ -82,10 +88,13 @@ const orgJsonLd = {
   "@type": "Organization",
   "@id": SITE + "/#organization",
   "name": "DINWEY",
+  "legalName": "DINWEY (brand of Chengguang Power Tech Co., Ltd.)",
   "url": SITE,
   "logo": SITE + "/images/logo.png",
   "brand": { "@type": "Brand", "name": "DINWEY" },
   "manufacturer": { "@id": SITE + "/#manufacturer" },
+  "parentOrganization": { "@id": SITE + "/#manufacturer" },
+  "foundingDate": "2002",
   "email": "martin@dinweys.com",
   "telephone": "+86-13323237275",
   "contactPoint": {
@@ -148,24 +157,41 @@ const webSiteJsonLd = {
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
+  "@id": canonicalUrl.replace(/\/$/, "") + "/#breadcrumb",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": SITE + "/"
-    },
-    ...(canonicalUrl !== SITE + "/"
-      ? [
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": cleanTitle,
-            "item": canonicalUrl
-          }
-        ]
-      : [])
-  ]
+    ...(breadcrumbs && breadcrumbs.length > 0
+      ? breadcrumbs.map((b, i) => ({
+          "@type": "ListItem",
+          "position": i + 1,
+          "name": b.name,
+          "item": b.url.startsWith("http") ? b.url : SITE + b.url,
+        }))
+      : [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/" },
+          ...(canonicalUrl !== SITE + "/"
+            ? [{ "@type": "ListItem", "position": 2, "name": cleanTitle, "item": canonicalUrl }]
+            : []),
+        ]),
+  ],
+};
+
+// 页面级实体（WebPage / ItemPage / CollectionPage …）——全站每页都有，保证面包屑与 isPartOf 不悬空
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": pageType,
+  "@id": canonicalUrl.replace(/\/$/, "") + "/#webpage",
+  "url": canonicalUrl,
+  "name": cleanTitle,
+  "description": description,
+  "isPartOf": { "@id": SITE + "/#website" },
+  "inLanguage": lang,
+  "primaryImageOfPage": ogImage.startsWith("http") ? ogImage : SITE + ogImage,
+  "publisher": { "@id": SITE + "/#organization" },
+  ...(canonicalUrl !== SITE + "/"
+    ? { "breadcrumb": { "@id": canonicalUrl.replace(/\/$/, "") + "/#breadcrumb" } }
+    : {}),
+  ...(datePublished ? { "datePublished": datePublished } : {}),
+  ...(dateModified ? { "dateModified": dateModified } : {}),
 };
 ---
 
@@ -208,6 +234,7 @@ const breadcrumbJsonLd = {
     <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
     <script type="application/ld+json" set:html={JSON.stringify(manufacturerJsonLd)} />
     <script type="application/ld+json" set:html={JSON.stringify(webSiteJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(webPageJsonLd)} />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
   </head>
   <body>

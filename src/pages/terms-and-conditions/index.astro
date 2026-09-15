@@ -1,19 +1,16 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const pageJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Terms & Conditions",
-  "url": "https://dinweysbattery.com/terms-and-conditions/",
-  "mainEntity": { "@id": "https://dinweysbattery.com/#organization" }
-};
 ---
 
 <BaseLayout
   title="Terms & Conditions — DINWEY Truck & Heavy-Duty Batteries"
   description="DINWEY terms and conditions for site use and trade inquiries."
-  jsonLd={[pageJsonLd]}
+  pageType="WebPage"
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Terms & Conditions", url: "/terms-and-conditions/" }
+  ]}
 >
   <div class="container section">
     <h1 style="color:#0f1f3d;">Terms &amp; Conditions</h1>

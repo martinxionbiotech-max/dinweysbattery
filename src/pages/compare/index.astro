@@ -1,0 +1,107 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const SITE = "https://dinweysbattery.com";
+
+const comparisons = [
+  {
+    href: "/compare/n150-vs-n200/",
+    label: "JIS N150 vs N200 Heavy-Duty Truck Battery",
+    models: "145G51 (N150) · 190H52 (N200)",
+    desc: "The difference in size, capacity, CCA, reserve capacity and 24V pairing — with a buyer decision guide for JIS-market trucks.",
+  },
+  {
+    href: "/compare/din88-vs-din100/",
+    label: "DIN88 vs DIN100 Heavy-Duty Truck Battery",
+    models: "58827 (DIN88) · 60038 (DIN100)",
+    desc: "Case length, capacity, EN cold-cranking and reserve capacity — what actually changes between the two DIN sizes, and when the larger case is wasted money.",
+  },
+  {
+    href: "/compare/jis-vs-din-vs-bci/",
+    label: "JIS vs DIN vs BCI: Why CCA Cannot Be Compared Directly",
+    models: "JIS D5301 · EN 50342 · SAE J537 · DIN 43539",
+    desc: "The four standards test CCA at different temperatures and cut-off voltages, so a 900 A JIS rating and a 900 A EN rating are not the same number.",
+  },
+  {
+    href: "/compare/12v-vs-24v/",
+    label: "12V vs 24V Truck Battery Systems: How Series Wiring Works",
+    models: "12V single · 24V = 2 × 12V in series",
+    desc: "Why 24V uses two 12V batteries in series, and why series wiring adds voltage but not Ah — and not simply CCA.",
+  },
+  {
+    href: "/compare/truck-battery-cca/",
+    label: "Truck Battery CCA Guide: How Much CCA Does a Truck Need?",
+    models: "Diesel vs gasoline · climate · engine size",
+    desc: "How climate, engine displacement and duty cycle set the CCA requirement — and why over-specifying CCA adds cost without adding fitment value.",
+  },
+];
+
+const collectionJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ItemList",
+      "@id": SITE + "/compare/#list",
+      "name": "DINWEY truck battery comparisons and buying guides",
+      "numberOfItems": comparisons.length,
+      "itemListElement": comparisons.map((c, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": c.label,
+        "url": SITE + c.href,
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Truck Battery Comparisons & Buying Guides"
+  description="DINWEY truck battery comparisons: JIS N150 vs N200, DIN88 vs DIN100, JIS vs DIN vs BCI standards, 12V vs 24V systems and how much CCA a truck really needs."
+  jsonLd={[collectionJsonLd]}
+  canonical="/compare/"
+  pageType="CollectionPage"
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Compare", url: "/compare/" }
+  ]}
+>
+  <div class="container section">
+    <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#6b5a54;margin-bottom:16px;">
+      <a href="/" style="color:#1e5aa8;">Home</a> &rsaquo; Compare
+    </nav>
+
+    <h1 style="color:#0f1f3d;margin-bottom:12px;">Truck Battery Comparisons &amp; Buying Guides</h1>
+    <p class="lead">
+      Model-to-model and standard-to-standard comparisons written for buyers rather than for a spec sheet:
+      what actually changes between two sizes, which rating is measured how, and where the extra capacity or
+      CCA buys you nothing. Every figure comes from the DINWEY specification reference or the standards named
+      on the page.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Comparisons</h2>
+    <ul style="list-style:none;padding:0;">
+      {comparisons.map((c) => (
+        <li style="margin-bottom:18px;padding:16px 18px;border:1px solid #e5e9f0;border-radius:8px;">
+          <a href={c.href} style="color:#1e5aa8;font-weight:700;font-size:1.05rem;">{c.label}</a>
+          <div style="color:#55606e;font-size:0.88rem;margin:4px 0;">{c.models}</div>
+          <p style="margin:0;color:#334155;">{c.desc}</p>
+        </li>
+      ))}
+    </ul>
+
+    <div style="margin-top:32px;padding:20px;background:#f4f7fb;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin-top:0;">Go deeper</h2>
+      <ul style="margin-bottom:0;">
+        <li><a href="/batteries/" style="color:#1e5aa8;">DINWEY battery model reference (full specifications)</a></li>
+        <li><a href="/products/" style="color:#1e5aa8;">Product lines overview</a></li>
+        <li><a href="/selection-tool/" style="color:#1e5aa8;">Battery selection tool</a></li>
+      </ul>
+    </div>
+
+    <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;">
+      <a class="cta" href="/contact/" style="display:inline-block;background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">Ask Which Model Fits Your Truck</a>
+      <a class="cta" href="https://wa.me/8613323237275" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">WhatsApp — Contact Now</a>
+    </div>
+  </div>
+</BaseLayout>

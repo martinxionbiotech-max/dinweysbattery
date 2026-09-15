@@ -14,9 +14,36 @@ const definedTermSetJsonLd = {
     { "@type": "DefinedTerm", "name": "60038", "termCode": "60038", "url": "https://dinweysbattery.com/batteries/din/din100/" }
   ]
 };
+const referenceListJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": "https://dinweysbattery.com/batteries/#reference-list",
+  "name": "Third-party reference model specifications (not DINWEY stock lines)",
+  "description": "Group sizes commonly cross-referenced in JIS/DIN markets. Values are compiled from independent catalogs and are not DINWEY published stock ratings.",
+  "numberOfItems": 6,
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "65D31R (N70)", "url": "https://dinweysbattery.com/batteries/jis/n70/" },
+    { "@type": "ListItem", "position": 2, "name": "95E41R (N100)", "url": "https://dinweysbattery.com/batteries/jis/n100/" },
+    { "@type": "ListItem", "position": 3, "name": "N120", "url": "https://dinweysbattery.com/batteries/jis/n120/" },
+    { "@type": "ListItem", "position": 4, "name": "245H52 (N220)", "url": "https://dinweysbattery.com/batteries/jis/n220/" },
+    { "@type": "ListItem", "position": 5, "name": "56638 (DIN66)", "url": "https://dinweysbattery.com/batteries/din/din66/" },
+    { "@type": "ListItem", "position": 6, "name": "57412 (DIN74)", "url": "https://dinweysbattery.com/batteries/din/din74/" }
+  ]
+};
 ---
 
-<BaseLayout title="DINWEY Truck Battery Models — JIS & DIN Reference" description="A structured reference of DINWEY heavy-duty truck battery models — 145G51 (N150), 190H52 (N200), 58827 (DIN88), 60038 (DIN100) — with verified specifications across JIS and DIN standards." ogType="article" jsonLd={[definedTermSetJsonLd]}>
+<BaseLayout
+  title="DINWEY Truck Battery Models — JIS & DIN Reference"
+  description="DINWEY heavy-duty truck battery models — 145G51 (N150), 190H52 (N200), 58827 (DIN88), 60038 (DIN100) with verified specs, plus third-party reference sizes for cross-referencing."
+  ogType="article"
+  jsonLd={[definedTermSetJsonLd, referenceListJsonLd]}
+  canonical="/batteries/"
+  pageType="CollectionPage"
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Battery Models", url: "/batteries/" }
+  ]}
+>
   <div class="container section">
     <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
       <a href="/" style="color:#1e5aa8;">Home</a> &rsaquo; Battery Models
@@ -75,6 +102,60 @@ const definedTermSetJsonLd = {
         </tbody>
       </table>
     </div>
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">Reference Model Specifications (third-party)</h2>
+    <p>
+      The sizes below are widely used in JIS/DIN markets, but DINWEY does not publish them as stock ratings.
+      Values are compiled from independent catalogs (listed on each model page) and vary between manufacturers —
+      they are a starting point for cross-referencing a replacement, not a DINWEY specification.
+    </p>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>Model</th><th>Group</th><th>Voltage</th><th>Capacity</th><th>Cold-cranking</th><th>Dimensions (L×W×H)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="/batteries/jis/n70/" style="color:#1e5aa8;"><strong>65D31R</strong></a></td>
+            <td>N70</td><td>12V</td><td>70 Ah</td><td>580 A (JIS, reference)</td><td>306×173×225 mm</td>
+          </tr>
+          <tr>
+            <td><a href="/batteries/jis/n100/" style="color:#1e5aa8;"><strong>95E41R</strong></a></td>
+            <td>N100</td><td>12V</td><td>100 Ah</td><td>730 A (JIS, reference)</td><td>410×176×234 mm</td>
+          </tr>
+          <tr>
+            <td><a href="/batteries/jis/n120/" style="color:#1e5aa8;"><strong>N120</strong></a></td>
+            <td>N120</td><td>12V</td><td>120 Ah</td><td>820 A (JIS, reference)</td><td>505×183×240 mm</td>
+          </tr>
+          <tr>
+            <td><a href="/batteries/jis/n220/" style="color:#1e5aa8;"><strong>245H52</strong></a></td>
+            <td>N220</td><td>12V</td><td>220 Ah</td><td>1200 A (JIS, reference)</td><td>515×265×216 mm (total height 254 mm)</td>
+          </tr>
+          <tr>
+            <td><a href="/batteries/din/din66/" style="color:#1e5aa8;"><strong>56638</strong></a></td>
+            <td>DIN66</td><td>12V</td><td>66 Ah</td><td>not published — confirm</td><td>278×175×190 mm</td>
+          </tr>
+          <tr>
+            <td><a href="/batteries/din/din74/" style="color:#1e5aa8;"><strong>57412</strong></a></td>
+            <td>DIN74</td><td>12V</td><td>74 Ah</td><td>680 A (EN, reference)</td><td>278×175×190 mm</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="data-note">
+      Reference specifications — <strong>not DINWEY published stock ratings</strong>. Confirm exact CCA, capacity,
+      terminal type, polarity and tray dimensions before ordering. DINWEY stock lines are the four models in the
+      tables above (145G51, 190H52, 58827, 60038).
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">Comparisons &amp; Buying Guides</h2>
+    <ul style="margin-bottom:0;">
+      <li><a href="/compare/n150-vs-n200/" style="color:#1e5aa8;">JIS N150 vs N200 — which one do you need?</a></li>
+      <li><a href="/compare/din88-vs-din100/" style="color:#1e5aa8;">DIN88 vs DIN100 — capacity vs case size</a></li>
+      <li><a href="/compare/jis-vs-din-vs-bci/" style="color:#1e5aa8;">JIS vs DIN vs BCI — why CCA cannot be compared directly</a></li>
+      <li><a href="/compare/12v-vs-24v/" style="color:#1e5aa8;">12V vs 24V truck battery systems</a></li>
+      <li><a href="/compare/truck-battery-cca/" style="color:#1e5aa8;">Truck battery CCA guide — how much CCA a truck needs</a></li>
+    </ul>
 
     <div style="margin-top:32px;padding:20px;background:#f4f7fb;border-radius:8px;">
       <h2 style="color:#0f1f3d;margin-top:0;">Looking for a broader product view?</h2>

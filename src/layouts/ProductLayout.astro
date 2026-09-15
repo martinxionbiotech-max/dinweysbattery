@@ -65,19 +65,33 @@ const faqJsonLd = {
   }))
 };
 
+const SITE = "https://dinweysbattery.com";
+const pageUrl = Astro.url.pathname;
 const productJsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
+  "@id": `${SITE}${pageUrl}#product`,
   "name": title,
   "description": description,
-  "image": ogImage,
+  "image": ogImage ? (ogImage.startsWith("http") ? ogImage : SITE + ogImage) : undefined,
+  "url": `${SITE}${pageUrl}`,
   "brand": { "@type": "Brand", "name": "DINWEY" },
-  "manufacturer": { "@id": "https://dinweysbattery.com/#manufacturer" },
-  "author": {
-    "@type": "Person",
-    "name": "Martin Wong",
-    "jobTitle": "Sales Director",
-    "worksFor": { "@id": "https://dinweysbattery.com/#manufacturer" }
+  "manufacturer": { "@id": SITE + "/#manufacturer" },
+  "category": "Truck starting battery (SLI)",
+  "mainEntityOfPage": { "@id": `${SITE}${pageUrl.replace(/\/$/, "")}/#webpage` },
+  "audience": {
+    "@type": "BusinessAudience",
+    "audienceType": "Truck OEMs, fleet operators, battery distributors and importers"
+  },
+  // B2B 询单销售：产品线页面按数量/区域/OEM 条款报价 —— 不写 price，只给结构完整的询单型 Offer
+  "offers": {
+    "@type": "Offer",
+    "@id": `${SITE}${pageUrl}#offer`,
+    "url": `${SITE}/contact/`,
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "businessFunction": "http://purl.org/goodrelations/v1#Sell",
+    "seller": { "@id": SITE + "/#organization" }
   }
 };
 
@@ -93,10 +107,22 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "");
 const siblingLinks = productLines.filter((p) => p.href.replace(/\/$/, "") !== currentPath);
 ---
 
-<BaseLayout title={title} description={description} ogImage={ogImage} jsonLd={[productJsonLd, faqJsonLd]}>
+<BaseLayout
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  jsonLd={[productJsonLd, faqJsonLd]}
+  pageType="ItemPage"
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Products", url: "/products/" },
+    { name: title, url: pageUrl }
+  ]}
+>
   <div class="container section">
     <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
-      <a href="/" style="color:#1e5aa8;">Home</a> &rsaquo; Products &rsaquo; {title}
+      <a href="/" style="color:#1e5aa8;">Home</a> &rsaquo;
+      <a href="/products/" style="color:#1e5aa8;">Products</a> &rsaquo; {title}
     </nav>
     <h1 style="color:#0f1f3d;margin-bottom:12px;">{title}</h1>
     <p class="lead">{description}</p>
