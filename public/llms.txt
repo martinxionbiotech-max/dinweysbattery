@@ -26,8 +26,8 @@ starting batteries (SLI — Starting, Lighting, Ignition), including:
 
 - Founded: 2002 (Chengguang Power Tech Co., Ltd.)
 - Location: Jinzhou City, Shijiazhuang, Hebei Province, China
-- Facility: 200,000 m², 18 automated lines
-- Certifications: IATF 16949, ISO 9001:2015, ISO 45001:2018
+- Facility: 200,000 m², 18 automated lines (company-stated; not third-party audited)
+- Certifications: IATF 16949, ISO 9001:2015, ISO 45001:2018 (company statement — certificate numbers/scope not yet published)
 - Email: martin@dinweys.com
 - WhatsApp: +86 13323237275
 - OEM / private label available
@@ -49,7 +49,18 @@ starting batteries (SLI — Starting, Lighting, Ignition), including:
 - [DIN Heavy-Duty Batteries](https://dinweysbattery.com/products/din-heavy-duty/)
 - [24V Systems](https://dinweysbattery.com/products/24v/)
 - [Selection Tool](https://dinweysbattery.com/selection-tool/)
+- [All Product Lines](https://dinweysbattery.com/products/)
+- [Comparisons & Buying Guides](https://dinweysbattery.com/compare/)
+- [Battery Model Reference](https://dinweysbattery.com/batteries/)
+- [Evidence & Data](https://dinweysbattery.com/data/)
 - [Knowledge Hub](https://docs.dinweysbattery.com/)
 - [Truck Battery Complete Guide](https://docs.dinweysbattery.com/complete-guide/)
 - [JIS N150 vs N200](https://docs.dinweysbattery.com/jis-n150-vs-n200/)
 - [12V vs 24V Systems](https://docs.dinweysbattery.com/12v-vs-24v/)
+
+## Machine-readable datasets
+
+- [Battery master data (JSON)](https://dinweysbattery.com/data/battery-master-data.json) — one record per model: voltage, capacity, CCA + test standard, RC, dimensions, verification status. Fields the manufacturer does not publish are null, never estimated.
+- [Claim ledger (JSON)](https://dinweysbattery.com/data/evidence/claims.json) — every technical/commercial claim with its source, evidence level and verification status (includes claims still marked NEEDS_VERIFICATION).
+- [Source registry (JSON)](https://dinweysbattery.com/data/evidence/sources.json) — level 1 independent standards, level 2 manufacturer documentation, level 3 third-party catalogs.
+- [Vehicle fitment database (JSON)](https://dinweysbattery.com/data/vehicle-fitment.json) — truck model → battery group → DINWEY model, each with a confidence level. Industry reference, not OEM confirmation.

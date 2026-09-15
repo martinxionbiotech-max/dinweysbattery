@@ -1,0 +1,247 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import claimsRaw from "../../../public/data/evidence/claims.json";
+import sourcesRaw from "../../../public/data/evidence/sources.json";
+import masterRaw from "../../../public/data/battery-master-data.json";
+import fitmentRaw from "../../../public/data/vehicle-fitment.json";
+
+const SITE = "https://dinweysbattery.com";
+const master = masterRaw as any;
+const fitment = fitmentRaw as any;
+const claims = claimsRaw as any;
+const sources = sourcesRaw as any;
+
+const DATASETS = [
+  {
+    path: "/data/battery-master-data.json",
+    name: master.name,
+    date: master.dateModified,
+    description: master.description,
+    what: "One record per battery model: voltage, capacity (C20), CCA with its test standard, reserve capacity, case dimensions, terminal type and verification status.",
+  },
+  {
+    path: "/data/evidence/claims.json",
+    name: claims.name,
+    date: claims.dateModified,
+    description: claims.description,
+    what: "Every technical and commercial claim the site makes, each with the source that supports it, its evidence level and its verification status.",
+  },
+  {
+    path: "/data/evidence/sources.json",
+    name: sources.name,
+    date: sources.dateModified,
+    description: sources.description,
+    what: "The registry of sources behind the claims: level 1 independent standards, level 2 manufacturer documentation, level 3 third-party catalogs.",
+  },
+  {
+    path: "/data/vehicle-fitment.json",
+    name: fitment.name,
+    date: fitment.dateModified,
+    description: fitment.description,
+    what: "Truck model → battery group → DINWEY model mapping, each entry carrying a confidence level and its source.",
+  },
+];
+
+const models = master.models.map((m: any) => ({
+  model: m.model,
+  href: typeof m.url === "string" ? m.url.replace(SITE, "") : null,
+  group: m.group ?? "—",
+  voltage: m.voltage ?? "—",
+  capacity: m.capacity_ah ? m.capacity_ah + " Ah" : "—",
+  cca: m.cca ? m.cca + " A" + (m.cca_standard ? " (" + m.cca_standard + ")" : "") : "not published",
+  status: String(m.verification_status ?? "").replace(/_/g, " "),
+  source: m.source ?? "—",
+}));
+
+const statusCount = models.reduce((acc: any, m: any) => {
+  acc[m.status] = (acc[m.status] ?? 0) + 1;
+  return acc;
+}, {});
+
+const claimRows = claims.claims.map((c: any) => ({
+  id: c.id,
+  claim: c.claim,
+  status: c.verification,
+  sources: (c.sources ?? []).join(", ") || "—",
+}));
+
+const sourceRows = sources.sources.map((s: any) => ({
+  id: s.id,
+  level: s.level,
+  type: String(s.type ?? "").replace(/_/g, " "),
+  title: s.title,
+  url: s.url ?? null,
+}));
+
+const levelCounts = [1, 2, 3].map((l) => sourceRows.filter((s: any) => s.level === l).length);
+const tierRows = Object.entries(master.dataProvenance.sourceTiers).map(([k, v]) => ({ key: k, value: String(v) }));
+const confidenceRows = Object.entries(fitment.verificationLevels).map(([k, v]) => ({ key: k, value: String(v) }));
+
+const datasetJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": DATASETS.map((d) => ({
+    "@type": "Dataset",
+    "@id": SITE + d.path + "#dataset",
+    "name": d.name,
+    "description": d.description,
+    "url": SITE + d.path,
+    "distribution": {
+      "@type": "DataDownload",
+      "contentUrl": SITE + d.path,
+      "encodingFormat": "application/json",
+    },
+    "creator": { "@id": SITE + "/#manufacturer" },
+    "isAccessibleForFree": true,
+    "dateModified": d.date,
+  })),
+};
+---
+
+<BaseLayout
+  title="Evidence & Data — DINWEY Battery Specifications"
+  description="The datasets behind DINWEY battery specs: claim ledger with verification status, source registry by level, master model data and fitment database."
+  jsonLd={[datasetJsonLd]}
+  canonical="/data/"
+  pageType="CollectionPage"
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Evidence & Data", url: "/data/" }
+  ]}
+>
+  <div class="container section">
+    <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
+      <a href="/" style="color:#1e5aa8;">Home</a> &rsaquo; Evidence &amp; Data
+    </nav>
+
+    <h1 style="color:#0f1f3d;margin-bottom:12px;">Evidence &amp; Data</h1>
+    <p class="lead">
+      Most battery sites publish a specification table. We publish the datasets behind ours — including the claims
+      we cannot yet verify. Everything below is the same JSON that drives the product pages, in machine-readable form,
+      so a buyer (or an AI assistant) can check any figure instead of taking it on trust.
+    </p>
+
+    <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">Direct Answer</h2>
+      <p style="margin:0;">
+        {models.length} model records ({statusCount["confirmed first party"] ?? 0} first-party confirmed,{" "}
+        {statusCount["reference"] ?? 0} third-party reference, {statusCount["on request"] ?? 0} on request only),{" "}
+        {claimRows.length} tracked claims and {sourceRows.length} registered sources — {levelCounts[0]} independent
+        standards (level 1), {levelCounts[1]} manufacturer documentation (level 2) and {levelCounts[2]} third-party
+        catalogs (level 3). Fields the manufacturer does not publish are left <code>null</code>, never estimated.
+      </p>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:36px;">Datasets</h2>
+    <ul style="list-style:none;padding:0;">
+      {DATASETS.map((d) => (
+        <li style="margin-bottom:16px;padding:16px 18px;border:1px solid #e5e9f0;border-radius:8px;">
+          <a href={d.path} style="color:#1e5aa8;font-weight:700;">{d.name}</a>
+          <div style="color:#55606e;font-size:0.86rem;margin:4px 0;">JSON · {d.path} · {d.date}</div>
+          <p style="margin:0 0 6px;color:#334155;">{d.what}</p>
+          <p style="margin:0;font-size:0.86rem;color:#55606e;">{d.description}</p>
+        </li>
+      ))}
+    </ul>
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">Claim ledger</h2>
+    <p>
+      Every figure asserted across the site maps to one of these claims. "Verified (first-party)" means the value comes
+      from our own engineering datasheet; "reference" means it is compiled from third-party catalogs and is
+      <strong>not</strong> a DINWEY published stock rating; "needs verification" means we have not yet obtained a
+      document that would support it.
+    </p>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Claim</th><th>Status</th><th>Sources</th></tr>
+        </thead>
+        <tbody>
+          {claimRows.map((c: any) => (
+            <tr>
+              <td><code>{c.id}</code></td>
+              <td>{c.claim}</td>
+              <td>{c.status}</td>
+              <td>{c.sources}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">Source registry</h2>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Level</th><th>Type</th><th>Source</th></tr>
+        </thead>
+        <tbody>
+          {sourceRows.map((s: any) => (
+            <tr>
+              <td><code>{s.id}</code></td>
+              <td>Level {s.level}</td>
+              <td>{s.type}</td>
+              <td>
+                {s.url
+                  ? <a href={s.url} target="_blank" rel="noopener" style="color:#1e5aa8;">{s.title}</a>
+                  : s.title}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">Model verification status</h2>
+    <p>
+      {statusCount["confirmed first party"] ?? 0} models carry a first-party DINWEY specification;{" "}
+      {statusCount["reference"] ?? 0} are listed as third-party reference only (widely used group sizes we do not
+      publish as stock ratings); {statusCount["on request"] ?? 0} are made to order with no published specification.
+      The per-model breakdown is in <a href="/data/battery-master-data.json" style="color:#1e5aa8;">battery-master-data.json</a>.
+    </p>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>Model</th><th>Group</th><th>Voltage</th><th>Capacity</th><th>CCA</th><th>Status</th><th>Source</th></tr>
+        </thead>
+        <tbody>
+          {models.map((m: any) => (
+            <tr>
+              <td>{m.href ? <a href={m.href} style="color:#1e5aa8;">{m.model}</a> : m.model}</td>
+              <td>{m.group}</td>
+              <td>{m.voltage}</td>
+              <td>{m.capacity}</td>
+              <td>{m.cca}</td>
+              <td>{m.status}</td>
+              <td>{m.source}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:36px;padding:20px;background:#fff8ec;border:1px solid #f5a623;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin-top:0;">Fitment confidence levels</h2>
+      <p style="margin-bottom:8px;">{fitment.disclaimer}</p>
+      <ul style="margin-bottom:0;">
+        {confidenceRows.map((r: any) => (
+          <li><strong>{r.key}</strong> — {r.value}</li>
+        ))}
+      </ul>
+    </div>
+
+    <div style="margin-top:32px;padding:20px;background:#f4f7fb;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin-top:0;">Verification policy</h2>
+      <p style="margin-bottom:8px;">{master.dataProvenance.verificationPolicy}</p>
+      <ul style="margin-bottom:0;">
+        {tierRows.map((r: any) => (
+          <li><strong>{r.key}</strong> — {r.value}</li>
+        ))}
+      </ul>
+    </div>
+
+    <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;">
+      <a class="cta" href="/contact/" style="display:inline-block;background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">Request a Datasheet &amp; Certificate</a>
+      <a class="cta" href="/batteries/" style="display:inline-block;background:#1e5aa8;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">Browse Model Specifications</a>
+    </div>
+  </div>
+</BaseLayout>
