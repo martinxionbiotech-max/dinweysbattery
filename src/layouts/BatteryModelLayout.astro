@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import { PUBLIC_LIST_PRICE } from "../data/pricing";
 
 interface Props {
   model: string;          // e.g. "145G51"
@@ -91,10 +92,26 @@ const productJsonLd = {
     "@type": "BusinessAudience",
     "audienceType": "Truck OEMs, fleet operators, battery distributors and importers"
   },
-  // B2B 询单销售：按型号/数量/区域/OEM 条款报价，站内不公布价格 —— 不写 price，只给结构完整的询单型 Offer
+  // 价格：GSC「应指定 price 或 priceSpecification.price（在 offers 中）」+ 商家信息同款要求。
+  // price 与 priceSpecification 同时给出（两条路径都满足）；
+  // 页面规格表显示同一价格（PUBLIC_LIST_PRICE），schema 与可见内容一致。
   "offers": {
     "@type": "Offer",
     "@id": `${SITE}${pageUrl}#offer`,
+
+    "price": PUBLIC_LIST_PRICE.amount,
+
+    "priceCurrency": PUBLIC_LIST_PRICE.currency,
+
+    "priceSpecification": {
+
+      "@type": "UnitPriceSpecification",
+
+      "price": PUBLIC_LIST_PRICE.amount,
+
+      "priceCurrency": PUBLIC_LIST_PRICE.currency
+
+    },
     "url": `${SITE}/contact/`,
     "availability": "https://schema.org/InStock",
     "itemCondition": "https://schema.org/NewCondition",
@@ -173,6 +190,7 @@ const faqJsonLd = {
         <tr><th>Specification</th><th>Value</th></tr>
       </thead>
       <tbody>
+              <tr><td><strong>Indicative unit price</strong></td><td>{PUBLIC_LIST_PRICE.display} {PUBLIC_LIST_PRICE.note}</td></tr>
         <tr><td>DINWEY Model</td><td>{model}</td></tr>
         <tr><td>Group</td><td>{groupLabel}</td></tr>
         <tr><td>Standard</td><td>{standard}</td></tr>
