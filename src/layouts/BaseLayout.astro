@@ -88,6 +88,14 @@ const orgJsonLd = {
   "@type": "Organization",
   "@id": SITE + "/#organization",
   "name": "DINWEY",
+  // 站级退货政策（Google：标准退货政策放在 Organization 上，供商品/商家信息复用）
+  "hasMerchantReturnPolicy": {
+    "@type": "MerchantReturnPolicy",
+    "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+    "merchantReturnDays": 30,
+    "returnMethod": "https://schema.org/ReturnByMail",
+    "merchantReturnLink": SITE + "/return-policy/"
+  },
   "legalName": "DINWEY (brand of Chengguang Power Tech Co., Ltd.)",
   "url": SITE,
   "logo": SITE + "/images/logo.png",

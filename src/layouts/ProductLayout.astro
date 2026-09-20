@@ -108,7 +108,14 @@ const productJsonLd = {
     "availability": "https://schema.org/InStock",
     "itemCondition": "https://schema.org/NewCondition",
     "businessFunction": "http://purl.org/goodrelations/v1#Sell",
-    "seller": { "@id": SITE + "/#organization" }
+    "seller": { "@id": SITE + "/#organization" },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 30,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "merchantReturnLink": SITE + "/return-policy/"
+    }
   }
 };
 
@@ -188,7 +195,7 @@ const siblingLinks = productLines.filter((p) => p.href.replace(/\/$/, "") !== cu
         <tr><th>Specification</th><th>Value</th></tr>
       </thead>
       <tbody>
-              <tr><td><strong>Indicative unit price</strong></td><td>{PUBLIC_LIST_PRICE.display} {PUBLIC_LIST_PRICE.note}</td></tr>
+              <tr><td><strong>Indicative minimum unit price</strong></td><td>From {PUBLIC_LIST_PRICE.display} {PUBLIC_LIST_PRICE.note}</td></tr>
         {specTable.map((row) => (
           <tr><td>{row.spec}</td><td>{row.value}</td></tr>
         ))}
