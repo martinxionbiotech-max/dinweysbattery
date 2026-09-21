@@ -1,0 +1,192 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+
+const SITE = "https://dinweysbattery.com";
+
+const comparisonJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Normas de baterías JIS vs DIN vs BCI: por qué el CCA no se puede comparar directamente",
+  "description": "JIS D5301, EN 50342, SAE J537 y DIN 43539 prueban el CCA a diferentes temperaturas y voltajes de corte — así que una clasificación JIS de 900A y una clasificación EN de 900A no son lo mismo. Cómo comparar correctamente.",
+  "image": SITE + "/images/products/145G51-N150.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Martin Wong",
+    "jobTitle": "Director de Ventas",
+    "worksFor": { "@id": SITE + "/#organization" }
+  },
+  "publisher": { "@id": SITE + "/#organization" },
+  "datePublished": "2026-09-13",
+  "dateModified": "2026-09-13",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": SITE + "/es/compare/jis-vs-din-vs-bci/" }
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Puedo comparar un CCA JIS con un CCA EN o SAE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — JIS D5301 prueba a −15°C mientras que EN 50342 y SAE J537 prueban a −18°C, y los voltajes de corte y las duraciones difieren. La misma batería arroja un número diferente bajo cada norma, así que compare solo dentro de una misma norma."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué el CCA JIS parece más alto que el CCA EN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque JIS prueba a una temperatura más cálida de −15°C frente a los −18°C de EN/SAE. Una prueba más cálida hace que la batería entregue más corriente, así que el número JIS es más alto para la misma batería física — la diferencia es la prueba, no la batería."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué debo especificar al comprar una batería para camión?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Especifique la norma (JIS, DIN/EN o BCI/SAE), el valor de CCA, si es nominal o probado por lote, y el tamaño de grupo y la orientación de los terminales. Un número de CCA sin su norma no tiene significado."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="JIS vs DIN vs BCI — por qué el CCA no se puede comparar"
+  description="JIS D5301, EN 50342, SAE J537 y DIN 43539 prueban el CCA a diferentes temperaturas y voltajes de corte — una clasificación JIS de 900 A y una clasificación EN de 900 A no son lo mismo."
+  canonical={`${SITE}/es/compare/jis-vs-din-vs-bci/`}
+  jsonLd={[comparisonJsonLd, faqJsonLd]}
+>
+  <div class="container section">
+    <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#6b5a54;margin-bottom:16px;">
+      <a href="/es/">Inicio</a> &rsaquo; <a href="/es/compare/">Comparar</a> &rsaquo; JIS vs DIN vs BCI
+    </nav>
+
+    <h1>JIS vs DIN vs BCI: por qué el CCA no se puede comparar directamente</h1>
+    <p class="lead">
+      Una batería de 900A CCA bajo JIS y una batería de 900A CCA bajo EN no son la misma batería.
+      Cada norma prueba a una temperatura, duración y voltaje de corte diferentes, así que el número
+      impreso cambia — y las clasificaciones no son intercambiables.
+    </p>
+
+    <div class="takeaways">
+      <strong>Respuesta directa:</strong> El amperaje de arranque en frío (CCA) no es una única prueba universal. JIS D 5301 prueba a &minus;15&deg;C, mientras que EN 50342 y SAE J537 prueban a &minus;18&deg;C, y cada una usa un voltaje de corte y una duración diferentes. Como las condiciones de prueba difieren, la misma batería física imprime un CCA diferente bajo cada norma — por lo que solo se puede comparar el CCA dentro de una misma norma.
+    </div>
+
+    <h2 style="margin-top:32px;">Las cuatro normas y cómo cada una altera el número</h2>
+    <table style="width:100%;border-collapse:collapse;">
+      <thead>
+        <tr style="border-bottom:1px solid #d8c9c0;text-align:left;">
+          <th style="padding:8px;">Norma</th>
+          <th style="padding:8px;">Temperatura de prueba</th>
+          <th style="padding:8px;">Duración</th>
+          <th style="padding:8px;">Voltaje de corte</th>
+          <th style="padding:8px;">Efecto sobre el CCA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><strong>JIS D 5301</strong></td>
+          <td style="padding:8px;">&minus;15&deg;C</td>
+          <td style="padding:8px;">30 s</td>
+          <td style="padding:8px;">referencia</td>
+          <td style="padding:8px;">Prueba más cálida &rarr; número más alto</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><strong>SAE J537</strong></td>
+          <td style="padding:8px;">&minus;18&deg;C</td>
+          <td style="padding:8px;">30 s</td>
+          <td style="padding:8px;">7.2 V</td>
+          <td style="padding:8px;">Línea base</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><strong>EN 50342</strong></td>
+          <td style="padding:8px;">&minus;18&deg;C</td>
+          <td style="padding:8px;">10 s</td>
+          <td style="padding:8px;">7.5 V</td>
+          <td style="padding:8px;">Más corta y con corte más alto &rarr; número más alto</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;"><strong>DIN 43539</strong></td>
+          <td style="padding:8px;">&minus;18&deg;C</td>
+          <td style="padding:8px;">30 s</td>
+          <td style="padding:8px;">9.0 V</td>
+          <td style="padding:8px;">Corte más alto &rarr; número más bajo</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin-top:32px;">Por qué los números difieren</h2>
+    <p>
+      Tres variables de prueba alteran el CCA impreso, y cada norma las fija de manera diferente. Una
+      <strong>prueba más cálida</strong> permite que la batería entregue más corriente, así que JIS
+      (&minus;15&deg;C) da un valor más alto que EN/SAE (&minus;18&deg;C) para la misma batería. Un
+      <strong>voltaje de corte más bajo</strong> permite que la batería caiga más antes de que
+      termine la prueba, lo que también eleva el número. Una <strong>duración más corta</strong> es
+      más fácil de sostener, así que una prueba EN de 10 segundos da un valor más alto que una prueba
+      SAE de 30 segundos.
+    </p>
+    <p>
+      No son diferencias de batería — son diferencias de método de prueba. No existe una conversión
+      porcentual universal entre normas, y por eso cualquier tabla de conversión es una aproximación,
+      no una medición.
+    </p>
+
+    <h2 style="margin-top:32px;">Cómo comparar correctamente</h2>
+    <ol>
+      <li><strong>Confirme primero la norma</strong> — pregunte si el número es JIS, EN, SAE o DIN.</li>
+      <li><strong>Compare dentro de una misma norma</strong> — solo JIS con JIS, EN con EN.</li>
+      <li><strong>Verifique si es nominal o probado por lote</strong> — el valor de catálogo es un objetivo de diseño; el lote que recibe varía dentro de la tolerancia.</li>
+    </ol>
+
+    <h2 style="margin-top:32px;">Qué incluir en la especificación</h2>
+    <p>
+      Un número de CCA sin su norma no tiene significado. Una especificación completa indica la
+      <strong>norma</strong> (por ejemplo, JIS D 5301), el <strong>valor de CCA</strong>, el
+      <strong>tamaño de grupo y la orientación de los terminales</strong>, y si el valor es
+      <strong>nominal o probado por lote</strong>. Consulte la comparativa
+      <a href="/es/compare/n150-vs-n200/">N150 vs N200</a> para ver cómo se aplica a la gama JIS de
+      DINWEY, y la <a href="/es/selection-tool/">herramienta de selección</a> para encontrar la
+      batería de un vehículo.
+    </p>
+
+    <h2 style="margin-top:32px;">La opinión del autor</h2>
+    <p>
+      <strong>Postura:</strong> En mi opinión, la mayor parte de la confusión con el CCA no se debe a
+      la batería — se debe a comparar números que fueron medidos bajo reglas diferentes, y la
+      solución es simplemente indicar la norma junto a cada número.
+    </p>
+    <p>
+      <strong>Razonamiento:</strong> Un CCA JIS de 900 y un CCA EN de 900 pueden describir la misma
+      batería. El comprador que compara números brutos entre normas está comparando métodos de prueba,
+      no productos. Un proveedor que indica la norma junto a cada clasificación elimina la ambigüedad;
+      un comprador que la exige elimina el riesgo.
+    </p>
+    <p>
+      <strong>Divulgación:</strong> Esta es mi opinión editorial como equipo técnico de un fabricante
+      de baterías, no una afirmación de laboratorio. Confirme con el fabricante el CCA final, su base
+      de prueba y si es nominal o probado por lote.
+    </p>
+
+    <h2 style="margin-top:32px;">Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Puedo comparar un CCA JIS con un CCA EN o SAE?</h3>
+      <p>No — JIS prueba a &minus;15&deg;C mientras que EN/SAE prueban a &minus;18&deg;C, con voltajes de corte y duraciones diferentes. La misma batería arroja un número diferente bajo cada norma, así que compare solo dentro de una misma norma.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Por qué el CCA JIS parece más alto que el CCA EN?</h3>
+      <p>Porque JIS prueba a una temperatura más cálida de &minus;15&deg;C frente a los &minus;18&deg;C de EN/SAE. Una prueba más cálida permite que la batería entregue más corriente, así que el número JIS es más alto para la misma batería — la diferencia es la prueba, no la batería.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Qué debo especificar al comprar una batería para camión?</h3>
+      <p>Especifique la norma (JIS, DIN/EN o BCI/SAE), el valor de CCA, si es nominal o probado por lote, y el tamaño de grupo y la orientación de los terminales.</p>
+    </div>
+
+    <div style="margin-top:32px;">
+      <a class="cta" href="/es/products/">Ver baterías de servicio pesado</a>
+      <a class="cta cta-outline" href="/es/contact/" style="margin-left:8px;">Solicitar una cotización</a>
+    </div>
+  </div>
+</BaseLayout>

@@ -542,3 +542,17 @@ thead th {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ===== RTL (Arabic) ===== */
+[dir="rtl"] body { text-align: right; }
+[dir="rtl"] .prose ul, [dir="rtl"] .prose ol, [dir="rtl"] ul, [dir="rtl"] ol {
+  padding-left: 0;
+  padding-right: 24px;
+}
+[dir="rtl"] th, [dir="rtl"] td { text-align: right; }
+[dir="rtl"] .faq-item, [dir="rtl"] .data-note {
+  border-left: none;
+  border-right: 4px solid var(--accent);
+}
+[dir="rtl"] .skip-link { left: auto; right: 1rem; }

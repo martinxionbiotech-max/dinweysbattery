@@ -1,0 +1,345 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const SITE = "https://dinweysbattery.com";
+
+// 免责声明（每个 MEDIUM fitment 页面必须标注）
+const disclaimer =
+  "مرجع قطاعي، وليس تأكيدًا رسميًا من DINWEY بصفة OEM. مجموعات البطاريات المدرجة أدناه مستمدة من أدلة ملاءمة مستقلة للمركبات التجارية (دليل Club Assist للملاءمة التجارية ودليل Century Batteries لاختيار البطاريات). تأكد دائمًا من حجم المجموعة ونوع الأقطاب واتجاه الأقطاب والقطبية وأبعاد حامل البطارية في مركبتك تحديدًا قبل الطلب.";
+
+// 7 辆 MEDIUM 车型（来自 knowledge/data/vehicles/vehicle-master.json）
+// 只用已核实的 T1 证据；Isuzu F 诚实标注 needs inquiry。
+const vehicles = [
+  {
+    id: "HINO-700",
+    brand: "Hino",
+    model: "700 Series",
+    generation: "FS / FY / SH / SS",
+    year: "2004–2016",
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "N150 (JIS)",
+    batteryGroup: "N150",
+    dinweyRecommendation: "145G51 (N150)",
+    fitmentEvidence:
+      "دليل Club Assist للملاءمة التجارية: Hino 700 Series FS/FY/SH/SS للفترة 2004-2016 = N150 (MF150/SN150/HCC150)؛ دليل Century Batteries لاختيار البطاريات: Hino 700 Series = N150.",
+    source: "دليل Club Assist للملاءمة التجارية + دليل Century Batteries لاختيار البطاريات",
+    confidence: "متوسطة",
+    needsInquiry: false,
+    recommendationLinks: [
+      { href: "/ar/batteries/jis/n150/", label: "145G51 (N150)" },
+    ],
+  },
+  {
+    id: "VOLVO-FH",
+    brand: "Volvo Trucks",
+    model: "FH",
+    generation: "FH (FH12 / FH16)",
+    year: "1998–حتى الآن",
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "N150 (حتى 2013) / N200 (من 2014 فصاعدًا)",
+    batteryGroup: "N150 (1998–2013) / N200 (من 2014 فصاعدًا)",
+    dinweyRecommendation: "145G51 (N150) حتى 2013؛ 190H52 (N200) من 2014 فصاعدًا",
+    fitmentEvidence:
+      "ملاحظة Club Assist بشأن شاحنات Volvo: معظم شاحنات Volvo المجمَّعة في أستراليا حتى 2013 = 2×N150 خلف الكابينة؛ والمصنَّعة في أوروبا = 2×MFN150A (DIN). Volvo FH من 2014 فصاعدًا = N200. مرجع متقاطع من eBay: N150 يلائم Volvo FH580/FH12/FH16.",
+    source: "دليل Club Assist للملاءمة التجارية",
+    confidence: "متوسطة",
+    needsInquiry: false,
+    recommendationLinks: [
+      { href: "/ar/batteries/jis/n150/", label: "145G51 (N150) — حتى 2013" },
+      { href: "/ar/batteries/jis/n200/", label: "190H52 (N200) — من 2014 فصاعدًا" },
+    ],
+  },
+  {
+    id: "VOLVO-FM",
+    brand: "Volvo Trucks",
+    model: "FM",
+    generation: "FM7 / FM9 / FM10 / FM12 / FM13 / FMX",
+    year: "1998–حتى الآن",
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "N150 (حتى 2013) / N200 (من 2014 فصاعدًا، FMX من 2010 فصاعدًا)",
+    batteryGroup: "N150 (1998–2013) / N200 (من 2014 فصاعدًا)",
+    dinweyRecommendation: "145G51 (N150) حتى 2013؛ 190H52 (N200) من 2014 فصاعدًا",
+    fitmentEvidence:
+      "Club Assist: Volvo FM7/FM9/FM10/FM12 للفترة 1998-2013 = N150 (2×N150)؛ Volvo FM 410/540 من 2014 فصاعدًا = N200؛ Volvo FMX 11/13 من 2010 فصاعدًا = N200. ملاحظة: معظم المجمَّعة في أستراليا = N150، والمصنَّعة في أوروبا = مواصفة MFN150A الأوروبية/DIN.",
+    source: "دليل Club Assist للملاءمة التجارية",
+    confidence: "متوسطة",
+    needsInquiry: false,
+    recommendationLinks: [
+      { href: "/ar/batteries/jis/n150/", label: "145G51 (N150) — حتى 2013" },
+      { href: "/ar/batteries/jis/n200/", label: "190H52 (N200) — من 2014 فصاعدًا" },
+    ],
+  },
+  {
+    id: "SCANIA-R",
+    brand: "Scania",
+    model: "R Series",
+    generation: "R420 / R480 / R500 / R560 / R580 / R620 / R730",
+    year: "2005–حتى الآن",
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "N150 (2005–2014) / N200 (من 2015 فصاعدًا، Euro VI)",
+    batteryGroup: "N150 (2005–2014) / N200 (من 2015 فصاعدًا)",
+    dinweyRecommendation: "145G51 (N150) للفترة 2005–2014؛ 190H52 (N200) من 2015 فصاعدًا",
+    fitmentEvidence:
+      "دليل الملاءمة RDP / Club Assist: Scania R420/R480/R500/R560/R580 للفترة 2005-2014 = N150؛ Scania R490/R500/R580/R620/R730 بمعيار Euro VI من 2015 فصاعدًا = N200 (عرض 276mm). Scania R113/R143 للفترة 1987-1997 = N150.",
+    source: "دليل RDP لملاءمة البطاريات + Club Assist",
+    confidence: "متوسطة",
+    needsInquiry: false,
+    recommendationLinks: [
+      { href: "/ar/batteries/jis/n150/", label: "145G51 (N150) — 2005–2014" },
+      { href: "/ar/batteries/jis/n200/", label: "190H52 (N200) — من 2015 فصاعدًا" },
+    ],
+  },
+  {
+    id: "MAN-TGS",
+    brand: "MAN",
+    model: "TGS",
+    generation: "قياسي (عرض 222mm) / للخدمة الشاقة (عرض 273mm)",
+    year: "2007–حتى الآن",
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "N150L (قياسي، 222mm) / N200 (للخدمة الشاقة، 273mm)",
+    batteryGroup: "N150L (قياسي) / N200 (خيار الخدمة الشاقة)",
+    dinweyRecommendation: "145G51 (N150L) للقياسي؛ 190H52 (N200) لخيار الخدمة الشاقة 273mm",
+    fitmentEvidence:
+      "دليل Club Assist للملاءمة التجارية: MAN TGS Series من 2007 فصاعدًا = N150L (قياسي 222mm)، N200 (خيار الخدمة الشاقة 273mm).",
+    source: "دليل Club Assist للملاءمة التجارية",
+    confidence: "متوسطة",
+    needsInquiry: false,
+    recommendationLinks: [
+      { href: "/ar/batteries/jis/n150/", label: "145G51 (N150L) — القياسي" },
+      { href: "/ar/batteries/jis/n200/", label: "190H52 (N200) — الخدمة الشاقة" },
+    ],
+  },
+  {
+    id: "MAN-TGX",
+    brand: "MAN",
+    model: "TGX",
+    generation: "قياسي / للخدمة الشاقة (273mm)",
+    year: "2007–حتى الآن",
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "N150L (2007–2013) / N200 (للخدمة الشاقة 273mm)",
+    batteryGroup: "N150L (2007–2013) / N200 (الخدمة الشاقة)",
+    dinweyRecommendation: "145G51 (N150L) للفترة 2007–2013؛ 190H52 (N200) لخيار الخدمة الشاقة 273mm",
+    fitmentEvidence:
+      "دليل Club Assist للملاءمة التجارية: MAN TGX Series للفترة 2007-2013 = N150L؛ خيار الخدمة الشاقة (273mm) = N200.",
+    source: "دليل Club Assist للملاءمة التجارية",
+    confidence: "متوسطة",
+    needsInquiry: false,
+    recommendationLinks: [
+      { href: "/ar/batteries/jis/n150/", label: "145G51 (N150L) — 2007–2013" },
+      { href: "/ar/batteries/jis/n200/", label: "190H52 (N200) — الخدمة الشاقة" },
+    ],
+  },
+  {
+    id: "ISUZU-F",
+    brand: "Isuzu",
+    model: "F Series (Forward)",
+    generation: "FRR / FSR / FSD (Sitec series)",
+    year: "2009–حتى الآن (الحالي)",
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "N100L (JIS)",
+    batteryGroup: "N100L",
+    dinweyRecommendation: null,
+    fitmentEvidence:
+      "دليل Club Assist للملاءمة التجارية: Isuzu FRR600 (Sitec III) من 2009 فصاعدًا، وFSD 120-260/140-260 الحالي، وFSR 120-260 الحالي = N100L (SN100L/N100CMF/HCC100L-XHD).",
+    source: "دليل Club Assist للملاءمة التجارية",
+    confidence: "متوسطة",
+    needsInquiry: true,
+    recommendationLinks: [],
+  },
+];
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": SITE + "/ar/" },
+    { "@type": "ListItem", "position": 2, "name": "ملاءمة موديلات الشاحنات", "item": SITE + "/ar/truck-models/" },
+  ],
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "كيف أجد بطارية DINWEY المناسبة لموديل شاحنتي؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text":
+          "اعثر على موديل شاحنتك في القائمة أدناه. يعرض كل موديل مدرَج مجموعة البطارية OEM (مثل N150/N200) وموديل DINWEY المقابل (145G51/190H52). هذه مراجع قطاعية — تأكد دائمًا من حجم المجموعة واتجاه الأقطاب وأبعاد حامل البطارية في مركبتك قبل الطلب.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "هل هذه القوائم معتمدة رسميًا من مصنّعي المركبات؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text":
+          "لا. مجموعات البطاريات مستمدة من أدلة ملاءمة مستقلة للمركبات التجارية (Club Assist وCentury Batteries). وهي مراجع قطاعية، وليست تأكيدات OEM رسمية من DINWEY ولا مصادقات من مصنّعي المركبات. تحقق منها مقابل مواصفات مركبتك.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "لماذا يظهر «يستلزم استفسارًا» لموديل Isuzu F Series بدلًا من موديل DINWEY؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text":
+          "يستخدم Isuzu F Series مجموعة JIS N100L، وهي ليست ضمن خط إنتاج DINWEY القياسي حاليًا. تواصل مع DINWEY للتأكد مما إذا كان موديل متوافق أو حل مخصص متاح.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "هل تحتاج شاحنة بنظام 24V إلى بطاريتين؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text":
+          "نعم. يستخدم النظام الكهربائي في شاحنة 24V بطاريتين 12V موصولتين على التوالي. استبدلهما دائمًا معًا بموديلين متطابقين للحفاظ على توازن الشحن.",
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="ملاءمة بطاريات موديلات الشاحنات — مرجع DINWEY للخدمة الشاقة"
+  description="اعثر على بطارية DINWEY لموديل شاحنتك — Hino 700 وVolvo FH/FM وScania R وMAN TGS/TGX وIsuzu F Series — مع مجموعة البطارية OEM والموديل المرجعي المقابل."
+  ogType="article"
+  author="Martin Wong"
+  datePublished="2026-09-07"
+  dateModified="2026-09-07"
+  jsonLd={[breadcrumbJsonLd, faqJsonLd]}
+>
+  <div class="container section">
+    <nav aria-label="مسار التنقل" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
+      <a href="/ar/" style="color:#1e5aa8;">الرئيسية</a> &rsaquo; ملاءمة موديلات الشاحنات
+    </nav>
+
+    <h1 style="color:#0f1f3d;margin-bottom:12px;">مرجع ملاءمة بطاريات موديلات الشاحنات</h1>
+    <p class="lead">
+      اعثر على بطارية التشغيل للخدمة الشاقة من DINWEY المناسبة لموديل شاحنتك. فيما يلي
+      موديلات الشاحنات التي توثّق أدلة الملاءمة المستقلة لها مجموعة بطارية محددة، مقابَلةً
+      بموديل DINWEY المناظر.
+    </p>
+
+    <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">الإجابة المباشرة</h2>
+      <p style="margin:0;">تغطي مراجع الملاءمة أدناه Hino 700 وVolvo FH/FM وScania R Series وMAN TGS/TGX وIsuzu F Series. أحجام المجموعات مأخوذة من أدلة ملاءمة مستقلة — مرجع قطاعي، <strong>وليس تأكيدًا بصفة OEM</strong>. طابق دائمًا حجم المجموعة ونوع الأقطاب والقطبية وأبعاد حامل البطارية قبل الطلب.</p>
+    </div>
+
+    <div style="margin:24px 0;padding:16px 20px;background:#fff8ec;border-left:4px solid #f5a623;border-radius:6px;">
+      <p style="margin:0;">
+        <strong>إخلاء المسؤولية:</strong> {disclaimer}
+      </p>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">موديلات لها مرجع ملاءمة موثّق</h2>
+
+    {
+      vehicles.map((v) => (
+        <div class="fitment-card" style="margin:24px 0;padding:20px 24px;background:#ffffff;border:1px solid #e3e8ef;border-radius:8px;">
+          <h3 style="color:#0f1f3d;margin:0 0 4px;">
+            {v.brand} {v.model}
+            <span style="font-weight:400;font-size:0.85rem;color:#55606e;"> — {v.generation}</span>
+          </h3>
+          <p style="margin:0 0 12px;color:#55606e;font-size:0.95rem;">
+            {v.year} · نظام {v.electricalSystem} ({v.batteryQuantity} بطاريات على التوالي)
+          </p>
+
+          <table style="margin-bottom:12px;">
+            <thead>
+              <tr><th>البند</th><th>القيمة</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>مجموعة البطارية OEM</td>
+                <td><strong>{v.batteryGroup}</strong>{v.oemBattery ? ` (${v.oemBattery})` : ""}</td>
+              </tr>
+              <tr>
+                <td>توصية DINWEY</td>
+                <td>
+                  {v.dinweyRecommendation ? (
+                    <strong>{v.dinweyRecommendation}</strong>
+                  ) : (
+                    <em style="color:#c0392b;">لا يوجد موديل DINWEY مباشر — يستلزم استفسارًا</em>
+                  )}
+                </td>
+              </tr>
+              <tr>
+                <td>درجة الثقة</td>
+                <td><strong>{v.confidence}</strong> — مرجع قطاعي، وليس تأكيدًا رسميًا من DINWEY بصفة OEM</td>
+              </tr>
+            </tbody>
+          </table>
+
+          {!v.needsInquiry && v.recommendationLinks.length > 0 && (
+            <p style="margin:0 0 12px;">
+              <strong>صفحات موديلات DINWEY:</strong>{" "}
+              {v.recommendationLinks.map((l, i) => (
+                <>
+                  {i > 0 && " · "}
+                  <a href={l.href} style="color:#1e5aa8;">{l.label}</a>
+                </>
+              ))}
+            </p>
+          )}
+
+          {v.needsInquiry && (
+            <div style="padding:12px 16px;background:#fdf2f2;border-left:4px solid #c0392b;border-radius:6px;margin-bottom:12px;">
+              <p style="margin:0;">
+                <strong>يستلزم استفسارًا:</strong> يستخدم هذا الموديل مجموعة JIS {v.batteryGroup}، وهي
+                ليست ضمن خط إنتاج DINWEY القياسي حاليًا.{" "}
+                <a href="/ar/contact/" style="color:#1e5aa8;">تواصل مع DINWEY</a> للتأكد مما إذا كان
+                موديل متوافق أو حل مخصص متاح.
+              </p>
+            </div>
+          )}
+
+          <p class="data-note" style="margin:0;">
+            أدلة الملاءمة: {v.fitmentEvidence} — {v.source}.
+          </p>
+        </div>
+      ))
+    }
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">الأسئلة الشائعة</h2>
+    <div class="faq-item">
+      <h3>كيف أجد بطارية DINWEY المناسبة لموديل شاحنتي؟</h3>
+      <p>اعثر على موديل شاحنتك في القائمة أدناه. يعرض كل موديل مدرَج مجموعة البطارية OEM (مثل N150/N200) وموديل DINWEY المقابل (145G51/190H52). هذه مراجع قطاعية — تأكد دائمًا من حجم المجموعة واتجاه الأقطاب وأبعاد حامل البطارية في مركبتك قبل الطلب.</p>
+    </div>
+    <div class="faq-item">
+      <h3>هل هذه القوائم معتمدة رسميًا من مصنّعي المركبات؟</h3>
+      <p>لا. مجموعات البطاريات مستمدة من أدلة ملاءمة مستقلة للمركبات التجارية (Club Assist وCentury Batteries). وهي مراجع قطاعية، وليست تأكيدات OEM رسمية من DINWEY ولا مصادقات من مصنّعي المركبات. تحقق منها مقابل مواصفات مركبتك.</p>
+    </div>
+    <div class="faq-item">
+      <h3>لماذا يظهر «يستلزم استفسارًا» لموديل Isuzu F Series بدلًا من موديل DINWEY؟</h3>
+      <p>يستخدم Isuzu F Series مجموعة JIS N100L، وهي ليست ضمن خط إنتاج DINWEY القياسي حاليًا. تواصل مع DINWEY للتأكد مما إذا كان موديل متوافق أو حل مخصص متاح.</p>
+    </div>
+    <div class="faq-item">
+      <h3>هل تحتاج شاحنة بنظام 24V إلى بطاريتين؟</h3>
+      <p>نعم. يستخدم النظام الكهربائي في شاحنة 24V بطاريتين 12V موصولتين على التوالي. استبدلهما دائمًا معًا بموديلين متطابقين للحفاظ على توازن الشحن.</p>
+    </div>
+
+    <div style="margin-top:32px;padding:20px;background:#f4f7fb;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin-top:0;">تصفّح مجموعة البطاريات الكاملة</h2>
+      <ul style="margin-bottom:0;">
+        <li><a href="/ar/batteries/" style="color:#1e5aa8;">مرجع موديلات البطاريات (145G51 / 190H52 / 58827 / 60038)</a></li>
+        <li><a href="/ar/products/jis-heavy-duty/" style="color:#1e5aa8;">بطاريات JIS للخدمة الشاقة (نظرة عامة على العائلة)</a></li>
+        <li><a href="/ar/products/din-heavy-duty/" style="color:#1e5aa8;">بطاريات DIN للخدمة الشاقة (نظرة عامة على العائلة)</a></li>
+        <li><a href="/ar/selection-tool/" style="color:#1e5aa8;">أداة اختيار البطارية</a></li>
+      </ul>
+    </div>
+
+    <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;">
+      <a class="cta" href="/ar/contact/" style="display:inline-block;background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">أكّد الملاءمة — اتصل بنا</a>
+      <a class="cta" href="https://wa.me/8613323237275" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">واتساب — تواصل الآن</a>
+    </div>
+  </div>
+</BaseLayout>

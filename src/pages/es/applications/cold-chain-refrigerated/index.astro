@@ -1,0 +1,138 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué batería necesita un camión refrigerado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un camión refrigerado necesita dos sistemas separados: una batería de arranque con 850–1100+ CCA para el motor y un banco auxiliar de ciclo profundo o AGM para la unidad de refrigeración. Una sola batería no puede cumplir ambas funciones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo alimentar la unidad de refrigeración con la batería de arranque?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Una unidad de refrigeración de 25 A consume aproximadamente 200 Ah en 8 horas y descargará profundamente la batería de arranque, lo que la daña y genera el riesgo de no arrancar a mitad de ruta. Use un banco auxiliar separado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué tipo de batería es mejor para una unidad de refrigeración?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Las baterías de ciclo profundo o AGM son las mejores para el consumo continuo de la unidad de refrigeración: toleran descargas repetidas hasta aproximadamente el 50% sin el daño de placas que sufre una batería de arranque."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo dimensiono un banco auxiliar para la unidad de refrigeración?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dimensiónelo según el consumo de corriente continuo de la unidad y el tiempo de funcionamiento requerido. Una unidad de 25 A durante 8 horas necesita unos 200 Ah utilizables, es decir, aproximadamente 400 Ah de banco con el límite de descarga del 50%. Confirme el consumo de la unidad en sus especificaciones."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Baterías para cadena de frío y refrigeración — DINWEY OEM"
+  description="Baterías de arranque y auxiliares para camiones refrigerados — alta CCA para el motor y un banco de ciclo profundo para la unidad de refrigeración. Suministro OEM de DINWEY."
+  jsonLd={faqJsonLd}
+>
+  <div class="container section">
+    <nav aria-label="Ruta de navegación" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
+      <a href="/es/" style="color:#1e5aa8;">Inicio</a> &rsaquo; Aplicaciones &rsaquo; Cadena de frío y refrigeración
+    </nav>
+    <h1 style="color:#0f1f3d;">Baterías para camiones de cadena de frío y refrigeración</h1>
+    <p class="lead">
+      Un camión refrigerado lleva dos cargas eléctricas que necesitan dos baterías diferentes: la
+      ráfaga de arranque en frío del motor y el consumo continuo, de horas de duración, de la
+      unidad de refrigeración. Confundir ambas deja a los conductores varados a mitad de ruta.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Puntos clave</h2>
+    <ol class="takeaways-list">
+      <li><strong>Dos cargas exigen dos tipos de batería</strong> — una batería de arranque (SLI) para el arranque de 850–1100+ CCA y un banco de ciclo profundo separado para el consumo continuo de la unidad de refrigeración.</li>
+      <li><strong>Nunca alimente la unidad de refrigeración con la batería de arranque</strong> — una unidad de 25 A consume ~200 Ah en 8 horas y descarga profundamente las placas; el camión arranca bien en el patio y luego deja varado al conductor tras una parada nocturna.</li>
+      <li><strong>El aislamiento no es suficiente</strong> — un aislador básico solo bloquea la corriente inversa y provoca una caída de ~0.3–0.7 V; un cargador CC-CC también aplica la carga multietapa adecuada que necesita el banco auxiliar ciclado.</li>
+      <li><strong>Dimensione el banco según el consumo</strong> — un servicio de 25 A durante 8 horas necesita ~200 Ah utilizables, o ~400 Ah de banco con el límite de descarga del 50%.</li>
+    </ol>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Por qué una unidad de refrigeración necesita dos sistemas</h2>
+    <p>
+      Las dos cargas son fundamentalmente diferentes. El motor necesita una ráfaga corta de alta
+      corriente —850–1100+ CCA para un diésel grande— entregada en segundos. La unidad de
+      refrigeración necesita una corriente moderada pero continua durante horas, mientras el
+      camión está estacionado toda la noche o durante la carga.
+    </p>
+    <p>
+      Una batería de arranque está diseñada para la primera función: placas delgadas que entregan
+      alta corriente brevemente. Consumir esa batería de forma continua durante horas —como hace
+      una unidad de refrigeración— la descarga profundamente y daña las placas de forma
+      permanente. El resultado es un vehículo que arranca bien en la base pero no arranca a la
+      mañana siguiente. La solución es un banco separado de ciclo profundo o AGM dedicado a la
+      unidad de refrigeración, con los dos bancos aislados para que ninguno arrastre al otro.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Especificaciones recomendadas</h2>
+    <table>
+      <thead>
+        <tr><th>Carga</th><th>Tipo de batería</th><th>Dato clave</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Arranque del motor</td><td>Batería de arranque (SLI)</td><td>850–1100+ CCA</td></tr>
+        <tr><td>Unidad de refrigeración</td><td>Banco auxiliar de ciclo profundo o AGM</td><td>~200 Ah utilizables por cada 25 A / 8 h</td></tr>
+        <tr><td>Voltaje del sistema</td><td>12V o 24V según el vehículo</td><td>Se aplica la regla del par idéntico</td></tr>
+        <tr><td>Profundidad de descarga del banco auxiliar</td><td>Límite de ~50%</td><td>Banco de ~400 Ah para 200 Ah utilizables</td></tr>
+      </tbody>
+    </table>
+    <p class="data-note">
+      Las cifras son representativas. La CCA, la capacidad del banco y el tiempo de funcionamiento
+      exactos dependen del consumo especificado de la unidad de refrigeración; contáctenos para
+      obtener una ficha técnica adaptada a su flota.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Líneas de producto para flotas de cadena de frío</h2>
+    <div class="grid grid-2" style="margin-top:16px;">
+      <div class="card">
+        <h3>Baterías de arranque (N150/N200 / DIN)</h3>
+        <p>Baterías de arranque de alta CCA para el tractocamión: JIS 145G51/190H52 o DIN 58827/60038.</p>
+        <a href="/es/products/jis-heavy-duty/">Ver JIS de servicio pesado →</a>
+      </div>
+      <div class="card">
+        <h3>Bancos auxiliares y AGM</h3>
+        <p>De ciclo profundo y AGM para el consumo continuo de la unidad de refrigeración: selladas y sin mantenimiento.</p>
+        <a href="/es/products/fleet/">Ver flotas y AGM →</a>
+      </div>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Qué batería necesita un camión refrigerado?</h3>
+      <p>Un camión refrigerado necesita dos sistemas separados: una batería de arranque con 850–1100+ CCA para el motor y un banco auxiliar de ciclo profundo o AGM para la unidad de refrigeración. Una sola batería no puede cumplir ambas funciones.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Puedo alimentar la unidad de refrigeración con la batería de arranque?</h3>
+      <p>No. Una unidad de refrigeración de 25 A consume aproximadamente 200 Ah en 8 horas y descargará profundamente la batería de arranque, lo que la daña y genera el riesgo de no arrancar a mitad de ruta. Use un banco auxiliar separado.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Qué tipo de batería es mejor para una unidad de refrigeración?</h3>
+      <p>Las baterías de ciclo profundo o AGM son las mejores para el consumo continuo de la unidad de refrigeración: toleran descargas repetidas hasta aproximadamente el 50% sin el daño de placas que sufre una batería de arranque.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Cómo dimensiono un banco auxiliar para la unidad de refrigeración?</h3>
+      <p>Dimensiónelo según el consumo de corriente continuo de la unidad y el tiempo de funcionamiento requerido. Una unidad de 25 A durante 8 horas necesita unos 200 Ah utilizables, es decir, aproximadamente 400 Ah de banco con el límite de descarga del 50%. Confirme el consumo de la unidad en sus especificaciones.</p>
+    </div>
+
+    <p style="margin-top:24px;">
+      📚 Lea la guía completa: <a href="https://docs.dinweysbattery.com/cold-chain-refrigerated/" target="_blank" rel="noopener">Selección de baterías para cadena de frío y refrigeración</a>
+    </p>
+  </div>
+</BaseLayout>

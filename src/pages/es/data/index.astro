@@ -1,0 +1,295 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import claimsRaw from "../../../../public/data/evidence/claims.json";
+import sourcesRaw from "../../../../public/data/evidence/sources.json";
+import masterRaw from "../../../../public/data/battery-master-data.json";
+import fitmentRaw from "../../../../public/data/vehicle-fitment.json";
+
+const SITE = "https://dinweysbattery.com";
+const master = masterRaw as any;
+const fitment = fitmentRaw as any;
+const claims = claimsRaw as any;
+const sources = sourcesRaw as any;
+
+const DATASETS = [
+  {
+    path: "/data/battery-master-data.json",
+    name: master.name,
+    date: master.dateModified,
+    description: master.description,
+    what: "Un registro por modelo de batería: voltaje, capacidad (C20), CCA con su norma de prueba, capacidad de reserva, dimensiones de la caja, tipo de terminal y estado de verificación.",
+  },
+  {
+    path: "/data/evidence/claims.json",
+    name: claims.name,
+    date: claims.dateModified,
+    description: claims.description,
+    what: "Cada afirmación técnica y comercial que hace el sitio, con la fuente que la respalda, su nivel de evidencia y su estado de verificación.",
+  },
+  {
+    path: "/data/evidence/sources.json",
+    name: sources.name,
+    date: sources.dateModified,
+    description: sources.description,
+    what: "El registro de fuentes que respaldan las afirmaciones: nivel 1 normas independientes, nivel 2 documentación del fabricante, nivel 3 catálogos de terceros.",
+  },
+  {
+    path: "/data/vehicle-fitment.json",
+    name: fitment.name,
+    date: fitment.dateModified,
+    description: fitment.description,
+    what: "Correspondencia modelo de camión → grupo de batería → modelo DINWEY, con un nivel de confianza y su fuente en cada entrada.",
+  },
+];
+
+const models = master.models.map((m: any) => ({
+  model: m.model,
+  href: typeof m.url === "string" ? m.url.replace(SITE, "/es") : null,
+  group: m.group ?? "—",
+  voltage: m.voltage ?? "—",
+  capacity: m.capacity_ah ? m.capacity_ah + " Ah" : "—",
+  cca: m.cca ? m.cca + " A" + (m.cca_standard ? " (" + m.cca_standard + ")" : "") : "no publicado",
+  status: String(m.verification_status ?? "").replace(/_/g, " "),
+  source: m.source ?? "—",
+}));
+
+const statusCount = models.reduce((acc: any, m: any) => {
+  acc[m.status] = (acc[m.status] ?? 0) + 1;
+  return acc;
+}, {});
+
+const claimRows = claims.claims.map((c: any) => ({
+  id: c.id,
+  claim: c.claim,
+  status: c.verification,
+  sources: (c.sources ?? []).join(", ") || "—",
+}));
+
+const sourceRows = sources.sources.map((s: any) => ({
+  id: s.id,
+  level: s.level,
+  type: String(s.type ?? "").replace(/_/g, " "),
+  title: s.title,
+  url: s.url ?? null,
+}));
+
+const levelCounts = [1, 2, 3].map((l) => sourceRows.filter((s: any) => s.level === l).length);
+const tierRows = Object.entries(master.dataProvenance.sourceTiers).map(([k, v]) => ({ key: k, value: String(v) }));
+const confidenceRows = Object.entries(fitment.verificationLevels).map(([k, v]) => ({ key: k, value: String(v) }));
+
+const datasetJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": DATASETS.map((d) => ({
+    "@type": "Dataset",
+    "@id": SITE + d.path + "#dataset",
+    "name": d.name,
+    "description": d.description,
+    "url": SITE + d.path,
+    "distribution": {
+      "@type": "DataDownload",
+      "contentUrl": SITE + d.path,
+      "encodingFormat": "application/json",
+    },
+    "creator": { "@id": SITE + "/#manufacturer" },
+    "isAccessibleForFree": true,
+    "dateModified": d.date,
+  })),
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Por qué algunos campos de los conjuntos de datos están vacíos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porque el fabricante no los publica. La política está establecida en los propios datos maestros: los campos que no se publican se dejan como null y nunca se estiman ni se interpolan. Un campo vacío significa «no publicado», no «cero»."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué significa «referencia» en los datos de los modelos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Significa que el valor se recopiló de catálogos de terceros y no de una ficha técnica de DINWEY. Esos modelos se listan para que pueda cruzar referencias al buscar un reemplazo; no son especificaciones publicadas por DINWEY para productos de catálogo y se cotizan bajo pedido si las necesita."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué tan actualizados están estos conjuntos de datos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cada archivo JSON incluye su propio valor dateModified, que se muestra junto al nombre del conjunto de datos más arriba. El registro de afirmaciones y el registro de fuentes se actualizan cada vez que cambia el estado de una afirmación, incluso cuando esta sigue marcada como pendiente de verificación."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Evidencia y datos — Especificaciones de baterías DINWEY"
+  description="Los conjuntos de datos detrás de las especificaciones de baterías DINWEY: registro de afirmaciones con estado de verificación, registro de fuentes por nivel, datos maestros de modelos y base de datos de aplicación."
+  jsonLd={[datasetJsonLd, faqJsonLd]}
+  canonical="/es/data/"
+  pageType="CollectionPage"
+  breadcrumbs={[
+    { name: "Inicio", url: "/es/" },
+    { name: "Evidencia y datos", url: "/es/data/" }
+  ]}
+>
+  <div class="container section">
+    <nav aria-label="Ruta de navegación" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
+      <a href="/es/" style="color:#1e5aa8;">Inicio</a> &rsaquo; Evidencia y datos
+    </nav>
+
+    <h1 style="color:#0f1f3d;margin-bottom:12px;">Evidencia y datos</h1>
+    <p class="lead">
+      La mayoría de los sitios de baterías publican una tabla de especificaciones. Nosotros publicamos los
+      conjuntos de datos que respaldan las nuestras, incluidas las afirmaciones que aún no podemos verificar.
+      Todo lo que aparece a continuación es el mismo JSON que alimenta las páginas de productos, en formato
+      legible por máquina, para que un comprador (o un asistente de IA) pueda comprobar cualquier cifra en
+      lugar de darla por sentada.
+    </p>
+
+    <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">Respuesta directa</h2>
+      <p style="margin:0;">
+        {models.length} registros de modelos ({statusCount["confirmed first party"] ?? 0} confirmados de fuente propia,{" "}
+        {statusCount["reference"] ?? 0} de referencia de terceros, {statusCount["on request"] ?? 0} solo bajo pedido),{" "}
+        {claimRows.length} afirmaciones con seguimiento y {sourceRows.length} fuentes registradas: {levelCounts[0]} normas
+        independientes (nivel 1), {levelCounts[1]} documentos de fabricante (nivel 2) y {levelCounts[2]} catálogos de
+        terceros (nivel 3). Los campos que el fabricante no publica se dejan como <code>null</code> y nunca se estiman.
+      </p>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:36px;">Conjuntos de datos</h2>
+    <ul style="list-style:none;padding:0;">
+      {DATASETS.map((d) => (
+        <li style="margin-bottom:16px;padding:16px 18px;border:1px solid #e5e9f0;border-radius:8px;">
+          <a href={d.path} style="color:#1e5aa8;font-weight:700;">{d.name}</a>
+          <div style="color:#55606e;font-size:0.86rem;margin:4px 0;">JSON · {d.path} · {d.date}</div>
+          <p style="margin:0 0 6px;color:#334155;">{d.what}</p>
+          <p style="margin:0;font-size:0.86rem;color:#55606e;">{d.description}</p>
+        </li>
+      ))}
+    </ul>
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">Registro de afirmaciones</h2>
+    <p>
+      Cada cifra que se afirma en el sitio corresponde a una de estas afirmaciones. «Verificado (de fuente propia)» significa
+      que el valor proviene de nuestra propia ficha técnica de ingeniería; «referencia» significa que se recopiló de catálogos
+      de terceros y <strong>no</strong> es una especificación publicada por DINWEY para productos de catálogo; «necesita
+      verificación» significa que aún no hemos obtenido un documento que la respalde.
+    </p>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Afirmación</th><th>Estado</th><th>Fuentes</th></tr>
+        </thead>
+        <tbody>
+          {claimRows.map((c: any) => (
+            <tr>
+              <td><code>{c.id}</code></td>
+              <td>{c.claim}</td>
+              <td>{c.status}</td>
+              <td>{c.sources}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">Registro de fuentes</h2>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Nivel</th><th>Tipo</th><th>Fuente</th></tr>
+        </thead>
+        <tbody>
+          {sourceRows.map((s: any) => (
+            <tr>
+              <td><code>{s.id}</code></td>
+              <td>Nivel {s.level}</td>
+              <td>{s.type}</td>
+              <td>
+                {s.url
+                  ? <a href={s.url} target="_blank" rel="noopener" style="color:#1e5aa8;">{s.title}</a>
+                  : s.title}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">Estado de verificación de los modelos</h2>
+    <p>
+      {statusCount["confirmed first party"] ?? 0} modelos cuentan con una especificación DINWEY de fuente propia;{" "}
+      {statusCount["reference"] ?? 0} se listan únicamente como referencia de terceros (tamaños de grupo ampliamente
+      utilizados que no publicamos como especificaciones de catálogo); {statusCount["on request"] ?? 0} se fabrican
+      bajo pedido sin especificación publicada. El desglose por modelo está en
+      <a href="/data/battery-master-data.json" style="color:#1e5aa8;">battery-master-data.json</a>.
+    </p>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>Modelo</th><th>Grupo</th><th>Voltaje</th><th>Capacidad</th><th>CCA</th><th>Estado</th><th>Fuente</th></tr>
+        </thead>
+        <tbody>
+          {models.map((m: any) => (
+            <tr>
+              <td>{m.href ? <a href={m.href} style="color:#1e5aa8;">{m.model}</a> : m.model}</td>
+              <td>{m.group}</td>
+              <td>{m.voltage}</td>
+              <td>{m.capacity}</td>
+              <td>{m.cca}</td>
+              <td>{m.status}</td>
+              <td>{m.source}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:36px;padding:20px;background:#fff8ec;border:1px solid #f5a623;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin-top:0;">Niveles de confianza de aplicación</h2>
+      <p style="margin-bottom:8px;">{fitment.disclaimer}</p>
+      <ul style="margin-bottom:0;">
+        {confidenceRows.map((r: any) => (
+          <li><strong>{r.key}</strong> — {r.value}</li>
+        ))}
+      </ul>
+    </div>
+
+    <div style="margin-top:32px;padding:20px;background:#f4f7fb;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin-top:0;">Política de verificación</h2>
+      <p style="margin-bottom:8px;">{master.dataProvenance.verificationPolicy}</p>
+      <ul style="margin-bottom:0;">
+        {tierRows.map((r: any) => (
+          <li><strong>{r.key}</strong> — {r.value}</li>
+        ))}
+      </ul>
+    </div>
+
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Por qué algunos campos de los conjuntos de datos están vacíos?</h3>
+      <p>Porque el fabricante no los publica. La política está establecida en los propios datos maestros: los campos que no se publican se dejan como null y nunca se estiman ni se interpolan. Un campo vacío significa «no publicado», no «cero».</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Qué significa «referencia» en los datos de los modelos?</h3>
+      <p>Significa que el valor se recopiló de catálogos de terceros y no de una ficha técnica de DINWEY. Esos modelos se listan para que pueda cruzar referencias al buscar un reemplazo; no son especificaciones publicadas por DINWEY para productos de catálogo y se cotizan bajo pedido si las necesita.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Qué tan actualizados están estos conjuntos de datos?</h3>
+      <p>Cada archivo JSON incluye su propio valor dateModified, que se muestra junto al nombre del conjunto de datos más arriba. El registro de afirmaciones y el registro de fuentes se actualizan cada vez que cambia el estado de una afirmación, incluso cuando esta sigue marcada como pendiente de verificación.</p>
+    </div>
+    <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;">
+      <a class="cta" href="/es/contact/" style="display:inline-block;background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">Solicite una ficha técnica y un certificado</a>
+      <a class="cta" href="/es/batteries/" style="display:inline-block;background:#1e5aa8;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">Explore las especificaciones de los modelos</a>
+    </div>
+  </div>
+</BaseLayout>

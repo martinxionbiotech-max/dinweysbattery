@@ -1,0 +1,246 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "تواصل مع DINWEY",
+  "url": "https://dinweysbattery.com/ar/contact/",
+  "mainEntity": { "@id": "https://dinweysbattery.com/#organization" }
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "هل تبيعون بطاريات الشاحنات للعملاء النهائيين أم بالجملة فقط؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "تزوّد DINWEY بشكل أساسي الموزّعين والمستوردين ومشغّلي الأساطيل والمشترين من OEM والعلامات الخاصة بالجملة. للاستفسارات التجارية، راسلنا على martin@dinweys.com مع نوع المركبة وحجم المجموعة والكمية المستهدفة."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ما المعلومات التي ينبغي تضمينها في استفساري؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ضمّن نوع مركبتك (شاحنة خفيفة/متوسطة/ثقيلة أو مركبة تجارية أوروبية)، وحجم المجموعة أو معيار البطارية (JIS N150/N200، DIN88/DIN100، BCI مجموعة 31/8D)، وجهد النظام (12V أو 24V)، والكمية المستهدفة وميناء الوصول."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل تقدّمون بطاريات شاحنات بتصنيع OEM وبعلامة خاصة؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "نعم. DINWEY هي العلامة التجارية لبطاريات الشاحنات من Chengguang Power Tech Co., Ltd. (تأسست عام 2002)، وهي شركة مصنّعة تدعم برامج OEM والعلامات الخاصة مع تخصيص العلامة التجارية والتغليف والمواصفات، وتصدّر إلى أكثر من 70 دولة."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="تواصل مع DINWEY — استفسار بطاريات الشاحنات"
+  description="تواصل مع DINWEY للحصول على عروض أسعار بطاريات الشاحنات وأوراق البيانات وبرامج OEM والعلامات الخاصة. راسلنا على martin@dinweys.com أو عبر واتساب +86 13323237275."
+  jsonLd={[contactJsonLd, faqJsonLd]}
+>
+  <div class="container section">
+    <h1 style="color:#0f1f3d;">الاتصال والاستفسار</h1>
+    <p class="lead">
+      لعروض الأسعار أو أوراق البيانات أو برامج OEM / العلامات الخاصة أو توريد الأساطيل، تواصل معنا مباشرة.
+      نرد على الاستفسارات التجارية الجدية — يُرجى تضمين نوع المركبة وحجم المجموعة المطلوب (إن كان معروفًا)
+      والكمية المستهدفة.
+    </p>
+
+    <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+      <a class="cta" href="https://wa.me/8613323237275" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">واتساب — تواصل الآن</a>
+      <a class="cta" href="mailto:martin@dinweys.com" style="display:inline-block;background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">راسلنا عبر البريد</a>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:24px;">
+      <div class="card">
+        <h3>التواصل المباشر</h3>
+        <p>
+          <strong>جهة الاتصال:</strong> Martin Wong، مدير المبيعات<br />
+          <strong>البريد الإلكتروني:</strong> <a href="mailto:martin@dinweys.com">martin@dinweys.com</a><br />
+          <strong>الهاتف / واتساب:</strong> <a href="tel:+8613323237275">+86 13323237275</a>
+        </p>
+      </div>
+      <div class="card">
+        <h3>المصنع</h3>
+        <p>
+          Chengguang Power Tech Co., Ltd.<br />
+          قرية لويجياينغ، مجمع مايو الصناعي،<br />
+          مدينة جينتشو، شيجياتشوانغ، خبي، الصين
+        </p>
+      </div>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">كيف نصنّف استفسارك</h2>
+    <p>
+      لتوجيهك إلى الإجابة الصحيحة بسرعة، نقرأ كل استفسار وفق غرضه:
+    </p>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>الغرض</th><th>ما تريده</th><th>أسرع مسار</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>بحث</td><td>فهم المعايير / تحديد الأحجام</td><td><a href="https://docs.dinweysbattery.com/" style="color:#1e5aa8;">مركز المعرفة</a></td></tr>
+          <tr><td>اهتمام بمنتج</td><td>تصفّح عائلة موديلات</td><td><a href="/ar/batteries/" style="color:#1e5aa8;">مرجع البطاريات</a></td></tr>
+          <tr><td>طلب مواصفات</td><td>ورقة بيانات لموديل واحد</td><td><a href="/ar/contact/" style="color:#1e5aa8;">اطلب ورقة البيانات</a></td></tr>
+          <tr><td>OEM / علامة خاصة</td><td>بطاريات بعلامة تجارية أو مخصصة</td><td><a href="/ar/products/fleet/" style="color:#1e5aa8;">برنامج OEM</a></td></tr>
+          <tr><td>طلب عرض سعر</td><td>عرض سعر بالجملة لمواصفات محددة</td><td>النموذج أدناه</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">اطلب عرض سعر (RFQ)</h2>
+    <p class="data-note">
+      املأ ما تعرفه — واترك الحقول غير المعروفة فارغة. الاستفسار المنظّم يحصل على عرض سعر أسرع
+      وأدق. لا تُنشر الأسعار؛ وتُقدَّم عروض الأسعار عند الطلب.
+    </p>
+    <form id="rfq-form" style="margin-top:16px;">
+      <div class="grid grid-2" style="gap:12px;">
+        <div>
+          <label for="rfq-type" style="display:block;font-weight:600;margin-bottom:4px;">معيار البطارية</label>
+          <select id="rfq-type" style="width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:6px;">
+            <option value="">غير متأكد</option>
+            <option>JIS (سلسلة N)</option>
+            <option>DIN / EN</option>
+            <option>BCI (مجموعة 31 / 8D)</option>
+            <option>أخرى / مختلطة</option>
+          </select>
+        </div>
+        <div>
+          <label for="rfq-model" style="display:block;font-weight:600;margin-bottom:4px;">الموديل / حجم المجموعة</label>
+          <input id="rfq-model" type="text" placeholder="مثال: N150، DIN88، مجموعة 31" style="width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:6px;" />
+        </div>
+        <div>
+          <label for="rfq-existing" style="display:block;font-weight:600;margin-bottom:4px;">البطارية الحالية (للمطابقة)</label>
+          <input id="rfq-existing" type="text" placeholder="مثال: أستخدم حاليًا N150 / 145G51 / مجموعة 31 — سنطابقها مع المكافئ من DINWEY" style="width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:6px;" />
+        </div>
+        <div>
+          <label for="rfq-voltage" style="display:block;font-weight:600;margin-bottom:4px;">جهد النظام</label>
+          <select id="rfq-voltage" style="width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:6px;">
+            <option value="">غير متأكد</option>
+            <option>12V</option>
+            <option>24V</option>
+          </select>
+        </div>
+        <div>
+          <label for="rfq-application" style="display:block;font-weight:600;margin-bottom:4px;">الاستخدام</label>
+          <select id="rfq-application" style="width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:6px;">
+            <option value="">اختر…</option>
+            <option>شاحنة ثقيلة / نصف مقطورة</option>
+            <option>حافلة / حافلة سياحية</option>
+            <option>التعدين / الطرق الوعرة</option>
+            <option>مولّد ديزل</option>
+            <option>سلسلة التبريد / المبرّدات</option>
+            <option>أخرى</option>
+          </select>
+        </div>
+        <div>
+          <label for="rfq-qty" style="display:block;font-weight:600;margin-bottom:4px;">الكمية المستهدفة</label>
+          <input id="rfq-qty" type="text" placeholder="مثال: حاوية 20 قدمًا واحدة (نحو 600–800 وحدة)" style="width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:6px;" />
+        </div>
+        <div>
+          <label for="rfq-port" style="display:block;font-weight:600;margin-bottom:4px;">الدولة / ميناء الوصول</label>
+          <input id="rfq-port" type="text" placeholder="مثال: جدة، السعودية" style="width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:6px;" />
+        </div>
+        <div>
+          <label for="rfq-oem" style="display:block;font-weight:600;margin-bottom:4px;">OEM / العلامة الخاصة</label>
+          <select id="rfq-oem" style="width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:6px;">
+            <option value="">غير متأكد</option>
+            <option>نعم — بعلامة تجارية / خاصة</option>
+            <option>لا — منتج DINWEY القياسي</option>
+          </select>
+        </div>
+        <div>
+          <label for="rfq-notes" style="display:block;font-weight:600;margin-bottom:4px;">متطلبات إضافية (Ah / CCA / الأبعاد)</label>
+          <input id="rfq-notes" type="text" placeholder="مثال: 135Ah، 900A CCA، 508×222×212mm" style="width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:6px;" />
+        </div>
+      </div>
+      <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+        <button type="submit" class="cta" style="background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border:none;border-radius:6px;cursor:pointer;">إنشاء رسالة الاستفسار</button>
+        <a class="cta" href="https://wa.me/8613323237275" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">عبر واتساب بدلًا من ذلك</a>
+      </div>
+      <p id="rfq-status" class="data-note" style="margin-top:12px;"></p>
+    </form>
+    <script>
+      const rfqForm = document.getElementById('rfq-form');
+      rfqForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const g = (id) => document.getElementById(id)?.value?.trim() || '';
+        const lines = [
+          'معيار البطارية: ' + (g('rfq-type') || 'غير محدد'),
+          'الموديل / حجم المجموعة: ' + (g('rfq-model') || 'غير محدد'),
+          'جهد النظام: ' + (g('rfq-voltage') || 'غير محدد'),
+          'الاستخدام: ' + (g('rfq-application') || 'غير محدد'),
+          'الكمية المستهدفة: ' + (g('rfq-qty') || 'غير محدد'),
+          'الدولة / الميناء: ' + (g('rfq-port') || 'غير محدد'),
+          'OEM / العلامة الخاصة: ' + (g('rfq-oem') || 'غير محدد'),
+          'متطلبات إضافية: ' + (g('rfq-notes') || 'لا يوجد'),
+        ];
+        const subject = encodeURIComponent('طلب عرض سعر — ' + (g('rfq-model') || 'استفسار عن بطارية شاحنة'));
+        const body = encodeURIComponent(lines.join('\n'));
+        window.location.href = 'mailto:martin@dinweys.com?subject=' + subject + '&body=' + body;
+        document.getElementById('rfq-status').textContent = 'تم تجهيز رسالة الاستفسار — من المفترض أن يفتح تطبيق البريد الإلكتروني لديك. إذا لم يفتح، راسلنا مباشرة على martin@dinweys.com.';
+      });
+    </script>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">ما الذي يجب تضمينه في استفسارك</h2>
+    <ul>
+      <li>نوع المركبة (شاحنة خفيفة / متوسطة / ثقيلة، أو مركبة تجارية أوروبية)</li>
+      <li>حجم المجموعة أو معيار البطارية المطلوب (JIS N150/N200، DIN88/DIN100، BCI مجموعة 31/8D، إلخ)</li>
+      <li>جهد النظام الكهربائي (12V أو 24V)</li>
+      <li>الكمية المستهدفة وميناء الوصول</li>
+    </ul>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">مع من نعمل</h2>
+    <p>
+      نورّد للموزّعين والمستوردين ومشغّلي الأساطيل وعلامات OEM والعلامات الخاصة
+      في جميع أنحاء العالم. DINWEY هي العلامة التجارية لبطاريات الشاحنات من Chengguang Power Tech Co., Ltd.، شركة مصنّعة
+      تأسست عام 2002، بمنشأة تبلغ مساحتها 200,000 m² و18 خط إنتاج آلي، ومعتمدة وفق IATF 16949 · ISO 9001 · ISO 14001 · ISO 45001 · ومطابقة CE،
+      وتصدّر إلى أكثر من 70 دولة.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">الأسئلة الشائعة</h2>
+    <div class="faq-item">
+      <h3>هل تبيعون بطاريات الشاحنات للعملاء النهائيين أم بالجملة فقط؟</h3>
+      <p>تزوّد DINWEY بشكل أساسي الموزّعين والمستوردين ومشغّلي الأساطيل والمشترين من OEM والعلامات الخاصة بالجملة. للاستفسارات التجارية، راسلنا على martin@dinweys.com مع نوع المركبة وحجم المجموعة والكمية المستهدفة.</p>
+    </div>
+    <div class="faq-item">
+      <h3>ما المعلومات التي ينبغي تضمينها في استفساري؟</h3>
+      <p>ضمّن نوع مركبتك (شاحنة خفيفة/متوسطة/ثقيلة أو مركبة تجارية أوروبية)، وحجم المجموعة أو معيار البطارية (JIS N150/N200، DIN88/DIN100، BCI مجموعة 31/8D)، وجهد النظام (12V أو 24V)، والكمية المستهدفة وميناء الوصول.</p>
+    </div>
+    <div class="faq-item">
+      <h3>هل تقدّمون بطاريات شاحنات بتصنيع OEM وبعلامة خاصة؟</h3>
+      <p>نعم. DINWEY هي العلامة التجارية لبطاريات الشاحنات من Chengguang Power Tech Co., Ltd. (تأسست عام 2002)، وهي شركة مصنّعة تدعم برامج OEM والعلامات الخاصة مع تخصيص العلامة التجارية والتغليف والمواصفات، وتصدّر إلى أكثر من 70 دولة.</p>
+    </div>
+
+    <p style="margin-top:24px;">
+      📚 لست متأكدًا من المواصفات التي تحتاجها؟ ابدأ من
+      <a href="https://docs.dinweysbattery.com/" style="color:#1e5aa8;">مركز المعرفة من DINWEY</a> —
+      أدلة الاختيار وشرح CCA ومعايير JIS/DIN/BCI.
+    </p>
+
+    <div style="margin-top:24px;padding:16px 20px;background:#f4f7fb;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin-top:0;">قبل أن تستفسر</h2>
+      <ul style="margin:0;padding-left:20px;">
+        <li><a href="/ar/selection-tool/" style="color:#1e5aa8;">استخدم أداة اختيار البطارية</a> لتضييق نطاق اختيارك</li>
+        <li><a href="/ar/batteries/" style="color:#1e5aa8;">تصفّح مرجع موديلات البطاريات</a> (N150/N200/DIN88/DIN100)</li>
+        <li><a href="/ar/products/fleet/" style="color:#1e5aa8;">برامج الأساطيل وOEM / العلامات الخاصة</a></li>
+        <li><a href="/ar/products/jis-heavy-duty/" style="color:#1e5aa8;">JIS للخدمة الشاقة</a> · <a href="/ar/products/din-heavy-duty/" style="color:#1e5aa8;">DIN للخدمة الشاقة</a></li>
+      </ul>
+    </div>
+
+    <p style="margin-top:16px;">
+      المعايير المشار إليها:
+      <a href="https://batterycouncil.org/" target="_blank" rel="noopener" style="color:#1e5aa8;">Battery Council International (BCI)</a> ·
+      <a href="https://www.sae.org/" target="_blank" rel="noopener" style="color:#1e5aa8;">SAE International (J537 CCA)</a>
+    </p>
+  </div>
+</BaseLayout>

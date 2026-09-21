@@ -1,0 +1,112 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const SITE = "https://dinweysbattery.com";
+
+const comparisons = [
+  {
+    href: "/ar/compare/n150-vs-n200/",
+    label: "بطارية الشاحنات للخدمة الشاقة JIS N150 مقابل N200",
+    models: "145G51 (N150) · 190H52 (N200)",
+    desc: "الفرق في الحجم والسعة وCCA والسعة الاحتياطية والاقتران في نظام 24 فولت — مع دليل قرار المشتري لشاحنات أسواق JIS.",
+  },
+  {
+    href: "/ar/compare/din88-vs-din100/",
+    label: "بطارية الشاحنات للخدمة الشاقة DIN88 مقابل DIN100",
+    models: "58827 (DIN88) · 60038 (DIN100)",
+    desc: "طول العلبة والسعة والتدوير البارد EN والسعة الاحتياطية — ما الذي يتغير فعلاً بين مقاسي DIN، ومتى تكون العلبة الأكبر إنفاقًا بلا داعٍ.",
+  },
+  {
+    href: "/ar/compare/jis-vs-din-vs-bci/",
+    label: "JIS مقابل DIN مقابل BCI: لماذا لا يمكن مقارنة CCA مباشرة",
+    models: "JIS D5301 · EN 50342 · SAE J537 · DIN 43539",
+    desc: "تختبر المعايير الأربعة قيمة CCA عند درجات حرارة وجهود قطع مختلفة، لذا فإن تصنيف 900 A وفق JIS وتصنيف 900 A وفق EN ليسا الرقم نفسه.",
+  },
+  {
+    href: "/ar/compare/12v-vs-24v/",
+    label: "أنظمة بطاريات الشاحنات 12 فولت مقابل 24 فولت: كيف يعمل التوصيل على التوالي",
+    models: "12 فولت فردي · 24 فولت = 2 × 12 فولت على التوالي",
+    desc: "لماذا يستخدم نظام 24 فولت بطاريتين 12 فولت على التوالي، ولماذا يضيف التوصيل على التوالي جهدًا لا سعة Ah — ولا يضاعف CCA ببساطة.",
+  },
+  {
+    href: "/ar/compare/truck-battery-cca/",
+    label: "دليل CCA لبطاريات الشاحنات: كم مقدار CCA الذي تحتاجه الشاحنة؟",
+    models: "ديزل مقابل بنزين · المناخ · حجم المحرك",
+    desc: "كيف يحدد المناخ وسعة المحرك ونمط التشغيل متطلب CCA — ولماذا تضيف المبالغة في تحديد CCA تكلفة دون قيمة ملاءمة.",
+  },
+];
+
+const collectionJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ItemList",
+      "@id": SITE + "/ar/compare/#list",
+      "name": "مقارنات بطاريات شاحنات DINWEY وأدلة الشراء",
+      "numberOfItems": comparisons.length,
+      "itemListElement": comparisons.map((c, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": c.label,
+        "url": SITE + c.href,
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="مقارنات بطاريات الشاحنات وأدلة الشراء"
+  description="مقارنات بطاريات شاحنات DINWEY: JIS N150 مقابل N200، وDIN88 مقابل DIN100، ومعايير JIS مقابل DIN مقابل BCI، وأنظمة 12 فولت مقابل 24 فولت، ومقدار CCA الذي تحتاجه الشاحنة فعلاً."
+  jsonLd={[collectionJsonLd]}
+  canonical="/ar/compare/"
+  pageType="CollectionPage"
+  breadcrumbs={[
+    { name: "الرئيسية", url: "/ar/" },
+    { name: "المقارنة", url: "/ar/compare/" }
+  ]}
+>
+  <div class="container section">
+    <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#6b5a54;margin-bottom:16px;">
+      <a href="/ar/" style="color:#1e5aa8;">الرئيسية</a> &rsaquo; المقارنة
+    </nav>
+
+    <h1 style="color:#0f1f3d;margin-bottom:12px;">مقارنات بطاريات الشاحنات وأدلة الشراء</h1>
+    <p class="lead">
+      مقارنات بين الموديلات وبين المعايير كُتبت للمشترين لا لورقة مواصفات:
+      ما الذي يتغير فعلاً بين مقاسين، وكيف يُقاس كل تصنيف، وأين لا تجلب لك السعة
+      أو CCA الإضافية أي فائدة. كل رقم مصدره مرجع مواصفات DINWEY أو المعايير
+      المذكورة في الصفحة.
+    </p>
+
+    <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">الإجابة المباشرة</h2>
+      <p style="margin:0;">تقارن هذه الأدلة بين مقاسين من الموديلات أو معيارين أو جهود نظامين: JIS N150 مقابل N200، وDIN88 مقابل DIN100، وJIS مقابل DIN مقابل BCI، و12 فولت مقابل 24 فولت، ومقدار CCA الذي تحتاجه الشاحنة فعلاً. ويوضح كل دليل أي الأرقام مستمدة من مواصفات موديلات DINWEY وأيها من كتالوجات مستقلة.</p>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">المقارنات</h2>
+    <ul style="list-style:none;padding:0;">
+      {comparisons.map((c) => (
+        <li style="margin-bottom:18px;padding:16px 18px;border:1px solid #e5e9f0;border-radius:8px;">
+          <a href={c.href} style="color:#1e5aa8;font-weight:700;font-size:1.05rem;">{c.label}</a>
+          <div style="color:#55606e;font-size:0.88rem;margin:4px 0;">{c.models}</div>
+          <p style="margin:0;color:#334155;">{c.desc}</p>
+        </li>
+      ))}
+    </ul>
+
+    <div style="margin-top:32px;padding:20px;background:#f4f7fb;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin-top:0;">تعمّق أكثر</h2>
+      <ul style="margin-bottom:0;">
+        <li><a href="/ar/batteries/" style="color:#1e5aa8;">مرجع موديلات بطاريات DINWEY (المواصفات الكاملة)</a></li>
+        <li><a href="/ar/products/" style="color:#1e5aa8;">نظرة عامة على خطوط المنتجات</a></li>
+        <li><a href="/ar/selection-tool/" style="color:#1e5aa8;">أداة اختيار البطارية</a></li>
+      </ul>
+    </div>
+
+    <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;">
+      <a class="cta" href="/ar/contact/" style="display:inline-block;background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">اسأل عن الموديل المناسب لشاحنتك</a>
+      <a class="cta" href="https://wa.me/8613323237275" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">واتساب — تواصل الآن</a>
+    </div>
+  </div>
+</BaseLayout>

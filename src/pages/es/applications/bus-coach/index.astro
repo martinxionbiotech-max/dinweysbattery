@@ -1,0 +1,140 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué batería usa un autobús o un autocar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los autobuses y autocares usan baterías de arranque de servicio pesado adaptadas al motor: normalmente 24V para los grandes autocares interurbanos (dos baterías de 12V en serie) y 12V para los autobuses urbanos más pequeños. Los tamaños de grupo dependen del mercado: JIS N150/N200 o DIN88/DIN100."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué se desgastan más rápido las baterías de autobús que las de camión?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los autobuses someten sus baterías a un ciclado más intenso que los camiones de larga distancia: los arranques frecuentes, los largos períodos al ralentí y la carga constante de accesorios (iluminación, puertas, climatización, información al pasajero) consumen batería durante toda la jornada de servicio. Las placas gruesas aptas para ciclado profundo y una capacidad de reserva generosa son esenciales."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los autobuses usan sistemas de 12V o de 24V?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los grandes autocares interurbanos suelen usar 24V (dos baterías de 12V en serie); los autobuses urbanos más pequeños y los minibuses de traslado suelen usar 12V. Coincida siempre con la especificación del vehículo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué capacidad de reserva necesita un autobús?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un autobús se beneficia de una capacidad de reserva generosa debido a su carga constante de accesorios. Una JIS N150 ofrece 220 minutos y una N200 ofrece 320 minutos (SAE J537): un margen para iluminación, puertas y telemática cuando el motor está apagado o al ralentí."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Baterías de arranque para autobuses y autocares — DINWEY OEM"
+  description="Baterías de arranque de servicio pesado para autobuses y autocares — placas gruesas aptas para ciclado profundo, alta capacidad de reserva y opciones de 12V/24V. Suministro OEM de DINWEY."
+  jsonLd={faqJsonLd}
+>
+  <div class="container section">
+    <nav aria-label="Ruta de navegación" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
+      <a href="/es/" style="color:#1e5aa8;">Inicio</a> &rsaquo; Aplicaciones &rsaquo; Autobuses y autocares
+    </nav>
+    <h1 style="color:#0f1f3d;">Baterías de arranque para autobuses y autocares</h1>
+    <p class="lead">
+      Los autobuses urbanos e interurbanos someten sus baterías a un ciclado más intenso que los
+      camiones de larga distancia: los arranques frecuentes, los largos períodos al ralentí y la
+      carga constante de accesorios exigen placas gruesas aptas para ciclado profundo y una
+      capacidad de reserva generosa.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Puntos clave</h2>
+    <ol class="takeaways-list">
+      <li><strong>Los autobuses ciclan más que los camiones</strong> — las paradas frecuentes, el ralentí prolongado y la carga constante de accesorios (iluminación, puertas, climatización, información al pasajero) consumen batería durante toda la jornada de servicio.</li>
+      <li><strong>Las placas gruesas de Pb-Sb toleran el ciclado profundo</strong> — la misma construcción tolerante al ciclo profundo que se usa en las baterías de servicio pesado para camiones mantiene el arranque confiable del autobús durante todo un turno.</li>
+      <li><strong>La capacidad de reserva es el margen con el motor apagado</strong> — la N150 ofrece 220 minutos y la N200, 320 minutos (SAE J537) para luces, telemática y un alternador averiado.</li>
+      <li><strong>Los autocares grandes funcionan a 24V</strong> — dos baterías de 12V en serie; los autobuses urbanos pequeños y los de traslado suelen ser de 12V; coincida siempre con el vehículo.</li>
+    </ol>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Por qué los autobuses necesitan una construcción de servicio pesado</h2>
+    <p>
+      La diferencia entre un autobús y un camión de larga distancia es el ciclo de trabajo. Un
+      camión funciona durante horas y el alternador mantiene la batería cargada. Un autobús urbano
+      arranca y se detiene decenas de veces al día, permanece al ralentí en el tráfico y durante
+      el ascenso de pasajeros, y hace funcionar constantemente las puertas, la iluminación
+      interior, la climatización y los sistemas de información al pasajero, incluso con el motor
+      apagado.
+    </p>
+    <p>
+      Cada consumo de accesorios acerca la batería a la descarga, y cada rearranque exige otra
+      ráfaga de arranque en frío. Una placa automotriz ligera fallaría pronto con ese ciclado
+      repetido. El diseño de servicio pesado con placas gruesas (Pb-Sb) que utiliza DINWEY está
+      diseñado exactamente para este servicio: tolera descargas y recargas parciales repetidas y
+      sigue entregando la alta CCA que un diésel grande necesita en cada arranque.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Especificaciones recomendadas</h2>
+    <table>
+      <thead>
+        <tr><th>Requisito</th><th>Especificación</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Voltaje del sistema</td><td>24V para autocares grandes (2× 12V en serie); 12V para autobuses pequeños</td></tr>
+        <tr><td>Amperios de arranque en frío (CCA)</td><td>850–1100+ CCA para motores diésel grandes</td></tr>
+        <tr><td>Tamaño de grupo</td><td>JIS N150 (145G51) / N200 (190H52) o DIN88/DIN100</td></tr>
+        <tr><td>Capacidad de reserva</td><td>N150 220 min · N200 320 min (SAE J537)</td></tr>
+        <tr><td>Construcción</td><td>Placas gruesas de electrolito líquido (Pb-Sb); AGM para flotas sin mantenimiento</td></tr>
+      </tbody>
+    </table>
+    <p class="data-note">
+      Las especificaciones son rangos representativos. Confirme el tamaño de grupo, la CCA y el
+      voltaje exactos con el manual del vehículo; contáctenos para obtener una ficha técnica.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Líneas de producto para flotas de autobuses y autocares</h2>
+    <div class="grid grid-2" style="margin-top:16px;">
+      <div class="card">
+        <h3>JIS de servicio pesado (N150/N200)</h3>
+        <p>145G51 (N150) 900A CCA / 220 min RC y 190H52 (N200) 1100A CCA / 320 min RC.</p>
+        <a href="/es/products/jis-heavy-duty/">Ver JIS de servicio pesado →</a>
+      </div>
+      <div class="card">
+        <h3>DIN de servicio pesado (DIN88/DIN100)</h3>
+        <p>Baterías de norma europea para autocares MAN, Mercedes, Scania y Volvo.</p>
+        <a href="/es/products/din-heavy-duty/">Ver DIN de servicio pesado →</a>
+      </div>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Qué batería usa un autobús o un autocar?</h3>
+      <p>Los autobuses y autocares usan baterías de arranque de servicio pesado adaptadas al motor: normalmente 24V para los grandes autocares interurbanos (dos baterías de 12V en serie) y 12V para los autobuses urbanos más pequeños. Los tamaños de grupo dependen del mercado: JIS N150/N200 o DIN88/DIN100.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Por qué se desgastan más rápido las baterías de autobús que las de camión?</h3>
+      <p>Los autobuses someten sus baterías a un ciclado más intenso que los camiones de larga distancia: los arranques frecuentes, los largos períodos al ralentí y la carga constante de accesorios (iluminación, puertas, climatización, información al pasajero) consumen batería durante toda la jornada de servicio. Las placas gruesas aptas para ciclado profundo y una capacidad de reserva generosa son esenciales.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Los autobuses usan sistemas de 12V o de 24V?</h3>
+      <p>Los grandes autocares interurbanos suelen usar 24V (dos baterías de 12V en serie); los autobuses urbanos más pequeños y los minibuses de traslado suelen usar 12V. Coincida siempre con la especificación del vehículo.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Qué capacidad de reserva necesita un autobús?</h3>
+      <p>Un autobús se beneficia de una capacidad de reserva generosa debido a su carga constante de accesorios. Una JIS N150 ofrece 220 minutos y una N200 ofrece 320 minutos (SAE J537): un margen para iluminación, puertas y telemática cuando el motor está apagado o al ralentí.</p>
+    </div>
+
+    <p style="margin-top:24px;">
+      📚 Lea la guía completa: <a href="https://docs.dinweysbattery.com/fleet-battery-management/" target="_blank" rel="noopener">Gestión de baterías de flota</a>
+    </p>
+  </div>
+</BaseLayout>

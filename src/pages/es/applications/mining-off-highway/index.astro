@@ -1,0 +1,144 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué batería usa un camión minero?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los grandes camiones mineros y los equipos fuera de carretera suelen usar sistemas de 24V formados por dos baterías de servicio pesado de 12V en serie, con 850–1100+ CCA para arrancar el diésel grande. El tamaño de grupo depende del mercado —JIS N150/N200 en Asia, DIN88/DIN100 en Europa— siempre adaptado a la bandeja y a la especificación de CCA del equipo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué fallan más rápido las baterías en los equipos de minería?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Las vibraciones extremas, el polvo, los cambios de temperatura y el ciclado profundo frecuente pueden reducir sustancialmente la vida útil de la batería en comparación con el servicio de arranque normal en carretera. Las fijaciones flojas, el polvo conductor en los terminales y las descargas parciales repetidas son las causas principales."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es mejor AGM que el electrolito líquido para equipos fuera de carretera?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, en la mayoría de los servicios fuera de carretera. La malla de fibra de vidrio absorbente de AGM resiste mejor las vibraciones que el electrolito líquido, su diseño sellado evita la pérdida de electrolito en pendientes pronunciadas y protege contra el polvo conductor, y su vida de 600–1200 ciclos (frente a 200–300 del electrolito líquido) se ajusta al ciclado más profundo típico de la minería."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Con qué frecuencia se deben probar con carga las baterías fuera de carretera?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Al menos dos veces al año, más que la prueba anual recomendada para flotas en carretera. Las duras condiciones fuera de carretera reducen a la mitad la vida útil, por lo que una prueba de carga semestral y una inspección de las fijaciones detectan baterías debilitadas antes de una parada."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Baterías para minería y fuera de carretera — DINWEY OEM"
+  description="Baterías de servicio pesado para camiones mineros y equipos fuera de carretera — construcción resistente a las vibraciones, sistemas de 24V y 850–1100+ CCA. OEM certificado IATF 16949."
+  jsonLd={faqJsonLd}
+>
+  <div class="container section">
+    <nav aria-label="Ruta de navegación" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
+      <a href="/es/" style="color:#1e5aa8;">Inicio</a> &rsaquo; Aplicaciones &rsaquo; Minería y fuera de carretera
+    </nav>
+    <h1 style="color:#0f1f3d;">Baterías para camiones de minería y fuera de carretera</h1>
+    <p class="lead">
+      Excavadoras, camiones de acarreo, cargadores y perforadoras someten las baterías a
+      condiciones que destruyen las unidades automotrices comunes en pocos meses: vibraciones
+      constantes, polvo conductor, pendientes pronunciadas y cambios de temperatura desde el fondo
+      de la mina hasta la superficie.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Puntos clave</h2>
+    <ol class="takeaways-list">
+      <li><strong>El servicio fuera de carretera reduce la vida de la batería</strong> — las vibraciones severas, las altas temperaturas, el polvo y el ciclado más profundo pueden acortar sustancialmente la vida útil frente al arranque normal en carretera; una construcción robusta y un programa de pruebas más estricto no son negociables.</li>
+      <li><strong>El diseño sellado de AGM importa tanto como su resistencia a las vibraciones</strong> — una batería de electrolito líquido ventilada pierde electrolito en pendientes pronunciadas y es vulnerable al polvo conductor; AGM elimina ambos riesgos, con una vida de 600–1200 ciclos frente a 200–300 del electrolito líquido.</li>
+      <li><strong>Los grandes camiones mineros siguen funcionando a 24V</strong> — dos baterías de 12V en serie con 850–1100+ CCA para el diésel grande, reemplazadas como par idéntico (mismo modelo, edad y clasificación).</li>
+      <li><strong>Inspeccione las fijaciones en cada servicio y pruebe con carga al menos dos veces al año</strong> — las vibraciones aflojan los soportes, y el hábito de la prueba anual no basta en el servicio fuera de carretera.</li>
+    </ol>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Por qué los equipos de minería necesitan una batería diferente</h2>
+    <p>
+      Una máquina de mina combina lo peor de varios entornos. Las vibraciones de operar sobre
+      terreno sin pavimentar y roca volada sacuden las placas y aflojan los terminales. El polvo
+      conductor (de las plantas de trituración y el manejo de mineral) puede crear puentes entre
+      terminales expuestos y drenar lentamente la batería. Las pendientes pronunciadas de las
+      rutas de acarreo inclinan una batería de electrolito líquido y pueden exponer sus placas.
+      Además, los períodos de inactividad entre turnos dejan que la batería se autodescargue
+      mientras se espera que vuelva a arrancar cuando se le pida.
+    </p>
+    <p>
+      La respuesta es una batería de servicio pesado diseñada para este servicio: placas gruesas
+      de Pb-Sb (plomo-antimonio) que toleran el ciclado profundo y las vibraciones, o un diseño
+      AGM sellado que elimina los problemas de pérdida de electrolito y polvo de una unidad de
+      electrolito líquido ventilada. DINWEY suministra ambas: JIS N150/N200 y DIN88/DIN100 de
+      electrolito líquido para presupuestos estándar, y AGM cuando el servicio justifica una
+      opción sin mantenimiento.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Especificaciones recomendadas</h2>
+    <table>
+      <thead>
+        <tr><th>Requisito</th><th>Especificación</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Voltaje del sistema</td><td>24V (dos baterías de 12V en serie) para camiones de acarreo grandes; 12V para unidades más pequeñas</td></tr>
+        <tr><td>Amperios de arranque en frío (CCA)</td><td>850–1100+ CCA (SAE J537) para motores diésel grandes</td></tr>
+        <tr><td>Tamaño de grupo</td><td>JIS N150/N200 (Asia/África) o DIN88/DIN100 (Europa)</td></tr>
+        <tr><td>Construcción</td><td>Placas gruesas de electrolito líquido (Pb-Sb) o AGM sellada</td></tr>
+        <tr><td>Vida de ciclos</td><td>AGM suele ofrecer mayor capacidad de ciclado que las baterías de arranque convencionales de electrolito líquido; la vida real varía según la profundidad de descarga, la temperatura y el perfil de carga</td></tr>
+        <tr><td>Programa de pruebas</td><td>Prueba de carga al menos 2 veces al año; inspeccione las fijaciones en cada servicio</td></tr>
+      </tbody>
+    </table>
+    <p class="data-note">
+      Las especificaciones son rangos representativos. La CCA, la capacidad y las dimensiones
+      exactas varían según la máquina; contáctenos para obtener una ficha técnica adaptada a su
+      equipo.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Líneas de producto para servicio fuera de carretera</h2>
+    <div class="grid grid-2" style="margin-top:16px;">
+      <div class="card">
+        <h3>JIS de servicio pesado (N150/N200)</h3>
+        <p>Baterías de electrolito líquido con placas gruesas para máquinas grandes: 145G51 (N150) 900A CCA, 190H52 (N200) 1100A CCA.</p>
+        <a href="/es/products/jis-heavy-duty/">Ver JIS de servicio pesado →</a>
+      </div>
+      <div class="card">
+        <h3>AGM (sin mantenimiento)</h3>
+        <p>AGM sellada y tolerante a las vibraciones para pendientes pronunciadas y polvo conductor: 600–1200 ciclos de vida.</p>
+        <a href="/es/products/fleet/">Ver flotas y AGM →</a>
+      </div>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Qué batería usa un camión minero?</h3>
+      <p>Los grandes camiones mineros y los equipos fuera de carretera suelen usar sistemas de 24V formados por dos baterías de servicio pesado de 12V en serie, con 850–1100+ CCA para arrancar el diésel grande. El tamaño de grupo depende del mercado —JIS N150/N200 en Asia, DIN88/DIN100 en Europa— siempre adaptado a la bandeja y a la especificación de CCA del equipo.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Por qué fallan más rápido las baterías en los equipos de minería?</h3>
+      <p>Las vibraciones extremas, el polvo, los cambios de temperatura y el ciclado profundo frecuente pueden reducir sustancialmente la vida útil de la batería en comparación con el servicio de arranque normal en carretera. Las fijaciones flojas, el polvo conductor en los terminales y las descargas parciales repetidas son las causas principales.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Es mejor AGM que el electrolito líquido para equipos fuera de carretera?</h3>
+      <p>Sí, en la mayoría de los servicios fuera de carretera. La malla de fibra de vidrio absorbente de AGM resiste mejor las vibraciones que el electrolito líquido, su diseño sellado evita la pérdida de electrolito en pendientes pronunciadas y protege contra el polvo conductor, y su vida de 600–1200 ciclos (frente a 200–300 del electrolito líquido) se ajusta al ciclado más profundo típico de la minería.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Con qué frecuencia se deben probar con carga las baterías fuera de carretera?</h3>
+      <p>Al menos dos veces al año, más que la prueba anual recomendada para flotas en carretera. Las duras condiciones fuera de carretera reducen a la mitad la vida útil, por lo que una prueba de carga semestral y una inspección de las fijaciones detectan baterías debilitadas antes de una parada.</p>
+    </div>
+
+    <p style="margin-top:24px;">
+      📚 Lea la guía completa: <a href="https://docs.dinweysbattery.com/mining-off-highway/" target="_blank" rel="noopener">Selección de baterías para minería y fuera de carretera</a>
+    </p>
+  </div>
+</BaseLayout>

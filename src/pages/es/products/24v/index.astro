@@ -1,0 +1,83 @@
+---
+import ProductLayout from "../../../../layouts/ProductLayout.astro";
+---
+
+<ProductLayout
+  title="Sistemas de baterías de 24V para camiones — OEM de servicio pesado DINWEY"
+  description="Sistemas de arranque de 24V de DINWEY para camiones pesados, semirremolques y autobuses — pares de baterías de 12V configurados en serie de las líneas JIS N150/N200 y DIN88/DIN100."
+  takeaways={[
+    "**24V son dos baterías de 12V en serie, no una unidad única de 24V** — el estándar para camiones pesados, semirremolques y autobuses.",
+    "**La mitad de corriente para la misma potencia** — por eso los sistemas de 24V usan conductores más finos y ligeros que los de 12V.",
+    "**Reemplace el par completo, del mismo modelo y lote** — mezclar una batería nueva y una vieja desequilibra la carga y acorta la vida de la más débil.",
+    "**Los pares más comunes son 2× N200 (190H52) o 2× DIN100 (60038)** — emparejados en fábrica para una carga equilibrada.",
+    "**Nunca combine dos baterías con distinto CCA o capacidad** — la salida del conjunto queda limitada por la unidad más débil."
+  ]}
+  specTable={[
+    { spec: "Voltaje del sistema", value: "24V (dos baterías de 12V en serie)" },
+    { spec: "Pares comunes", value: "2× JIS 190H52 (N200) / 2× DIN60038 (DIN100)" },
+    { spec: "Aplicación", value: "Camiones pesados, semirremolques, autobuses" },
+    { spec: "Emparejamiento", value: "Pares emparejados por lote para una carga equilibrada" },
+    { spec: "Tecnología", value: "Electrolito líquido / EFB / AGM" }
+  ]}
+  applications={[
+    "Tractocamiones y transporte pesado",
+    "Autobuses y autocares",
+    "Vehículos militares y especiales"
+  ]}
+  intro={[
+    "Los camiones pesados, los autobuses y los semirremolques funcionan con sistemas eléctricos de 24V — dos baterías de 12V conectadas en serie. La arquitectura de 24V reduce a la mitad la corriente para la misma potencia, lo que permite cables más finos y un arranque más fiable de los motores diésel grandes.",
+    "En un sistema de 24V, las dos baterías se cargan y descargan como una sola unidad, por lo que deben tratarse como un par emparejado. Reemplace siempre ambas juntas, con el mismo modelo, antigüedad y clasificación. Sustituir solo una batería del par en serie provoca desequilibrio y acorta la vida de las dos.",
+    "DINWEY suministra las baterías de servicio pesado de 12V que forman los sistemas de 24V — las JIS 145G51/190H52 y las DIN 58827/60038 — junto con orientación sobre el cableado en serie y la carga correctos."
+  ]}
+  specNotes={[
+    "Por qué 24V: un sistema de 24V son dos baterías de 12V en serie; al duplicar el voltaje, la misma potencia de arranque circula con la mitad de corriente. Menos corriente significa cables más finos y ligeros y menos caída de tensión — la razón por la que los camiones pesados, los autobuses y los semirremolques se estandarizaron en 24V.",
+    "Pares emparejados: las dos baterías de un par en serie deben ser idénticas en modelo, antigüedad y clasificación. Si una es más débil, el par se carga de forma desigual y ambas fallan antes. Reemplace siempre un par de 24V completo, con dos baterías idénticas.",
+    "Carga: utilice un cargador apto para 24V o cargue cada batería de 12V por separado. Un cargador de 12V aplicado a un par en serie de 24V no lo cargará por completo."
+  ]}
+  comparison={{
+    headers: ["Aspecto", "Sistema de 12V", "Sistema de 24V"],
+    rows: [
+      ["Voltaje", "12V", "24V (dos de 12V en serie)"],
+      ["Corriente para la misma potencia", "Mayor", "La mitad"],
+      ["Cableado", "Conductores más gruesos", "Conductores más finos y ligeros"],
+      ["Vehículos típicos", "Camiones ligeros, pickups, camiones medianos", "Camiones pesados, semirremolques, autobuses"],
+      ["Baterías", "Una de 12V (p. ej., N150/N200, DIN88/DIN100)", "Dos de 12V emparejadas en serie"]
+    ]
+  }}
+  scenarios={[
+    {
+      title: "Tractocamiones y transporte pesado",
+      body: "Los tractocamiones de larga distancia funcionan a 24V para que el motor de arranque obtenga el máximo par con una corriente manejable. Dos baterías N200 (190H52) en serie aportan la reserva de arranque en frío que necesita un diésel grande en una mañana fría."
+    },
+    {
+      title: "Autobuses y autocares",
+      body: "Los 24V soportan las fuertes cargas eléctricas de un autocar moderno — iluminación, climatización, puertas y telemática — manteniendo secciones de conductor prácticas a lo largo del chasis."
+    },
+    {
+      title: "Vehículos militares y especiales",
+      body: "Los 24V son comunes en vehículos militares y especiales por las mismas razones: potencia de arranque, capacidad de carga y componentes estandarizados que simplifican el mantenimiento de la flota."
+    }
+  ]}
+  maintenance={[
+    "Reemplace siempre ambas baterías de un par de 24V juntas y con modelos idénticos.",
+    "Mantenga los terminales limpios y apretados en las dos baterías — una sola conexión deficiente desequilibra el par.",
+    "Use un cargador de 24V o cargue cada batería de 12V por separado con un cargador de 12V.",
+    "Iguale la tecnología de las baterías — no mezcle electrolito líquido y AGM en el mismo par en serie."
+  ]}
+  image={{ src: "/images/products/190H52-N200.jpg", alt: "Batería de camión de 12V DINWEY 190H52 N200 utilizada en un par en serie de 24V", width: 1024, height: 1024 }}
+  faq={[
+    { q: "¿Por qué los camiones pesados usan 24V?", a: "Los sistemas de 24V reducen a la mitad la corriente para la misma potencia, lo que permite cables más finos y un arranque más fiable de motores diésel grandes." },
+    { q: "¿Puedo reemplazar solo una batería de un par de 24V?", a: "Se recomienda encarecidamente reemplazar ambas baterías como un par emparejado para garantizar una carga equilibrada y toda la vida útil." },
+    { q: "¿Cómo conecto dos baterías de 12V para obtener 24V?", a: "Conecte el terminal positivo de una batería con el terminal negativo de la otra; los terminales restantes proporcionan 24V en el conjunto." },
+    { q: "¿Las baterías de 24V necesitan un cargador especial?", a: "Sí. Use un cargador apto para 24V o cargue cada batería de 12V por separado con un cargador de 12V." },
+    { q: "¿Qué CCA necesitan los sistemas de 24V para camiones?", a: "Los camiones pesados de 24V suelen necesitar 850–1100+ CCA por batería, según el tamaño del motor y el clima. Confirme la cifra exacta en el manual de su vehículo." },
+    { q: "¿Qué pasa si mezclo una batería vieja y una nueva en un par de 24V?", a: "El par se carga de forma desigual: la batería más fuerte se sobrecarga y la más débil queda subcargada, acortando la vida de ambas. Use siempre dos baterías idénticas, del mismo modelo, antigüedad y clasificación." },
+    { q: "¿Puedo arrancar por puente un camión de 24V desde un vehículo de 12V?", a: "No directamente sobre todo el sistema de 24V. Los procedimientos de arranque por puente para sistemas de 24V varían según el vehículo; siga el procedimiento del fabricante y, si tiene dudas, cargue cada batería de 12V por separado o llame a un profesional." },
+    { q: "¿Los sistemas de 24V usan una sola batería de 24V?", a: "La mayoría de los camiones pesados usan dos baterías de 12V en serie en lugar de una unidad única de 24V, porque las baterías de 12V están más disponibles y cada una puede repararse o sustituirse por separado. Existen unidades monolíticas de 24V, pero son menos comunes en camiones." }
+  ]}
+  relatedDocs={[
+    { title: "Sistemas eléctricos de camión de 12V vs 24V", url: "https://docs.dinweysbattery.com/12v-vs-24v/" },
+    { title: "Guía de cableado de 24V", url: "https://docs.dinweysbattery.com/24v-wiring-guide/" },
+    { title: "Baterías para semirremolques y transporte pesado", url: "https://docs.dinweysbattery.com/semi-trailer/" }
+  ]}
+/>

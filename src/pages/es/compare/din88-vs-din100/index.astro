@@ -1,0 +1,266 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+
+const SITE = "https://dinweysbattery.com";
+
+const comparisonJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "DIN88 vs DIN100: batería de servicio pesado para camión — ¿cuál necesita?",
+  "description": "DIN88 (58827) vs DIN100 (60038): la diferencia en largo de la caja, capacidad, arranque en frío EN, capacidad de reserva y ajuste en la bandeja — con una guía de decisión para compradores de camiones europeos.",
+  "image": SITE + "/images/products/58827-DIN88.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Martin Wong",
+    "jobTitle": "Director de Ventas",
+    "worksFor": { "@id": SITE + "/#organization" }
+  },
+  "publisher": { "@id": SITE + "/#organization" },
+  "datePublished": "2026-09-09",
+  "dateModified": "2026-09-09",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": SITE + "/es/compare/din88-vs-din100/" }
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la diferencia entre DIN88 y DIN100?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La DIN100 (modelo 60038) tiene una caja 40mm más larga que la DIN88 (modelo 58827) — 393mm vs 353mm — mientras que el ancho (175mm) y la altura (190mm) son idénticos. La caja más larga le da a la DIN100 mayor capacidad (100Ah vs 88Ah) y mayor arranque en frío EN (870A vs 800A)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo reemplazar una DIN88 por una DIN100?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Solo si su bandeja tiene 40mm de largo libre. La DIN100 conserva el mismo ancho y la misma altura, pero es 40mm más larga, así que no entrará en una bandeja dimensionada exactamente para una DIN88. Confirme el largo de la bandeja y la posición de la abrazadera de sujeción antes de cambiar de modelo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es la DIN100 mejor que la DIN88?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La DIN100 tiene mayor rendimiento (100Ah, 870A EN, 170min RC), pero es más larga y más pesada. Si la DIN88 cumple con el requisito de arranque de su motor y entra en su bandeja, es la opción correcta y más económica."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Son comparables las clasificaciones de arranque en frío DIN y JIS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Las baterías DIN usan el arranque en frío EN (EN 50342-1), una prueba diferente del CCA JIS o el CCA SAE. Una clasificación EN de 800A no es directamente comparable con una cifra JIS de 800A — compare solo dentro de la misma norma."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿La DIN88 o la DIN100 están disponibles en AGM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ambas están disponibles en tecnologías de electrolito líquido, EFB y AGM. La decisión de clase de tamaño (DIN88 vs DIN100) es independiente de la decisión de tecnología — puede tener una DIN88 en AGM o una DIN100 de electrolito líquido."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="DIN88 vs DIN100: batería para camión — comparativa DINWEY"
+  description="DIN88 (58827) vs DIN100 (60038) — largo de la caja, capacidad, arranque en frío EN y capacidad de reserva, con una guía de decisión para compradores de camiones europeos."
+  canonical="/es/compare/din88-vs-din100/"
+  ogType="article"
+  author="Martin Wong"
+  datePublished="2026-09-09"
+  dateModified="2026-09-09"
+  jsonLd={[comparisonJsonLd, faqJsonLd]}
+>
+  <div class="container section">
+    <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
+      <a href="/es/" style="color:#1e5aa8;">Inicio</a> &rsaquo; Comparar &rsaquo; DIN88 vs DIN100
+    </nav>
+
+    <h1 style="color:#0f1f3d;margin-bottom:12px;">DIN88 vs DIN100: batería de servicio pesado para camión</h1>
+    <p class="lead">
+      La DIN100 (60038) es simplemente una versión más larga de la DIN88 (58827) — el mismo ancho de
+      175mm, la misma altura de 190mm, pero 40mm más de largo de caja. Ese largo adicional aporta más
+      capacidad y un arranque en frío más potente, pero solo si la bandeja de su camión tiene espacio
+      para ello.
+    </p>
+
+    <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;">Respuesta directa</h2>
+      <p style="margin:0;">
+        <strong>DIN88 (58827)</strong> = 12V, 88Ah, 800A EN, 150min RC, 353×175×190mm. <strong>DIN100
+        (60038)</strong> = 12V, 100Ah, 870A EN, 170min RC, 393×175×190mm. Ambas son baterías de
+        electrolito líquido EN 50342-1 con terminales cónicos europeos (T1), disponibles en
+        electrolito líquido, EFB y AGM. <strong>La única diferencia física es el largo de la
+        caja</strong> — la DIN100 es 40mm más larga, así que necesita una bandeja más larga que la
+        DIN88.
+      </p>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Puntos clave</h2>
+    <ol class="takeaways-list">
+      <li><strong>«DIN88» y «DIN100» son clases de tamaño, no clasificaciones</strong> — el código de modelo (58827 / 60038) contiene la capacidad y la cifra de arranque en frío reales.</li>
+      <li><strong>El cambio es solo de largo</strong> — la DIN100 conserva el ancho de 175mm y la altura de 190mm de la DIN88; es solo 40mm más larga, a diferencia del salto JIS N150→N200, donde el ancho es el obstáculo.</li>
+      <li><strong>El arranque en frío EN no es el CCA JIS</strong> — los 800A EN se miden según EN 50342-1 y no pueden compararse con una cifra JIS o SAE.</li>
+      <li><strong>El tamaño y la tecnología son decisiones separadas</strong> — ambos tamaños existen en electrolito líquido, EFB y AGM; no deje que la elección de tamaño fuerce la de tecnología.</li>
+      <li><strong>Verifique el largo de la bandeja, no el ancho</strong> — una bandeja que aloja una DIN88 normalmente solo alojará una DIN100 si hay 40mm de largo libre.</li>
+    </ol>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Comparación de especificaciones</h2>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>Especificación</th><th>DIN88 (58827)</th><th>DIN100 (60038)</th><th>Qué significa</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Voltaje</td><td>12V</td><td>12V</td><td>Idéntico — ambas son baterías individuales de 12V</td></tr>
+          <tr><td>Capacidad (C20)</td><td>88 Ah</td><td>100 Ah</td><td>La DIN100 almacena ~14% más de energía</td></tr>
+          <tr><td>Arranque en frío (EN 50342-1)</td><td>800 A</td><td>870 A</td><td>La DIN100 ofrece un arranque en frío más potente</td></tr>
+          <tr><td>Capacidad de reserva (SAE J537)</td><td>150 min</td><td>170 min</td><td>DIN100 = +20 min de reserva con el motor apagado</td></tr>
+          <tr><td>Dimensiones (largo × ancho × alto)</td><td>353×175×190 mm</td><td>393×175×190 mm</td><td>Mismo ancho y altura — la DIN100 es 40mm más larga</td></tr>
+          <tr><td>Terminal</td><td>Cónico europeo (T1)</td><td>Cónico europeo (T1)</td><td>Mismo tipo de terminal, positivo a la izquierda</td></tr>
+          <tr><td>Tecnología</td><td>Electrolito líquido / EFB / AGM</td><td>Electrolito líquido / EFB / AGM</td><td>Las mismas opciones de tecnología</td></tr>
+          <tr><td>Aplicación típica</td><td>Camiones europeos estándar, autobuses, climas fríos</td><td>Camiones europeos más grandes, altas cargas eléctricas</td><td>DIN100 para el servicio más exigente</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="data-note">
+      Las cifras son especificaciones propias de DINWEY (arranque en frío EN 50342-1). El CCA de una
+      DIN88 de terceros suele estar en el rango de ~800–850A y la altura varía según el fabricante
+      (190mm frente a algunas versiones de 174mm) — compare siempre dentro de una misma norma y
+      confirme con la ficha técnica específica.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">¿Cuál es la diferencia?</h2>
+    <p>
+      Las DIN88 y DIN100 son las dos clases principales de baterías de servicio pesado en formato DIN
+      para vehículos comerciales europeos. Ambas son baterías de 12V con terminales cónicos europeos
+      (T1), fabricadas según la norma de arranque en frío EN 50342-1, y se ofrecen en construcción de
+      electrolito líquido, EFB y AGM.
+    </p>
+    <p>
+      La diferencia es el largo de la caja y el rendimiento que conlleva. La DIN100 es 40mm más larga
+      (393mm vs 353mm), pero comparte exactamente el mismo ancho (175mm) y la misma altura (190mm).
+      Esa caja más larga aloja más área de placas, y por eso la DIN100 entrega más capacidad (100Ah
+      vs 88Ah), un arranque en frío más potente (870A vs 800A EN) y más capacidad de reserva (170min
+      vs 150min).
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:28px;">Por qué importa la diferencia</h2>
+    <div class="grid grid-3" style="margin-top:12px;">
+      <div class="card">
+        <h3>Largo de la bandeja</h3>
+        <p>La DIN100 necesita 40mm más de largo que la DIN88. En la bandeja ajustada de un camión europeo, ese largo adicional — no el ancho ni la altura — es lo que decide si entra.</p>
+      </div>
+      <div class="card">
+        <h3>Margen de arranque en frío</h3>
+        <p>870A frente a 800A EN es una mejora modesta pero real para los motores más grandes y las mañanas más frías. Si el motor está al límite en el arranque, la DIN100 es la apuesta más segura.</p>
+      </div>
+      <div class="card">
+        <h3>Carga eléctrica</h3>
+        <p>Los 20 minutos adicionales de capacidad de reserva ayudan cuando un camión alimenta telemática, iluminación o plataformas elevadoras con el motor apagado.</p>
+      </div>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">¿Son intercambiables?</h2>
+    <p>
+      <strong>Solo si la bandeja tiene largo libre.</strong> Como el ancho y la altura son idénticos,
+      la única restricción de ajuste es la diferencia de 40mm de largo. Una DIN100 no entrará en una
+      bandeja dimensionada exactamente para una DIN88 sin 40mm de largo libre y una abrazadera de
+      sujeción que alcance la caja más larga.
+    </p>
+    <p>
+      Lo inverso es más fácil: una DIN88 normalmente entra en una bandeja hecha para una DIN100
+      (dejando 40mm de espacio vacío, que pueden requerir un espaciador o bloque), pero entrega menos
+      capacidad y arranque, así que solo baje de modelo si la DIN88 cumple con el requisito de su
+      motor.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Guía de decisión para compradores</h2>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>Su situación</th><th>Elija</th><th>Por qué</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Camión europeo estándar, bandeja dimensionada para DIN88</td><td><strong>DIN88 (58827)</strong></td><td>Entra en la bandeja; 800A EN cubren el arranque diésel normal</td></tr>
+          <tr><td>Camión más grande / alta carga eléctrica / clima frío</td><td><strong>DIN100 (60038)</strong></td><td>100Ah y 870A EN con 170min RC para servicio pesado</td></tr>
+          <tr><td>La bandeja tiene 40mm de largo libre y se busca más potencia</td><td><strong>DIN100 (60038)</strong></td><td>Cambio solo de largo — sin cambios de ancho ni altura</td></tr>
+          <tr><td>Batería DIN88 existente que funciona bien</td><td><strong>DIN88 (58827)</strong></td><td>Reemplazo directo — no requiere modificar la bandeja</td></tr>
+          <tr><td>Se busca sin mantenimiento, pero la bandeja es de tamaño DIN88</td><td><strong>DIN88 AGM</strong></td><td>Conserve el tamaño y suba la tecnología a AGM</td></tr>
+          <tr><td>Sistema de 24V, reemplazo del par</td><td><strong>Dos idénticas</strong></td><td>Dos DIN88 o dos DIN100, nunca mezcladas</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Qué verificar antes de pedir</h2>
+    <ul>
+      <li>Largo de la bandeja — la DIN100 es 40mm más larga que la DIN88; el ancho y la altura son iguales.</li>
+      <li>Orientación de los terminales y alcance de los cables (cónico europeo T1, positivo a la izquierda).</li>
+      <li>Requisito de arranque del motor — compare dentro de EN 50342-1, no contra cifras JIS o SAE.</li>
+      <li>Si el vehículo es de 12V o de 24V (dos baterías en serie).</li>
+      <li>Elección de tecnología — electrolito líquido, EFB o AGM — independiente de la decisión de tamaño DIN88/DIN100.</li>
+    </ul>
+
+    <div style="margin:24px 0;padding:16px 20px;background:#fff8ec;border-left:4px solid #f5a623;border-radius:6px;">
+      <p style="margin:0;">
+        <strong>Nota de verificación:</strong> Las especificaciones varían según el fabricante. Las
+        cifras de DIN88 y DIN100 anteriores son especificaciones propias de DINWEY. Confirme siempre
+        el tamaño de grupo exacto, el tipo de terminal, la polaridad y las dimensiones de la bandeja
+        con el manual de su vehículo antes de reemplazar.
+      </p>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Cuál es la diferencia entre DIN88 y DIN100?</h3>
+      <p>La DIN100 (60038) es 40mm más larga que la DIN88 (58827) — 393mm vs 353mm — con el mismo ancho de 175mm y la misma altura de 190mm, lo que da 100Ah y 870A EN frente a 88Ah y 800A EN.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Puedo reemplazar una DIN88 por una DIN100?</h3>
+      <p>Solo si hay 40mm de largo libre en la bandeja. La DIN100 conserva el mismo ancho y la misma altura, pero es más larga, así que no entrará en una bandeja dimensionada exactamente para una DIN88.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Es la DIN100 siempre la mejor batería?</h3>
+      <p>No. Tiene mayor rendimiento, pero es más larga y más pesada. Si la DIN88 cumple con el requisito de su motor y entra en su bandeja, es la opción correcta y más económica.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Son comparables las clasificaciones de arranque en frío DIN y JIS?</h3>
+      <p>No. DIN usa el arranque en frío EN (EN 50342-1), una prueba diferente del CCA JIS o del CCA SAE. Una clasificación EN de 800A no es comparable con una cifra JIS de 800A.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿La DIN88 o la DIN100 están disponibles en AGM?</h3>
+      <p>Ambas están disponibles en electrolito líquido, EFB y AGM. La decisión de tamaño (DIN88 vs DIN100) es independiente de la decisión de tecnología.</p>
+    </div>
+
+    <div style="margin-top:32px;">
+      <h2 style="color:#0f1f3d;">Modelos relacionados</h2>
+      <ul>
+        <li><a href="/es/batteries/din/din88/" style="color:#1e5aa8;">58827 (DIN88) — especificación completa</a></li>
+        <li><a href="/es/batteries/din/din100/" style="color:#1e5aa8;">60038 (DIN100) — especificación completa</a></li>
+        <li><a href="/es/products/din-heavy-duty/" style="color:#1e5aa8;">Familia de productos DIN de servicio pesado</a></li>
+        <li><a href="/es/compare/n150-vs-n200/" style="color:#1e5aa8;">N150 vs N200 — comparativa JIS</a></li>
+        <li><a href="/es/truck-models/" style="color:#1e5aa8;">Referencia de compatibilidad por modelo de camión</a></li>
+      </ul>
+    </div>
+
+    <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;">
+      <a class="cta" href="/es/contact/" style="display:inline-block;background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">Confirme la compatibilidad — Obtenga una ficha técnica</a>
+      <a class="cta" href="https://wa.me/8613323237275" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">WhatsApp — Contactar ahora</a>
+    </div>
+
+    <div style="margin-top:24px;padding:16px 20px;background:#f4f7fb;border-radius:8px;">
+      <p class="data-note" style="margin:0;">
+        Fuentes: especificación propia de DINWEY (battery-master-data.json); cotejada con el listado
+        DIN88 de The Battery Centre y la norma de arranque en frío EN 50342-1.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

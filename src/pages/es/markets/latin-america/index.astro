@@ -1,0 +1,142 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué norma de batería se usa en América Latina para los camiones?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "América Latina sigue predominantemente la norma BCI —tamaños Grupo 31 y 8D— que coincide con los camiones pesados norteamericanos, aunque también hay vehículos europeos y japoneses. Seleccione la batería según el vehículo y su bandeja."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puede DINWEY suministrar baterías BCI Grupo 31 y 8D?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, fabricadas bajo pedido en nuestra línea de producción BCI. Los tamaños de grupo BCI cuentan con clasificaciones de arranque en frío según SAE J537 (probadas a −18°C), y los suministramos bajo pedido para flotas de América Latina y América del Norte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la diferencia entre los tamaños BCI y JIS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BCI utiliza números de grupo (31, 8D) definidos por el Battery Council International para América del Norte y América Latina, con CCA probados según SAE J537 a −18°C. JIS utiliza códigos de modelo (N150, N200) para Asia y África, probados según JIS D5301 a −15°C. No son intercambiables: adapte la norma al vehículo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Exportan baterías a América Latina?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. DINWEY suministra BCI Grupo 31/8D bajo pedido, además de personalización OEM, a importadores y distribuidores de toda América Latina, con datos de prueba por lote y documentación de embarque completa."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Baterías para camiones para América Latina — DINWEY OEM"
+  description="Baterías de servicio pesado para camiones BCI Grupo 31/8D para importadores latinoamericanos — CCA según SAE J537, fabricadas bajo pedido. Suministro OEM de Chengguang Power Tech."
+  jsonLd={faqJsonLd}
+>
+  <div class="container section">
+    <nav aria-label="Ruta de navegación" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
+      <a href="/es/" style="color:#1e5aa8;">Inicio</a> &rsaquo; Mercados &rsaquo; América Latina
+    </nav>
+    <h1 style="color:#0f1f3d;">Baterías para camiones para el mercado latinoamericano</h1>
+    <p class="lead">
+      América Latina sigue la norma BCI —tamaños Grupo 31 y 8D que coinciden con los camiones
+      pesados norteamericanos— con clasificaciones de arranque en frío según SAE J537. DINWEY
+      suministra estos tamaños de grupo bajo pedido, con personalización OEM para importadores y
+      distribuidores.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Puntos clave</h2>
+    <ol class="takeaways-list">
+      <li><strong>BCI Grupo 31/8D es la norma regional</strong> — coincide con los camiones pesados norteamericanos, con clasificación SAE J537 a −18°C.</li>
+      <li><strong>Fabricadas bajo pedido</strong> — los tamaños BCI se suministran bajo pedido a través de nuestra línea de producción BCI, con personalización OEM/marca privada.</li>
+      <li><strong>Las normas no son intercambiables</strong> — los números de grupo BCI difieren de los códigos de modelo JIS y de los códigos de capacidad DIN; seleccione la batería según el vehículo y su bandeja.</li>
+      <li><strong>La rapidez OEM es clave</strong> — los importadores valoran un ciclo rápido del plano a la muestra, con marca y empaque fabricados según especificación.</li>
+    </ol>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Normas de baterías para la región</h2>
+    <p>
+      La flota de camiones pesados de América Latina está dominada por marcas norteamericanas, que
+      usan tamaños de grupo BCI (Battery Council International), principalmente Grupo 31 y 8D. El
+      CCA se prueba según SAE J537 a −18°C. En algunos mercados también hay vehículos europeos y
+      japoneses, por lo que un importador puede necesitar cobertura DIN o JIS además de BCI. La
+      línea BCI de DINWEY se produce bajo pedido, de modo que un distribuidor puede especificar
+      Grupo 31 u 8D y obtener el tamaño exacto que su mercado requiere.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Norma</th><th>Organismo emisor</th><th>Prueba de CCA</th><th>Tamaños de servicio pesado</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>BCI</td><td>Battery Council International</td><td>SAE J537 (−18°C)</td><td>Grupo 31, 8D</td></tr>
+        <tr><td>JIS</td><td>Japanese Industrial Standards</td><td>JIS D5301 (−15°C)</td><td>N150, N200</td></tr>
+        <tr><td>DIN/EN</td><td>Deutsches Institut für Normung</td><td>EN 50342-1 (−18°C)</td><td>DIN88, DIN100</td></tr>
+      </tbody>
+    </table>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">OEM y marca privada para la región</h2>
+    <p>
+      Los importadores latinoamericanos valoran de forma constante la velocidad de personalización:
+      pasar de un plano a una muestra aprobada con marca, empaque y tipo de terminal fabricados
+      según especificación. El programa OEM de DINWEY cubre todo el alcance de marca privada:
+      marca, empaque, especificación y tipo de terminal, para distribuidores, importadores y
+      marcas de todo el mundo.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Importación y cumplimiento</h2>
+    <p>
+      La documentación de importación y los requisitos de conformidad varían según el país y
+      cambian con el tiempo. Considere las cifras como indicativas y confirme la certificación, el
+      etiquetado y la situación arancelaria vigentes con su importador o agente de carga antes de
+      cada embarque.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Líneas de producto para la región</h2>
+    <div class="grid grid-2" style="margin-top:16px;">
+      <div class="card">
+        <h3>BCI Grupo 31 / 8D</h3>
+        <p>Tamaños de grupo norteamericanos, fabricados bajo pedido en nuestra línea de producción BCI.</p>
+        <a href="/es/products/bci-request/">Ver BCI (bajo pedido) →</a>
+      </div>
+      <div class="card">
+        <h3>Flotas y OEM</h3>
+        <p>Suministro por volumen, consistencia por lote y personalización de marca privada para importadores.</p>
+        <a href="/es/products/fleet/">Ver programas para flotas →</a>
+      </div>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Qué norma de batería se usa en América Latina para los camiones?</h3>
+      <p>América Latina sigue predominantemente la norma BCI —tamaños Grupo 31 y 8D— que coincide con los camiones pesados norteamericanos, aunque también hay vehículos europeos y japoneses. Seleccione la batería según el vehículo y su bandeja.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Puede DINWEY suministrar baterías BCI Grupo 31 y 8D?</h3>
+      <p>Sí, fabricadas bajo pedido en nuestra línea de producción BCI. Los tamaños de grupo BCI cuentan con clasificaciones de arranque en frío según SAE J537 (probadas a −18°C), y los suministramos bajo pedido para flotas de América Latina y América del Norte.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Cuál es la diferencia entre los tamaños BCI y JIS?</h3>
+      <p>BCI utiliza números de grupo (31, 8D) definidos por el Battery Council International para América del Norte y América Latina, con CCA probados según SAE J537 a −18°C. JIS utiliza códigos de modelo (N150, N200) para Asia y África, probados según JIS D5301 a −15°C. No son intercambiables: adapte la norma al vehículo.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Exportan baterías a América Latina?</h3>
+      <p>Sí. DINWEY suministra BCI Grupo 31/8D bajo pedido, además de personalización OEM, a importadores y distribuidores de toda América Latina, con datos de prueba por lote y documentación de embarque completa.</p>
+    </div>
+
+    <p style="margin-top:24px;">
+      📚 Más información: <a href="https://docs.dinweysbattery.com/jis-vs-din-vs-bci/" target="_blank" rel="noopener">Normas JIS vs DIN vs BCI</a>
+    </p>
+  </div>
+</BaseLayout>

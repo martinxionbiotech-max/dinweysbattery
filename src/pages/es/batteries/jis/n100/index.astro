@@ -1,0 +1,56 @@
+---
+import BatteryModelLayout from "../../../../../layouts/BatteryModelLayout.astro";
+---
+
+<BatteryModelLayout
+  model="95E41R"
+  groupLabel="N100"
+  standard="JIS"
+  productName="DINWEY 95E41R (N100) — Batería para camiones ligeros/medianos (referencia)"
+  description="Especificación de referencia del 95E41R (N100): los catálogos de terceros indican 100 Ah, 730 A CCA (JIS) y 410×176×234 mm. No es una clasificación publicada del stock de DINWEY."
+  voltage="12V"
+  ah="100 Ah"
+  cca="730"
+  testStandard="JIS D5301"
+  rc="180"
+  dimensions="410×176×234 mm (envolvente máxima BCI)"
+  terminal="JIS tipo A (borne cónico estándar)"
+  technology="Inundada (variantes libres de mantenimiento y mantenibles disponibles)"
+  takeaways={[
+    "El 95E41R es la clase N100 de JIS — un modelo de referencia de 100 Ah entre la N70 y las más grandes N120/N150.",
+    "Las fuentes de referencia (Sebang) indican 100 Ah, 730 A CCA (JIS) y una envolvente de 410×176×234 mm.",
+    "El CCA de terceros varía mucho — aproximadamente 700–870 A entre fabricantes — así que compare siempre dentro de la misma norma.",
+    "Esta es una especificación de referencia, no una clasificación publicada del stock de DINWEY — confirme antes de pedir."
+  ]}
+  intro={[
+    "El 95E41R (JIS N100) es una batería de arranque de 100 Ah para vehículos comerciales ligeros y medianos — un modelo de referencia recopilado de catálogos de terceros, más que una clasificación publicada del stock de DINWEY.",
+    "La N100 se sitúa entre la N70 (70 Ah) y la N120 (120 Ah) en la gama JIS. Sebang indica la N100 a 100 Ah (C20), 180 minutos de capacidad de reserva y 730 A CCA, en una carcasa de 410 mm de largo.",
+    "Como especificación de referencia, el CCA, la capacidad y las dimensiones exactos varían según el fabricante y deben confirmarse con su proveedor y su bandeja."
+  ]}
+  applications={[
+    "Camiones ligeros y medianos",
+    "Autobuses y autocares",
+    "Generadores diésel",
+    "Vehículos comerciales con bandejas JIS"
+  ]}
+  specNotes={[
+    "El CCA se mide conforme a JIS D5301. Sebang indica 730 A; el CCA de terceros varía aproximadamente entre 700 y 870 A entre fabricantes — compare solo dentro de JIS D5301.",
+    "La capacidad de reserva de 180 minutos (SAE J537) admite cargas con el motor apagado, como iluminación y telemática.",
+    "La cifra de 410×176×234 mm es la envolvente máxima BCI. Confirme la longitud de su bandeja (410 mm) y la posición de los bornes antes de sustituir."
+  ]}
+  faq={[
+    { q: "¿Qué es la batería 95E41R / N100?", a: "El 95E41R es una batería de arranque de 12V y 100 Ah de clase N100 JIS para camiones ligeros/medianos, autobuses y vehículos comerciales." },
+    { q: "¿La N100 es una batería del stock de DINWEY?", a: "Esta página es una especificación de referencia recopilada de catálogos de terceros (Sebang), no una clasificación publicada del stock de DINWEY — confirme la disponibilidad mediante consulta." },
+    { q: "¿Cuántos CCA tiene la N100?", a: "Las fuentes de referencia indican unos 730 A CCA (JIS D5301), con variación de terceros de aproximadamente 700–870 A. Confirme la ficha técnica específica." },
+    { q: "¿Cuáles son las dimensiones de la N100?", a: "La envolvente BCI es 410×176×234 mm (L×An×Al). Confirme la longitud de la bandeja y la posición de los bornes antes de pedir." },
+    { q: "N100 vs N120 — ¿cuál es la diferencia?", a: "La N120 es más grande y de mayor potencia (120 Ah, ~820 A CCA) que la N100 (100 Ah, ~730 A CCA). Elija la N120 para mayores cargas eléctricas y arranques más fríos." }
+  ]}
+  complianceNote="Esta es una especificación de referencia de terceros para la N100 (95E41R) — NO es una clasificación publicada del stock de DINWEY. Que sea compatible con un vehículo específico depende de la norma de batería del vehículo, el tamaño de grupo, el tipo de borne, la polaridad y las dimensiones de la bandeja, que varían según el modelo y la generación. Confirme siempre la configuración exacta en el manual de su vehículo antes de sustituir."
+  isReference={true}
+  parentCategory={{ href: "/es/products/jis-heavy-duty/", label: "Baterías JIS de servicio pesado" }}
+  siblingModels={[
+    { href: "/es/batteries/jis/n70/", label: "65D31R (N70) — más pequeña" },
+    { href: "/es/batteries/jis/n120/", label: "N120 — más grande" },
+    { href: "/es/batteries/jis/n150/", label: "145G51 (N150) — stock de DINWEY" }
+  ]}
+/>

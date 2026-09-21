@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import { localeFromPath, localizePath, t } from "../i18n/ui";
 import { PUBLIC_LIST_PRICE } from "../data/pricing";
 
 interface ProductImage {
@@ -52,6 +53,9 @@ const {
   maintenance = [],
   takeaways = []
 } = Astro.props;
+
+const locale = localeFromPath(Astro.url.pathname);
+const lh = (href: string) => localizePath(href, locale);
 
 const galleryImages = images.length > 0 ? images : image ? [image] : [];
 const ogImage = galleryImages[0]?.src;
@@ -138,14 +142,14 @@ const siblingLinks = productLines.filter((p) => p.href.replace(/\/$/, "") !== cu
   jsonLd={[productJsonLd, faqJsonLd]}
   pageType="ItemPage"
   breadcrumbs={[
-    { name: "Home", url: "/" },
+    { name: t(locale, "layout.home"), url: lh("/") },
     { name: "Products", url: "/products/" },
     { name: title, url: pageUrl }
   ]}
 >
   <div class="container section">
     <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
-      <a href="/" style="color:#1e5aa8;">Home</a> &rsaquo;
+      <a href={lh("/")} style="color:#1e5aa8;">{t(locale, "layout.home")}</a> &rsaquo;
       <a href="/products/" style="color:#1e5aa8;">Products</a> &rsaquo; {title}
     </nav>
     <h1 style="color:#0f1f3d;margin-bottom:12px;">{title}</h1>
@@ -153,7 +157,7 @@ const siblingLinks = productLines.filter((p) => p.href.replace(/\/$/, "") !== cu
 
     {takeaways.length > 0 && (
       <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
-        <h2 style="color:#0f1f3d;margin:0 0 10px;">Key Takeaways</h2>
+        <h2 style="color:#0f1f3d;margin:0 0 10px;">{t(locale, "layout.keyTakeaways")}</h2>
         <ol style="margin:0;padding-left:20px;">
           {takeaways.map((t) => (
             <li style="margin-bottom:6px;">{t}</li>
@@ -189,26 +193,25 @@ const siblingLinks = productLines.filter((p) => p.href.replace(/\/$/, "") !== cu
       </div>
     )}
 
-    <h2 style="color:#0f1f3d;margin-top:32px;">Specifications</h2>
+    <h2 style="color:#0f1f3d;margin-top:32px;">{t(locale, "layout.specs")}</h2>
     <table>
       <thead>
-        <tr><th>Specification</th><th>Value</th></tr>
+        <tr><th>{t(locale, "layout.specification")}</th><th>{t(locale, "layout.value")}</th></tr>
       </thead>
       <tbody>
-              <tr><td><strong>Indicative minimum unit price</strong></td><td>From {PUBLIC_LIST_PRICE.display} {PUBLIC_LIST_PRICE.note}</td></tr>
+              <tr><td>{t(locale, "layout.indicativePrice")}</td><td>{t(locale, "layout.fromPrice")} {PUBLIC_LIST_PRICE.display} {t(locale, "layout.priceNote")}</td></tr>
         {specTable.map((row) => (
           <tr><td>{row.spec}</td><td>{row.value}</td></tr>
         ))}
       </tbody>
     </table>
     <p class="data-note">
-      Specifications are representative ranges for this product family. Exact CCA, capacity
-      and dimensions vary by model — contact us for a full datasheet matched to your vehicle.
+      {t(locale, "layout.repSpecNote")}
     </p>
 
     {specNotes.length > 0 && (
       <div style="margin-top:28px;">
-        <h2 style="color:#0f1f3d;">Understanding These Specifications</h2>
+        <h2 style="color:#0f1f3d;">{t(locale, "layout.understandThese")}</h2>
         {specNotes.map((p) => (
           <p>{p}</p>
         ))}
@@ -217,7 +220,7 @@ const siblingLinks = productLines.filter((p) => p.href.replace(/\/$/, "") !== cu
 
     {comparison && (
       <div style="margin-top:28px;">
-        <h2 style="color:#0f1f3d;">Model Comparison</h2>
+        <h2 style="color:#0f1f3d;">{t(locale, "layout.modelComparison")}</h2>
         <div style="overflow-x:auto;">
           <table>
             <thead>
@@ -241,7 +244,7 @@ const siblingLinks = productLines.filter((p) => p.href.replace(/\/$/, "") !== cu
       </div>
     )}
 
-    <h2 style="color:#0f1f3d;margin-top:32px;">Typical Applications</h2>
+    <h2 style="color:#0f1f3d;margin-top:32px;">{t(locale, "layout.typicalApps")}</h2>
     <ul>
       {applications.map((a) => (
         <li>{a}</li>
@@ -250,7 +253,7 @@ const siblingLinks = productLines.filter((p) => p.href.replace(/\/$/, "") !== cu
 
     {scenarios.length > 0 && (
       <div style="margin-top:28px;">
-        <h2 style="color:#0f1f3d;">Application Scenarios in Detail</h2>
+        <h2 style="color:#0f1f3d;">{t(locale, "layout.appScenarios")}</h2>
         {scenarios.map((s) => (
           <div style="margin-bottom:16px;">
             <h3 style="color:#0f1f3d;margin-bottom:6px;">{s.title}</h3>
@@ -262,14 +265,14 @@ const siblingLinks = productLines.filter((p) => p.href.replace(/\/$/, "") !== cu
 
     {maintenance.length > 0 && (
       <div style="margin-top:28px;">
-        <h2 style="color:#0f1f3d;">Maintenance &amp; Care</h2>
+        <h2 style="color:#0f1f3d;">{t(locale, "layout.maintenance")}</h2>
         {maintenance.map((p) => (
           <p>{p}</p>
         ))}
       </div>
     )}
 
-    <h2 style="color:#0f1f3d;margin-top:32px;">Frequently Asked Questions</h2>
+    <h2 style="color:#0f1f3d;margin-top:32px;">{t(locale, "layout.faq")}</h2>
     {faq.map((f) => (
       <div class="faq-item">
         <h3>{f.q}</h3>
@@ -284,7 +287,7 @@ const siblingLinks = productLines.filter((p) => p.href.replace(/\/$/, "") !== cu
 
     {siblingLinks.length > 0 && (
       <div style="margin-top:32px;">
-        <h2 style="color:#0f1f3d;">Explore Other DINWEY Product Lines</h2>
+        <h2 style="color:#0f1f3d;">{t(locale, "layout.exploreLines")}</h2>
         <ul>
           {siblingLinks.map((s) => (
             <li><a href={s.href} style="color:#1e5aa8;">{s.label}</a></li>
@@ -295,13 +298,13 @@ const siblingLinks = productLines.filter((p) => p.href.replace(/\/$/, "") !== cu
 
     {relatedDocs.length > 0 && (
       <div style="margin-top:32px;padding:20px;background:#f4f7fb;border-radius:8px;">
-        <h2 style="color:#0f1f3d;margin-top:0;">Related Technical Documentation</h2>
+        <h2 style="color:#0f1f3d;margin-top:0;">{t(locale, "layout.relatedDocs")}</h2>
         <ul style="margin-bottom:0;">
           {relatedDocs.map((d) => (
             <li><a href={d.url} target="_blank" rel="noopener" style="color:#1e5aa8;">{d.title}</a></li>
           ))}
         </ul>
-        <p class="data-note" style="margin-top:12px;">From the <a href="https://docs.dinweysbattery.com/" target="_blank" rel="noopener">DINWEY Knowledge Hub</a>.</p>
+        <p class="data-note" style="margin-top:12px;">{t(locale, "layout.fromKnowledgeHub")} <a href="https://docs.dinweysbattery.com/" target="_blank" rel="noopener">DINWEY Knowledge Hub</a>.</p>
       </div>
     )}
   </div>

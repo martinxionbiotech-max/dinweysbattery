@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { localeFromPath, localizePath, t } from "../i18n/ui";
 import "../styles/global.css";
 
 interface Props {
@@ -40,6 +41,10 @@ const {
 } = Astro.props;
 
 const SITE = "https://dinweysbattery.com";
+const pathLocale = localeFromPath(Astro.url.pathname);
+const htmlLang = pathLocale;
+const htmlDir = pathLocale === "ar" ? "rtl" : "ltr";
+const ogLocale = pathLocale === "ar" ? "ar_SA" : pathLocale === "es" ? "es_ES" : "en_US";
 const BRAND = "DINWEY";
 const BRAND_FULL = "DINWEY — Truck & Heavy-Duty Starting Batteries";
 
@@ -110,7 +115,7 @@ const orgJsonLd = {
     "email": "martin@dinweys.com",
     "url": "https://wa.me/8613323237275",
     "areaServed": "Worldwide",
-    "availableLanguage": ["English", "Chinese"]
+    "availableLanguage": ["English", "Chinese", "Arabic", "Spanish"]
   },
   "areaServed": "Worldwide",
   "knowsAbout": [
@@ -191,7 +196,7 @@ const webPageJsonLd = {
   "name": cleanTitle,
   "description": description,
   "isPartOf": { "@id": SITE + "/#website" },
-  "inLanguage": lang,
+  "inLanguage": htmlLang,
   "primaryImageOfPage": ogImage.startsWith("http") ? ogImage : SITE + ogImage,
   "publisher": { "@id": SITE + "/#organization" },
   ...(canonicalUrl !== SITE + "/"
@@ -203,7 +208,7 @@ const webPageJsonLd = {
 ---
 
 <!doctype html>
-<html lang={lang} dir={dir}>
+<html lang={htmlLang} dir={htmlDir}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -221,7 +226,12 @@ const webPageJsonLd = {
     <meta property="og:image" content={ogImage.startsWith("http") ? ogImage : SITE + ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={ogLocale} />
+
+    <link rel="alternate" hreflang="en" href={SITE + localizePath(Astro.url.pathname, "en")} />
+    <link rel="alternate" hreflang="ar" href={SITE + localizePath(Astro.url.pathname, "ar")} />
+    <link rel="alternate" hreflang="es" href={SITE + localizePath(Astro.url.pathname, "es")} />
+    <link rel="alternate" hreflang="x-default" href={SITE + localizePath(Astro.url.pathname, "en")} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
@@ -245,12 +255,12 @@ const webPageJsonLd = {
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">{t(pathLocale, "layout.skip")}</a>
     <Header />
     <main id="main">
       <slot />
       <div class="container" style="margin-top:40px;padding:16px 0;border-top:1px solid #e5e9f0;font-size:0.85rem;color:#475569;">
-        <p style="margin:0;"><strong>Technical review</strong> — Reviewed by the {BRAND} technical team. Manufacturer: Chengguang Power Tech Co., Ltd. Data source: manufacturer specification and test documentation. Specifications vary by model and standard; confirm final values with the manufacturer.</p>
+        <p style="margin:0;">{t(pathLocale, "layout.techReview").replace("DINWEY", BRAND)}</p>
       </div>
     </main>
     <Footer />

@@ -1,0 +1,95 @@
+---
+import ProductLayout from "../../../../layouts/ProductLayout.astro";
+---
+
+<ProductLayout
+  title="Baterías para camiones JIS de servicio pesado N150 / N200 — OEM DINWEY"
+  description="Baterías para camiones de servicio pesado con norma JIS de DINWEY — modelos 145G51 (N150) y 190H52 (N200) para camiones grandes, autobuses y generadores. Certificación IATF 16949."
+  takeaways={[
+    "**N150 vs N200 es un salto de tamaño y salida** — 135Ah/900A CCA/508×222×212mm vs 200Ah/1100A CCA/520×278×220mm; confirme la bandeja antes de subir de modelo.",
+    "**1100A vs 900A CCA decide la capacidad de arranque en frío** — el N200 mueve los motores más grandes en climas fríos; el N150 encaja en bandejas estándar para servicio en climas templados.",
+    "**La placa gruesa de Pb-Sb es una elección deliberada** — el antimonio resiste ciclos profundos y vibración; la contrapartida es un diseño mantenible que requiere revisiones periódicas de agua, no un defecto.",
+    "**220 vs 320 minutos de RC es su margen con el motor apagado** — luces, telemática y un alternador averiado consumen la capacidad de reserva antes de que la batería se agote.",
+    "**Un camión de 24V son dos N200 en serie** — reemplace ambas juntas, del mismo modelo y antigüedad, o la carga se desequilibra y la batería más débil falla antes."
+  ]}
+  specTable={[
+    { spec: "Modelo 145G51 (N150)", value: "12V, 135Ah (C20), 900A CCA, 220min RC, 508×222×212mm" },
+    { spec: "Modelo 190H52 (N200)", value: "12V, 200Ah (C20), 1100A CCA, 320min RC, 520×278×220mm" },
+    { spec: "Norma", value: "JIS D5301" },
+    { spec: "Tecnología", value: "Servicio pesado, placa gruesa con electrolito líquido (rejilla Pb-Sb)" },
+    { spec: "Terminales", value: "JIS tipo A (poste grande)" },
+    { spec: "Aplicaciones", value: "Camiones pesados, autobuses, generadores, equipos fuera de carretera" }
+  ]}
+  applications={[
+    "Camiones de servicio pesado y semirremolques",
+    "Autobuses y autocares",
+    "Generadores diésel",
+    "Equipos fuera de carretera y de construcción"
+  ]}
+  intro={[
+    "Las baterías de servicio pesado con norma JIS son el caballo de batalla de los vehículos comerciales en Asia, Oriente Medio y África. La serie «N» (N150, N200) se basa en un diseño de placa gruesa con electrolito líquido y rejilla de Pb-Sb (plomo-antimonio) — elegido deliberadamente en lugar de placas automotrices más delgadas para resistir los ciclos profundos y la vibración de los grandes motores diésel.",
+    "La diferencia clave entre los dos modelos es el tamaño y la salida. El N150 (145G51) encaja en bandejas estándar de camión pesado con 508×222×212mm y entrega 900A CCA. El N200 (190H52) es más grande, con 520×278×220mm, y entrega 1100A CCA para los motores más grandes y los climas más fríos. Si su bandeja admite el N200, es la opción más robusta para servicio exigente — pero confirme siempre la huella y la orientación de los terminales antes de subir de modelo.",
+    "Ambos se fabrican por Chengguang Power Tech Co., Ltd. bajo un sistema de calidad IATF 16949, con datos de ensayo de CCA por lote y documentación completa en cada embarque."
+  ]}
+  specNotes={[
+    "Los amperios de arranque en frío (CCA) se miden según JIS D5301 — la corriente que una batería de 12V completamente cargada puede entregar durante 30 segundos a −15 °C manteniendo al menos 7.2V. Los 900A del N150 y los 1100A del N200 describen la potencia de arranque en frío: una cifra más alta significa un arranque más fuerte y fiable en una mañana fría.",
+    "La Capacidad de Reserva (RC), también según SAE J537, es la cantidad de minutos que una batería completamente cargada puede mantener una carga de 25 amperios a 27 °C (80 °F) antes de que el voltaje caiga a 10.5V. Los 220 minutos del N150 y los 320 minutos del N200 son su margen para luces, telemática y otras cargas cuando el motor está apagado — o si el alternador falla en ruta.",
+    "La capacidad se mide a la tasa de 20 horas (C20). Los 135Ah del N150 y los 200Ah del N200 describen la energía total almacenada en una descarga lenta de 20 horas a 25 °C — una medida distinta de la ráfaga corta y de alta corriente que describe el CCA.",
+    "Instalación y terminales: ambos modelos usan postes cónicos grandes JIS tipo A. La huella de 508×222×212mm del N150 conviene a bandejas estándar de camión pesado; el N200 es más grande, con 520×278×220mm. Confirme el largo, el ancho, el alto y la posición de los terminales de la bandeja antes de pasar del N150 al N200."
+  ]}
+  comparison={{
+    headers: ["Especificación", "N150 (145G51)", "N200 (190H52)"],
+    rows: [
+      ["Voltaje", "12V", "12V"],
+      ["Capacidad (C20)", "135 Ah", "200 Ah"],
+      ["Amperios de arranque en frío (JIS D5301)", "900 A", "1100 A"],
+      ["Capacidad de reserva (SAE J537)", "220 min", "320 min"],
+      ["Dimensiones (L×An×Al)", "508×222×212 mm", "520×278×220 mm"],
+      ["Terminales", "JIS tipo A", "JIS tipo A"],
+      ["Ideal para", "Bandejas estándar de camión pesado, climas templados", "Motores más grandes, climas más fríos, cargas eléctricas altas"]
+    ]
+  }}
+  scenarios={[
+    {
+      title: "Camiones de servicio pesado y semirremolques",
+      body: "En un tractocamión, la batería de la serie N debe mover un gran motor diésel tras el descanso nocturno y largas rutas. Las placas gruesas de Pb-Sb y el alto CCA del N200 manejan arranques en frío repetidos y la vibración de la operación en carretera. En tractocamiones de 24V se conectan dos unidades N200 en serie."
+    },
+    {
+      title: "Autobuses y autocares",
+      body: "Los autobuses urbanos e interurbanos someten sus baterías a ciclos más duros que los camiones de larga distancia — arranques frecuentes, largos períodos de ralentí y carga constante de accesorios. Las placas gruesas para ciclos profundos y la generosa capacidad de reserva del N150 y el N200 mantienen el arranque fiable del autobús durante toda la jornada de servicio."
+    },
+    {
+      title: "Generadores diésel",
+      body: "Los generadores diésel de respaldo y de servicio continuo necesitan una batería que conserve la carga durante largos períodos de inactividad y luego entregue una ráfaga potente cuando el sistema de control ordena el arranque. El diseño con electrolito líquido de la serie N tolera la vida en flotación de un cuarto de generadores."
+    },
+    {
+      title: "Equipos fuera de carretera y de construcción",
+      body: "Excavadoras, cargadoras y máquinas mineras combinan fuertes vibraciones, polvo y servicio irregular. La rejilla de Pb-Sb y la caja robusta de la serie N JIS están pensadas para resistir condiciones en las que una placa automotriz ligera fallaría pronto."
+    }
+  ]}
+  maintenance={[
+    "Son baterías de electrolito líquido mantenibles. Revise periódicamente los niveles de electrolito y rellene solo con agua destilada cuando estén bajos, manteniendo las placas cubiertas — nunca sobrellene.",
+    "Mantenga los terminales limpios, apretados y ligeramente engrasados para evitar la corrosión. Una conexión floja o corroída reduce la corriente de arranque y puede forzar el sistema de carga.",
+    "Evite las descargas profundas. Recargue con prontitud después de cada uso y almacene completamente cargada en un lugar fresco y seco — una batería que queda parcialmente descargada se sulfata y pierde capacidad de forma permanente.",
+    "En un par en serie de 24V, reemplace siempre ambas baterías juntas, del mismo modelo y antigüedad, para que la carga se mantenga equilibrada."
+  ]}
+  images={[
+    { src: "/images/products/145G51-N150.jpg", alt: "Batería de camión DINWEY 145G51 JIS N150", width: 1024, height: 1024 },
+    { src: "/images/products/190H52-N200.jpg", alt: "Batería de camión DINWEY 190H52 JIS N200", width: 1024, height: 1024 }
+  ]}
+  faq={[
+    { q: "¿Cuál es la diferencia entre N150 y N200?", a: "La JIS N150 (modelo 145G51) tiene 135Ah de capacidad y 900A CCA; la N200 (modelo 190H52) es más grande, con 200Ah y 1100A CCA. Elija según el requisito de CCA de su motor y el tamaño de la bandeja de baterías." },
+    { q: "¿Estas baterías son para sistemas de 12V o 24V?", a: "Cada una es una batería de 12V. Los camiones pesados con sistemas de 24V conectan dos de ellas en serie." },
+    { q: "¿Qué CCA proporciona una JIS N200?", a: "La 190H52 (N200) proporciona 1100A CCA (JIS D5301), adecuada para grandes motores diésel." },
+    { q: "¿Cuáles son las dimensiones del N150 y el N200?", a: "El N150 (145G51) mide 508×222×212mm; el N200 (190H52) mide 520×278×220mm. Confirme que su bandeja admita el modelo más grande antes de subir de tamaño." },
+    { q: "¿Estas baterías no requieren mantenimiento?", a: "Los modelos JIS de servicio pesado usan construcción de placa gruesa con electrolito líquido (Pb-Sb), que puede requerir revisiones periódicas de electrolito. Hay versiones AGM disponibles donde se prefiera una opción sin mantenimiento." },
+    { q: "¿Qué significa la Capacidad de Reserva (RC) en una batería de camión?", a: "La RC es la cantidad de minutos que una batería de 12V completamente cargada puede mantener una carga de 25 amperios a 27 °C antes de caer a 10.5V (SAE J537). El N150 ofrece 220 minutos y el N200 320 minutos — un margen para luces, telemática y otras cargas cuando el motor está apagado o el alternador falla." },
+    { q: "¿Por qué estas baterías usan una rejilla de plomo-antimonio (Pb-Sb)?", a: "El antimonio refuerza la rejilla positiva y mejora la resistencia a los ciclos profundos, lo que conviene al servicio pesado. La contrapartida es un consumo de agua algo mayor, por lo que estas baterías son mantenibles. Hay versiones AGM disponibles donde se prefiera el funcionamiento sin mantenimiento." },
+    { q: "¿Puedo montar una N200 en lugar de una N150?", a: "Solo si su bandeja y el recorrido de los cables admiten la huella más grande de 520×278×220mm (el N150 mide 508×222×212mm). Confirme largo, ancho, alto y orientación de los terminales antes de subir de modelo." }
+  ]}
+  relatedDocs={[
+    { title: "JIS N150 vs N200 — cuál batería de servicio pesado", url: "https://docs.dinweysbattery.com/jis-n150-vs-n200/" },
+    { title: "Guía completa de baterías para camiones", url: "https://docs.dinweysbattery.com/complete-guide/" },
+    { title: "Qué es el CCA", url: "https://docs.dinweysbattery.com/what-is-cca/" }
+  ]}
+/>

@@ -1,0 +1,249 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contacto DINWEY",
+  "url": "https://dinweysbattery.com/es/contact/",
+  "mainEntity": { "@id": "https://dinweysbattery.com/#organization" }
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Venden baterías para camiones a clientes finales o solo al por mayor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DINWEY suministra principalmente a distribuidores, importadores, operadores de flotas y compradores OEM/marca privada al por mayor. Para consultas comerciales, escriba a martin@dinweys.com indicando el tipo de vehículo, el tamaño de grupo y la cantidad objetivo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué información debo incluir en mi consulta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Incluya el tipo de vehículo (camión ligero/mediano/pesado o vehículo comercial europeo), el tamaño de grupo o la norma de la batería (JIS N150/N200, DIN88/DIN100, BCI Grupo 31/8D), el voltaje del sistema (12V o 24V), y la cantidad objetivo y el puerto de destino."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Ofrecen baterías para camiones OEM y de marca privada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. DINWEY es la marca de baterías para camiones de Chengguang Power Tech Co., Ltd. (fundada en 2002), un fabricante que respalda programas OEM y de marca privada con personalización de marca, empaque y especificación, y que exporta a más de 70 países."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Contacto DINWEY — Consultas de baterías para camiones"
+  description="Contacte a DINWEY para cotizaciones de baterías para camiones, fichas técnicas y programas OEM y de marca privada. Escriba a martin@dinweys.com o por WhatsApp al +86 13323237275."
+  jsonLd={[contactJsonLd, faqJsonLd]}
+>
+  <div class="container section">
+    <h1 style="color:#0f1f3d;">Contacto y consultas</h1>
+    <p class="lead">
+      Para cotizaciones, fichas técnicas, programas OEM / de marca privada o suministro para
+      flotas, comuníquese con nosotros directamente. Respondemos a consultas comerciales
+      legítimas: incluya el tipo de vehículo, el tamaño de grupo requerido (si lo conoce) y la
+      cantidad objetivo.
+    </p>
+
+    <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+      <a class="cta" href="https://wa.me/8613323237275" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">WhatsApp — Contactar ahora</a>
+      <a class="cta" href="mailto:martin@dinweys.com" style="display:inline-block;background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">Envíenos un correo</a>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:24px;">
+      <div class="card">
+        <h3>Contacto directo</h3>
+        <p>
+          <strong>Contacto:</strong> Martin Wong, Director de Ventas<br />
+          <strong>Correo:</strong> <a href="mailto:martin@dinweys.com">martin@dinweys.com</a><br />
+          <strong>Teléfono / WhatsApp:</strong> <a href="tel:+8613323237275">+86 13323237275</a>
+        </p>
+      </div>
+      <div class="card">
+        <h3>Fábrica</h3>
+        <p>
+          Chengguang Power Tech Co., Ltd.<br />
+          Aldea Lvjiaying, Parque Industrial Mayu,<br />
+          Ciudad de Jinzhou, Shijiazhuang, Hebei, China
+        </p>
+      </div>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Cómo evaluamos su consulta</h2>
+    <p>
+      Para dirigirlo rápidamente a la respuesta correcta, leemos cada consulta según su intención:
+    </p>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>Intención</th><th>Lo que busca</th><th>Vía más rápida</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Investigación</td><td>Entender normas / dimensionamiento</td><td><a href="https://docs.dinweysbattery.com/" style="color:#1e5aa8;">Centro de conocimiento</a></td></tr>
+          <tr><td>Interés en productos</td><td>Explorar una familia de modelos</td><td><a href="/es/batteries/" style="color:#1e5aa8;">Referencia de baterías</a></td></tr>
+          <tr><td>Solicitud de especificaciones</td><td>Ficha técnica de un modelo</td><td><a href="/es/contact/" style="color:#1e5aa8;">Obtener ficha técnica</a></td></tr>
+          <tr><td>OEM / marca privada</td><td>Baterías de marca propia o personalizadas</td><td><a href="/es/products/fleet/" style="color:#1e5aa8;">Programa OEM</a></td></tr>
+          <tr><td>RFQ</td><td>Cotización por volumen de una especificación conocida</td><td>Formulario a continuación</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Solicite una cotización (RFQ)</h2>
+    <p class="data-note">
+      Complete lo que sepa; deje en blanco los campos que desconozca. Una consulta estructurada
+      obtiene una cotización más rápida y precisa. No se publican precios; las cotizaciones se
+      proporcionan a solicitud.
+    </p>
+    <form id="rfq-form" style="margin-top:16px;">
+      <div class="grid grid-2" style="gap:12px;">
+        <div>
+          <label for="rfq-type" style="display:block;font-weight:600;margin-bottom:4px;">Norma de batería</label>
+          <select id="rfq-type" style="width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:6px;">
+            <option value="">No estoy seguro</option>
+            <option>JIS (serie N)</option>
+            <option>DIN / EN</option>
+            <option>BCI (Grupo 31 / 8D)</option>
+            <option>Otro / mixto</option>
+          </select>
+        </div>
+        <div>
+          <label for="rfq-model" style="display:block;font-weight:600;margin-bottom:4px;">Modelo / tamaño de grupo</label>
+          <input id="rfq-model" type="text" placeholder="p. ej., N150, DIN88, Grupo 31" style="width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:6px;" />
+        </div>
+        <div>
+          <label for="rfq-existing" style="display:block;font-weight:600;margin-bottom:4px;">Batería actual (para encontrar el equivalente)</label>
+          <input id="rfq-existing" type="text" placeholder="p. ej., uso actual N150 / 145G51 / Grupo 31; le indicaremos el equivalente DINWEY" style="width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:6px;" />
+        </div>
+        <div>
+          <label for="rfq-voltage" style="display:block;font-weight:600;margin-bottom:4px;">Voltaje del sistema</label>
+          <select id="rfq-voltage" style="width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:6px;">
+            <option value="">No estoy seguro</option>
+            <option>12V</option>
+            <option>24V</option>
+          </select>
+        </div>
+        <div>
+          <label for="rfq-application" style="display:block;font-weight:600;margin-bottom:4px;">Aplicación</label>
+          <select id="rfq-application" style="width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:6px;">
+            <option value="">Seleccione…</option>
+            <option>Camión pesado / semirremolque</option>
+            <option>Autobús / autocar</option>
+            <option>Minería / fuera de carretera</option>
+            <option>Generador diésel</option>
+            <option>Cadena de frío / refrigerado</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div>
+          <label for="rfq-qty" style="display:block;font-weight:600;margin-bottom:4px;">Cantidad objetivo</label>
+          <input id="rfq-qty" type="text" placeholder="p. ej., 1 contenedor de 20 pies (~600–800 unidades)" style="width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:6px;" />
+        </div>
+        <div>
+          <label for="rfq-port" style="display:block;font-weight:600;margin-bottom:4px;">País / puerto de destino</label>
+          <input id="rfq-port" type="text" placeholder="p. ej., Yeda, Arabia Saudita" style="width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:6px;" />
+        </div>
+        <div>
+          <label for="rfq-oem" style="display:block;font-weight:600;margin-bottom:4px;">OEM / marca privada</label>
+          <select id="rfq-oem" style="width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:6px;">
+            <option value="">No estoy seguro</option>
+            <option>Sí — marca propia / marca privada</option>
+            <option>No — producto DINWEY estándar</option>
+          </select>
+        </div>
+        <div>
+          <label for="rfq-notes" style="display:block;font-weight:600;margin-bottom:4px;">Requisitos adicionales (Ah / CCA / dimensiones)</label>
+          <input id="rfq-notes" type="text" placeholder="p. ej., 135Ah, 900A CCA, 508×222×212mm" style="width:100%;padding:10px;border:1px solid #d0d5dd;border-radius:6px;" />
+        </div>
+      </div>
+      <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+        <button type="submit" class="cta" style="background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border:none;border-radius:6px;cursor:pointer;">Generar correo de consulta</button>
+        <a class="cta" href="https://wa.me/8613323237275" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">Usar WhatsApp</a>
+      </div>
+      <p id="rfq-status" class="data-note" style="margin-top:12px;"></p>
+    </form>
+    <script>
+      const rfqForm = document.getElementById('rfq-form');
+      rfqForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const g = (id) => document.getElementById(id)?.value?.trim() || '';
+        const lines = [
+          'Norma de batería: ' + (g('rfq-type') || 'No especificado'),
+          'Modelo / tamaño de grupo: ' + (g('rfq-model') || 'No especificado'),
+          'Voltaje del sistema: ' + (g('rfq-voltage') || 'No especificado'),
+          'Aplicación: ' + (g('rfq-application') || 'No especificado'),
+          'Cantidad objetivo: ' + (g('rfq-qty') || 'No especificado'),
+          'País / puerto: ' + (g('rfq-port') || 'No especificado'),
+          'OEM / marca privada: ' + (g('rfq-oem') || 'No especificado'),
+          'Requisitos adicionales: ' + (g('rfq-notes') || 'Ninguno'),
+        ];
+        const subject = encodeURIComponent('RFQ — ' + (g('rfq-model') || 'Consulta de baterías para camión'));
+        const body = encodeURIComponent(lines.join('\n'));
+        window.location.href = 'mailto:martin@dinweys.com?subject=' + subject + '&body=' + body;
+        document.getElementById('rfq-status').textContent = 'Correo de consulta preparado; su cliente de correo debería abrirse. Si no es así, escriba directamente a martin@dinweys.com.';
+      });
+    </script>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Qué incluir en su consulta</h2>
+    <ul>
+      <li>Tipo de vehículo (camión ligero / mediano / pesado, o vehículo comercial europeo)</li>
+      <li>Tamaño de grupo o norma de batería requeridos (JIS N150/N200, DIN88/DIN100, BCI Grupo 31/8D, etc.)</li>
+      <li>Voltaje del sistema eléctrico (12V o 24V)</li>
+      <li>Cantidad objetivo y puerto de destino</li>
+    </ul>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Con quiénes trabajamos</h2>
+    <p>
+      Suministramos a distribuidores e importadores, operadores de flotas y marcas OEM / de marca
+      privada en todo el mundo. DINWEY es la marca de baterías para camiones de Chengguang Power
+      Tech Co., Ltd., un fabricante fundado en 2002 con una planta de 200,000 m² y 18 líneas
+      automatizadas, con certificaciones IATF 16949 · ISO 9001 · ISO 14001 · ISO 45001 · conformidad CE,
+      y que exporta a más de 70 países.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Venden baterías para camiones a clientes finales o solo al por mayor?</h3>
+      <p>DINWEY suministra principalmente a distribuidores, importadores, operadores de flotas y compradores OEM/marca privada al por mayor. Para consultas comerciales, escriba a martin@dinweys.com indicando el tipo de vehículo, el tamaño de grupo y la cantidad objetivo.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Qué información debo incluir en mi consulta?</h3>
+      <p>Incluya el tipo de vehículo (camión ligero/mediano/pesado o vehículo comercial europeo), el tamaño de grupo o la norma de la batería (JIS N150/N200, DIN88/DIN100, BCI Grupo 31/8D), el voltaje del sistema (12V o 24V), y la cantidad objetivo y el puerto de destino.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Ofrecen baterías para camiones OEM y de marca privada?</h3>
+      <p>Sí. DINWEY es la marca de baterías para camiones de Chengguang Power Tech Co., Ltd. (fundada en 2002), un fabricante que respalda programas OEM y de marca privada con personalización de marca, empaque y especificación, y que exporta a más de 70 países.</p>
+    </div>
+
+    <p style="margin-top:24px;">
+      📚 ¿No sabe qué especificación necesita? Comience con el
+      <a href="https://docs.dinweysbattery.com/" style="color:#1e5aa8;">Centro de conocimiento de DINWEY</a>:
+      guías de selección y explicaciones de las normas CCA y JIS/DIN/BCI.
+    </p>
+
+    <div style="margin-top:24px;padding:16px 20px;background:#f4f7fb;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin-top:0;">Antes de consultar</h2>
+      <ul style="margin:0;padding-left:20px;">
+        <li><a href="/es/selection-tool/" style="color:#1e5aa8;">Use la herramienta de selección de baterías</a> para acotar su modelo</li>
+        <li><a href="/es/batteries/" style="color:#1e5aa8;">Explore la referencia de modelos de baterías</a> (N150/N200/DIN88/DIN100)</li>
+        <li><a href="/es/products/fleet/" style="color:#1e5aa8;">Programas para flotas y OEM / marca privada</a></li>
+        <li><a href="/es/products/jis-heavy-duty/" style="color:#1e5aa8;">JIS de servicio pesado</a> · <a href="/es/products/din-heavy-duty/" style="color:#1e5aa8;">DIN de servicio pesado</a></li>
+      </ul>
+    </div>
+
+    <p style="margin-top:16px;">
+      Normas de referencia:
+      <a href="https://batterycouncil.org/" target="_blank" rel="noopener" style="color:#1e5aa8;">Battery Council International (BCI)</a> ·
+      <a href="https://www.sae.org/" target="_blank" rel="noopener" style="color:#1e5aa8;">SAE International (J537 CCA)</a>
+    </p>
+  </div>
+</BaseLayout>

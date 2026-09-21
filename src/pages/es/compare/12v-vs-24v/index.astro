@@ -1,0 +1,172 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+
+const SITE = "https://dinweysbattery.com";
+
+const comparisonJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Sistemas de batería de camión de 12V vs 24V: cómo funciona realmente la conexión en serie",
+  "description": "Sistemas eléctricos de camión de 12V vs 24V — por qué los 24V usan dos baterías de 12V en serie, y por qué la conexión en serie suma voltaje pero no Ah ni simplemente CCA. Una guía para compradores.",
+  "image": SITE + "/images/products/145G51-N150.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Martin Wong",
+    "jobTitle": "Director de Ventas",
+    "worksFor": { "@id": SITE + "/#organization" }
+  },
+  "publisher": { "@id": SITE + "/#organization" },
+  "datePublished": "2026-09-13",
+  "dateModified": "2026-09-13",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": SITE + "/es/compare/12v-vs-24v/" }
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Dos baterías de 12V en serie duplican los Ah?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. En serie, el voltaje se duplica a 24V, pero la capacidad en amperios-hora (Ah) se mantiene igual: dos baterías de 12V 200Ah en serie forman un banco de 24V 200Ah. Solo se duplica la energía almacenada (Wh), porque el voltaje se duplicó."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿La conexión en serie duplica el CCA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No necesariamente. La conexión en serie mantiene una ruta de corriente compartida, así que el CCA del banco no es 2× el de una sola batería. El banco está limitado por la unidad más débil de las dos, por lo que ambas baterías deben ser idénticas y reemplazarse juntas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué los camiones usan 24V en lugar de 12V?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Con el doble de voltaje, un sistema de 24V entrega la misma potencia de arranque con la mitad de la corriente, así que los cables pueden ser más delgados y livianos y las pérdidas de arranque son menores — lo cual conviene a los motores diésel grandes."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Sistemas de batería de camión de 12V vs 24V — Guía DINWEY"
+  description="Sistemas eléctricos de camión de 12V vs 24V — por qué los 24V usan dos baterías de 12V en serie, y por qué la conexión en serie suma voltaje pero no Ah ni simplemente CCA."
+  canonical={`${SITE}/es/compare/12v-vs-24v/`}
+  jsonLd={[comparisonJsonLd, faqJsonLd]}
+>
+  <div class="container section">
+    <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#6b5a54;margin-bottom:16px;">
+      <a href="/es/">Inicio</a> &rsaquo; <a href="/es/compare/">Comparar</a> &rsaquo; 12V vs 24V
+    </nav>
+
+    <h1>Sistemas de batería de camión de 12V vs 24V: cómo funciona realmente la conexión en serie</h1>
+    <p class="lead">
+      Un camión de 24V no usa una sola batería de 24V — usa dos baterías de 12V conectadas en serie.
+      Lo que cambia es el voltaje, no la capacidad, y la distinción importa cuando se especifica o se
+      reemplaza un banco.
+    </p>
+
+    <div class="takeaways">
+      <strong>Respuesta directa:</strong> Dos baterías de 12V en serie producen 24V. La conexión en serie <strong>suma voltaje</strong> (12V + 12V = 24V), pero la <strong>capacidad en amperios-hora se mantiene igual</strong> y el <strong>CCA no se duplica simplemente</strong> — la ruta de corriente es compartida, así que el banco está limitado por la unidad más débil. Solo se duplica la energía almacenada (Wh), porque el voltaje se duplicó.
+    </div>
+
+    <h2 style="margin-top:32px;">Qué hace realmente la conexión en serie</h2>
+    <table style="width:100%;border-collapse:collapse;">
+      <thead>
+        <tr style="border-bottom:1px solid #d8c9c0;text-align:left;">
+          <th style="padding:8px;">Cantidad</th>
+          <th style="padding:8px;">Serie (2 × 12V → 24V)</th>
+          <th style="padding:8px;">Por qué</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><strong>Voltaje</strong></td>
+          <td style="padding:8px;">Se duplica (24V)</td>
+          <td style="padding:8px;">Los voltajes se suman en serie</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><strong>Ah (capacidad)</strong></td>
+          <td style="padding:8px;">Se mantiene igual</td>
+          <td style="padding:8px;">La misma corriente circula por ambas</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><strong>CCA</strong></td>
+          <td style="padding:8px;">No se duplica simplemente</td>
+          <td style="padding:8px;">Ruta de corriente compartida; limitado por la unidad más débil</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;"><strong>Energía almacenada (Wh)</strong></td>
+          <td style="padding:8px;">Se duplica</td>
+          <td style="padding:8px;">Wh = V × Ah, y V se duplicó</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin-top:32px;">Por qué los camiones usan 24V</h2>
+    <p>
+      Con el doble de voltaje, un sistema de 24V entrega la misma potencia de arranque con <strong>la
+      mitad de la corriente</strong>. Eso permite que el motor de arranque, el alternador y el
+      cableado sean más livianos y trabajen más fríos — algo que importa para la alta demanda de
+      arranque de un motor diésel grande. Es una decisión de eficiencia, no de capacidad.
+    </p>
+
+    <h2 style="margin-top:32px;">La regla de las baterías no coincidentes, explicada correctamente</h2>
+    <p>
+      Como la conexión en serie mantiene una única ruta de corriente compartida, un banco es tan
+      fuerte como su batería más débil. Si las dos unidades tienen diferente CCA, capacidad o
+      antigüedad, la más débil limita el banco y la más fuerte se degrada con el tiempo. La práctica
+      correcta no es solo «no mezclar nunca» — es <strong>usar dos baterías idénticas, reemplazar
+      ambas juntas y mantener ambas en el mismo estado de carga</strong> para que el banco en serie
+      se cargue y se descargue de manera uniforme.
+    </p>
+
+    <h2 style="margin-top:32px;">Cómo elegir</h2>
+    <ul>
+      <li><strong>12V</strong> — camiones y equipos más livianos donde una sola batería cubre la demanda de arranque.</li>
+      <li><strong>24V</strong> — camiones pesados, autobuses y equipos diésel con alta demanda de arranque; especifique dos unidades de 12V idénticas, del mismo tamaño de grupo, CCA y antigüedad.</li>
+    </ul>
+
+    <h2 style="margin-top:32px;">La opinión del autor</h2>
+    <p>
+      <strong>Postura:</strong> En mi opinión, el error más común con los 24V es tratar dos baterías
+      en serie como una sola batería más grande y esperar que los Ah o el CCA se dupliquen — cuando
+      en realidad solo se duplica el voltaje.
+    </p>
+    <p>
+      <strong>Razonamiento:</strong> La conexión en serie suma voltaje, no capacidad ni potencia de
+      arranque, y hace que el banco valga solo lo que vale su unidad más débil. El comprador que lo
+      entiende especifica dos baterías idénticas y reemplaza ambas juntas; el que no, desgasta
+      silenciosamente la batería más fuerte y acorta la vida del banco.
+    </p>
+    <p>
+      <strong>Divulgación:</strong> Esta es mi opinión editorial como equipo técnico de un fabricante
+      de baterías, no una afirmación de laboratorio. Confirme el voltaje, el tamaño de grupo y el
+      emparejamiento correctos para su vehículo.
+    </p>
+
+    <h2 style="margin-top:32px;">Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Dos baterías de 12V en serie duplican los Ah?</h3>
+      <p>No. La serie duplica el voltaje a 24V, pero la capacidad en amperios-hora se mantiene igual: dos baterías de 12V 200Ah en serie forman un banco de 24V 200Ah. Solo se duplica la energía almacenada (Wh).</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿La conexión en serie duplica el CCA?</h3>
+      <p>No necesariamente. La ruta de corriente es compartida, así que el CCA del banco no es 2× el de una sola batería — está limitado por la unidad más débil de las dos, por lo que ambas deben ser idénticas y reemplazarse juntas.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Por qué los camiones usan 24V en lugar de 12V?</h3>
+      <p>Con el doble de voltaje, un sistema de 24V entrega la misma potencia de arranque con la mitad de la corriente, así que los cables pueden ser más delgados y las pérdidas de arranque menores — lo cual conviene a los motores diésel grandes.</p>
+    </div>
+
+    <div style="margin-top:32px;">
+      <a class="cta" href="/es/products/">Ver baterías de servicio pesado</a>
+      <a class="cta cta-outline" href="/es/contact/" style="margin-left:8px;">Solicitar una cotización</a>
+    </div>
+  </div>
+</BaseLayout>

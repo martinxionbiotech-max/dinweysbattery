@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import { localeFromPath, localizePath, t } from "../i18n/ui";
 import { PUBLIC_LIST_PRICE } from "../data/pricing";
 
 interface Props {
@@ -53,6 +54,9 @@ const {
   parentCategory,
   isReference = false
 } = Astro.props;
+
+const locale = localeFromPath(Astro.url.pathname);
+const lh = (href: string) => localizePath(href, locale);
 
 const pageTitle = `${model} (${groupLabel}) — ${standard} Heavy-Duty Truck Battery`;
 const ogImage = "/images/og-default.jpg";
@@ -158,25 +162,25 @@ const faqJsonLd = {
   jsonLd={[definedTermJsonLd, productJsonLd, faqJsonLd]}
   pageType="ItemPage"
   breadcrumbs={[
-    { name: "Home", url: "/" },
+    { name: t(locale, "layout.home"), url: lh("/") },
     { name: parentCategory.label, url: parentCategory.href },
     { name: `${model} (${groupLabel})`, url: pageUrl }
   ]}
 >
   <div class="container section">
     <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
-      <a href="/" style="color:#1e5aa8;">Home</a> &rsaquo;
-      <a href={parentCategory.href} style="color:#1e5aa8;">{parentCategory.label}</a> &rsaquo;
+      <a href={lh("/")} style="color:#1e5aa8;">{t(locale, "layout.home")}</a> &rsaquo;
+      <a href={lh(parentCategory.href)} style="color:#1e5aa8;">{parentCategory.label}</a> &rsaquo;
       {model} ({groupLabel})
     </nav>
 
     <h1 style="color:#0f1f3d;margin-bottom:8px;">{productName}</h1>
-    <p style="color:#55606e;font-size:1.1rem;">Model {model} · {standard} Group {groupLabel} · {voltage} · {ah} · {cca} CCA</p>
+    <p style="color:#55606e;font-size:1.1rem;">{t(locale, "layout.modelWord")} {model} · {standard} {t(locale, "layout.groupWord")} {groupLabel} · {voltage} · {ah} · {cca} CCA</p>
     <p class="lead">{description}</p>
 
     {takeaways.length > 0 && (
       <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
-        <h2 style="color:#0f1f3d;margin:0 0 10px;">Key Takeaways</h2>
+        <h2 style="color:#0f1f3d;margin:0 0 10px;">{t(locale, "layout.keyTakeaways")}</h2>
         <ul style="margin:0;padding-left:20px;">
           {takeaways.map((t) => (
             <li style="margin-bottom:6px;">{t}</li>
@@ -191,42 +195,42 @@ const faqJsonLd = {
       ))}
     </div>
 
-    <h2 style="color:#0f1f3d;margin-top:32px;">Technical Specification</h2>
+    <h2 style="color:#0f1f3d;margin-top:32px;">{t(locale, "layout.techSpec")}</h2>
     <table>
       <thead>
-        <tr><th>Specification</th><th>Value</th></tr>
+        <tr><th>{t(locale, "layout.specification")}</th><th>{t(locale, "layout.value")}</th></tr>
       </thead>
       <tbody>
-              <tr><td><strong>Indicative minimum unit price</strong></td><td>From {PUBLIC_LIST_PRICE.display} {PUBLIC_LIST_PRICE.note}</td></tr>
-        <tr><td>DINWEY Model</td><td>{model}</td></tr>
-        <tr><td>Group</td><td>{groupLabel}</td></tr>
-        <tr><td>Standard</td><td>{standard}</td></tr>
-        <tr><td>Voltage</td><td>{voltage}</td></tr>
-        <tr><td>Capacity (C20)</td><td>{ah}</td></tr>
-        <tr><td>Cold Cranking Amps (CCA)</td><td>{cca}</td></tr>
-        <tr><td>Test Standard</td><td>{testStandard}</td></tr>
-        <tr><td>Reserve Capacity (RC)</td><td>{rc}</td></tr>
-        <tr><td>Dimensions (L×W×H)</td><td>{dimensions}</td></tr>
-        {terminal && <tr><td>Terminals</td><td>{terminal}</td></tr>}
-        <tr><td>Technology</td><td>{technology}</td></tr>
+              <tr><td>{t(locale, "layout.indicativePrice")}</td><td>{t(locale, "layout.fromPrice")} {PUBLIC_LIST_PRICE.display} {t(locale, "layout.priceNote")}</td></tr>
+        <tr><td>{t(locale, "layout.dinweyModel")}</td><td>{model}</td></tr>
+        <tr><td>{t(locale, "layout.groupWord")}</td><td>{groupLabel}</td></tr>
+        <tr><td>{t(locale, "layout.standard")}</td><td>{standard}</td></tr>
+        <tr><td>{t(locale, "layout.voltage")}</td><td>{voltage}</td></tr>
+        <tr><td>{t(locale, "layout.capacity")}</td><td>{ah}</td></tr>
+        <tr><td>{t(locale, "layout.cca")}</td><td>{cca}</td></tr>
+        <tr><td>{t(locale, "layout.testStandard")}</td><td>{testStandard}</td></tr>
+        <tr><td>{t(locale, "layout.rc")}</td><td>{rc}</td></tr>
+        <tr><td>{t(locale, "layout.dimensions")}</td><td>{dimensions}</td></tr>
+        {terminal && <tr><td>{t(locale, "layout.terminals")}</td><td>{terminal}</td></tr>}
+        <tr><td>{t(locale, "layout.technology")}</td><td>{technology}</td></tr>
       </tbody>
     </table>
     <p class="data-note">
       {isReference
-        ? 'Third-party reference specification — NOT a DINWEY published stock rating. Values are compiled from independent catalogs and vary by manufacturer; confirm exact CCA, capacity and dimensions before replacement.'
-        : 'Specifications are representative for this model. Exact CCA, capacity and dimensions are confirmed per batch on the certificate of analysis — contact us for a full datasheet.'}
+        ? t(locale, "layout.refSpecNote")
+        : t(locale, "layout.repSpecNote")}
     </p>
 
     {specNotes.length > 0 && (
       <div style="margin-top:28px;">
-        <h2 style="color:#0f1f3d;">Understanding This Model's Specifications</h2>
+        <h2 style="color:#0f1f3d;">{t(locale, "layout.understandSpecs")}</h2>
         {specNotes.map((p) => (
           <p>{p}</p>
         ))}
       </div>
     )}
 
-    <h2 style="color:#0f1f3d;margin-top:32px;">Typical Applications</h2>
+    <h2 style="color:#0f1f3d;margin-top:32px;">{t(locale, "layout.typicalApps")}</h2>
     <ul>
       {applications.map((a) => (
         <li>{a}</li>
@@ -234,11 +238,11 @@ const faqJsonLd = {
     </ul>
 
     <div style="margin-top:28px;padding:16px 20px;background:#fff8ec;border:1px solid #f5a623;border-radius:6px;">
-      <h2 style="color:#0f1f3d;margin-top:0;">Vehicle Fitment</h2>
+      <h2 style="color:#0f1f3d;margin-top:0;">{t(locale, "layout.fitment")}</h2>
       <p>{complianceNote}</p>
     </div>
 
-    <h2 style="color:#0f1f3d;margin-top:32px;">Frequently Asked Questions</h2>
+    <h2 style="color:#0f1f3d;margin-top:32px;">{t(locale, "layout.faq")}</h2>
     {faq.map((f) => (
       <div class="faq-item">
         <h3>{f.q}</h3>
@@ -247,16 +251,16 @@ const faqJsonLd = {
     ))}
 
     <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
-      <a class="cta" href="/contact/" style="display:inline-block;background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">{isReference ? 'Confirm ' + model + ' Specification & Availability' : 'Request ' + model + ' Datasheet & Quote'}</a>
-      <a class="cta" href="https://wa.me/8613323237275" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">WhatsApp — Contact Now</a>
+      <a class="cta" href="/contact/" style="display:inline-block;background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">{isReference ? t(locale, "layout.confirmSpec").replace("{model}", model) : t(locale, "layout.requestDatasheet").replace("{model}", model)}</a>
+      <a class="cta" href="https://wa.me/8613323237275" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">{t(locale, "layout.whatsapp")}</a>
     </div>
 
     {siblingModels.length > 0 && (
       <div style="margin-top:32px;">
-        <h2 style="color:#0f1f3d;">Compare With Other Models</h2>
+        <h2 style="color:#0f1f3d;">{t(locale, "layout.compareModels")}</h2>
         <ul>
           {siblingModels.map((s) => (
-            <li><a href={s.href} style="color:#1e5aa8;">{s.label}</a></li>
+            <li><a href={lh(s.href)} style="color:#1e5aa8;">{s.label}</a></li>
           ))}
         </ul>
       </div>
@@ -264,13 +268,13 @@ const faqJsonLd = {
 
     {relatedDocs.length > 0 && (
       <div style="margin-top:32px;padding:20px;background:#f4f7fb;border-radius:8px;">
-        <h2 style="color:#0f1f3d;margin-top:0;">Related Technical Documentation</h2>
+        <h2 style="color:#0f1f3d;margin-top:0;">{t(locale, "layout.relatedDocs")}</h2>
         <ul style="margin-bottom:0;">
           {relatedDocs.map((d) => (
             <li><a href={d.url} target="_blank" rel="noopener" style="color:#1e5aa8;">{d.title}</a></li>
           ))}
         </ul>
-        <p class="data-note" style="margin-top:12px;">From the <a href="https://docs.dinweysbattery.com/" target="_blank" rel="noopener">DINWEY Knowledge Hub</a>.</p>
+        <p class="data-note" style="margin-top:12px;">{t(locale, "layout.fromKnowledgeHub")} <a href="https://docs.dinweysbattery.com/" target="_blank" rel="noopener">DINWEY Knowledge Hub</a>.</p>
       </div>
     )}
   </div>

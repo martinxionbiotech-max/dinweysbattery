@@ -1,0 +1,257 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const definedTermSetJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": "https://dinweysbattery.com/es/batteries/#term-set",
+  "name": "Referencia de modelos de baterías para camiones DINWEY",
+  "description": "Una referencia estructurada de los modelos de baterías DINWEY para camiones de servicio pesado bajo las normas JIS y DIN, con especificaciones verificadas.",
+  "hasDefinedTerm": [
+    { "@type": "DefinedTerm", "name": "145G51", "termCode": "145G51", "url": "https://dinweysbattery.com/es/batteries/jis/n150/" },
+    { "@type": "DefinedTerm", "name": "190H52", "termCode": "190H52", "url": "https://dinweysbattery.com/es/batteries/jis/n200/" },
+    { "@type": "DefinedTerm", "name": "58827", "termCode": "58827", "url": "https://dinweysbattery.com/es/batteries/din/din88/" },
+    { "@type": "DefinedTerm", "name": "60038", "termCode": "60038", "url": "https://dinweysbattery.com/es/batteries/din/din100/" }
+  ]
+};
+const referenceListJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": "https://dinweysbattery.com/es/batteries/#reference-list",
+  "name": "Especificaciones de modelos de referencia de terceros (no son líneas de stock de DINWEY)",
+  "description": "Tamaños de grupo que se cruzan habitualmente en los mercados JIS/DIN. Los valores se recopilan de catálogos independientes y no son clasificaciones publicadas del stock de DINWEY.",
+  "numberOfItems": 6,
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "65D31R (N70)", "url": "https://dinweysbattery.com/es/batteries/jis/n70/" },
+    { "@type": "ListItem", "position": 2, "name": "95E41R (N100)", "url": "https://dinweysbattery.com/es/batteries/jis/n100/" },
+    { "@type": "ListItem", "position": 3, "name": "N120", "url": "https://dinweysbattery.com/es/batteries/jis/n120/" },
+    { "@type": "ListItem", "position": 4, "name": "245H52 (N220)", "url": "https://dinweysbattery.com/es/batteries/jis/n220/" },
+    { "@type": "ListItem", "position": 5, "name": "56638 (DIN66)", "url": "https://dinweysbattery.com/es/batteries/din/din66/" },
+    { "@type": "ListItem", "position": 6, "name": "57412 (DIN74)", "url": "https://dinweysbattery.com/es/batteries/din/din74/" }
+  ]
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Puedo reemplazar una N150 por una N200?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Solo si la bandeja, la abrazadera de sujeción y la orientación de los terminales admiten la caja más grande: la N200 es 56 mm más ancha y 8 mm más alta que la N150. Además añade 65 Ah de capacidad, así que compruebe que el sistema de carga y el ciclo de trabajo se ajusten al conjunto de mayor tamaño."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué no puedo comparar directamente los valores de arranque en frío JIS y EN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Las normas ensayan a temperaturas y voltajes de corte distintos — JIS ensaya a −15 °C, mientras que EN y SAE ensayan a −18 °C —, por lo que la misma batería da un CCA diferente bajo cada norma. Compare el CCA solo dentro de una misma norma."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los modelos de referencia de la tabla de referencia son líneas de stock de DINWEY?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. N70, N100, N120, N220, DIN66 y DIN74 son solo referencia de terceros, recopilados de catálogos independientes para la referenciación cruzada. Las especificaciones publicadas del stock de DINWEY son los cuatro modelos anteriores; cualquier otro se cotiza bajo pedido."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Modelos de baterías para camiones DINWEY — Referencia JIS y DIN"
+  description="Modelos de baterías para camiones DINWEY — 145G51 (N150), 190H52 (N200), 58827 (DIN88), 60038 (DIN100) con especificaciones verificadas, más tamaños de referencia de terceros."
+  ogType="article"
+  datePublished="2026-09-15"
+  jsonLd={[definedTermSetJsonLd, referenceListJsonLd, faqJsonLd]}
+  canonical="/es/batteries/"
+  pageType="CollectionPage"
+  breadcrumbs={[
+    { name: "Inicio", url: "/es/" },
+    { name: "Modelos de baterías", url: "/es/batteries/" }
+  ]}
+>
+  <div class="container section">
+    <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
+      <a href="/es/" style="color:#1e5aa8;">Inicio</a> &rsaquo; Modelos de baterías
+    </nav>
+
+    <h1 style="color:#0f1f3d;margin-bottom:12px;">Modelos de baterías para camiones DINWEY</h1>
+    <p class="lead">
+      Una referencia estructurada de los principales modelos de baterías DINWEY para camiones de
+      servicio pesado bajo las normas JIS y DIN. Cada página de modelo incluye su especificación
+      completa — voltaje, capacidad, CCA, capacidad de reserva y dimensiones — junto con la norma
+      de ensayo con la que se mide cada valor.
+    </p>
+
+    <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">Respuesta directa</h2>
+      <p style="margin:0;">DINWEY publica especificaciones completas de cuatro modelos en stock — 145G51 (N150), 190H52 (N200), 58827 (DIN88) y 60038 (DIN100). Abajo aparecen otros seis tamaños de grupo solo como <strong>referencia de terceros</strong>: no son clasificaciones publicadas del stock de DINWEY. Compare el CCA solo dentro de una misma norma de ensayo y verifique la instalación por tamaño de grupo, tipo de terminales, polaridad y dimensiones de la bandeja, además del CCA y los Ah.</p>
+    </div>
+
+    <div style="margin:24px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+      <p style="margin:0;">
+        <strong>Importante:</strong> El CCA JIS, el arranque en frío DIN EN y el CCA BCI (SAE) se
+        miden bajo normas diferentes y <strong>no son directamente comparables</strong>. Tenga en
+        cuenta la norma de ensayo de cada modelo. Confirme siempre la compatibilidad por tamaño de
+        grupo, tipo de terminales, polaridad y dimensiones de la bandeja según el manual de su vehículo.
+      </p>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Modelos JIS de servicio pesado</h2>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>Modelo</th><th>Grupo</th><th>Voltaje</th><th>Capacidad</th><th>CCA</th><th>Dimensiones (L×An×Al)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="/es/batteries/jis/n150/" style="color:#1e5aa8;"><strong>145G51</strong></a></td>
+            <td>N150</td><td>12V</td><td>135 Ah</td><td>900 A (JIS)</td><td>508×222×212 mm</td>
+          </tr>
+          <tr>
+            <td><a href="/es/batteries/jis/n200/" style="color:#1e5aa8;"><strong>190H52</strong></a></td>
+            <td>N200</td><td>12V</td><td>200 Ah</td><td>1100 A (JIS)</td><td>520×278×220 mm</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Modelos DIN de servicio pesado</h2>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>Modelo</th><th>Grupo</th><th>Voltaje</th><th>Capacidad</th><th>Arranque en frío EN</th><th>Dimensiones (L×An×Al)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="/es/batteries/din/din88/" style="color:#1e5aa8;"><strong>58827</strong></a></td>
+            <td>DIN88</td><td>12V</td><td>88 Ah</td><td>800 A (EN)</td><td>353×175×190 mm</td>
+          </tr>
+          <tr>
+            <td><a href="/es/batteries/din/din100/" style="color:#1e5aa8;"><strong>60038</strong></a></td>
+            <td>DIN100</td><td>12V</td><td>100 Ah</td><td>870 A (EN)</td><td>393×175×190 mm</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">Especificaciones de modelos de referencia (terceros)</h2>
+    <p>
+      Los tamaños siguientes se usan ampliamente en los mercados JIS/DIN, pero DINWEY no los publica como
+      clasificaciones de stock. Los valores se recopilan de catálogos independientes (indicados en la página
+      de cada modelo) y varían entre fabricantes: son un punto de partida para referenciar un reemplazo,
+      no una especificación de DINWEY.
+    </p>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>Modelo</th><th>Grupo</th><th>Voltaje</th><th>Capacidad</th><th>Arranque en frío</th><th>Dimensiones (L×An×Al)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="/es/batteries/jis/n70/" style="color:#1e5aa8;"><strong>65D31R</strong></a></td>
+            <td>N70</td><td>12V</td><td>70 Ah</td><td>580 A (JIS, referencia)</td><td>306×173×225 mm</td>
+          </tr>
+          <tr>
+            <td><a href="/es/batteries/jis/n100/" style="color:#1e5aa8;"><strong>95E41R</strong></a></td>
+            <td>N100</td><td>12V</td><td>100 Ah</td><td>730 A (JIS, referencia)</td><td>410×176×234 mm</td>
+          </tr>
+          <tr>
+            <td><a href="/es/batteries/jis/n120/" style="color:#1e5aa8;"><strong>N120</strong></a></td>
+            <td>N120</td><td>12V</td><td>120 Ah</td><td>820 A (JIS, referencia)</td><td>505×183×240 mm</td>
+          </tr>
+          <tr>
+            <td><a href="/es/batteries/jis/n220/" style="color:#1e5aa8;"><strong>245H52</strong></a></td>
+            <td>N220</td><td>12V</td><td>220 Ah</td><td>1200 A (JIS, referencia)</td><td>515×265×216 mm (altura total 254 mm)</td>
+          </tr>
+          <tr>
+            <td><a href="/es/batteries/din/din66/" style="color:#1e5aa8;"><strong>56638</strong></a></td>
+            <td>DIN66</td><td>12V</td><td>66 Ah</td><td>no publicado — confirmar</td><td>278×175×190 mm</td>
+          </tr>
+          <tr>
+            <td><a href="/es/batteries/din/din74/" style="color:#1e5aa8;"><strong>57412</strong></a></td>
+            <td>DIN74</td><td>12V</td><td>74 Ah</td><td>680 A (EN, referencia)</td><td>278×175×190 mm</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="data-note">
+      Especificaciones de referencia — <strong>no son clasificaciones publicadas del stock de DINWEY</strong>. Confirme el CCA, la capacidad,
+      el tipo de terminales, la polaridad y las dimensiones de la bandeja exactos antes de pedir. Las líneas de stock de DINWEY son los
+      cuatro modelos de las tablas anteriores (145G51, 190H52, 58827, 60038).
+    </p>
+
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">Qué cambia entre los tamaños</h2>
+    <p>
+      Las tablas anteriores son la especificación. La pregunta que un comprador realmente tiene es qué cambia al subir
+      de tamaño, así que las cifras siguientes se calculan a partir de esos mismos valores publicados, y no de un catálogo.
+    </p>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>Modelo</th><th>Caja (L×An×Al)</th><th>Capacidad</th><th>Arranque en frío</th><th>CCA por Ah</th><th>Capacidad de reserva</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><a href="/es/batteries/din/din88/" style="color:#1e5aa8;">58827 (DIN88)</a></td><td>353×175×190 mm</td><td>88 Ah</td><td>800 A (EN)</td><td>9.1</td><td>150 min</td></tr>
+          <tr><td><a href="/es/batteries/din/din100/" style="color:#1e5aa8;">60038 (DIN100)</a></td><td>393×175×190 mm</td><td>100 Ah</td><td>870 A (EN)</td><td>8.7</td><td>170 min</td></tr>
+          <tr><td><a href="/es/batteries/jis/n150/" style="color:#1e5aa8;">145G51 (N150)</a></td><td>508×222×212 mm</td><td>135 Ah</td><td>900 A (JIS)</td><td>6.7</td><td>220 min</td></tr>
+          <tr><td><a href="/es/batteries/jis/n200/" style="color:#1e5aa8;">190H52 (N200)</a></td><td>520×278×220 mm</td><td>200 Ah</td><td>1100 A (JIS)</td><td>5.5</td><td>320 min</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      De la aritmética se desprenden cuatro cosas, y son la razón de que dos baterías «similares» se comporten de forma distinta:
+    </p>
+    <ul>
+      <li><strong>El paso de DIN88 → DIN100 cuesta 40 mm de largo de caja</strong> y aporta 12 Ah (+14%) y 70 A de arranque en frío EN (+9%). Es el paso de tamaño más económico de la gama — pero aun así requiere la bandeja más larga.</li>
+      <li><strong>El paso de N150 → N200 cuesta 56 mm de ancho y 8 mm de alto</strong> y aporta 65 Ah (+48%) y 200 A de CCA JIS (+22%). El salto de capacidad es mucho mayor que el de arranque.</li>
+      <li><strong>El CCA por amperio-hora baja a medida que crece la caja</strong> — 9.1 A/Ah en la DIN88 frente a 5.5 A/Ah en la N200. Las cajas más grandes compran capacidad de reserva (170 → 320 min), no densidad de arranque. Si el requisito es cabina con litera o carga hotelera, los Ah y la RC importan más que la cifra destacada de CCA.</li>
+      <li><strong>Las cifras entre normas siguen sin ser comparables.</strong> El valor de 870 A EN y el de 900 A JIS se miden a temperaturas y voltajes de corte distintos; una DIN100 no es «casi una N150» porque los valores de CCA parezcan cercanos.</li>
+    </ul>
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Puedo reemplazar una N150 por una N200?</h3>
+      <p>Solo si la bandeja, la abrazadera de sujeción y la orientación de los terminales admiten la caja más grande: la N200 es 56 mm más ancha y 8 mm más alta que la N150. También añade 65 Ah de capacidad, así que verifique que su sistema de carga y su ciclo de trabajo se ajusten al conjunto de mayor tamaño antes de actualizar.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Por qué no puedo comparar directamente los valores de arranque en frío JIS y EN?</h3>
+      <p>Porque las normas ensayan a temperaturas y voltajes de corte distintos — JIS ensaya a −15 °C, mientras que EN y SAE ensayan a −18 °C —, así que la misma batería física da un CCA diferente bajo cada norma. Compare el CCA solo dentro de una misma norma; consulte la <a href="/es/compare/jis-vs-din-vs-bci/" style="color:#1e5aa8;">comparación de normas</a>.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Los modelos de referencia de la tabla de referencia son líneas de stock de DINWEY?</h3>
+      <p>No. N70, N100, N120, N220, DIN66 y DIN74 figuran solo como referencia de terceros, recopilados de catálogos independientes para que pueda referenciar un reemplazo. Las especificaciones publicadas del stock de DINWEY son los cuatro modelos de las primeras tablas; cualquier otro se cotiza bajo pedido.</p>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">Comparaciones y guías de compra</h2>
+    <ul style="margin-bottom:0;">
+      <li><a href="/es/compare/n150-vs-n200/" style="color:#1e5aa8;">JIS N150 vs N200 — ¿cuál necesita?</a></li>
+      <li><a href="/es/compare/din88-vs-din100/" style="color:#1e5aa8;">DIN88 vs DIN100 — capacidad vs tamaño de caja</a></li>
+      <li><a href="/es/compare/jis-vs-din-vs-bci/" style="color:#1e5aa8;">JIS vs DIN vs BCI — por qué el CCA no se puede comparar directamente</a></li>
+      <li><a href="/es/compare/12v-vs-24v/" style="color:#1e5aa8;">Sistemas de baterías de camión de 12V vs 24V</a></li>
+      <li><a href="/es/compare/truck-battery-cca/" style="color:#1e5aa8;">Guía de CCA para baterías de camión — cuánto CCA necesita un camión</a></li>
+    </ul>
+
+    <div style="margin-top:32px;padding:20px;background:#f4f7fb;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin-top:0;">¿Busca una visión más amplia de productos?</h2>
+      <ul style="margin-bottom:0;">
+        <li><a href="/es/products/jis-heavy-duty/" style="color:#1e5aa8;">Baterías JIS de servicio pesado (resumen de la familia)</a></li>
+        <li><a href="/es/products/din-heavy-duty/" style="color:#1e5aa8;">Baterías DIN de servicio pesado (resumen de la familia)</a></li>
+        <li><a href="/es/products/bci-request/" style="color:#1e5aa8;">BCI Grupo 31 / 8D (bajo pedido)</a></li>
+        <li><a href="/es/selection-tool/" style="color:#1e5aa8;">Herramienta de selección de baterías</a></li>
+      </ul>
+    </div>
+
+    <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;">
+      <a class="cta" href="/es/contact/" style="display:inline-block;background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">Solicitar ficha técnica</a>
+      <a class="cta" href="https://wa.me/8613323237275" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">WhatsApp — Contactar ahora</a>
+    </div>
+  </div>
+</BaseLayout>

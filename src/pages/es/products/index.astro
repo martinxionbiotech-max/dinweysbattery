@@ -1,0 +1,169 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const SITE = "https://dinweysbattery.com";
+
+const productLines = [
+  {
+    href: "/es/products/jis-heavy-duty/",
+    label: "Baterías JIS de servicio pesado",
+    models: "145G51 (N150) · 190H52 (N200)",
+    desc: "Baterías de arranque de servicio pesado con norma JIS para camiones japoneses y asiáticos — 12V, 135–200 Ah, 900–1100 A CCA (JIS D5301).",
+  },
+  {
+    href: "/es/products/din-heavy-duty/",
+    label: "Baterías DIN de servicio pesado",
+    models: "58827 (DIN88) · 60038 (DIN100)",
+    desc: "Baterías de servicio pesado con norma DIN/EN para camiones europeos — 12V, 88–100 Ah, 800–870 A de arranque en frío EN.",
+  },
+  {
+    href: "/es/products/24v/",
+    label: "Sistemas de baterías de 24V para camiones",
+    models: "2 × N200 · 2 × DIN100",
+    desc: "Configuraciones de 24V con pares en serie para camiones pesados, autobuses y autocares, con recomendaciones de cableado, aislador y equilibrado.",
+  },
+  {
+    href: "/es/products/bci-request/",
+    label: "BCI Grupo 31 / 8D",
+    models: "Bajo pedido",
+    desc: "Líneas BCI Grupo 31 y 8D fabricadas bajo pedido — sin especificación publicada de stock; especificación confirmada por pedido.",
+  },
+  {
+    href: "/es/products/fleet/",
+    label: "Soluciones para flotas y OEM",
+    models: "Marca privada · OEM",
+    desc: "Estandarización de flotas, marca privada y programas OEM con documentación por lote y condiciones de garantía.",
+  },
+];
+
+const comparisons = [
+  { href: "/es/compare/n150-vs-n200/", label: "JIS N150 vs N200 — ¿cuál necesita?" },
+  { href: "/es/compare/din88-vs-din100/", label: "DIN88 vs DIN100 — capacidad vs tamaño de caja" },
+  { href: "/es/compare/12v-vs-24v/", label: "Sistemas eléctricos de camión de 12V vs 24V" },
+  { href: "/es/compare/jis-vs-din-vs-bci/", label: "JIS vs DIN vs BCI — normas comparadas" },
+  { href: "/es/compare/truck-battery-cca/", label: "¿Cuánto CCA necesita un camión?" },
+];
+
+const collectionJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ItemList",
+      "@id": SITE + "/es/products/#list",
+      "name": "Líneas de producto de baterías para camiones DINWEY",
+      "numberOfItems": productLines.length,
+      "itemListElement": productLines.map((p, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": p.label,
+        "url": SITE + p.href,
+      })),
+    },
+  ],
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo elijo entre las líneas de producto JIS y DIN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Por el vehículo y el mercado al que reemplaza: los tamaños JIS (N150/N200) corresponden a camiones japoneses y asiáticos, y los tamaños DIN (DIN88/DIN100) a camiones europeos. El tamaño de grupo, no la marca, determina la compatibilidad — revise la bandeja y la orientación de los terminales, y luego elija la capacidad y el CCA que requiere la aplicación."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Tienen stock de BCI Grupo 31 / 8D?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — BCI Grupo 31 y 8D se fabrican bajo pedido y no tienen especificación publicada de stock. Indíquenos el tamaño de grupo, el CCA y la cantidad y le cotizamos según su especificación."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo obtener una ficha técnica de un modelo específico?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Los cuatro modelos en stock (145G51, 190H52, 58827, 60038) tienen tablas de especificaciones completas en sus páginas de modelo, y las fichas técnicas y los registros de ensayos por lote están disponibles bajo pedido a través de la página de contacto."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Líneas de producto de baterías para camiones — DINWEY"
+  description="Líneas de producto de baterías para camiones DINWEY: JIS de servicio pesado (N150/N200), DIN de servicio pesado (DIN88/DIN100), sistemas de 24V, BCI Grupo 31/8D bajo pedido y programas para flotas/OEM."
+  jsonLd={[collectionJsonLd, faqJsonLd]}
+  canonical="/es/products/"
+  pageType="CollectionPage"
+  breadcrumbs={[
+    { name: "Inicio", url: "/es/" },
+    { name: "Productos", url: "/es/products/" }
+  ]}
+>
+  <div class="container section">
+    <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
+      <a href="/es/" style="color:#1e5aa8;">Inicio</a> &rsaquo; Productos
+    </nav>
+
+    <h1 style="color:#0f1f3d;margin-bottom:12px;">Productos</h1>
+    <p class="lead">
+      DINWEY suministra baterías de arranque (SLI) para camiones y servicio pesado en las tres normas
+      principales que se usan en vehículos comerciales — JIS, DIN/EN y BCI/SAE — además de configuraciones
+      en serie de 24V y programas OEM/marca privada. Cada línea es fabricada por Chengguang Power Tech Co., Ltd.
+      (fundada en 2002) bajo IATF 16949.
+    </p>
+
+    <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">Respuesta directa</h2>
+      <p style="margin:0;">DINWEY fabrica cinco líneas de producto: JIS de servicio pesado (N150/N200), DIN de servicio pesado (DIN88/DIN100), sistemas de 24V, BCI Grupo 31/8D bajo pedido y programas para flotas/OEM — todas fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002) bajo IATF 16949. El voltaje, la capacidad, el CCA con su norma de ensayo, la capacidad de reserva y las dimensiones de la caja están en las páginas de cada modelo; las líneas BCI se fabrican bajo pedido y se confirman por pedido.</p>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Líneas de producto</h2>
+    <ul style="list-style:none;padding:0;">
+      {productLines.map((p) => (
+        <li style="margin-bottom:18px;padding:16px 18px;border:1px solid #e5e9f0;border-radius:8px;">
+          <a href={p.href} style="color:#1e5aa8;font-weight:700;font-size:1.05rem;">{p.label}</a>
+          <div style="color:#55606e;font-size:0.88rem;margin:4px 0;">{p.models}</div>
+          <p style="margin:0;color:#334155;">{p.desc}</p>
+        </li>
+      ))}
+    </ul>
+
+    <div style="margin-top:32px;padding:20px;background:#f4f7fb;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin-top:0;">Especificaciones por modelo</h2>
+      <p style="margin-bottom:10px;">
+        Las páginas de cada modelo incluyen la tabla de especificaciones completa — voltaje, capacidad (C20),
+        CCA con su norma de ensayo, capacidad de reserva y dimensiones de la caja:
+      </p>
+      <ul style="margin-bottom:0;">
+        <li><a href="/es/batteries/" style="color:#1e5aa8;">Todos los modelos de baterías DINWEY (referencia de especificaciones)</a></li>
+        <li><a href="/es/compare/" style="color:#1e5aa8;">Comparaciones de modelos y normas</a></li>
+        <li><a href="/es/selection-tool/" style="color:#1e5aa8;">Herramienta de selección de baterías</a></li>
+      </ul>
+    </div>
+
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Cómo elijo entre las líneas de producto JIS y DIN?</h3>
+      <p>Por el vehículo y el mercado al que reemplaza: los tamaños JIS (N150/N200) corresponden a camiones japoneses y asiáticos, y los tamaños DIN (DIN88/DIN100) a camiones europeos. El tamaño de grupo, no la marca, determina la compatibilidad — revise la bandeja y la orientación de los terminales, y luego elija la capacidad y el CCA que requiere la aplicación.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Tienen stock de BCI Grupo 31 / 8D?</h3>
+      <p>No — BCI Grupo 31 y 8D se fabrican bajo pedido y no tienen especificación publicada de stock. Indíquenos el tamaño de grupo, el CCA y la cantidad y le cotizamos según su especificación.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Puedo obtener una ficha técnica de un modelo específico?</h3>
+      <p>Sí. Los cuatro modelos en stock (145G51, 190H52, 58827, 60038) tienen tablas de especificaciones completas en sus páginas de modelo, y las fichas técnicas y los registros de ensayos por lote están disponibles bajo pedido a través de la página de contacto.</p>
+    </div>
+    <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;">
+      <a class="cta" href="/es/contact/" style="display:inline-block;background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">Solicitar ficha técnica y cotización</a>
+      <a class="cta" href="https://wa.me/8613323237275" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">WhatsApp — Contactar ahora</a>
+    </div>
+  </div>
+</BaseLayout>

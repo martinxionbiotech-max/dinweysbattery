@@ -1,0 +1,265 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+
+const SITE = "https://dinweysbattery.com";
+
+const comparisonJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "JIS N150 vs N200: batería de servicio pesado para camión — ¿cuál necesita?",
+  "description": "N150 (145G51) vs N200 (190H52): tamaño, capacidad, CCA, capacidad de reserva, ajuste en la bandeja y emparejamiento en 24V — con una guía de decisión para compradores.",
+  "image": SITE + "/images/products/145G51-N150.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Martin Wong",
+    "jobTitle": "Director de Ventas",
+    "worksFor": { "@id": SITE + "/#organization" }
+  },
+  "publisher": { "@id": SITE + "/#organization" },
+  "datePublished": "2026-09-09",
+  "dateModified": "2026-09-09",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": SITE + "/es/compare/n150-vs-n200/" }
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la diferencia entre JIS N150 y N200?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La N200 (modelo 190H52) es más grande y de mayor rendimiento que la N150 (modelo 145G51): capacidad de 200Ah vs 135Ah, CCA de 1100A vs 900A, capacidad de reserva de 320min vs 220min, y 520×278×220mm vs 508×222×212mm. Ambas son baterías JIS D5301 de 12V con terminales JIS tipo A."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo reemplazar una N150 por una N200?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Normalmente no. La N200 es 56mm más ancha (278mm vs 222mm) y 12mm más larga, así que no entrará en una bandeja para N150. Solo cambie de modelo si su bandeja, cables y abrazadera de sujeción admiten la huella más grande. Confirme las dimensiones y la orientación de los terminales antes de pedir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál tiene mayor CCA, la N150 o la N200?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La N200 tiene mayor CCA — 1100A vs 900A, ambas medidas según JIS D5301. Un CCA más alto importa para los motores más grandes y el arranque en climas fríos, pero compare solo dentro de la misma norma."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál debo elegir para un camión de 24V?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use dos baterías idénticas — dos N150 o dos N200 — conectadas en serie. Nunca empareje una N150 con una N200. Elija la N200 solo si el motor y la bandeja lo exigen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es la N200 siempre mejor que la N150?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. La N200 es más potente, pero más grande, más pesada y más costosa. Si la N150 cumple con el requisito de CCA de su motor y entra en su bandeja, es la opción correcta y más económica."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="JIS N150 vs N200 — ¿qué batería necesita?"
+  description="N150 (145G51) vs N200 (190H52): la diferencia en tamaño, capacidad, CCA, capacidad de reserva y emparejamiento en 24V — con una guía de decisión para compradores de camiones del mercado JIS."
+  canonical="/es/compare/n150-vs-n200/"
+  ogType="article"
+  author="Martin Wong"
+  datePublished="2026-09-09"
+  dateModified="2026-09-09"
+  jsonLd={[comparisonJsonLd, faqJsonLd]}
+>
+  <div class="container section">
+    <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
+      <a href="/es/" style="color:#1e5aa8;">Inicio</a> &rsaquo; Comparar &rsaquo; N150 vs N200
+    </nav>
+
+    <h1 style="color:#0f1f3d;margin-bottom:12px;">JIS N150 vs N200: batería de servicio pesado para camión</h1>
+    <p class="lead">
+      La N200 (190H52) es más grande y de mayor rendimiento que la N150 (145G51) en todos los
+      aspectos — más capacidad, más CCA, más capacidad de reserva y una caja más grande. La verdadera
+      pregunta no es cuál es «mejor», sino cuál exigen realmente la bandeja y el motor de su camión.
+    </p>
+
+    <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;">Respuesta directa</h2>
+      <p style="margin:0;">
+        <strong>N150 (145G51)</strong> = 12V, 135Ah, 900A CCA, 220min RC, 508×222×212mm — el tamaño
+        de bandeja estándar de camión pesado. <strong>N200 (190H52)</strong> = 12V, 200Ah, 1100A CCA,
+        320min RC, 520×278×220mm — el modelo más grande y de mayor rendimiento. Ambas son baterías de
+        electrolito líquido JIS D5301 con terminales JIS tipo A. <strong>El factor decisivo casi
+        siempre es el ancho de la bandeja</strong>: el ancho de 278mm de la N200 no entra en la
+        bandeja de 222mm de una N150.
+      </p>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Puntos clave</h2>
+    <ol class="takeaways-list">
+      <li><strong>«N150» y «N200» son clases de tamaño, no clasificaciones de capacidad</strong> — el código de modelo (145G51 / 190H52) contiene la especificación real.</li>
+      <li><strong>La N200 no es una actualización directa</strong> — es 56mm más ancha (278 vs 222mm), así que normalmente no entrará en una bandeja para N150.</li>
+      <li><strong>1100A vs 900A de CCA solo importa si lo necesita</strong> — la N200 conviene a los motores más grandes y a los climas fríos; la N150 cubre el servicio estándar de camión pesado.</li>
+      <li><strong>La capacidad de reserva salta de 220 a 320 minutos</strong> — la N200 ofrece más reserva con el motor apagado para altas cargas eléctricas.</li>
+      <li><strong>En un camión de 24V, empareje baterías idénticas</strong> — dos N150 o dos N200, nunca una de cada una.</li>
+    </ol>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Comparación de especificaciones</h2>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>Especificación</th><th>N150 (145G51)</th><th>N200 (190H52)</th><th>Qué significa</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Voltaje</td><td>12V</td><td>12V</td><td>Idéntico — ambas son baterías individuales de 12V</td></tr>
+          <tr><td>Capacidad (C20)</td><td>135 Ah</td><td>200 Ah</td><td>La N200 almacena ~48% más energía</td></tr>
+          <tr><td>CCA (JIS D5301)</td><td>900 A</td><td>1100 A</td><td>La N200 ofrece un arranque en frío más potente</td></tr>
+          <tr><td>Capacidad de reserva (SAE J537)</td><td>220 min</td><td>320 min</td><td>N200 = +100 min de reserva con el motor apagado</td></tr>
+          <tr><td>Dimensiones (largo × ancho × alto)</td><td>508×222×212 mm</td><td>520×278×220 mm</td><td>La N200 es más ancha y más alta — verifique la bandeja</td></tr>
+          <tr><td>Terminal</td><td>JIS tipo A</td><td>JIS tipo A</td><td>Mismo tipo de terminal</td></tr>
+          <tr><td>Tecnología</td><td>Placas gruesas Pb-Sb</td><td>Placas gruesas Pb-Sb</td><td>Misma construcción de electrolito líquido</td></tr>
+          <tr><td>Aplicación típica</td><td>Camiones pesados estándar, autobuses, generadores</td><td>Camiones más grandes, semirremolques, climas fríos</td><td>N200 para el servicio más exigente</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="data-note">
+      Las cifras son especificaciones propias de DINWEY (JIS D5301). El CCA de una N150 de terceros
+      suele estar en el rango de ~750–1100A y las dimensiones varían ligeramente según el fabricante —
+      compare siempre dentro de una misma norma y confirme con la ficha técnica específica.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">¿Cuál es la diferencia?</h2>
+    <p>
+      Las N150 y N200 son las dos clases principales de baterías JIS de servicio pesado. Ambas son
+      baterías de electrolito líquido de 12V construidas sobre una rejilla de plomo-antimonio (Pb-Sb)
+      de placas gruesas — deliberadamente más robustas que una batería de automóvil, para sobrevivir a
+      los ciclos profundos y las vibraciones de un motor diésel grande.
+    </p>
+    <p>
+      La diferencia es el tamaño físico y el rendimiento eléctrico. La N200 es más grande en todas
+      sus dimensiones y entrega más capacidad (200Ah vs 135Ah), más arranque en frío (1100A vs 900A)
+      y más capacidad de reserva (320min vs 220min). Piense en la N150 como la batería estándar de
+      camión pesado y en la N200 como la versión reforzada para los motores más grandes y las
+      condiciones más duras.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:28px;">Por qué importa la diferencia</h2>
+    <div class="grid grid-3" style="margin-top:12px;">
+      <div class="card">
+        <h3>Ajuste en la bandeja</h3>
+        <p>El ancho de 278mm de la N200 frente a los 222mm de la N150 es la verdadera restricción. Una batería que no entra en la bandeja y la abrazadera de sujeción no sirve, sin importar su clasificación.</p>
+      </div>
+      <div class="card">
+        <h3>Margen de arranque en frío</h3>
+        <p>En climas fríos o para los motores más grandes, 1100A arrancan lo que 900A no pueden. La N200 es la opción más segura donde la demanda de arranque es mayor.</p>
+      </div>
+      <div class="card">
+        <h3>Carga eléctrica</h3>
+        <p>Los 100 minutos adicionales de capacidad de reserva importan cuando un camión alimenta luces potentes, telemática y refrigeración desde la batería con el motor apagado.</p>
+      </div>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">¿Son intercambiables?</h2>
+    <p>
+      <strong>No, no físicamente.</strong> La caja más grande de la N200 (520×278×220mm vs
+      508×222×212mm) significa que no entrará en una bandeja para N150. Lo inverso también es
+      problemático: una N150 en una bandeja para N200 queda suelta y puede no cumplir con el requisito
+      de arranque del motor.
+    </p>
+    <p>
+      Lo que <em>sí</em> es intercambiable es el papel eléctrico — ambas son baterías de 12V con
+      terminales JIS tipo A, así que en una aplicación de 12V cumplen la misma función con diferentes
+      niveles de potencia. En un sistema de 24V (dos baterías en serie), debe usar dos unidades
+      idénticas.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Guía de decisión para compradores</h2>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>Su situación</th><th>Elija</th><th>Por qué</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Camión pesado estándar, clima templado, bandeja para N150</td><td><strong>N150 (145G51)</strong></td><td>Entra en la bandeja estándar; 900A cubren el arranque diésel normal</td></tr>
+          <tr><td>El motor más grande / semirremolque / clima frío</td><td><strong>N200 (190H52)</strong></td><td>Margen de arranque en frío de 1100A y 320min RC para servicio pesado</td></tr>
+          <tr><td>Alta carga eléctrica (refrigerado, telemática, plataforma elevadora)</td><td><strong>N200 (190H52)</strong></td><td>La capacidad de reserva adicional sostiene las cargas con el motor apagado</td></tr>
+          <tr><td>Batería N150 existente que funciona bien</td><td><strong>N150 (145G51)</strong></td><td>Reemplazo directo — no requiere modificar la bandeja</td></tr>
+          <tr><td>Sistema de 24V, reemplazo del par</td><td><strong>Dos idénticas</strong></td><td>Dos N150 o dos N200, nunca mezcladas</td></tr>
+          <tr><td>Se busca más potencia, pero la bandeja es para N150</td><td><strong>Confirme el ajuste primero</strong></td><td>Es probable que la N200 no entre — verifique antes de pedir</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Qué verificar antes de pedir</h2>
+    <ul>
+      <li>Largo, ancho y alto de la bandeja — la N200 es 56mm más ancha que la N150.</li>
+      <li>Orientación de los terminales y alcance de los cables.</li>
+      <li>Requisito de CCA del motor — compare dentro de JIS D5301, no contra cifras de N150 de otros proveedores.</li>
+      <li>Si el vehículo es de 12V o de 24V (dos baterías en serie).</li>
+      <li>Su carga eléctrica — la capacidad de reserva importa para los accesorios con el motor apagado.</li>
+    </ul>
+
+    <div style="margin:24px 0;padding:16px 20px;background:#fff8ec;border-left:4px solid #f5a623;border-radius:6px;">
+      <p style="margin:0;">
+        <strong>Nota de verificación:</strong> Las especificaciones varían según el fabricante. Las
+        cifras de N150 y N200 anteriores son especificaciones propias de DINWEY. Confirme siempre el
+        tamaño de grupo exacto, el tipo de terminal, la polaridad y las dimensiones de la bandeja con
+        el manual de su vehículo antes de reemplazar.
+      </p>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Cuál es la diferencia entre JIS N150 y N200?</h3>
+      <p>La N200 (190H52) es más grande y de mayor rendimiento que la N150 (145G51): 200Ah vs 135Ah, 1100A vs 900A de CCA, 320min vs 220min de RC, y una caja más grande de 520×278×220mm.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Puedo reemplazar una N150 por una N200?</h3>
+      <p>Normalmente no — la N200 es 56mm más ancha y no entrará en una bandeja para N150. Solo cambie de modelo si su bandeja, cables y abrazadera de sujeción admiten la huella más grande.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Cuál tiene mayor CCA, la N150 o la N200?</h3>
+      <p>La N200: 1100A vs 900A, ambas medidas según JIS D5301. Un CCA más alto importa para los motores más grandes y los climas fríos.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Es la N200 siempre la mejor batería?</h3>
+      <p>No. Es más potente, pero más grande, más pesada y más costosa. Si la N150 cumple con el requisito de CCA de su motor y entra en su bandeja, es la opción correcta y más económica.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Qué debo usar en un camión de 24V?</h3>
+      <p>Dos baterías idénticas en serie — dos N150 o dos N200, nunca una de cada una — para que la carga se mantenga equilibrada.</p>
+    </div>
+
+    <div style="margin-top:32px;">
+      <h2 style="color:#0f1f3d;">Modelos relacionados</h2>
+      <ul>
+        <li><a href="/es/batteries/jis/n150/" style="color:#1e5aa8;">145G51 (N150) — especificación completa</a></li>
+        <li><a href="/es/batteries/jis/n200/" style="color:#1e5aa8;">190H52 (N200) — especificación completa</a></li>
+        <li><a href="/es/products/jis-heavy-duty/" style="color:#1e5aa8;">Familia de productos JIS de servicio pesado</a></li>
+        <li><a href="/es/products/24v/" style="color:#1e5aa8;">Sistemas de batería de 24V para camiones</a></li>
+        <li><a href="/es/truck-models/" style="color:#1e5aa8;">Referencia de compatibilidad por modelo de camión</a></li>
+      </ul>
+    </div>
+
+    <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;">
+      <a class="cta" href="/es/contact/" style="display:inline-block;background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">Confirme la compatibilidad — Obtenga una ficha técnica</a>
+      <a class="cta" href="https://wa.me/8613323237275" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">WhatsApp — Contactar ahora</a>
+    </div>
+
+    <div style="margin-top:24px;padding:16px 20px;background:#f4f7fb;border-radius:8px;">
+      <p class="data-note" style="margin:0;">
+        Fuentes: especificación propia de DINWEY (battery-master-data.json); cotejada con el catálogo
+        JIS de Bosch, la tabla de referencias cruzadas de Century Batteries y la norma de tamaños de
+        grupo de BCI.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

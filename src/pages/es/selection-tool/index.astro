@@ -1,0 +1,289 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const toolJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Herramienta de selección de baterías para camiones DINWEY",
+  "url": "https://dinweysbattery.com/es/selection-tool/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Cualquiera (navegador web)",
+  "description": "Herramienta interactiva que recomienda un modelo de batería para camión DINWEY, junto con el CCA, la capacidad y la tecnología, según el tipo de vehículo, el clima y el ciclo de trabajo.",
+  "publisher": { "@id": "https://dinweysbattery.com/#organization" }
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué tan precisa es la herramienta de selección de baterías para camiones?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La herramienta ofrece una orientación general basada en las normas de baterías de servicio pesado JIS y DIN y en los requisitos típicos de CCA para motores diésel. El CCA, la capacidad y las dimensiones exactas varían según el vehículo, así que confirme siempre la especificación final con el manual de su vehículo o contacte a DINWEY para obtener una ficha técnica."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si mi camión usa una batería BCI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los camiones norteamericanos que usan baterías BCI Grupo 31 u 8D son suministrados por DINWEY bajo pedido. Seleccione la opción para Norteamérica en la herramienta y contáctenos con el tamaño de grupo objetivo y el requisito de CCA para confirmar la especificación y el precio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo usar la herramienta para un camión de 24V?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Los camiones de servicio pesado, los tractocamiones y los autobuses usan sistemas de 24V formados por dos baterías de 12V en serie. La herramienta recomienda el par correspondiente para aplicaciones de 24V, y ambas baterías siempre deben reemplazarse juntas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito ingresar el CCA exacto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No: la herramienta deriva una recomendación del tipo de vehículo, el clima y el ciclo de trabajo. Proporciona un rango de CCA y una capacidad, pero el requisito oficial está impreso en el manual de su vehículo y en la etiqueta de la batería original."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Herramienta de selección de baterías para camiones — DINWEY"
+  description="Encuentre la batería DINWEY adecuada para su camión: seleccione el tipo de vehículo, el clima y el ciclo de trabajo para obtener el tamaño de grupo, el CCA, la capacidad y la tecnología recomendados."
+  jsonLd={[toolJsonLd, faqJsonLd]}
+>
+  <div class="container section">
+    <h1 style="color:#0f1f3d;">Herramienta de selección de baterías para camiones</h1>
+    <p class="lead">
+      Responda tres preguntas para obtener un modelo de batería, un rango de amperios de arranque
+      en frío (CCA), una capacidad y una tecnología recomendados para su camión. Esta es una
+      herramienta de orientación: confirme siempre la especificación final con el manual de su vehículo.
+    </p>
+
+    <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">Respuesta directa</h2>
+      <p style="margin:0;">Responda tres preguntas sobre su vehículo y su ciclo de trabajo para obtener un modelo de batería, un rango de CCA, una capacidad y una tecnología recomendados. El resultado es solo una orientación: confirme la especificación final con el manual de su vehículo y el certificado de análisis del lote.</p>
+    </div>
+
+    <div class="selector">
+      <label for="vehicle">1. Tipo de vehículo</label>
+      <select id="vehicle">
+        <option value="light">Camión ligero / pickup (12V)</option>
+        <option value="medium">Camión mediano (12V)</option>
+        <option value="heavy">Camión de servicio pesado / tractocamión (24V)</option>
+        <option value="bus">Autobús / autocar (24V)</option>
+        <option value="european">Camión comercial europeo</option>
+        <option value="bci">Camión norteamericano (BCI)</option>
+      </select>
+
+      <label for="climate">2. Clima</label>
+      <select id="climate">
+        <option value="mild">Suave / templado</option>
+        <option value="cold">Invierno frío</option>
+        <option value="arctic">Ártico / frío extremo</option>
+      </select>
+
+      <label for="duty">3. Ciclo de trabajo</label>
+      <select id="duty">
+        <option value="standard">Arranque estándar</option>
+        <option value="high-load">Cargas eléctricas intensas (refrigeración / plataforma elevadora / telemática)</option>
+        <option value="off-highway">Alta vibración / fuera de carretera</option>
+      </select>
+
+      <button
+        id="calc"
+        style="margin-top:20px;background:#0f1f3d;color:#fff;border:none;padding:12px 24px;border-radius:6px;font-weight:600;cursor:pointer;"
+      >Mostrar recomendación</button>
+
+      <div class="result" id="result" style="display:none;"></div>
+    </div>
+
+    <p class="data-note" style="margin-top:24px;">
+      Las recomendaciones son una orientación general basada en las normas de baterías de servicio
+      pesado JIS y DIN y en los requisitos típicos de CCA para motores diésel. El CCA, la capacidad
+      y las dimensiones exactas varían según el vehículo; confirme siempre con el manual de su
+      vehículo o contáctenos para obtener una ficha técnica.
+    </p>
+    <p class="data-note">
+      Las recomendaciones hacen referencia al
+      <a href="https://batterycouncil.org/" target="_blank" rel="noopener">sistema de tamaños de grupo de BCI</a>
+      y a la
+      <a href="https://www.sae.org/standards/content/j537_201711/" target="_blank" rel="noopener">SAE J537</a>
+      prueba de amperaje de arranque en frío.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">Cómo funciona la herramienta</h2>
+    <p>
+      La herramienta combina tres datos de entrada para generar una recomendación. El
+      <strong>tipo de vehículo</strong> define el tamaño de grupo base y el voltaje. El
+      <strong>clima</strong> determina si necesita más margen de arranque en frío. El
+      <strong>ciclo de trabajo</strong> decide la tecnología de la batería: de electrolito
+      líquido para el arranque estándar, AGM o un banco auxiliar para cargas intensas y vibración.
+    </p>
+
+    <div style="margin-top:24px;padding:16px 20px;background:#f4f7fb;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin-top:0;">Explorar por norma de batería</h2>
+      <ul style="margin:0;padding-left:20px;">
+        <li><a href="/es/products/jis-heavy-duty/" style="color:#1e5aa8;">JIS de servicio pesado (N150 / N200)</a></li>
+        <li><a href="/es/products/din-heavy-duty/" style="color:#1e5aa8;">DIN de servicio pesado (DIN88 / DIN100)</a></li>
+        <li><a href="/es/products/bci-request/" style="color:#1e5aa8;">BCI Grupo 31 / 8D (bajo pedido)</a></li>
+        <li><a href="/es/batteries/" style="color:#1e5aa8;">Referencia completa de modelos de baterías</a></li>
+        <li><a href="/es/products/fleet/" style="color:#1e5aa8;">Programas de baterías para flotas y OEM</a></li>
+      </ul>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Matriz completa de recomendaciones</h2>
+    <p>
+      La siguiente tabla enumera todas las recomendaciones de vehículo × clima que genera la
+      herramienta, de modo que la orientación puede leerse sin ejecutar ningún script y puede
+      ser indexada por motores de búsqueda y asistentes de IA. La dimensión del ciclo de trabajo
+      se cubre en las notas de tecnología que aparecen debajo de la tabla.
+    </p>
+
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.95rem;">
+        <thead>
+          <tr style="background:#0f1f3d;color:#fff;">
+            <th style="padding:10px;text-align:left;">Tipo de vehículo</th>
+            <th style="padding:10px;text-align:left;">Clima</th>
+            <th style="padding:10px;text-align:left;">Batería recomendada</th>
+            <th style="padding:10px;text-align:left;">CCA</th>
+            <th style="padding:10px;text-align:left;">Capacidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Camión ligero / pickup (12V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">Suave / templado</td><td style="padding:10px;border-bottom:1px solid #ddd;">JIS 145G51 (N150)</td><td style="padding:10px;border-bottom:1px solid #ddd;">900 CCA</td><td style="padding:10px;border-bottom:1px solid #ddd;">135 Ah</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Camión ligero / pickup (12V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">Invierno frío</td><td style="padding:10px;border-bottom:1px solid #ddd;">JIS 145G51 (N150)</td><td style="padding:10px;border-bottom:1px solid #ddd;">900 CCA</td><td style="padding:10px;border-bottom:1px solid #ddd;">135 Ah</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Camión ligero / pickup (12V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">Ártico / frío extremo</td><td style="padding:10px;border-bottom:1px solid #ddd;">JIS 190H52 (N200)</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Camión mediano (12V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">Suave / templado</td><td style="padding:10px;border-bottom:1px solid #ddd;">JIS 190H52 (N200)</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Camión mediano (12V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">Invierno frío</td><td style="padding:10px;border-bottom:1px solid #ddd;">JIS 190H52 (N200)</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Camión mediano (12V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">Ártico / frío extremo</td><td style="padding:10px;border-bottom:1px solid #ddd;">JIS 190H52 (N200)</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Camión de servicio pesado / tractocamión (24V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">Suave / templado</td><td style="padding:10px;border-bottom:1px solid #ddd;">2× JIS 190H52 (N200) — 24V</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA cada una</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah cada una</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Camión de servicio pesado / tractocamión (24V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">Invierno frío</td><td style="padding:10px;border-bottom:1px solid #ddd;">2× JIS 190H52 (N200) — 24V</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA cada una</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah cada una</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Camión de servicio pesado / tractocamión (24V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">Ártico / frío extremo</td><td style="padding:10px;border-bottom:1px solid #ddd;">2× JIS 190H52 (N200) — 24V</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA cada una</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah cada una</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Autobús / autocar (24V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">Suave / templado</td><td style="padding:10px;border-bottom:1px solid #ddd;">2× JIS 190H52 (N200) — 24V</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA cada una</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah cada una</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Autobús / autocar (24V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">Invierno frío</td><td style="padding:10px;border-bottom:1px solid #ddd;">2× JIS 190H52 (N200) — 24V</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA cada una</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah cada una</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Autobús / autocar (24V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">Ártico / frío extremo</td><td style="padding:10px;border-bottom:1px solid #ddd;">2× JIS 190H52 (N200) — 24V</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA cada una</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah cada una</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Camión comercial europeo</td><td style="padding:10px;border-bottom:1px solid #ddd;">Suave / templado</td><td style="padding:10px;border-bottom:1px solid #ddd;">DIN 58827 (DIN88)</td><td style="padding:10px;border-bottom:1px solid #ddd;">800 A EN</td><td style="padding:10px;border-bottom:1px solid #ddd;">88 Ah</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Camión comercial europeo</td><td style="padding:10px;border-bottom:1px solid #ddd;">Invierno frío</td><td style="padding:10px;border-bottom:1px solid #ddd;">DIN 60038 (DIN100)</td><td style="padding:10px;border-bottom:1px solid #ddd;">870 A EN</td><td style="padding:10px;border-bottom:1px solid #ddd;">100 Ah</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Camión comercial europeo</td><td style="padding:10px;border-bottom:1px solid #ddd;">Ártico / frío extremo</td><td style="padding:10px;border-bottom:1px solid #ddd;">DIN 60038 (DIN100)</td><td style="padding:10px;border-bottom:1px solid #ddd;">870 A EN</td><td style="padding:10px;border-bottom:1px solid #ddd;">100 Ah</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Camión norteamericano (BCI)</td><td style="padding:10px;border-bottom:1px solid #ddd;">Suave / templado</td><td style="padding:10px;border-bottom:1px solid #ddd;">BCI Grupo 31</td><td style="padding:10px;border-bottom:1px solid #ddd;">Bajo pedido</td><td style="padding:10px;border-bottom:1px solid #ddd;">Bajo pedido</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Camión norteamericano (BCI)</td><td style="padding:10px;border-bottom:1px solid #ddd;">Invierno frío</td><td style="padding:10px;border-bottom:1px solid #ddd;">BCI Grupo 31</td><td style="padding:10px;border-bottom:1px solid #ddd;">Bajo pedido</td><td style="padding:10px;border-bottom:1px solid #ddd;">Bajo pedido</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Camión norteamericano (BCI)</td><td style="padding:10px;border-bottom:1px solid #ddd;">Ártico / frío extremo</td><td style="padding:10px;border-bottom:1px solid #ddd;">BCI Grupo 31 / 8D</td><td style="padding:10px;border-bottom:1px solid #ddd;">Bajo pedido</td><td style="padding:10px;border-bottom:1px solid #ddd;">Bajo pedido</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Tecnología según el ciclo de trabajo</h2>
+    <p>
+      El mismo tamaño de grupo y CCA pueden suministrarse en diferentes tecnologías de batería.
+      Elija la tecnología según cómo se utilice la batería:
+    </p>
+    <table style="width:100%;border-collapse:collapse;font-size:0.95rem;">
+      <thead>
+        <tr style="background:#0f1f3d;color:#fff;">
+          <th style="padding:10px;text-align:left;">Ciclo de trabajo</th>
+          <th style="padding:10px;text-align:left;">Tecnología recomendada</th>
+          <th style="padding:10px;text-align:left;">Por qué</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Arranque estándar</td><td style="padding:10px;border-bottom:1px solid #ddd;">Electrolito líquido (SLI)</td><td style="padding:10px;border-bottom:1px solid #ddd;">Económica y probada para el servicio convencional</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Cargas eléctricas intensas</td><td style="padding:10px;border-bottom:1px solid #ddd;">EFB o AGM + banco auxiliar</td><td style="padding:10px;border-bottom:1px solid #ddd;">Mayor aceptación de carga; un banco de ciclo profundo separado protege la batería de arranque</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid #ddd;">Alta vibración / fuera de carretera</td><td style="padding:10px;border-bottom:1px solid #ddd;">AGM</td><td style="padding:10px;border-bottom:1px solid #ddd;">Sellada, resistente a las vibraciones y sin mantenimiento</td></tr>
+      </tbody>
+    </table>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Qué tan precisa es la herramienta de selección de baterías para camiones?</h3>
+      <p>La herramienta ofrece una orientación general basada en las normas de baterías de servicio pesado JIS y DIN y en los requisitos típicos de CCA para motores diésel. El CCA, la capacidad y las dimensiones exactas varían según el vehículo, así que confirme siempre la especificación final con el manual de su vehículo o contacte a DINWEY para obtener una ficha técnica.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Qué pasa si mi camión usa una batería BCI?</h3>
+      <p>Los camiones norteamericanos que usan baterías BCI Grupo 31 u 8D son suministrados por DINWEY bajo pedido. Seleccione la opción para Norteamérica en la herramienta y contáctenos con el tamaño de grupo objetivo y el requisito de CCA para confirmar la especificación y el precio.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Puedo usar la herramienta para un camión de 24V?</h3>
+      <p>Sí. Los camiones de servicio pesado, los tractocamiones y los autobuses usan sistemas de 24V formados por dos baterías de 12V en serie. La herramienta recomienda el par correspondiente para aplicaciones de 24V, y ambas baterías siempre deben reemplazarse juntas.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Necesito ingresar el CCA exacto?</h3>
+      <p>No: la herramienta deriva una recomendación del tipo de vehículo, el clima y el ciclo de trabajo. Proporciona un rango de CCA y una capacidad, pero el requisito oficial está impreso en el manual de su vehículo y en la etiqueta de la batería original.</p>
+    </div>
+
+    <p style="margin-top:24px;">
+      📚 ¿Quiere conocer el detalle técnico detrás de estas recomendaciones? Consulte el
+      <a href="https://docs.dinweysbattery.com/" style="color:#1e5aa8;">Centro de conocimiento de DINWEY</a>:
+      el CCA, las normas JIS vs DIN vs BCI y las guías de sistemas de 12V vs 24V.
+    </p>
+  </div>
+
+  <script>
+    const vehicle = document.getElementById("vehicle");
+    const climate = document.getElementById("climate");
+    const duty = document.getElementById("duty");
+    const calc = document.getElementById("calc");
+    const result = document.getElementById("result");
+
+    // 车型 × 气候 → 基础型号推荐（数据与产品页 specTable 一致）
+    const rec = {
+      light: {
+        mild:   { model: "JIS 145G51 (N150)", cca: "900 CCA", ah: "135 Ah", link: "/es/products/jis-heavy-duty/" },
+        cold:   { model: "JIS 145G51 (N150)", cca: "900 CCA", ah: "135 Ah", link: "/es/products/jis-heavy-duty/" },
+        arctic: { model: "JIS 190H52 (N200)", cca: "1100 CCA", ah: "200 Ah", link: "/es/products/jis-heavy-duty/" },
+      },
+      medium: {
+        mild:   { model: "JIS 190H52 (N200)", cca: "1100 CCA", ah: "200 Ah", link: "/es/products/jis-heavy-duty/" },
+        cold:   { model: "JIS 190H52 (N200)", cca: "1100 CCA", ah: "200 Ah", link: "/es/products/jis-heavy-duty/" },
+        arctic: { model: "JIS 190H52 (N200)", cca: "1100 CCA", ah: "200 Ah", link: "/es/products/jis-heavy-duty/" },
+      },
+      heavy: {
+        mild:   { model: "2× JIS 190H52 (N200) — 24V", cca: "1100 CCA cada una", ah: "200 Ah cada una", link: "/es/products/24v/" },
+        cold:   { model: "2× JIS 190H52 (N200) — 24V", cca: "1100 CCA cada una", ah: "200 Ah cada una", link: "/es/products/24v/" },
+        arctic: { model: "2× JIS 190H52 (N200) — 24V", cca: "1100 CCA cada una", ah: "200 Ah cada una", link: "/es/products/24v/" },
+      },
+      bus: {
+        mild:   { model: "2× JIS 190H52 (N200) — 24V", cca: "1100 CCA cada una", ah: "200 Ah cada una", link: "/es/products/24v/" },
+        cold:   { model: "2× JIS 190H52 (N200) — 24V", cca: "1100 CCA cada una", ah: "200 Ah cada una", link: "/es/products/24v/" },
+        arctic: { model: "2× JIS 190H52 (N200) — 24V", cca: "1100 CCA cada una", ah: "200 Ah cada una", link: "/es/products/24v/" },
+      },
+      european: {
+        mild:   { model: "DIN 58827 (DIN88)", cca: "800 A EN", ah: "88 Ah", link: "/es/products/din-heavy-duty/" },
+        cold:   { model: "DIN 60038 (DIN100)", cca: "870 A EN", ah: "100 Ah", link: "/es/products/din-heavy-duty/" },
+        arctic: { model: "DIN 60038 (DIN100)", cca: "870 A EN", ah: "100 Ah", link: "/es/products/din-heavy-duty/" },
+      },
+      bci: {
+        mild:   { model: "BCI Grupo 31", cca: "Bajo pedido", ah: "Bajo pedido", link: "/es/products/bci-request/" },
+        cold:   { model: "BCI Grupo 31", cca: "Bajo pedido", ah: "Bajo pedido", link: "/es/products/bci-request/" },
+        arctic: { model: "BCI Grupo 31 / 8D", cca: "Bajo pedido", ah: "Bajo pedido", link: "/es/products/bci-request/" },
+      },
+    };
+
+    // 应用场景 → 技术建议
+    const dutyNote = {
+      standard: "Tecnología: electrolito líquido (SLI) — económica para el arranque convencional.",
+      "high-load": "Tecnología: EFB o AGM, más un banco auxiliar separado de ciclo profundo para proteger la batería de arranque.",
+      "off-highway": "Tecnología: AGM — sellada y resistente a las vibraciones para servicio fuera de carretera.",
+    };
+
+    calc.addEventListener("click", () => {
+      const r = rec[vehicle.value]?.[climate.value];
+      if (r) {
+        result.innerHTML =
+          "<strong>Recomendado:</strong> " + r.model +
+          "<br/>Amperios de arranque en frío: " + r.cca +
+          "<br/>Capacidad: " + r.ah +
+          "<br/>" + dutyNote[duty.value] +
+          "<br/><br/><a href=\"" + r.link + "\" style=\"color:#1e5aa8;\">Ver esta batería →</a>" +
+          "<br/><br/><em>Confirme la especificación final con el manual de su vehículo.</em>";
+        result.style.display = "block";
+      }
+    });
+  </script>
+</BaseLayout>

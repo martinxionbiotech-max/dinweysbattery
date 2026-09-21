@@ -1,0 +1,169 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const SITE = "https://dinweysbattery.com";
+
+const productLines = [
+  {
+    href: "/ar/products/jis-heavy-duty/",
+    label: "بطاريات JIS للخدمة الشاقة",
+    models: "145G51 (N150) · 190H52 (N200)",
+    desc: "بطاريات بدء تشغيل JIS للخدمة الشاقة لشاحنات اليابان وآسيا — 12V، 135–200 Ah، 900–1100 A CCA (JIS D5301).",
+  },
+  {
+    href: "/ar/products/din-heavy-duty/",
+    label: "بطاريات DIN للخدمة الشاقة",
+    models: "58827 (DIN88) · 60038 (DIN100)",
+    desc: "بطاريات للخدمة الشاقة وفق معيار DIN/EN للشاحنات الأوروبية — 12V، 88–100 Ah، 800–870 A تدوير بارد EN.",
+  },
+  {
+    href: "/ar/products/24v/",
+    label: "أنظمة بطاريات الشاحنات 24V",
+    models: "2 × N200 · 2 × DIN100",
+    desc: "تكوينات 24V موصولة على التوالي للشاحنات الثقيلة والحافلات وحافلات السفر، مع إرشادات الكابلات وعازل البطارية والموازنة.",
+  },
+  {
+    href: "/ar/products/bci-request/",
+    label: "BCI مجموعة 31 / 8D",
+    models: "عند الطلب",
+    desc: "خطوط BCI مجموعة 31 و8D المصنّعة حسب الطلب — لا توجد مواصفات مخزون منشورة؛ تُؤكَّد المواصفات لكل طلب.",
+  },
+  {
+    href: "/ar/products/fleet/",
+    label: "حلول الأساطيل وتصنيع OEM",
+    models: "علامة خاصة · OEM",
+    desc: "توحيد الأساطيل والعلامات الخاصة وبرامج OEM مع وثائق الدفعات وشروط الضمان.",
+  },
+];
+
+const comparisons = [
+  { href: "/ar/compare/n150-vs-n200/", label: "JIS N150 مقابل N200 — أيّهما تحتاج؟" },
+  { href: "/ar/compare/din88-vs-din100/", label: "DIN88 مقابل DIN100 — السعة مقابل حجم الهيكل" },
+  { href: "/ar/compare/12v-vs-24v/", label: "أنظمة كهرباء الشاحنات 12V مقابل 24V" },
+  { href: "/ar/compare/jis-vs-din-vs-bci/", label: "JIS مقابل DIN مقابل BCI — مقارنة المعايير" },
+  { href: "/ar/compare/truck-battery-cca/", label: "كم يحتاج الشاحن من CCA؟" },
+];
+
+const collectionJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ItemList",
+      "@id": SITE + "/ar/products/#list",
+      "name": "خطوط منتجات بطاريات الشاحنات من DINWEY",
+      "numberOfItems": productLines.length,
+      "itemListElement": productLines.map((p, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": p.label,
+        "url": SITE + p.href,
+      })),
+    },
+  ],
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "كيف أختار بين خطي منتجات JIS وDIN؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "حسب المركبة والسوق الذي تستبدل من أجله: أحجام JIS (N150/N200) تناسب الشاحنات اليابانية والآسيوية، وأحجام DIN (DIN88/DIN100) تناسب الشاحنات الأوروبية. حجم المجموعة، وليس العلامة التجارية، هو ما يحدد الملاءمة — تحقق من الحاضن واتجاه الأقطاب، ثم اختر السعة وCCA التي يحتاجها التطبيق."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل BCI مجموعة 31 / 8D متوفرة في المخزون؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "لا — تُصنَّع BCI مجموعة 31 و8D حسب الطلب وليس لها مواصفات مخزون منشورة. أخبرنا بحجم المجموعة وCCA والكمية وسنقدّم عرض سعر وفق مواصفاتك."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل يمكنني الحصول على ورقة بيانات لموديل محدد؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "نعم. الموديلات الأربعة في المخزون (145G51 و190H52 و58827 و60038) لها جداول مواصفات كاملة في صفحاتها، وأوراق البيانات وسجلات اختبار الدفعات متاحة عند الطلب من صفحة الاتصال."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="خطوط منتجات بطاريات الشاحنات — DINWEY"
+  description="خطوط منتجات بطاريات الشاحنات من DINWEY: JIS للخدمة الشاقة (N150/N200)، DIN للخدمة الشاقة (DIN88/DIN100)، أنظمة 24V، BCI مجموعة 31/8D عند الطلب، وبرامج الأساطيل/OEM."
+  jsonLd={[collectionJsonLd, faqJsonLd]}
+  canonical="/ar/products/"
+  pageType="CollectionPage"
+  breadcrumbs={[
+    { name: "الرئيسية", url: "/ar/" },
+    { name: "المنتجات", url: "/ar/products/" }
+  ]}
+>
+  <div class="container section">
+    <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
+      <a href="/ar/" style="color:#1e5aa8;">الرئيسية</a> &rsaquo; المنتجات
+    </nav>
+
+    <h1 style="color:#0f1f3d;margin-bottom:12px;">المنتجات</h1>
+    <p class="lead">
+      توفّر DINWEY بطاريات بدء تشغيل (SLI) للشاحنات والخدمة الشاقة وفق المعايير الثلاثة الرئيسية
+      المستخدمة في المركبات التجارية — JIS وDIN/EN وBCI/SAE — إضافة إلى تكوينات 24V على التوالي
+      وبرامج تصنيع المعدات الأصلية/العلامة الخاصة. يُصنَّع كل خط بواسطة Chengguang Power Tech Co., Ltd.
+      (تأسست 2002) وفق IATF 16949.
+    </p>
+
+    <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">الإجابة المباشرة</h2>
+      <p style="margin:0;">تصنّع DINWEY خمسة خطوط منتجات: JIS للخدمة الشاقة (N150/N200)، وDIN للخدمة الشاقة (DIN88/DIN100)، وأنظمة 24V، وBCI مجموعة 31/8D عند الطلب، وبرامج الأساطيل/OEM — وجميعها من إنتاج Chengguang Power Tech Co., Ltd. (تأسست 2002) وفق IATF 16949. الجهد والسعة وCCA مع معيار اختباره والسعة الاحتياطية وأبعاد الهيكل موجودة في صفحات الموديلات الفردية؛ وخطوط BCI تُصنَّع حسب الطلب وتُؤكَّد لكل طلب.</p>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">خطوط المنتجات</h2>
+    <ul style="list-style:none;padding:0;">
+      {productLines.map((p) => (
+        <li style="margin-bottom:18px;padding:16px 18px;border:1px solid #e5e9f0;border-radius:8px;">
+          <a href={p.href} style="color:#1e5aa8;font-weight:700;font-size:1.05rem;">{p.label}</a>
+          <div style="color:#55606e;font-size:0.88rem;margin:4px 0;">{p.models}</div>
+          <p style="margin:0;color:#334155;">{p.desc}</p>
+        </li>
+      ))}
+    </ul>
+
+    <div style="margin-top:32px;padding:20px;background:#f4f7fb;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin-top:0;">مواصفات على مستوى الموديل</h2>
+      <p style="margin-bottom:10px;">
+        تحمل صفحات الموديلات الفردية جدول المواصفات الكامل — الجهد والسعة (C20) وCCA مع معيار
+        اختباره والسعة الاحتياطية وأبعاد الهيكل:
+      </p>
+      <ul style="margin-bottom:0;">
+        <li><a href="/ar/batteries/" style="color:#1e5aa8;">جميع موديلات بطاريات DINWEY (مرجع المواصفات)</a></li>
+        <li><a href="/ar/compare/" style="color:#1e5aa8;">مقارنات الموديلات والمعايير</a></li>
+        <li><a href="/ar/selection-tool/" style="color:#1e5aa8;">أداة اختيار البطارية</a></li>
+      </ul>
+    </div>
+
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">الأسئلة الشائعة</h2>
+    <div class="faq-item">
+      <h3>كيف أختار بين خطي منتجات JIS وDIN؟</h3>
+      <p>حسب المركبة والسوق الذي تستبدل من أجله: أحجام JIS (N150/N200) تناسب الشاحنات اليابانية والآسيوية، وأحجام DIN (DIN88/DIN100) تناسب الشاحنات الأوروبية. حجم المجموعة، وليس العلامة التجارية، هو ما يحدد الملاءمة — تحقق من الحاضن واتجاه الأقطاب، ثم اختر السعة وCCA التي يحتاجها التطبيق.</p>
+    </div>
+    <div class="faq-item">
+      <h3>هل BCI مجموعة 31 / 8D متوفرة في المخزون؟</h3>
+      <p>لا — تُصنَّع BCI مجموعة 31 و8D حسب الطلب وليس لها مواصفات مخزون منشورة. أخبرنا بحجم المجموعة وCCA والكمية وسنقدّم عرض سعر وفق مواصفاتك.</p>
+    </div>
+    <div class="faq-item">
+      <h3>هل يمكنني الحصول على ورقة بيانات لموديل محدد؟</h3>
+      <p>نعم. الموديلات الأربعة في المخزون (145G51 و190H52 و58827 و60038) لها جداول مواصفات كاملة في صفحاتها، وأوراق البيانات وسجلات اختبار الدفعات متاحة عند الطلب من صفحة الاتصال.</p>
+    </div>
+    <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;">
+      <a class="cta" href="/ar/contact/" style="display:inline-block;background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">اطلب ورقة البيانات وعرض سعر</a>
+      <a class="cta" href="https://wa.me/8613323237275" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">واتساب — تواصل الآن</a>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,286 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const toolJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "أداة اختيار بطاريات الشاحنات من DINWEY",
+  "url": "https://dinweysbattery.com/ar/selection-tool/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "أي (متصفح ويب)",
+  "description": "أداة تفاعلية لاقتراح موديل بطارية الشاحنات من DINWEY وقيمة CCA والسعة والتقنية وفقًا لنوع المركبة والمناخ ودورة التشغيل.",
+  "publisher": { "@id": "https://dinweysbattery.com/#organization" }
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ما مدى دقة أداة اختيار بطارية الشاحنة؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "تقدّم الأداة إرشادات عامة استنادًا إلى معايير بطاريات JIS وDIN للخدمة الشاقة ومتطلبات CCA النموذجية لمحركات الديزل. قد تختلف قيمة CCA الدقيقة والسعة والأبعاد حسب المركبة، لذا تأكد دائمًا من المواصفات النهائية بالرجوع إلى دليل المركبة أو تواصل مع DINWEY للحصول على ورقة بيانات."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ماذا لو كانت شاحنتي تستخدم بطارية بمعيار BCI؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "تُوفّر DINWEY بطاريات BCI مجموعة 31 أو 8D لشاحنات أمريكا الشمالية حسب الطلب. اختر خيار أمريكا الشمالية في الأداة وتواصل معنا مع تحديد حجم المجموعة المستهدف ومتطلبات CCA لتأكيد المواصفات والأسعار."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل يمكنني استخدام الأداة لشاحنة بنظام 24V؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "نعم. تستخدم شاحنات الخدمة الشاقة والشاحنات نصف المقطورة والحافلات أنظمة 24V مكوّنة من بطاريتين 12V موصولتين على التوالي. توصي الأداة بزوج متطابق لتطبيقات 24V، وينبغي دائمًا استبدال البطاريتين معًا."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل يجب إدخال قيمة CCA الدقيقة؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "لا — تستمد الأداة التوصية من نوع المركبة والمناخ ودورة التشغيل. وتقدّم نطاقًا لقيمة CCA والسعة، لكن المتطلب المعتمد مدوّن في دليل المركبة وعلى ملصق البطارية الأصلية."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="أداة اختيار بطاريات الشاحنات — DINWEY"
+  description="اعثر على بطارية الشاحنات المناسبة من DINWEY: اختر نوع المركبة والمناخ ودورة التشغيل للحصول على توصية بحجم المجموعة وقيمة CCA والسعة والتقنية."
+  jsonLd={[toolJsonLd, faqJsonLd]}
+>
+  <div class="container section">
+    <h1 style="color:#0f1f3d;">أداة اختيار بطاريات الشاحنات</h1>
+    <p class="lead">
+      أجب عن ثلاثة أسئلة للحصول على توصية بموديل البطارية ونطاق أمبير التدوير البارد (CCA)
+      والسعة والتقنية المناسبة لشاحنتك. هذه أداة إرشادية — تأكد دائمًا
+      من المواصفات النهائية بالرجوع إلى دليل المركبة.
+    </p>
+
+    <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">إجابة مباشرة</h2>
+      <p style="margin:0;">أجب عن ثلاثة أسئلة حول مركبتك ودورة التشغيل للحصول على توصية بموديل البطارية ونطاق CCA والسعة والتقنية. النتيجة إرشادية فقط — أكّد المواصفات النهائية بالرجوع إلى دليل المركبة وشهادة تحليل الدفعة.</p>
+    </div>
+
+    <div class="selector">
+      <label for="vehicle">1. نوع المركبة</label>
+      <select id="vehicle">
+        <option value="light">شاحنة خفيفة / بيك أب (12V)</option>
+        <option value="medium">شاحنة متوسطة الحمولة (12V)</option>
+        <option value="heavy">شاحنة ثقيلة / نصف مقطورة (24V)</option>
+        <option value="bus">حافلة / حافلة سياحية (24V)</option>
+        <option value="european">شاحنة تجارية أوروبية</option>
+        <option value="bci">شاحنة أمريكا الشمالية (BCI)</option>
+      </select>
+
+      <label for="climate">2. المناخ</label>
+      <select id="climate">
+        <option value="mild">معتدل</option>
+        <option value="cold">شتاء بارد</option>
+        <option value="arctic">قطبي / برد قارس</option>
+      </select>
+
+      <label for="duty">3. دورة التشغيل</label>
+      <select id="duty">
+        <option value="standard">تشغيل قياسي</option>
+        <option value="high-load">أحمال كهربائية ثقيلة (وحدات تبريد / أبواب رفع / تليماتكس)</option>
+        <option value="off-highway">اهتزازات عالية / الطرق الوعرة</option>
+      </select>
+
+      <button
+        id="calc"
+        style="margin-top:20px;background:#0f1f3d;color:#fff;border:none;padding:12px 24px;border-radius:6px;font-weight:600;cursor:pointer;"
+      >اعرض التوصية</button>
+
+      <div class="result" id="result" style="display:none;"></div>
+    </div>
+
+    <p class="data-note" style="margin-top:24px;">
+      التوصيات إرشادات عامة استنادًا إلى معايير بطاريات JIS وDIN للخدمة الشاقة
+      ومتطلبات CCA النموذجية لمحركات الديزل. قد تختلف قيمة CCA الدقيقة والسعة والأبعاد حسب المركبة
+      — تأكد دائمًا بالرجوع إلى دليل المركبة أو تواصل معنا للحصول على ورقة بيانات.
+    </p>
+    <p class="data-note">
+      تستند التوصيات إلى
+      <a href="https://batterycouncil.org/" target="_blank" rel="noopener">نظام أحجام المجموعات من BCI</a>
+      واختبار
+      <a href="https://www.sae.org/standards/content/j537_201711/" target="_blank" rel="noopener">SAE J537</a>
+      لأمبير التدوير البارد.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">كيف تعمل الأداة</h2>
+    <p>
+      تطابق الأداة ثلاثة مدخلات مع توصية. يحدد <strong>نوع المركبة</strong> حجم
+      المجموعة الأساسي والجهد. ويحدد <strong>المناخ</strong> ما إذا كنت بحاجة إلى هامش
+      أكبر لأمبير التدوير البارد. وتحدد <strong>دورة التشغيل</strong> تقنية البطارية — سائلة
+      (Flooded) للتشغيل القياسي، أو AGM أو بنك احتياطي للأحمال الثقيلة والاهتزازات.
+    </p>
+
+    <div style="margin-top:24px;padding:16px 20px;background:#f4f7fb;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin-top:0;">تصفّح حسب معيار البطارية</h2>
+      <ul style="margin:0;padding-left:20px;">
+        <li><a href="/ar/products/jis-heavy-duty/" style="color:#1e5aa8;">JIS للخدمة الشاقة (N150 / N200)</a></li>
+        <li><a href="/ar/products/din-heavy-duty/" style="color:#1e5aa8;">DIN للخدمة الشاقة (DIN88 / DIN100)</a></li>
+        <li><a href="/ar/products/bci-request/" style="color:#1e5aa8;">BCI مجموعة 31 / 8D (عند الطلب)</a></li>
+        <li><a href="/ar/batteries/" style="color:#1e5aa8;">المرجع الكامل لموديلات البطاريات</a></li>
+        <li><a href="/ar/products/fleet/" style="color:#1e5aa8;">برامج بطاريات الأساطيل وOEM</a></li>
+      </ul>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">مصفوفة التوصيات الكاملة</h2>
+    <p>
+      يسرد الجدول أدناه جميع التوصيات التي تنتجها الأداة لكل توليفة من نوع المركبة والمناخ،
+      بحيث يمكن قراءة الإرشادات دون تشغيل أي برنامج نصي — وقابلة للفهرسة لدى محركات البحث
+      ومساعدات الذكاء الاصطناعي. أما بُعد دورة التشغيل فيُغطّى في ملاحظات التقنية أسفل الجدول.
+    </p>
+
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.95rem;">
+        <thead>
+          <tr style="background:#0f1f3d;color:#fff;">
+            <th style="padding:10px;text-align:left;">نوع المركبة</th>
+            <th style="padding:10px;text-align:left;">المناخ</th>
+            <th style="padding:10px;text-align:left;">البطارية الموصى بها</th>
+            <th style="padding:10px;text-align:left;">CCA</th>
+            <th style="padding:10px;text-align:left;">السعة</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">شاحنة خفيفة / بيك أب (12V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">معتدل</td><td style="padding:10px;border-bottom:1px solid #ddd;">JIS 145G51 (N150)</td><td style="padding:10px;border-bottom:1px solid #ddd;">900 CCA</td><td style="padding:10px;border-bottom:1px solid #ddd;">135 Ah</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">شاحنة خفيفة / بيك أب (12V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">شتاء بارد</td><td style="padding:10px;border-bottom:1px solid #ddd;">JIS 145G51 (N150)</td><td style="padding:10px;border-bottom:1px solid #ddd;">900 CCA</td><td style="padding:10px;border-bottom:1px solid #ddd;">135 Ah</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">شاحنة خفيفة / بيك أب (12V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">قطبي / برد قارس</td><td style="padding:10px;border-bottom:1px solid #ddd;">JIS 190H52 (N200)</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">شاحنة متوسطة الحمولة (12V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">معتدل</td><td style="padding:10px;border-bottom:1px solid #ddd;">JIS 190H52 (N200)</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">شاحنة متوسطة الحمولة (12V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">شتاء بارد</td><td style="padding:10px;border-bottom:1px solid #ddd;">JIS 190H52 (N200)</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">شاحنة متوسطة الحمولة (12V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">قطبي / برد قارس</td><td style="padding:10px;border-bottom:1px solid #ddd;">JIS 190H52 (N200)</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">شاحنة ثقيلة / نصف مقطورة (24V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">معتدل</td><td style="padding:10px;border-bottom:1px solid #ddd;">2× JIS 190H52 (N200) — 24V</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA لكل بطارية</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah لكل بطارية</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">شاحنة ثقيلة / نصف مقطورة (24V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">شتاء بارد</td><td style="padding:10px;border-bottom:1px solid #ddd;">2× JIS 190H52 (N200) — 24V</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA لكل بطارية</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah لكل بطارية</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">شاحنة ثقيلة / نصف مقطورة (24V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">قطبي / برد قارس</td><td style="padding:10px;border-bottom:1px solid #ddd;">2× JIS 190H52 (N200) — 24V</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA لكل بطارية</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah لكل بطارية</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">حافلة / حافلة سياحية (24V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">معتدل</td><td style="padding:10px;border-bottom:1px solid #ddd;">2× JIS 190H52 (N200) — 24V</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA لكل بطارية</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah لكل بطارية</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">حافلة / حافلة سياحية (24V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">شتاء بارد</td><td style="padding:10px;border-bottom:1px solid #ddd;">2× JIS 190H52 (N200) — 24V</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA لكل بطارية</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah لكل بطارية</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">حافلة / حافلة سياحية (24V)</td><td style="padding:10px;border-bottom:1px solid #ddd;">قطبي / برد قارس</td><td style="padding:10px;border-bottom:1px solid #ddd;">2× JIS 190H52 (N200) — 24V</td><td style="padding:10px;border-bottom:1px solid #ddd;">1100 CCA لكل بطارية</td><td style="padding:10px;border-bottom:1px solid #ddd;">200 Ah لكل بطارية</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">شاحنة تجارية أوروبية</td><td style="padding:10px;border-bottom:1px solid #ddd;">معتدل</td><td style="padding:10px;border-bottom:1px solid #ddd;">DIN 58827 (DIN88)</td><td style="padding:10px;border-bottom:1px solid #ddd;">800 A EN</td><td style="padding:10px;border-bottom:1px solid #ddd;">88 Ah</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">شاحنة تجارية أوروبية</td><td style="padding:10px;border-bottom:1px solid #ddd;">شتاء بارد</td><td style="padding:10px;border-bottom:1px solid #ddd;">DIN 60038 (DIN100)</td><td style="padding:10px;border-bottom:1px solid #ddd;">870 A EN</td><td style="padding:10px;border-bottom:1px solid #ddd;">100 Ah</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">شاحنة تجارية أوروبية</td><td style="padding:10px;border-bottom:1px solid #ddd;">قطبي / برد قارس</td><td style="padding:10px;border-bottom:1px solid #ddd;">DIN 60038 (DIN100)</td><td style="padding:10px;border-bottom:1px solid #ddd;">870 A EN</td><td style="padding:10px;border-bottom:1px solid #ddd;">100 Ah</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">شاحنة أمريكا الشمالية (BCI)</td><td style="padding:10px;border-bottom:1px solid #ddd;">معتدل</td><td style="padding:10px;border-bottom:1px solid #ddd;">BCI مجموعة 31</td><td style="padding:10px;border-bottom:1px solid #ddd;">عند الطلب</td><td style="padding:10px;border-bottom:1px solid #ddd;">عند الطلب</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">شاحنة أمريكا الشمالية (BCI)</td><td style="padding:10px;border-bottom:1px solid #ddd;">شتاء بارد</td><td style="padding:10px;border-bottom:1px solid #ddd;">BCI مجموعة 31</td><td style="padding:10px;border-bottom:1px solid #ddd;">عند الطلب</td><td style="padding:10px;border-bottom:1px solid #ddd;">عند الطلب</td></tr>
+          <tr><td style="padding:10px;border-bottom:1px solid #ddd;">شاحنة أمريكا الشمالية (BCI)</td><td style="padding:10px;border-bottom:1px solid #ddd;">قطبي / برد قارس</td><td style="padding:10px;border-bottom:1px solid #ddd;">BCI مجموعة 31 / 8D</td><td style="padding:10px;border-bottom:1px solid #ddd;">عند الطلب</td><td style="padding:10px;border-bottom:1px solid #ddd;">عند الطلب</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">التقنية حسب دورة التشغيل</h2>
+    <p>
+      يمكن توريد الحجم نفسه من المجموعة وقيمة CCA نفسها بتقنيات بطاريات مختلفة. اختر
+      التقنية وفق طريقة استخدام البطارية:
+    </p>
+    <table style="width:100%;border-collapse:collapse;font-size:0.95rem;">
+      <thead>
+        <tr style="background:#0f1f3d;color:#fff;">
+          <th style="padding:10px;text-align:left;">دورة التشغيل</th>
+          <th style="padding:10px;text-align:left;">التقنية الموصى بها</th>
+          <th style="padding:10px;text-align:left;">السبب</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:10px;border-bottom:1px solid #ddd;">تشغيل قياسي</td><td style="padding:10px;border-bottom:1px solid #ddd;">سائلة (SLI)</td><td style="padding:10px;border-bottom:1px solid #ddd;">اقتصادية ومجرّبة للاستخدام التقليدي</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid #ddd;">أحمال كهربائية ثقيلة</td><td style="padding:10px;border-bottom:1px solid #ddd;">EFB أو AGM + بنك احتياطي</td><td style="padding:10px;border-bottom:1px solid #ddd;">قدرة أعلى على قبول الشحن؛ ويحمي بنك منفصل للدورة العميقة بطارية التشغيل</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid #ddd;">اهتزازات عالية / الطرق الوعرة</td><td style="padding:10px;border-bottom:1px solid #ddd;">AGM</td><td style="padding:10px;border-bottom:1px solid #ddd;">مغلقة ومقاومة للاهتزاز وخالية من الصيانة</td></tr>
+      </tbody>
+    </table>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">الأسئلة الشائعة</h2>
+    <div class="faq-item">
+      <h3>ما مدى دقة أداة اختيار بطارية الشاحنة؟</h3>
+      <p>تقدّم الأداة إرشادات عامة استنادًا إلى معايير بطاريات JIS وDIN للخدمة الشاقة ومتطلبات CCA النموذجية لمحركات الديزل. قد تختلف قيمة CCA الدقيقة والسعة والأبعاد حسب المركبة، لذا تأكد دائمًا من المواصفات النهائية بالرجوع إلى دليل المركبة أو تواصل مع DINWEY للحصول على ورقة بيانات.</p>
+    </div>
+    <div class="faq-item">
+      <h3>ماذا لو كانت شاحنتي تستخدم بطارية بمعيار BCI؟</h3>
+      <p>تُوفّر DINWEY بطاريات BCI مجموعة 31 أو 8D لشاحنات أمريكا الشمالية حسب الطلب. اختر خيار أمريكا الشمالية في الأداة وتواصل معنا مع تحديد حجم المجموعة المستهدف ومتطلبات CCA لتأكيد المواصفات والأسعار.</p>
+    </div>
+    <div class="faq-item">
+      <h3>هل يمكنني استخدام الأداة لشاحنة بنظام 24V؟</h3>
+      <p>نعم. تستخدم شاحنات الخدمة الشاقة والشاحنات نصف المقطورة والحافلات أنظمة 24V مكوّنة من بطاريتين 12V موصولتين على التوالي. توصي الأداة بزوج متطابق لتطبيقات 24V، وينبغي دائمًا استبدال البطاريتين معًا.</p>
+    </div>
+    <div class="faq-item">
+      <h3>هل يجب إدخال قيمة CCA الدقيقة؟</h3>
+      <p>لا — تستمد الأداة التوصية من نوع المركبة والمناخ ودورة التشغيل. وتقدّم نطاقًا لقيمة CCA والسعة، لكن المتطلب المعتمد مدوّن في دليل المركبة وعلى ملصق البطارية الأصلية.</p>
+    </div>
+
+    <p style="margin-top:24px;">
+      📚 هل تريد التفاصيل الفنية الكامنة وراء هذه التوصيات؟ اقرأ
+      <a href="https://docs.dinweysbattery.com/" style="color:#1e5aa8;">مركز المعرفة من DINWEY</a> —
+      أدلة حول CCA ومعايير JIS مقابل DIN مقابل BCI وأنظمة 12V مقابل 24V.
+    </p>
+  </div>
+
+  <script>
+    const vehicle = document.getElementById("vehicle");
+    const climate = document.getElementById("climate");
+    const duty = document.getElementById("duty");
+    const calc = document.getElementById("calc");
+    const result = document.getElementById("result");
+
+    // 车型 × 气候 → 基础型号推荐（数据与产品页 specTable 一致）
+    const rec = {
+      light: {
+        mild:   { model: "JIS 145G51 (N150)", cca: "900 CCA", ah: "135 Ah", link: "/ar/products/jis-heavy-duty/" },
+        cold:   { model: "JIS 145G51 (N150)", cca: "900 CCA", ah: "135 Ah", link: "/ar/products/jis-heavy-duty/" },
+        arctic: { model: "JIS 190H52 (N200)", cca: "1100 CCA", ah: "200 Ah", link: "/ar/products/jis-heavy-duty/" },
+      },
+      medium: {
+        mild:   { model: "JIS 190H52 (N200)", cca: "1100 CCA", ah: "200 Ah", link: "/ar/products/jis-heavy-duty/" },
+        cold:   { model: "JIS 190H52 (N200)", cca: "1100 CCA", ah: "200 Ah", link: "/ar/products/jis-heavy-duty/" },
+        arctic: { model: "JIS 190H52 (N200)", cca: "1100 CCA", ah: "200 Ah", link: "/ar/products/jis-heavy-duty/" },
+      },
+      heavy: {
+        mild:   { model: "2× JIS 190H52 (N200) — 24V", cca: "1100 CCA لكل بطارية", ah: "200 Ah لكل بطارية", link: "/ar/products/24v/" },
+        cold:   { model: "2× JIS 190H52 (N200) — 24V", cca: "1100 CCA لكل بطارية", ah: "200 Ah لكل بطارية", link: "/ar/products/24v/" },
+        arctic: { model: "2× JIS 190H52 (N200) — 24V", cca: "1100 CCA لكل بطارية", ah: "200 Ah لكل بطارية", link: "/ar/products/24v/" },
+      },
+      bus: {
+        mild:   { model: "2× JIS 190H52 (N200) — 24V", cca: "1100 CCA لكل بطارية", ah: "200 Ah لكل بطارية", link: "/ar/products/24v/" },
+        cold:   { model: "2× JIS 190H52 (N200) — 24V", cca: "1100 CCA لكل بطارية", ah: "200 Ah لكل بطارية", link: "/ar/products/24v/" },
+        arctic: { model: "2× JIS 190H52 (N200) — 24V", cca: "1100 CCA لكل بطارية", ah: "200 Ah لكل بطارية", link: "/ar/products/24v/" },
+      },
+      european: {
+        mild:   { model: "DIN 58827 (DIN88)", cca: "800 A EN", ah: "88 Ah", link: "/ar/products/din-heavy-duty/" },
+        cold:   { model: "DIN 60038 (DIN100)", cca: "870 A EN", ah: "100 Ah", link: "/ar/products/din-heavy-duty/" },
+        arctic: { model: "DIN 60038 (DIN100)", cca: "870 A EN", ah: "100 Ah", link: "/ar/products/din-heavy-duty/" },
+      },
+      bci: {
+        mild:   { model: "BCI مجموعة 31", cca: "عند الطلب", ah: "عند الطلب", link: "/ar/products/bci-request/" },
+        cold:   { model: "BCI مجموعة 31", cca: "عند الطلب", ah: "عند الطلب", link: "/ar/products/bci-request/" },
+        arctic: { model: "BCI مجموعة 31 / 8D", cca: "عند الطلب", ah: "عند الطلب", link: "/ar/products/bci-request/" },
+      },
+    };
+
+    // 应用场景 → 技术建议
+    const dutyNote = {
+      standard: "التقنية: سائلة (SLI) — اقتصادية للتشغيل التقليدي.",
+      "high-load": "التقنية: EFB أو AGM، مع بنك احتياطي منفصل للدورة العميقة لحماية بطارية التشغيل.",
+      "off-highway": "التقنية: AGM — مغلقة ومقاومة للاهتزاز للاستخدام على الطرق الوعرة.",
+    };
+
+    calc.addEventListener("click", () => {
+      const r = rec[vehicle.value]?.[climate.value];
+      if (r) {
+        result.innerHTML =
+          "<strong>الموصى به:</strong> " + r.model +
+          "<br/>أمبير التدوير البارد: " + r.cca +
+          "<br/>السعة: " + r.ah +
+          "<br/>" + dutyNote[duty.value] +
+          "<br/><br/><a href=\"" + r.link + "\" style=\"color:#1e5aa8;\">اعرض هذه البطارية ←</a>" +
+          "<br/><br/><em>أكّد المواصفات النهائية بالرجوع إلى دليل المركبة.</em>";
+        result.style.display = "block";
+      }
+    });
+  </script>
+</BaseLayout>

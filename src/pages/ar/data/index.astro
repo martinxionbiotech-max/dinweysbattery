@@ -1,0 +1,291 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import claimsRaw from "../../../../public/data/evidence/claims.json";
+import sourcesRaw from "../../../../public/data/evidence/sources.json";
+import masterRaw from "../../../../public/data/battery-master-data.json";
+import fitmentRaw from "../../../../public/data/vehicle-fitment.json";
+
+const SITE = "https://dinweysbattery.com";
+const master = masterRaw as any;
+const fitment = fitmentRaw as any;
+const claims = claimsRaw as any;
+const sources = sourcesRaw as any;
+
+const DATASETS = [
+  {
+    path: "/data/battery-master-data.json",
+    name: master.name,
+    date: master.dateModified,
+    description: master.description,
+    what: "سجل واحد لكل موديل بطارية: الجهد، والسعة (C20)، وCCA مع معيار الاختبار الخاص به، والسعة الاحتياطية (RC)، وأبعاد العلبة، ونوع الأقطاب، وحالة التحقق.",
+  },
+  {
+    path: "/data/evidence/claims.json",
+    name: claims.name,
+    date: claims.dateModified,
+    description: claims.description,
+    what: "كل ادعاء فني أو تجاري يقدّمه الموقع، مع المصدر الذي يدعمه ومستوى الدليل وحالة التحقق لكل ادعاء.",
+  },
+  {
+    path: "/data/evidence/sources.json",
+    name: sources.name,
+    date: sources.dateModified,
+    description: sources.description,
+    what: "سجل المصادر التي تقف خلف الادعاءات: المستوى 1 المعايير المستقلة، والمستوى 2 وثائق المصنّع، والمستوى 3 كتالوجات طرف ثالث.",
+  },
+  {
+    path: "/data/vehicle-fitment.json",
+    name: fitment.name,
+    date: fitment.dateModified,
+    description: fitment.description,
+    what: "ربط موديل الشاحنة ← مجموعة البطارية ← موديل DINWEY، مع درجة ثقة ومصدر لكل مُدخَل.",
+  },
+];
+
+const models = master.models.map((m: any) => ({
+  model: m.model,
+  href: typeof m.url === "string" ? m.url.replace(SITE, "/ar") : null,
+  group: m.group ?? "—",
+  voltage: m.voltage ?? "—",
+  capacity: m.capacity_ah ? m.capacity_ah + " Ah" : "—",
+  cca: m.cca ? m.cca + " A" + (m.cca_standard ? " (" + m.cca_standard + ")" : "") : "غير منشور",
+  status: String(m.verification_status ?? "").replace(/_/g, " "),
+  source: m.source ?? "—",
+}));
+
+const statusCount = models.reduce((acc: any, m: any) => {
+  acc[m.status] = (acc[m.status] ?? 0) + 1;
+  return acc;
+}, {});
+
+const claimRows = claims.claims.map((c: any) => ({
+  id: c.id,
+  claim: c.claim,
+  status: c.verification,
+  sources: (c.sources ?? []).join(", ") || "—",
+}));
+
+const sourceRows = sources.sources.map((s: any) => ({
+  id: s.id,
+  level: s.level,
+  type: String(s.type ?? "").replace(/_/g, " "),
+  title: s.title,
+  url: s.url ?? null,
+}));
+
+const levelCounts = [1, 2, 3].map((l) => sourceRows.filter((s: any) => s.level === l).length);
+const tierRows = Object.entries(master.dataProvenance.sourceTiers).map(([k, v]) => ({ key: k, value: String(v) }));
+const confidenceRows = Object.entries(fitment.verificationLevels).map(([k, v]) => ({ key: k, value: String(v) }));
+
+const datasetJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": DATASETS.map((d) => ({
+    "@type": "Dataset",
+    "@id": SITE + d.path + "#dataset",
+    "name": d.name,
+    "description": d.description,
+    "url": SITE + d.path,
+    "distribution": {
+      "@type": "DataDownload",
+      "contentUrl": SITE + d.path,
+      "encodingFormat": "application/json",
+    },
+    "creator": { "@id": SITE + "/#manufacturer" },
+    "isAccessibleForFree": true,
+    "dateModified": d.date,
+  })),
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "لماذا بعض الحقول فارغة في مجموعات البيانات؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "لأن المصنّع لا ينشرها. السياسة منصوص عليها في ملف البيانات الرئيسية نفسه: الحقول التي لا تُنشر تُترك بقيمة null، ولا تُقدَّر ولا تُستنبط أبدًا. الحقل الفارغ يعني «غير منشور» وليس «صفرًا»."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ماذا يعني «مرجعي» في بيانات الموديلات؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "يعني أن القيمة جُمّعت من كتالوجات طرف ثالث وليس من ورقة بيانات DINWEY. هذه الموديلات مدرجة لتمكينك من المقارنة المرجعية عند اختيار بديل؛ وهي ليست تصنيفات مخزون منشورة من DINWEY، ويُقدَّم سعرها عند الطلب إذا احتجت إليها."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ما مدى حداثة هذه المجموعات من البيانات؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "يحمل كل ملف JSON قيمة dateModified الخاصة به، وهي معروضة بجانب اسم المجموعة أعلاه. يُحدَّث سجل الادعاءات وسجل المصادر كلما تغيّرت حالة أي ادعاء — بما في ذلك عندما يظل الادعاء مُعلَّمًا بأنه يحتاج إلى تحقق."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="الأدلة والبيانات — مواصفات بطاريات DINWEY"
+  description="مجموعات البيانات التي تقف خلف مواصفات بطاريات DINWEY: سجل الادعاءات مع حالة التحقق، وسجل المصادر حسب المستوى، والبيانات الرئيسية للموديلات، وقاعدة بيانات الملاءمة."
+  jsonLd={[datasetJsonLd, faqJsonLd]}
+  canonical="/ar/data/"
+  pageType="CollectionPage"
+  breadcrumbs={[
+    { name: "الرئيسية", url: "/ar/" },
+    { name: "الأدلة والبيانات", url: "/ar/data/" }
+  ]}
+>
+  <div class="container section">
+    <nav aria-label="مسار التنقل" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
+      <a href="/ar/" style="color:#1e5aa8;">الرئيسية</a> &rsaquo; الأدلة والبيانات
+    </nav>
+
+    <h1 style="color:#0f1f3d;margin-bottom:12px;">الأدلة والبيانات</h1>
+    <p class="lead">
+      تنشر معظم مواقع البطاريات جدول مواصفات. نحن ننشر مجموعات البيانات التي تقف خلف مواصفاتنا — بما في ذلك
+      الادعاءات التي لا يمكننا التحقق منها بعد. كل ما في هذه الصفحة هو نفس ملفات JSON التي تُشغّل صفحات المنتجات،
+      بصيغة قابلة للقراءة آليًا، ليتمكن المشتري (أو مساعد ذكاء اصطناعي) من التحقق من أي رقم بدلًا من قبوله على الثقة.
+    </p>
+
+    <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">الإجابة المباشرة</h2>
+      <p style="margin:0;">
+        {models.length} سجلًا لبيانات الموديلات ({statusCount["confirmed first party"] ?? 0} مؤكدة من الطرف الأول،{" "}
+        {statusCount["reference"] ?? 0} مرجعية من طرف ثالث، {statusCount["on request"] ?? 0} عند الطلب فقط)،{" "}
+        و{claimRows.length} ادعاءات متتبَّعة و{sourceRows.length} مصادر مسجّلة — {levelCounts[0]} معايير
+        مستقلة (المستوى 1)، و{levelCounts[1]} من وثائق المصنّع (المستوى 2)، و{levelCounts[2]} من كتالوجات طرف
+        ثالث (المستوى 3). الحقول التي لا ينشرها المصنّع تُترك <code>null</code>، ولا تُقدَّر أبدًا.
+      </p>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:36px;">مجموعات البيانات</h2>
+    <ul style="list-style:none;padding:0;">
+      {DATASETS.map((d) => (
+        <li style="margin-bottom:16px;padding:16px 18px;border:1px solid #e5e9f0;border-radius:8px;">
+          <a href={d.path} style="color:#1e5aa8;font-weight:700;">{d.name}</a>
+          <div style="color:#55606e;font-size:0.86rem;margin:4px 0;">JSON · {d.path} · {d.date}</div>
+          <p style="margin:0 0 6px;color:#334155;">{d.what}</p>
+          <p style="margin:0;font-size:0.86rem;color:#55606e;">{d.description}</p>
+        </li>
+      ))}
+    </ul>
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">سجل الادعاءات</h2>
+    <p>
+      كل رقم يُقدَّم في الموقع يعود إلى أحد هذه الادعاءات. يعني «موثّق (من الطرف الأول)» أن القيمة مصدرها ورقة
+      البيانات الهندسية الخاصة بنا؛ ويعني «مرجعي» أنها مجمّعة من كتالوجات طرف ثالث و<strong>ليست</strong> تصنيفًا
+      منشورًا لمخزون DINWEY؛ ويعني «يحتاج إلى تحقق» أننا لم نحصل بعد على وثيقة تدعمه.
+    </p>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>المعرّف</th><th>الادعاء</th><th>الحالة</th><th>المصادر</th></tr>
+        </thead>
+        <tbody>
+          {claimRows.map((c: any) => (
+            <tr>
+              <td><code>{c.id}</code></td>
+              <td>{c.claim}</td>
+              <td>{c.status}</td>
+              <td>{c.sources}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">سجل المصادر</h2>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>المعرّف</th><th>المستوى</th><th>النوع</th><th>المصدر</th></tr>
+        </thead>
+        <tbody>
+          {sourceRows.map((s: any) => (
+            <tr>
+              <td><code>{s.id}</code></td>
+              <td>المستوى {s.level}</td>
+              <td>{s.type}</td>
+              <td>
+                {s.url
+                  ? <a href={s.url} target="_blank" rel="noopener" style="color:#1e5aa8;">{s.title}</a>
+                  : s.title}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">حالة التحقق لكل موديل</h2>
+    <p>
+      {statusCount["confirmed first party"] ?? 0} من الموديلات تحمل مواصفة DINWEY من الطرف الأول؛{" "}
+      {statusCount["reference"] ?? 0} مدرجة كمرجع من طرف ثالث فقط (أحجام مجموعات شائعة الاستخدام لا
+      ننشرها كتصنيفات مخزون)؛ {statusCount["on request"] ?? 0} تُصنَّع حسب الطلب دون مواصفة منشورة.
+      التفصيل حسب الموديل متاح في <a href="/data/battery-master-data.json" style="color:#1e5aa8;">battery-master-data.json</a>.
+    </p>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>الموديل</th><th>المجموعة</th><th>الجهد</th><th>السعة</th><th>CCA</th><th>الحالة</th><th>المصدر</th></tr>
+        </thead>
+        <tbody>
+          {models.map((m: any) => (
+            <tr>
+              <td>{m.href ? <a href={m.href} style="color:#1e5aa8;">{m.model}</a> : m.model}</td>
+              <td>{m.group}</td>
+              <td>{m.voltage}</td>
+              <td>{m.capacity}</td>
+              <td>{m.cca}</td>
+              <td>{m.status}</td>
+              <td>{m.source}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:36px;padding:20px;background:#fff8ec;border:1px solid #f5a623;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin-top:0;">مستويات الثقة في الملاءمة</h2>
+      <p style="margin-bottom:8px;">{fitment.disclaimer}</p>
+      <ul style="margin-bottom:0;">
+        {confidenceRows.map((r: any) => (
+          <li><strong>{r.key}</strong> — {r.value}</li>
+        ))}
+      </ul>
+    </div>
+
+    <div style="margin-top:32px;padding:20px;background:#f4f7fb;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin-top:0;">سياسة التحقق</h2>
+      <p style="margin-bottom:8px;">{master.dataProvenance.verificationPolicy}</p>
+      <ul style="margin-bottom:0;">
+        {tierRows.map((r: any) => (
+          <li><strong>{r.key}</strong> — {r.value}</li>
+        ))}
+      </ul>
+    </div>
+
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">الأسئلة الشائعة</h2>
+    <div class="faq-item">
+      <h3>لماذا بعض الحقول فارغة في مجموعات البيانات؟</h3>
+      <p>لأن المصنّع لا ينشرها. السياسة منصوص عليها في ملف البيانات الرئيسية نفسه: الحقول التي لا تُنشر تُترك بقيمة null، ولا تُقدَّر ولا تُستنبط أبدًا. الحقل الفارغ يعني «غير منشور» وليس «صفرًا».</p>
+    </div>
+    <div class="faq-item">
+      <h3>ماذا يعني «مرجعي» في بيانات الموديلات؟</h3>
+      <p>يعني أن القيمة جُمّعت من كتالوجات طرف ثالث وليس من ورقة بيانات DINWEY. هذه الموديلات مدرجة لتمكينك من المقارنة المرجعية عند اختيار بديل؛ وهي ليست تصنيفات مخزون منشورة من DINWEY، ويُقدَّم سعرها عند الطلب إذا احتجت إليها.</p>
+    </div>
+    <div class="faq-item">
+      <h3>ما مدى حداثة هذه المجموعات من البيانات؟</h3>
+      <p>يحمل كل ملف JSON قيمة dateModified الخاصة به، وهي معروضة بجانب اسم المجموعة أعلاه. يُحدَّث سجل الادعاءات وسجل المصادر كلما تغيّرت حالة أي ادعاء — بما في ذلك عندما يظل الادعاء مُعلَّمًا بأنه يحتاج إلى تحقق.</p>
+    </div>
+    <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;">
+      <a class="cta" href="/ar/contact/" style="display:inline-block;background:#f5a623;color:#000;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">اطلب ورقة بيانات وشهادة</a>
+      <a class="cta" href="/ar/batteries/" style="display:inline-block;background:#1e5aa8;color:#fff;font-weight:700;padding:13px 28px;border-radius:6px;text-decoration:none;">تصفّح مواصفات الموديلات</a>
+    </div>
+  </div>
+</BaseLayout>

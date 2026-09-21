@@ -1,0 +1,140 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué batería usa un generador diésel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los generadores diésel usan una batería de arranque adaptada al requisito de arranque del motor: a menudo una batería de servicio pesado de electrolito líquido o AGM con 850–1100+ CCA. Los generadores más grandes pueden usar sistemas de arranque de 24V."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿En qué se diferencia una batería de generador de una batería de vehículo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La química es idéntica; el servicio, no. La batería de un vehículo se recarga a diario con el alternador, mientras que la de un generador permanece inactiva y se autodescarga entre un 3 y un 5% al mes —de un 9 a un 15% de una batería de 135 Ah en tres meses de inactividad— y aun así debe entregar una CCA alta cuando se le pida. Un cargador de flotación, no el alternador, la mantiene viva."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué fallan las baterías de los generadores de respaldo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Por sulfatación, no por uso. Una batería que permanece meses con un estado de carga bajo se autodescarga y se sulfata progresivamente, perdiendo capacidad de forma invisible hasta la noche fría en que debe arrancar. Un cargador de flotación o mantenedor lo evita."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Con qué frecuencia debo reemplazar la batería de un generador?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Las baterías de generador suelen durar de 3 a 5 años, pero las unidades de respaldo que permanecen inactivas necesitan carga regular para evitar la sulfatación. Realice pruebas anualmente y reemplácela de forma preventiva antes de un arranque crítico."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Baterías de arranque para generadores diésel — DINWEY OEM"
+  description="Baterías de arranque para generadores diésel de respaldo y principales — alta CCA cuando se necesita, más la disciplina de carga flotante que exige el servicio de respaldo. Suministro OEM de DINWEY."
+  jsonLd={faqJsonLd}
+>
+  <div class="container section">
+    <nav aria-label="Ruta de navegación" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
+      <a href="/es/" style="color:#1e5aa8;">Inicio</a> &rsaquo; Aplicaciones &rsaquo; Generadores diésel
+    </nav>
+    <h1 style="color:#0f1f3d;">Baterías de arranque para generadores diésel</h1>
+    <p class="lead">
+      La batería de un generador de respaldo es el componente con más probabilidad de fallar, no
+      porque trabaje mucho, sino porque permanece inactiva durante meses y se espera que arranque
+      cuando se le pida. La química es la misma que la de una batería de camión; el servicio, no.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Puntos clave</h2>
+    <ol class="takeaways-list">
+      <li><strong>El enemigo es la inactividad, no el uso</strong> — una batería sin carga se autodescarga igualmente ~3–5% al mes; una N150 de 135 Ah pierde entre un 9 y un 15% de capacidad en tres meses de inactividad.</li>
+      <li><strong>Lo que la mantiene viva es un cargador de flotación, no la etiqueta de CCA</strong> — el alternador recarga el vehículo a diario; un generador de respaldo no tiene ese ciclo de trabajo, así que un cargador o mantenedor mantiene la carga.</li>
+      <li><strong>La sulfatación es el asesino silencioso</strong> — una batería que permanece por debajo de la carga completa se sulfata progresivamente y pierde capacidad de forma invisible hasta la noche fría en que debe arrancar.</li>
+      <li><strong>Pruebe anualmente y reemplace de forma preventiva</strong> — la vida útil típica es de 3 a 5 años, pero los sitios con arranques críticos justifican una prueba de carga anual y un reemplazo planificado.</li>
+    </ol>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Por qué el servicio de un generador es diferente</h2>
+    <p>
+      La batería de un camión se gana su lugar todos los días: el motor arranca, el alternador la
+      recarga y el ciclo se repite. Un generador de respaldo permanece en su bahía durante semanas
+      o meses, autodescargándose lentamente a un ritmo del 3 al 5% mensual y, en el momento en que
+      falla la red eléctrica o el sistema de control solicita un arranque, debe entregar la ráfaga
+      completa de arranque en frío al instante.
+    </p>
+    <p>
+      El modo de falla es invisible. Cuando una batería permanece por debajo de la carga completa,
+      se forman cristales de sulfato de plomo en las placas que se endurecen y reducen la
+      capacidad de forma permanente. El operador no ve ninguna advertencia hasta la mañana crítica
+      en que el generador no arranca. La solución es disciplinada: un cargador de flotación o
+      mantenedor que mantenga la batería a plena carga, más una prueba de carga anual que detecte
+      una batería debilitada antes de que importe.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Especificaciones recomendadas</h2>
+    <table>
+      <thead>
+        <tr><th>Requisito</th><th>Especificación</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Amperios de arranque en frío (CCA)</td><td>850–1100+ CCA coordinados con el motor</td></tr>
+        <tr><td>Voltaje del sistema</td><td>12V o 24V según el sistema de arranque del generador</td></tr>
+        <tr><td>Construcción</td><td>Servicio pesado de electrolito líquido o AGM</td></tr>
+        <tr><td>Autodescarga (inactividad)</td><td>3–5% al mes</td></tr>
+        <tr><td>Vida útil</td><td>3–5 años con disciplina de carga flotante</td></tr>
+        <tr><td>Mantenimiento</td><td>Cargador de flotación + prueba de carga anual</td></tr>
+      </tbody>
+    </table>
+    <p class="data-note">
+      Las especificaciones son rangos representativos. Contáctenos para obtener una ficha técnica
+      adaptada al motor y al voltaje del sistema de arranque de su generador.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Líneas de producto para el arranque de generadores</h2>
+    <div class="grid grid-2" style="margin-top:16px;">
+      <div class="card">
+        <h3>JIS de servicio pesado (N150/N200)</h3>
+        <p>Baterías de electrolito líquido con placas gruesas que toleran una vida con carga flotante: 145G51 y 190H52.</p>
+        <a href="/es/products/jis-heavy-duty/">Ver JIS de servicio pesado →</a>
+      </div>
+      <div class="card">
+        <h3>AGM (sin mantenimiento)</h3>
+        <p>AGM selladas para instalaciones de respaldo de bajo mantenimiento y sitios críticos.</p>
+        <a href="/es/products/fleet/">Ver flotas y AGM →</a>
+      </div>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Qué batería usa un generador diésel?</h3>
+      <p>Los generadores diésel usan una batería de arranque adaptada al requisito de arranque del motor: a menudo una batería de servicio pesado de electrolito líquido o AGM con 850–1100+ CCA. Los generadores más grandes pueden usar sistemas de arranque de 24V.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿En qué se diferencia una batería de generador de una batería de vehículo?</h3>
+      <p>La química es idéntica; el servicio, no. La batería de un vehículo se recarga a diario con el alternador, mientras que la de un generador permanece inactiva y se autodescarga entre un 3 y un 5% al mes —de un 9 a un 15% de una batería de 135 Ah en tres meses de inactividad— y aun así debe entregar una CCA alta cuando se le pida. Un cargador de flotación, no el alternador, la mantiene viva.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Por qué fallan las baterías de los generadores de respaldo?</h3>
+      <p>Por sulfatación, no por uso. Una batería que permanece meses con un estado de carga bajo se autodescarga y se sulfata progresivamente, perdiendo capacidad de forma invisible hasta la noche fría en que debe arrancar. Un cargador de flotación o mantenedor lo evita.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Con qué frecuencia debo reemplazar la batería de un generador?</h3>
+      <p>Las baterías de generador suelen durar de 3 a 5 años, pero las unidades de respaldo que permanecen inactivas necesitan carga regular para evitar la sulfatación. Realice pruebas anualmente y reemplácela de forma preventiva antes de un arranque crítico.</p>
+    </div>
+
+    <p style="margin-top:24px;">
+      📚 Lea la guía completa: <a href="https://docs.dinweysbattery.com/diesel-generator/" target="_blank" rel="noopener">Selección de baterías para generadores diésel</a>
+    </p>
+  </div>
+</BaseLayout>

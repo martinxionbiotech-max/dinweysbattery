@@ -1,0 +1,338 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué tamaño de grupo de batería necesita mi camión?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los camiones de servicio pesado usan con mayor frecuencia baterías JIS N150/N200 (modelos 145G51/190H52) o DIN88/DIN100 según el mercado. Los vehículos norteamericanos usan BCI Grupo 31 (disponible bajo pedido). Confirme siempre el tamaño de grupo impreso en su batería actual o en el manual del vehículo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los camiones de servicio pesado usan sistemas de 12V o de 24V?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La mayoría de los tractocamiones y vehículos comerciales pesados usan sistemas eléctricos de 24V (dos baterías de 12V conectadas en serie), mientras que los camiones ligeros y las pickups usan sistemas de 12V. Verifique la especificación de su vehículo antes de comprar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto CCA necesita la batería de un camión diésel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los motores diésel necesitan un amperaje de arranque en frío elevado (CCA). Los camiones de servicio pesado suelen requerir 800–1100+ CCA según la cilindrada del motor y el clima. Los climas más fríos necesitan más CCA. Confirme el requisito exacto en el manual de su vehículo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Ofrecen baterías para camiones OEM y de marca privada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Como marca DINWEY de Chengguang Power Tech Co., Ltd. (fundada en 2002), fabricamos baterías de arranque para camiones para programas OEM y de marca privada, con personalización de marca, empaque y especificación."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="DINWEY | Baterías de arranque para camiones y servicio pesado"
+  description="Baterías de arranque para camiones y servicio pesado de DINWEY — JIS N150/N200, DIN88/DIN100, EFB/AGM, fabricadas por Chengguang Power Tech (2002). Programas OEM y de marca privada."
+  jsonLd={faqJsonLd}
+>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1>Baterías de arranque para camiones,<br />diseñadas para el largo recorrido.</h1>
+          <p>
+            DINWEY fabrica baterías de arranque de servicio pesado para camiones y vehículos
+            comerciales — JIS N150/N200, DIN88/DIN100 y BCI Grupo 31 bajo pedido. Amperaje de
+            arranque en frío de grado diésel, sistemas de 12V y 24V, y programas OEM / de
+            marca privada desde una fábrica fundada en 2002.
+          </p>
+          <div class="hero-actions">
+            <a class="cta" href="/es/selection-tool/">Encuentre su batería</a>
+            <a class="cta cta-outline" href="/es/contact/">Solicite una cotización</a>
+          </div>
+        </div>
+        <img
+          class="hero-image"
+          src="/images/factory/factory-01.jpg"
+          alt="Fábrica de baterías DINWEY de Chengguang Power Tech Co., Ltd. — línea de producción de baterías para camiones y servicio pesado"
+          width="1200"
+          height="655"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Puntos clave</h2>
+      <ol class="takeaways-list">
+        <li><strong>Las baterías de camión no son baterías de automóvil más grandes</strong> — los motores diésel exigen un amperaje de arranque en frío mucho mayor, resistencia a las vibraciones y conexión en serie de 24V; un tamaño de grupo incorrecto, un CCA insuficiente, un mantenimiento deficiente y una selección inadecuada del ciclo de servicio son causas frecuentes de problemas de arranque en las flotas.</li>
+        <li><strong>Tres normas, tres mercados</strong> — JIS N150/N200 para Asia/Medio Oriente/África, DIN88/DIN100 para Europa (MAN, Scania, Volvo, Mercedes) y BCI Grupo 31/8D para Norteamérica.</li>
+        <li><strong>Una planta de 200,000 m² con 18 líneas automatizadas</strong> — producción de Chengguang Power Tech Co., Ltd. (fundada en 2002), no de una empresa comercializadora.</li>
+        <li><strong>Cobertura completa de OEM y marca privada</strong> — marca, empaque, especificación y tipo de terminal, para distribuidores, importadores y marcas de todo el mundo.</li>
+        <li><strong>IATF 16949 más ISO 9001/14001/45001, con exportaciones a más de 70 países</strong> — credenciales de calidad de la cadena de suministro automotriz, no afirmaciones de marketing.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Por qué un camión necesita una batería diferente</h2>
+      <p class="lead">
+        Las baterías de arranque para camiones no son baterías de automóvil más grandes. Los
+        motores diésel exigen un amperaje de arranque en frío mucho mayor, resistencia a las
+        vibraciones y — en los vehículos comerciales pesados — configuraciones en serie de 24V.
+        Elegir el tamaño de grupo o la clasificación de CCA equivocados es una causa frecuente
+        de fallas en las flotas.
+      </p>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>CCA de grado diésel</h3>
+          <p>Amperaje de arranque en frío elevado para arrancar motores diésel grandes en clima frío.</p>
+        </div>
+        <div class="card">
+          <h3>Tamaño de grupo correcto</h3>
+          <p>JIS N150/N200 o DIN88/DIN100 — compatible con la bandeja de batería de su vehículo.</p>
+        </div>
+        <div class="card">
+          <h3>Sistemas de 12V y 24V</h3>
+          <p>Los camiones ligeros y los vehículos comerciales pesados tienen sistemas eléctricos diferentes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Nuestra gama de productos</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>JIS N150 / N200</h3>
+          <p>Baterías de servicio pesado con placas gruesas para camiones grandes, autobuses y generadores.</p>
+          <a href="/es/products/jis-heavy-duty/">Ver JIS de servicio pesado →</a>
+        </div>
+        <div class="card">
+          <h3>DIN88 / DIN100</h3>
+          <p>Baterías de norma europea para MAN, Scania, Volvo, Mercedes y más.</p>
+          <a href="/es/products/din-heavy-duty/">Ver DIN de servicio pesado →</a>
+        </div>
+        <div class="card">
+          <h3>BCI Grupo 31 / 8D</h3>
+          <p>Tamaños de grupo de Norteamérica, fabricados bajo pedido en nuestra línea de producción BCI.</p>
+          <a href="/es/products/bci-request/">BCI (bajo pedido) →</a>
+        </div>
+        <div class="card">
+          <h3>Sistemas de 24V</h3>
+          <p>Pares de baterías configuradas en serie para camiones pesados, semirremolques y autobuses.</p>
+          <a href="/es/products/24v/">Ver sistemas de 24V →</a>
+        </div>
+        <div class="card">
+          <h3>EFB y AGM</h3>
+          <p>Placa inundada mejorada y malla de fibra de vidrio absorbente para ciclos de servicio comerciales exigentes.</p>
+          <a href="/es/products/fleet/">Ver EFB/AGM →</a>
+        </div>
+        <div class="card">
+          <h3>Flotas y OEM</h3>
+          <p>Suministro al por mayor, consistencia entre lotes y documentación para operadores de flotas.</p>
+          <a href="/es/products/fleet/">Programas para flotas →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Aplicaciones que atendemos</h2>
+      <p class="lead" style="margin-bottom:24px;">
+        Los diferentes ciclos de servicio comerciales exigen baterías diferentes — y hábitos de
+        mantenimiento diferentes. Vea cómo nuestra gama de servicio pesado se adapta a cada entorno.
+      </p>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Minería y fuera de carretera</h3>
+          <p>Construcción resistente a las vibraciones y sellada contra el polvo para camiones de acarreo, excavadoras y equipos de perforación.</p>
+          <a href="/es/applications/mining-off-highway/">Ver baterías para minería →</a>
+        </div>
+        <div class="card">
+          <h3>Cadena de frío y refrigeración</h3>
+          <p>Arranque de alto CCA más un banco de ciclo profundo independiente para la unidad de refrigeración.</p>
+          <a href="/es/applications/cold-chain-refrigerated/">Ver baterías para cadena de frío →</a>
+        </div>
+        <div class="card">
+          <h3>Autobuses y autocares</h3>
+          <p>Placas gruesas de ciclo profundo y amplia capacidad de reserva para paradas frecuentes.</p>
+          <a href="/es/applications/bus-coach/">Ver baterías para autobuses →</a>
+        </div>
+        <div class="card">
+          <h3>Generadores diésel</h3>
+          <p>Baterías de respaldo que conservan la carga durante meses de inactividad y arrancan cuando se necesitan.</p>
+          <a href="/es/applications/diesel-generator/">Ver baterías para generadores →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Mercados que abastecemos</h2>
+      <p class="lead" style="margin-bottom:24px;">
+        Cada región sigue su propia norma de baterías. Almacenamos y fabricamos conforme a la
+        norma correcta para su mercado — desde JIS en Asia y África hasta BCI en las Américas.
+      </p>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Medio Oriente</h3>
+          <p>JIS N150/N200 y DIN para una flota mixta de vehículos japoneses y europeos.</p>
+          <a href="/es/markets/middle-east/">Mercado de Medio Oriente →</a>
+        </div>
+        <div class="card">
+          <h3>África</h3>
+          <p>Serie JIS N para calor, polvo y terrenos difíciles en las flotas del África subsahariana.</p>
+          <a href="/es/markets/africa/">Mercado de África →</a>
+        </div>
+        <div class="card">
+          <h3>América Latina</h3>
+          <p>BCI Grupo 31/8D a juego con los camiones pesados norteamericanos.</p>
+          <a href="/es/markets/latin-america/">Mercado de América Latina →</a>
+        </div>
+        <div class="card">
+          <h3>Sudeste Asiático</h3>
+          <p>JIS N150/N200 para las flotas japonesas y coreanas predominantes en la región.</p>
+          <a href="/es/markets/southeast-asia/">Mercado del Sudeste Asiático →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>OEM y marca privada</h2>
+      <p class="lead">
+        DINWEY es la marca de baterías para camiones de Chengguang Power Tech Co., Ltd., un fabricante fundado en 2002.
+        Desde una planta de 200,000 m² con 18 líneas automatizadas, respaldamos programas OEM y de marca
+        privada para distribuidores, importadores y marcas de todo el mundo.
+      </p>
+      <p class="data-note" style="max-width:780px;">
+        Certificación IATF 16949 · ISO 9001:2015 · ISO 14001:2015 · ISO 45001:2018 · conformidad CE.
+        Exportaciones a más de 70 países.
+      </p>
+      <a class="cta" href="/es/contact/" style="display:inline-block;margin-top:8px;">Hablemos de OEM / marca privada</a>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Lo que valoran nuestros socios</h2>
+      <p class="lead" style="margin-bottom:24px;">
+        Temas recurrentes entre los distribuidores, importadores y operadores de flotas a los que
+        suministramos en más de 70 países.
+      </p>
+      <div class="testimonial">
+        <blockquote>
+          "Los distribuidores de Medio Oriente destacan sistemáticamente la consistencia lote a
+          lote — cada entrega se envía con datos de prueba de CCA y documentación completa."
+        </blockquote>
+        <p class="attribution">— Socios distribuidores, Medio Oriente</p>
+      </div>
+      <div class="testimonial">
+        <blockquote>
+          "Los importadores sudamericanos valoran la rapidez de personalización OEM — del plano
+          a la muestra aprobada, con marca y empaque fabricados según especificación."
+        </blockquote>
+        <p class="attribution">— Socios importadores, Sudamérica</p>
+      </div>
+      <div class="testimonial">
+        <blockquote>
+          "Para los operadores de flotas, lo más importante es la entrega puntual y la
+          documentación de embarque completa."
+        </blockquote>
+        <p class="attribution">— Operadores de flotas</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq-item">
+        <h3>¿Qué tamaño de grupo de batería necesita mi camión?</h3>
+        <p>Los camiones de servicio pesado usan con mayor frecuencia baterías JIS N150/N200 (modelos 145G51/190H52) o DIN88/DIN100 según el mercado. Los vehículos norteamericanos usan BCI Grupo 31 (disponible bajo pedido). Confirme el tamaño de grupo en su batería actual o en el manual del vehículo.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Los camiones de servicio pesado usan sistemas de 12V o de 24V?</h3>
+        <p>La mayoría de los tractocamiones y vehículos comerciales pesados usan sistemas de 24V (dos baterías de 12V en serie); los camiones ligeros y las pickups usan 12V. Verifique la especificación de su vehículo antes de comprar.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Cuánto CCA necesita la batería de un camión diésel?</h3>
+        <p>Los motores diésel necesitan un CCA alto. Los camiones de servicio pesado suelen requerir 800–1100+ CCA según el tamaño del motor y el clima — los climas más fríos necesitan más. Confirme la cifra exacta en el manual de su vehículo.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Ofrecen baterías para camiones OEM y de marca privada?</h3>
+        <p>Sí. DINWEY es la marca de baterías para camiones de Chengguang Power Tech Co., Ltd. (fundada en 2002), y ofrece programas OEM y de marca privada con personalización de marca, empaque y especificación.</p>
+      </div>
+      <p style="margin-top:24px;">
+        📚 ¿Busca orientación técnica? Visite el
+        <a href="https://docs.dinweysbattery.com/">Centro de conocimiento de DINWEY</a> para consultar guías
+        de selección, normas JIS vs DIN vs BCI y documentación sobre CCA y sistemas de 12V vs 24V.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Guías técnicas</h2>
+      <p class="lead" style="margin-bottom:24px;">
+        Guías detalladas del Centro de conocimiento de DINWEY — escritas y revisadas por nuestro equipo
+        técnico, con base en documentación del fabricante bajo un sistema de calidad IATF 16949.
+      </p>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Guía completa de baterías para camiones</h3>
+          <p>CCA, capacidad de reserva, Ah, EFB, AGM y química de placas — los fundamentos en un solo lugar.</p>
+          <a href="https://docs.dinweysbattery.com/complete-guide/">Lea la guía →</a>
+        </div>
+        <div class="card">
+          <h3>¿Qué es el CCA?</h3>
+          <p>El amperaje de arranque en frío explicado, con una tabla de requisitos por clase de camión y orientación según el clima.</p>
+          <a href="https://docs.dinweysbattery.com/what-is-cca/">Lea la guía →</a>
+        </div>
+        <div class="card">
+          <h3>JIS vs DIN vs BCI</h3>
+          <p>Las tres normas regionales de baterías, los números de modelo y las equivalencias, explicados.</p>
+          <a href="https://docs.dinweysbattery.com/jis-vs-din-vs-bci/">Lea la guía →</a>
+        </div>
+        <div class="card">
+          <h3>Sistemas de 12V vs 24V</h3>
+          <p>Por qué los camiones pesados usan 24V y cómo el cableado en serie forma un sistema de 24V a partir de dos baterías de 12V.</p>
+          <a href="https://docs.dinweysbattery.com/12v-vs-24v/">Lea la guía →</a>
+        </div>
+        <div class="card">
+          <h3>AGM vs inundadas</h3>
+          <p>Cómo se comparan la malla de fibra de vidrio absorbente (AGM) y el plomo-ácido inundado en vibración, arranques en frío y costo.</p>
+          <a href="https://docs.dinweysbattery.com/agm-vs-flooded/">Lea la guía →</a>
+        </div>
+        <div class="card">
+          <h3>Guía de selección de baterías para camiones</h3>
+          <p>Un método de cuatro pasos para ajustar el tamaño de grupo, el CCA, el voltaje y el clima a su vehículo.</p>
+          <a href="https://docs.dinweysbattery.com/selection-guide/">Lea la guía →</a>
+        </div>
+      </div>
+      <p style="margin-top:24px;">
+        <a href="https://docs.dinweysbattery.com/" style="color:#1e5aa8;">Explore las 46 guías →</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

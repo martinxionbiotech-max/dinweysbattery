@@ -1,0 +1,95 @@
+---
+import ProductLayout from "../../../../layouts/ProductLayout.astro";
+---
+
+<ProductLayout
+  title="Baterías para camiones de servicio pesado DIN88 / DIN100 — OEM DINWEY"
+  description="Baterías para camiones de servicio pesado con norma DIN de DINWEY — modelos DIN88 y DIN100 para vehículos comerciales europeos y de Oriente Medio. Certificación IATF 16949."
+  takeaways={[
+    "**El DIN88 y el DIN100 difieren principalmente en largo y capacidad** — 88Ah/800A EN/353mm vs 100Ah/870A EN/393mm, con la misma sección de 175×190mm.",
+    "**El CCA EN no es intercambiable con el JIS o el SAE** — 800A EN y 900A JIS son bases de ensayo distintas; compare dentro de una misma norma.",
+    "**Los terminales cónicos T1 con positivo a la izquierda son la norma europea** — no son intercambiables con los postes tipo A JIS; una polaridad invertida es un error costoso.",
+    "**150 vs 170 minutos de RC** — el DIN100 aporta unos 20 minutos adicionales de carga con el motor apagado antes de que el voltaje se desplome.",
+    "**Electrolito líquido, EFB o AGM** — elija AGM para arranque en clima frío o vibración, y electrolito líquido para el servicio europeo estándar."
+  ]}
+  specTable={[
+    { spec: "Modelo 58827 (DIN88)", value: "12V, 88Ah (C20), 800A CCA EN, 150min RC, 353×175×190mm" },
+    { spec: "Modelo 60038 (DIN100)", value: "12V, 100Ah (C20), 870A CCA EN, 170min RC, 393×175×190mm" },
+    { spec: "Norma", value: "EN 50342-1 (DIN)" },
+    { spec: "Tecnología", value: "Disponible en electrolito líquido / EFB / AGM" },
+    { spec: "Terminales", value: "Cónicos europeos (T1), positivo a la izquierda" },
+    { spec: "Aplicaciones", value: "Camiones europeos, autobuses, arranque en clima frío" }
+  ]}
+  applications={[
+    "Camiones comerciales europeos (MAN, Scania, Volvo, Mercedes, DAF)",
+    "Autobuses y autocares europeos",
+    "Arranque en clima frío",
+    "Mercados de Oriente Medio y Norte de África"
+  ]}
+  intro={[
+    "Las baterías de servicio pesado con norma DIN son el caballo de batalla europeo — especificadas por clase de longitud y rendimiento de arranque en frío EN para vehículos comerciales de toda Europa, Oriente Medio y el Norte de África. Las líneas DIN principales de DINWEY son la 58827 (DIN88) y la 60038 (DIN100).",
+    "Los dos modelos difieren en capacidad y dimensiones. La DIN88 (58827) es compacta, de 353×175×190mm con 88Ah y 800A EN — adecuada para muchos vehículos comerciales ligeros y medianos europeos. La DIN100 (60038) sube a 393×175×190mm, 100Ah y 870A EN para camiones más grandes y cargas eléctricas mayores. Ambas comparten el mismo ancho de 175mm y alto de 190mm, así que la DIN100 encaja donde haya una bandeja más larga.",
+    "Cada una está disponible en tecnologías de electrolito líquido, EFB y AGM según el ciclo de trabajo y los requisitos de vibración, y cada lote se envía con datos de ensayo de CCA, certificado de análisis y documentación MSDS."
+  ]}
+  specNotes={[
+    "Las baterías europeas se clasifican por arranque en frío según EN 50342, no según el CCA SAE. Los dos ensayos miden cosas distintas, por lo que los 800A EN de la DIN88 y los 870A EN de la DIN100 no son directamente comparables con una cifra de CCA JIS o BCI — compare siempre dentro de la misma norma.",
+    "La Capacidad de Reserva sigue la definición SAE J537: los minutos que una batería completamente cargada mantiene una carga de 25 amperios a 27 °C (80 °F) antes de llegar a 10.5V. Los 150 minutos de la DIN88 y los 170 minutos de la DIN100 son el margen para iluminación y telemática cuando el motor está apagado o el alternador falla.",
+    "La capacidad se mide a la tasa de 20 horas (C20). Los 88Ah de la DIN88 y los 100Ah de la DIN100 describen el almacenamiento total de energía en una descarga lenta de 20 horas — una medida distinta de la ráfaga corta que describe la clasificación EN.",
+    "Instalación y terminales: ambas usan terminales cónicos europeos (T1) con orientación de positivo a la izquierda. La huella de 353×175×190mm de la DIN88 encaja en muchos vehículos comerciales ligeros y medianos europeos; la DIN100 es más larga, de 393×175×190mm. El ancho (175mm) y el alto (190mm) son idénticos, así que el largo de la bandeja y el alcance de los cables deciden si la DIN100 encaja."
+  ]}
+  comparison={{
+    headers: ["Especificación", "DIN88 (58827)", "DIN100 (60038)"],
+    rows: [
+      ["Voltaje", "12V", "12V"],
+      ["Capacidad (C20)", "88 Ah", "100 Ah"],
+      ["Arranque en frío (EN 50342)", "800 A EN", "870 A EN"],
+      ["Capacidad de reserva (SAE J537)", "150 min", "170 min"],
+      ["Dimensiones (L×An×Al)", "353×175×190 mm", "393×175×190 mm"],
+      ["Terminales", "Cónicos europeos (T1), positivo a la izquierda", "Cónicos europeos (T1), positivo a la izquierda"],
+      ["Ideal para", "Vehículos comerciales ligeros/medianos europeos", "Camiones más grandes y cargas eléctricas mayores"]
+    ]
+  }}
+  scenarios={[
+    {
+      title: "Camiones comerciales europeos (MAN, Scania, Volvo, Mercedes, DAF)",
+      body: "Los camiones pesados europeos se especifican por la longitud de grupo DIN y la clasificación de arranque en frío EN. La DIN88 y la DIN100 coinciden con las bandejas y los terminales cónicos de las principales marcas europeas, y sus clasificaciones EN concuerdan con las cifras impresas en los manuales de los vehículos europeos."
+    },
+    {
+      title: "Arranque en clima frío",
+      body: "En regiones frías, el margen de arranque en frío decide si un diésel arranca. La mayor clasificación EN de la DIN100 es la opción más segura para operar bajo cero; la DIN88 conviene al servicio en climas templados donde no se necesita ese margen adicional."
+    },
+    {
+      title: "Autobuses y autocares (Europa, Oriente Medio, Norte de África)",
+      body: "Los operadores de autocares europeos y de la región MENA necesitan una batería que tolere arranques frecuentes, ralentí prolongado y alta carga de accesorios. La capacidad de reserva de la serie DIN, combinada con las opciones de electrolito líquido, EFB y AGM, cubre ese servicio."
+    },
+    {
+      title: "Mercados de Oriente Medio y Norte de África",
+      body: "En climas cálidos la prioridad pasa del arranque en frío a la tolerancia al calor y la aceptación de carga. DINWEY suministra versiones de electrolito líquido, EFB y AGM para que el comprador pueda ajustar la tecnología al perfil de temperatura y al ciclo de trabajo de la región."
+    }
+  ]}
+  maintenance={[
+    "Los modelos DIN de electrolito líquido son mantenibles — revise el electrolito y rellene con agua destilada cuando sea necesario. Las versiones EFB y AGM son selladas y no requieren mantenimiento.",
+    "Mantenga los terminales cónicos limpios, apretados y protegidos; un terminal europeo flojo es una causa común de mal arranque en vehículos comerciales.",
+    "Recargue con prontitud tras una descarga y almacene completamente cargada en un lugar fresco y seco para evitar la sulfatación.",
+    "En camiones europeos de 24V que usan dos baterías DIN en serie, reemplace ambas juntas con modelos idénticos para que la carga se mantenga equilibrada."
+  ]}
+  images={[
+    { src: "/images/products/58827-DIN88.jpg", alt: "Batería de camión DINWEY 58827 DIN88", width: 1024, height: 1024 },
+    { src: "/images/products/60038-DIN100.jpg", alt: "Batería de camión DINWEY 60038 DIN100", width: 1024, height: 1024 }
+  ]}
+  faq={[
+    { q: "¿Cuál es la diferencia entre DIN88 y DIN100?", a: "La DIN100 (modelo 60038) tiene mayor capacidad (100Ah) y clasificación de arranque en frío (870A EN) que la DIN88 (88Ah, 800A EN). La DIN100 es físicamente más larga (393mm vs 353mm)." },
+    { q: "¿DIN usa un ensayo de CCA distinto al de JIS/BCI?", a: "Sí. Las clasificaciones de arranque en frío DIN/EN (amperios EN, según EN 50342) difieren del CCA SAE. Los valores no son directamente intercambiables — compare dentro de la misma norma." },
+    { q: "¿Hay EFB o AGM disponibles para baterías DIN de camión?", a: "Sí. Los modelos DIN de servicio pesado están disponibles en tecnologías de electrolito líquido, EFB y AGM según el ciclo de trabajo y los requisitos de vibración." },
+    { q: "¿Qué modelos DIN tienen en stock?", a: "Nuestras líneas DIN principales son la 58827 (DIN88, 88Ah/800A EN) y la 60038 (DIN100, 100Ah/870A EN), que cubren la mayoría de los camiones pesados europeos. Otros tamaños DIN están disponibles bajo pedido." },
+    { q: "¿Qué camiones europeos usan DIN88 o DIN100?", a: "La DIN88 y la DIN100 son comunes en vehículos comerciales europeos. Confirme el modelo exacto y las dimensiones de la bandeja en el manual de su vehículo antes de pedir." },
+    { q: "¿Por qué la clasificación EN es distinta de una clasificación CCA?", a: "Los amperios de arranque en frío EN (EN 50342) y el CCA SAE (SAE J537) usan voltajes y duraciones de ensayo diferentes, así que las cifras no son intercambiables. Los 800A EN de la DIN88 y los 870A EN de la DIN100 deben compararse solo con otras clasificaciones EN." },
+    { q: "¿Necesito EFB o AGM para mi camión europeo?", a: "El electrolito líquido conviene al servicio de arranque estándar. La EFB conviene a camiones con arranques frecuentes y cargas eléctricas moderadas; la AGM es la opción para alta vibración o cargas eléctricas intensas como compuertas elevadoras, unidades frigoríficas y telemática. Las tres están disponibles para la DIN88 y la DIN100." },
+    { q: "¿Puedo montar una DIN100 donde había una DIN88?", a: "Solo si la bandeja admite la caja más larga de 393mm (la DIN88 mide 353mm). El ancho (175mm) y el alto (190mm) son iguales, así que el largo y el alcance de los cables son los factores decisivos." }
+  ]}
+  relatedDocs={[
+    { title: "DIN88 vs DIN100 — comparación europea de servicio pesado", url: "https://docs.dinweysbattery.com/din88-vs-din100/" },
+    { title: "Normas JIS vs DIN vs BCI", url: "https://docs.dinweysbattery.com/jis-vs-din-vs-bci/" },
+    { title: "Guía completa de baterías para camiones", url: "https://docs.dinweysbattery.com/complete-guide/" }
+  ]}
+/>

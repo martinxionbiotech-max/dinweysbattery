@@ -1,88 +1,100 @@
 ---
-const navItems = [
-  { href: "/", label: "Home" },
-  {
-    label: "Batteries",
-    children: [
-      { href: "/products/jis-heavy-duty/", label: "JIS Heavy-Duty (N150/N200)" },
-      { href: "/products/din-heavy-duty/", label: "DIN Heavy-Duty (DIN88/DIN100)" },
-      { href: "/products/bci-request/", label: "BCI Group 31 / 8D" },
-      { href: "/products/24v/", label: "24V Systems" },
-      { href: "/products/fleet/", label: "Fleet & OEM" },
-      { href: "/batteries/", label: "All Models" },
-      { href: "/products/", label: "All Product Lines" },
-    ],
-  },
-  {
-    label: "Compare",
-    children: [
-      { href: "/compare/", label: "All Comparisons" },
-      { href: "/compare/n150-vs-n200/", label: "JIS N150 vs N200" },
-      { href: "/compare/din88-vs-din100/", label: "DIN88 vs DIN100" },
-      { href: "/compare/jis-vs-din-vs-bci/", label: "JIS vs DIN vs BCI" },
-      { href: "/compare/12v-vs-24v/", label: "12V vs 24V Systems" },
-      { href: "/compare/truck-battery-cca/", label: "How Much CCA?" },
-    ],
-  },
-  {
-    label: "Fitment",
-    children: [
-      { href: "/truck-models/", label: "Truck Model Fitment" },
-      { href: "/selection-tool/", label: "Selection Tool" },
-      { href: "/applications/mining-off-highway/", label: "Mining & Off-Highway" },
-      { href: "/applications/cold-chain-refrigerated/", label: "Cold-Chain & Refrigerated" },
-      { href: "/applications/bus-coach/", label: "Bus & Coach" },
-      { href: "/applications/diesel-generator/", label: "Diesel Generators" },
-    ],
-  },
-  {
-    label: "Markets",
-    children: [
-      { href: "/markets/middle-east/", label: "Middle East" },
-      { href: "/markets/africa/", label: "Africa" },
-      { href: "/markets/latin-america/", label: "Latin America" },
-      { href: "/markets/southeast-asia/", label: "Southeast Asia" },
-    ],
-  },
-  {
-    label: "Resources",
-    children: [
-      { href: "https://docs.dinweysbattery.com/", label: "Knowledge Base", external: true },
-      { href: "/about/", label: "About Us" },
-   ],
-  },
-  { href: "/contact/", label: "Contact", cta: true },
-];
+import { localeFromPath, localizePath, t, type Locale } from "../i18n/ui";
 
 const pathname = Astro.url.pathname;
+const locale: Locale = localeFromPath(pathname);
+const prefix = locale === "ar" ? "/ar" : locale === "es" ? "/es" : "";
+const p = (href: string) => (href.startsWith("http") || href.startsWith("/") === false ? href : `${prefix}${href}`);
+
+const navItems = [
+  { href: "/", key: "nav.home" },
+  {
+    key: "nav.batteries",
+    children: [
+      { href: "/products/jis-heavy-duty/", key: "nav.jisHeavy" },
+      { href: "/products/din-heavy-duty/", key: "nav.dinHeavy" },
+      { href: "/products/bci-request/", key: "nav.bciRequest" },
+      { href: "/products/24v/", key: "nav.24v" },
+      { href: "/products/fleet/", key: "nav.fleet" },
+      { href: "/batteries/", key: "nav.allModels" },
+      { href: "/products/", key: "nav.allLines" },
+    ],
+  },
+  {
+    key: "nav.compare",
+    children: [
+      { href: "/compare/", key: "nav.allComparisons" },
+      { href: "/compare/n150-vs-n200/", key: "nav.n150vsN200" },
+      { href: "/compare/din88-vs-din100/", key: "nav.din88vsDin100" },
+      { href: "/compare/jis-vs-din-vs-bci/", key: "nav.jisVsDinVsBci" },
+      { href: "/compare/12v-vs-24v/", key: "nav.12vVs24v" },
+      { href: "/compare/truck-battery-cca/", key: "nav.howMuchCca" },
+    ],
+  },
+  {
+    key: "nav.fitment",
+    children: [
+      { href: "/truck-models/", key: "nav.truckModels" },
+      { href: "/selection-tool/", key: "nav.selectionTool" },
+      { href: "/applications/mining-off-highway/", key: "nav.mining" },
+      { href: "/applications/cold-chain-refrigerated/", key: "nav.coldChain" },
+      { href: "/applications/bus-coach/", key: "nav.busCoach" },
+      { href: "/applications/diesel-generator/", key: "nav.dieselGen" },
+    ],
+  },
+  {
+    key: "nav.markets",
+    children: [
+      { href: "/markets/middle-east/", key: "nav.middleEast" },
+      { href: "/markets/africa/", key: "nav.africa" },
+      { href: "/markets/latin-america/", key: "nav.latinAmerica" },
+      { href: "/markets/southeast-asia/", key: "nav.seAsia" },
+    ],
+  },
+  {
+    key: "nav.resources",
+    children: [
+      { href: "https://docs.dinweysbattery.com/", key: "nav.knowledgeBase", external: true },
+      { href: "/about/", key: "nav.about" },
+    ],
+  },
+  { href: "/contact/", key: "nav.contact", cta: true },
+];
+
 const isActive = (href: string) =>
-  href === "/" ? pathname === "/" : pathname.startsWith(href);
+  href === "/" ? pathname === "/" || pathname === `${prefix}/` : pathname.startsWith(href) || pathname.startsWith(`${prefix}${href}`);
+
+const langOptions: { code: Locale; label: string }[] = [
+  { code: "en", label: "EN" },
+  { code: "ar", label: "عربي" },
+  { code: "es", label: "ES" },
+];
 ---
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="/" class="brand" aria-label="DINWEY Truck Batteries — Home">
+    <a href={p("/")} class="brand" aria-label="DINWEY Truck Batteries — Home">
       <img src="/images/logo.png" alt="DINWEY" width="40" height="40" />
       <span class="brand-text">DINWEY<small>Truck &amp; Heavy-Duty Starting Batteries</small></span>
     </a>
     <nav class="site-nav" aria-label="Main navigation">
       {
         navItems.map((item) => {
-          if (item.children) {
+          if ("children" in item) {
             return (
               <div class="nav-group">
                 <button class="nav-group-toggle" aria-haspopup="true" aria-expanded="false">
-                  {item.label} ▾
+                  {t(locale, item.key)} ▾
                 </button>
                 <div class="nav-dropdown" role="menu">
                   {item.children.map((child) => (
                     <a
-                      href={child.href}
+                      href={p(child.href)}
                       role="menuitem"
                       aria-current={isActive(child.href) ? "page" : undefined}
                       class={isActive(child.href) ? "active" : ""}
                     >
-                      {child.label}
+                      {t(locale, child.key)}
                     </a>
                   ))}
                 </div>
@@ -91,7 +103,7 @@ const isActive = (href: string) =>
           }
           return (
             <a
-              href={item.href}
+              href={p(item.href)}
               aria-current={isActive(item.href) ? "page" : undefined}
               class={[
                 isActive(item.href) ? "active" : "",
@@ -100,11 +112,51 @@ const isActive = (href: string) =>
               target={item.external ? "_blank" : undefined}
               rel={item.external ? "noopener" : undefined}
             >
-              {item.label}
+              {t(locale, item.key)}
             </a>
           );
         })
       }
+      <div class="lang-switch" role="group" aria-label={t(locale, "lang.label")}>
+        {langOptions.map((opt) => (
+          <a
+            href={localizePath(pathname, opt.code)}
+            lang={opt.code}
+            hreflang={opt.code}
+            class={["lang-link", opt.code === locale ? "lang-active" : ""].filter(Boolean).join(" ")}
+            aria-current={opt.code === locale ? "true" : undefined}
+          >
+            {opt.label}
+          </a>
+        ))}
+      </div>
     </nav>
   </div>
 </header>
+
+<style>
+  .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-inline-start: 12px;
+  }
+  .lang-link {
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border: 1px solid #d7dee8;
+    border-radius: 999px;
+    color: #33475b;
+    text-decoration: none;
+    line-height: 1.4;
+  }
+  .lang-link:hover {
+    border-color: #f5a623;
+    color: #0f1f3d;
+  }
+  .lang-active {
+    background: #0f1f3d;
+    color: #fff;
+    border-color: #0f1f3d;
+  }
+</style>

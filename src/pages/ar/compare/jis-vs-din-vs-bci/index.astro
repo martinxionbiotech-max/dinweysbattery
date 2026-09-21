@@ -1,0 +1,187 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+
+const SITE = "https://dinweysbattery.com";
+
+const comparisonJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "معايير البطاريات JIS مقابل DIN مقابل BCI: لماذا لا يمكن مقارنة CCA مباشرة",
+  "description": "تختبر JIS D5301 وEN 50342 وSAE J537 وDIN 43539 قيمة CCA عند درجات حرارة وجهود قطع مختلفة — فتصنيف 900A وفق JIS وتصنيف 900A وفق EN ليسا الرقم نفسه. كيف تقارن بشكل صحيح.",
+  "image": SITE + "/images/products/145G51-N150.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Martin Wong",
+    "jobTitle": "مدير المبيعات",
+    "worksFor": { "@id": SITE + "/#organization" }
+  },
+  "publisher": { "@id": SITE + "/#organization" },
+  "datePublished": "2026-09-13",
+  "dateModified": "2026-09-13",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": SITE + "/ar/compare/jis-vs-din-vs-bci/" }
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "هل يمكنني مقارنة قيمة CCA وفق JIS بقيمة CCA وفق EN أو SAE؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "لا — تختبر JIS D5301 عند −15°C بينما تختبر EN 50342 وSAE J537 عند −18°C، وتختلف جهود القطع والمدد. تحمل البطارية نفسها رقمًا مختلفًا وفق كل معيار، لذا قارن ضمن معيار واحد فقط."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "لماذا تبدو قيمة CCA وفق JIS أعلى من قيمة CCA وفق EN؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "لأن JIS تختبر عند −15°C الأكثر دفئًا مقابل −18°C لاختبار EN/SAE. الاختبار الأكثر دفئًا يجعل البطارية تقدّم تيارًا أكبر، لذا يكون رقم JIS أعلى للبطارية الفيزيائية نفسها — والفرق في الاختبار لا في البطارية."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ماذا ينبغي أن أحدده عند شراء بطارية شاحنة؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "حدد المعيار (JIS أو DIN/EN أو BCI/SAE)، وقيمة CCA، وما إذا كانت اسمية أم مختبرة على دفعات، وحجم المجموعة واتجاه الأقطاب. فرقم CCA دون معياره لا معنى له."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="JIS مقابل DIN مقابل BCI — لماذا لا يمكن مقارنة CCA"
+  description="تختبر JIS D5301 وEN 50342 وSAE J537 وDIN 43539 قيمة CCA عند درجات حرارة وجهود قطع مختلفة — فتصنيف 900 A وفق JIS وتصنيف 900 A وفق EN ليسا الرقم نفسه."
+  canonical={`${SITE}/ar/compare/jis-vs-din-vs-bci/`}
+  jsonLd={[comparisonJsonLd, faqJsonLd]}
+>
+  <div class="container section">
+    <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#6b5a54;margin-bottom:16px;">
+      <a href="/ar/">الرئيسية</a> &rsaquo; <a href="/ar/compare/">المقارنة</a> &rsaquo; JIS مقابل DIN مقابل BCI
+    </nav>
+
+    <h1>JIS مقابل DIN مقابل BCI: لماذا لا يمكن مقارنة CCA مباشرة</h1>
+    <p class="lead">
+      بطارية بتصنيف CCA قدره 900A وفق JIS وبطارية بتصنيف CCA قدره 900A وفق EN ليستا البطارية
+      نفسها. يختبر كل معيار عند درجة حرارة ومدة وجهد قطع مختلف، لذا يتغيّر الرقم المطبوع — ولا
+      تكون التصنيفات قابلة للتبادل.
+    </p>
+
+    <div class="takeaways">
+      <strong>الإجابة المباشرة:</strong> أمبير التدوير البارد (CCA) ليس اختبارًا عالميًا واحدًا. يختبر JIS D 5301 عند &minus;15&deg;C، بينما تختبر EN 50342 وSAE J537 عند &minus;18&deg;C، ويستخدم كل منها جهد قطع ومدة مختلفين. ولأن ظروف الاختبار تختلف، تطبع البطارية الفيزيائية نفسها قيمة CCA مختلفة وفق كل معيار — لذا لا يمكنك مقارنة CCA إلا ضمن معيار واحد.
+    </div>
+
+    <h2 style="margin-top:32px;">المعايير الأربعة، وكيف يغيّر كل منها الرقم</h2>
+    <table style="width:100%;border-collapse:collapse;">
+      <thead>
+        <tr style="border-bottom:1px solid #d8c9c0;text-align:left;">
+          <th style="padding:8px;">المعيار</th>
+          <th style="padding:8px;">درجة حرارة الاختبار</th>
+          <th style="padding:8px;">المدة</th>
+          <th style="padding:8px;">جهد القطع</th>
+          <th style="padding:8px;">التأثير على CCA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><strong>JIS D 5301</strong></td>
+          <td style="padding:8px;">&minus;15&deg;C</td>
+          <td style="padding:8px;">30 s</td>
+          <td style="padding:8px;">مرجعي</td>
+          <td style="padding:8px;">اختبار أكثر دفئًا &rarr; رقم أعلى</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><strong>SAE J537</strong></td>
+          <td style="padding:8px;">&minus;18&deg;C</td>
+          <td style="padding:8px;">30 s</td>
+          <td style="padding:8px;">7.2 V</td>
+          <td style="padding:8px;">خط الأساس</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><strong>EN 50342</strong></td>
+          <td style="padding:8px;">&minus;18&deg;C</td>
+          <td style="padding:8px;">10 s</td>
+          <td style="padding:8px;">7.5 V</td>
+          <td style="padding:8px;">مدة أقصر وجهد قطع أعلى &rarr; رقم أعلى</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;"><strong>DIN 43539</strong></td>
+          <td style="padding:8px;">&minus;18&deg;C</td>
+          <td style="padding:8px;">30 s</td>
+          <td style="padding:8px;">9.0 V</td>
+          <td style="padding:8px;">جهد قطع أعلى &rarr; رقم أقل</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin-top:32px;">لماذا تتباين الأرقام</h2>
+    <p>
+      ثلاثة متغيرات اختبارية تحرّك قيمة CCA المطبوعة، ويضبطها كل معيار بشكل مختلف. <strong>الاختبار
+      الأكثر دفئًا</strong> يتيح للبطارية تقديم تيار أكبر، لذا تسجل JIS (&minus;15&deg;C) رقمًا
+      أعلى من EN/SAE (&minus;18&deg;C) للبطارية نفسها. و<strong>جهد القطع الأدنى</strong> يتيح
+      للبطارية أن تهبط أكثر قبل توقف الاختبار، ما يرفع الرقم أيضًا. و<strong>المدة الأقصر</strong>
+      أسهل في الصمود، لذا يسجل اختبار EN لمدة 10 s رقمًا أعلى من اختبار SAE لمدة 30 s.
+    </p>
+    <p>
+      هذه ليست فروقًا في البطارية — بل فروق في طريقة الاختبار. لا يوجد معامل تحويل نسبي عالمي بين
+      المعايير، ولهذا فإن أي جدول تحويل هو تقريب وليس قياسًا.
+    </p>
+
+    <h2 style="margin-top:32px;">كيف تقارن بشكل صحيح</h2>
+    <ol>
+      <li><strong>أكّد المعيار أولًا</strong> — اسأل ما إذا كان الرقم وفق JIS أم EN أم SAE أم DIN.</li>
+      <li><strong>قارن ضمن معيار واحد</strong> — JIS مع JIS فقط، وEN مع EN.</li>
+      <li><strong>تحقق من القيمة الاسمية مقابل المختبرة على دفعات</strong> — قيمة الكتالوج هدف تصميمي؛ أما الدفعة التي تستلمها فتتفاوت ضمن حدود السماحية.</li>
+    </ol>
+
+    <h2 style="margin-top:32px;">ما يجب تضمينه في المواصفات</h2>
+    <p>
+      رقم CCA دون ذكر معياره لا معنى له. المواصفة الكاملة تذكر
+      <strong>المعيار</strong> (مثل JIS D 5301)، و<strong>قيمة CCA</strong>،
+      و<strong>حجم المجموعة واتجاه الأقطاب</strong>، وما إذا كانت القيمة
+      <strong>اسمية أم مختبرة على دفعات</strong>. راجع مقارنة
+      <a href="/ar/compare/n150-vs-n200/">N150 مقابل N200</a> لمعرفة كيف ينطبق ذلك على مجموعة
+      JIS من DINWEY، و<a href="/ar/selection-tool/">أداة الاختيار</a> لمطابقة مركبة.
+    </p>
+
+    <h2 style="margin-top:32px;">رأي الكاتب</h2>
+    <p>
+      <strong>الموقف:</strong> في رأيي، معظم الالتباس حول CCA لا يتعلق بالبطارية — بل بمقارنة
+      أرقام قيست وفق قواعد مختلفة، والحل ببساطة هو ذكر المعيار بجانب كل رقم.
+    </p>
+    <p>
+      <strong>التعليل:</strong> يمكن أن تصف قيمة CCA مقدارها 900 وفق JIS وقيمة CCA مقدارها 900
+      وفق EN البطارية نفسها. المشتري الذي يقارن الأرقام الخام عبر المعايير إنما يقارن طرق اختبار
+      لا منتجات. المورّد الذي يذكر المعيار بجانب كل تصنيف يزيل الغموض؛ والمشتري الذي يطلبه يزيل
+      المخاطرة.
+    </p>
+    <p>
+      <strong>الإفصاح:</strong> هذا رأي تحريري بصفة الفريق الفني لشركة مصنّعة للبطاريات، وليس
+      ادعاءً مختبريًا. أكّد قيمة CCA النهائية وأساس اختبارها وما إذا كانت اسمية أم مختبرة على
+      دفعات مع الشركة المصنعة.
+    </p>
+
+    <h2 style="margin-top:32px;">الأسئلة الشائعة</h2>
+    <div class="faq-item">
+      <h3>هل يمكنني مقارنة قيمة CCA وفق JIS بقيمة CCA وفق EN أو SAE؟</h3>
+      <p>لا — تختبر JIS عند &minus;15&deg;C بينما تختبر EN/SAE عند &minus;18&deg;C، مع جهود قطع ومدد مختلفة. تحمل البطارية نفسها رقمًا مختلفًا وفق كل معيار، لذا قارن ضمن معيار واحد فقط.</p>
+    </div>
+    <div class="faq-item">
+      <h3>لماذا تبدو قيمة CCA وفق JIS أعلى من قيمة CCA وفق EN؟</h3>
+      <p>لأن JIS تختبر عند &minus;15&deg;C الأكثر دفئًا مقابل &minus;18&deg;C لـEN/SAE. الاختبار الأكثر دفئًا يتيح للبطارية تقديم تيار أكبر، لذا يكون رقم JIS أعلى للبطارية نفسها — والفرق في الاختبار لا في البطارية.</p>
+    </div>
+    <div class="faq-item">
+      <h3>ماذا ينبغي أن أحدده عند شراء بطارية شاحنة؟</h3>
+      <p>حدد المعيار (JIS أو DIN/EN أو BCI/SAE)، وقيمة CCA، وما إذا كانت اسمية أم مختبرة على دفعات، وحجم المجموعة واتجاه الأقطاب.</p>
+    </div>
+
+    <div style="margin-top:32px;">
+      <a class="cta" href="/ar/products/">تصفّح بطاريات الخدمة الشاقة</a>
+      <a class="cta cta-outline" href="/ar/contact/" style="margin-left:8px;">اطلب عرض سعر</a>
+    </div>
+  </div>
+</BaseLayout>

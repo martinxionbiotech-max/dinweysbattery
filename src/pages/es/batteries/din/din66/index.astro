@@ -1,0 +1,54 @@
+---
+import BatteryModelLayout from "../../../../../layouts/BatteryModelLayout.astro";
+---
+
+<BatteryModelLayout
+  model="56638"
+  groupLabel="DIN66"
+  standard="DIN"
+  productName="DINWEY 56638 (DIN66) — Batería europea para vehículos comerciales ligeros (referencia)"
+  description="Especificación de referencia del 56638 (DIN66): los catálogos de terceros indican 66 Ah y 278×175×190 mm; el arranque en frío EN no está publicado. No es una clasificación publicada del stock de DINWEY."
+  voltage="12V"
+  ah="66 Ah"
+  cca="No publicado"
+  testStandard="EN 50342-1"
+  rc="No publicado"
+  dimensions="278×175×190 mm"
+  terminal="Cónico europeo (T1)"
+  technology="Inundada / EFB / AGM disponibles"
+  takeaways={[
+    "El 56638 es la clase DIN66 — una batería de formato europeo de 66 Ah para vehículos comerciales ligeros y furgonetas.",
+    "Las fuentes de referencia indican 66 Ah en 278×175×190 mm; el arranque en frío EN NO está publicado en una única fuente autorizada para este tamaño.",
+    "La DIN66 comparte la clase de 278 mm de longitud con la DIN74, pero con menor capacidad.",
+    "Esta es una especificación de referencia, no una clasificación publicada del stock de DINWEY."
+  ]}
+  intro={[
+    "El 56638 (DIN66) es una batería de formato europeo de 66 Ah para vehículos comerciales ligeros y furgonetas — un modelo de referencia recopilado a partir de catálogos de terceros.",
+    "La clase DIN66 se define por los 278 mm de longitud de su carcasa. Tanto King Power como Xiamen Songli indican el 56638 a 66 Ah (C20) en una carcasa de 278×175×190 mm.",
+    "Como especificación de referencia, los valores exactos varían según el fabricante. En particular, el arranque en frío EN no está publicado en una única fuente autorizada para este tamaño — lo dejamos sin indicar en lugar de suponerlo."
+  ]}
+  applications={[
+    "Vehículos comerciales ligeros/medianos europeos",
+    "Furgonetas",
+    "Autobuses"
+  ]}
+  specNotes={[
+    "El arranque en frío EN (EN 50342-1) no está publicado en una única fuente autorizada para el tamaño DIN66 — se deja sin indicar aquí en lugar de interpolarse. La mayoría de las baterías DIN66 se sitúan en el rango de ~500–600 A EN, pero confirme la ficha técnica específica.",
+    "La capacidad es de 66 Ah al régimen de 20 horas (C20). La DIN66 comparte la clase de 278 mm de longitud con la DIN74, pero tiene menos capacidad.",
+    "Las dimensiones de 278×175×190 mm son representativas (King Power reporta 278×174×189 mm). Confirme su bandeja y el tipo de borne (cónico europeo T1) antes de sustituir."
+  ]}
+  faq={[
+    { q: "¿Qué es la batería 56638 / DIN66?", a: "El 56638 es una batería de formato europeo de 12V y 66 Ah de clase DIN66 para vehículos comerciales ligeros y furgonetas." },
+    { q: "¿La DIN66 es una batería del stock de DINWEY?", a: "Esta es una especificación de referencia de catálogos de terceros, no una clasificación publicada del stock de DINWEY — confirme la disponibilidad mediante consulta." },
+    { q: "¿Cuántos CCA tiene la DIN66?", a: "El arranque en frío EN no está publicado en una única fuente autorizada para el tamaño DIN66 — confirme la ficha técnica específica. El CCA EN no es comparable con el CCA JIS o SAE." },
+    { q: "¿Cuáles son las dimensiones de la DIN66?", a: "Las dimensiones representativas son 278×175×190 mm. Confirme su bandeja y el borne cónico europeo (T1) antes de pedir." },
+    { q: "DIN66 vs DIN74 — ¿cuál es la diferencia?", a: "Ambas comparten la clase de 278 mm de longitud. La DIN74 (57412) tiene más capacidad (74 Ah vs 66 Ah) y un CCA EN publicado (~680 A)." }
+  ]}
+  complianceNote="Esta es una especificación de referencia de terceros para la DIN66 (56638) — NO es una clasificación publicada del stock de DINWEY. Que sea compatible con un vehículo específico depende de la norma de batería del vehículo, el tamaño de grupo, el tipo de borne, la polaridad y las dimensiones de la bandeja, que varían según el modelo y la generación. Confirme siempre la configuración exacta en el manual de su vehículo antes de sustituir."
+  isReference={true}
+  parentCategory={{ href: "/es/products/din-heavy-duty/", label: "Baterías DIN de servicio pesado" }}
+  siblingModels={[
+    { href: "/es/batteries/din/din74/", label: "57412 (DIN74) — más grande" },
+    { href: "/es/batteries/din/din88/", label: "58827 (DIN88) — stock de DINWEY" }
+  ]}
+/>

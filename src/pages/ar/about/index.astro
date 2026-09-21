@@ -1,0 +1,292 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const aboutJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "عن DINWEY",
+  "url": "https://dinweysbattery.com/ar/about/",
+  "mainEntity": { "@id": "https://dinweysbattery.com/#organization" }
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "هل DINWEY مصنع أم شركة تجارية؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DINWEY هي العلامة التجارية لبطاريات بدء التشغيل للشاحنات والخدمة الشاقة التابعة لشركة Chengguang Power Tech Co., Ltd.، وهي شركة مصنّعة تأسست عام 2002 في مدينة جينتشو بمقاطعة خبي في الصين. وتُنتَج البطاريات من البداية إلى النهاية على خطوط التجميع الآلية الـ18 الخاصة بالشركة، بدلًا من تجميعها من أجزاء موردة من جهات خارجية."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "أين تُصنَّع بطاريات DINWEY؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "في منشأة Chengguang Power Tech في مدينة جينتشو، شيجياتشوانغ، مقاطعة خبي، الصين — مصنع بمساحة 200,000 م² يضم 18 خط تجميع آليًا. الأرقام الخاصة بالمنشأة معلنة من الشركة المصنعة وليست مدقّقة من طرف ثالث."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ما الشهادات التي يحملها المصنع؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "يعمل المصنع وفق نظام إدارة جودة IATF 16949، وتفيد الشركة المصنعة بحصوله على ISO 9001:2015 وISO 14001:2015 وISO 45001:2018 وOHSAS 18001 وعلامة CE. لم تُنشر أرقام الشهادات وجهات إصدارها ونطاقها على هذا الموقع بعد — اطلبها مع عرض السعر."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل تقدّم DINWEY إنتاجًا بتصنيع المعدات الأصلية والعلامات الخاصة؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "نعم. يُعدّ التوريد بتصنيع المعدات الأصلية والعلامات الخاصة جزءًا من نطاق المنتجات؛ حيث يتم الاتفاق على العلامة التجارية والتغليف والوثائق وسجلات اختبار الدفعات لكل برنامج على حدة. أخبرنا بحجم المجموعة وCCA والسوق، وسنقدّم عرض سعر وفق مواصفاتك."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ما أحجام البطاريات التي تنشر DINWEY مواصفاتها؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "أربعة موديلات منشورة من الشركة نفسها: 145G51 (N150) و190H52 (N200) و58827 (DIN88) و60038 (DIN100). ويُصنَّع BCI مجموعة 31 / 8D حسب الطلب، كما تُدرَج ستة أحجام مجموعات إضافية (N70 وN100 وN120 وN220 وDIN66 وDIN74) كمرجع من طرف ثالث فقط — وليست تصنيفات منشورة لمخزون DINWEY."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="عن DINWEY — علامة بطاريات الشاحنات والخدمة الشاقة"
+  description="DINWEY هي العلامة التجارية لبطاريات بدء التشغيل للشاحنات والخدمة الشاقة التابعة لشركة Chengguang Power Tech Co., Ltd.، وهي شركة مصنّعة تأسست عام 2002 في خبي بالصين."
+  jsonLd={[aboutJsonLd, faqJsonLd]}
+>
+  <div class="container section">
+    <h1 style="color:#0f1f3d;">عن DINWEY</h1>
+    <p class="lead">
+      DINWEY هي العلامة التجارية لبطاريات بدء التشغيل للشاحنات والخدمة الشاقة التابعة لشركة Chengguang Power Tech Co., Ltd.،
+      وهي شركة مصنّعة تأسست عام 2002. نركّز على شيء واحد: بطاريات بدء تشغيل تصمد
+      أمام متطلبات الشاحنات التجارية — أمبير تدوير بارد عالٍ، ومقاومة للاهتزاز،
+      وجودة متسقة بين الدفعات.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">تركيزنا</h2>
+    <p>
+      بينما يبيع كثير من موردي البطاريات تشكيلة واسعة، تركّز DINWEY على قطاع الشاحنات
+      والخدمة الشاقة تحديدًا. هذا التركيز يتيح لنا التعمق في ما يهم مشتري المركبات
+      التجارية: أحجام المجموعات الصحيحة (JIS N150/N200، وDIN88/DIN100؛ وBCI مجموعة 31/8D عند الطلب)،
+      وCCA بمستوى الديزل، ومتطلبات أنظمة 12 فولت مقابل 24 فولت.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">المصنع وراء العلامة التجارية</h2>
+    <p>
+      تُصنَّع بطاريات DINWEY بواسطة شركة Chengguang Power Tech Co., Ltd.، وهي شركة مصنّعة للبطاريات تأسست
+      عام 2002 في مدينة جينتشو، شيجياتشوانغ، مقاطعة خبي، الصين. يمتد المصنع على مساحة
+      200,000 م² ويضم 18 خط تجميع آليًا، ويصدّر إلى أكثر من 70 دولة.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">داخل المصنع</h2>
+    <p class="lead" style="margin-bottom:16px;">
+      جولة داخل منشأة Chengguang Power Tech Co., Ltd. في جينتشو، خبي — 200,000 م²، و18 خط تجميع
+      آلي، وأرضية الإنتاج التي تقف خلف كل بطارية DINWEY.
+    </p>
+    <section class="factory-gallery" aria-label="مصنع Chengguang Power Tech Co., Ltd.">
+      <div class="factory-slot">
+        <img src="/images/factory/factory-01.jpg" alt="مصنع بطاريات Chengguang Power Tech Co., Ltd." width="1200" height="655" loading="lazy" decoding="async" />
+      </div>
+      <div class="factory-slot">
+        <img src="/images/factory/factory-02.jpg" alt="مصنع بطاريات Chengguang Power Tech Co., Ltd." width="1200" height="499" loading="lazy" decoding="async" />
+      </div>
+      <div class="factory-slot">
+        <img src="/images/factory/factory-03.jpg" alt="مصنع بطاريات Chengguang Power Tech Co., Ltd." width="1200" height="502" loading="lazy" decoding="async" />
+      </div>
+      <div class="factory-slot">
+        <img src="/images/factory/factory-04.jpg" alt="مصنع بطاريات Chengguang Power Tech Co., Ltd." width="1200" height="502" loading="lazy" decoding="async" />
+      </div>
+      <div class="factory-slot">
+        <img src="/images/factory/factory-05.jpg" alt="مصنع بطاريات Chengguang Power Tech Co., Ltd." width="1200" height="503" loading="lazy" decoding="async" />
+      </div>
+      <div class="factory-slot">
+        <img src="/images/factory/factory-06.jpg" alt="مصنع بطاريات Chengguang Power Tech Co., Ltd." width="1200" height="509" loading="lazy" decoding="async" />
+      </div>
+      <div class="factory-slot">
+        <img src="/images/factory/factory-07.jpg" alt="مصنع بطاريات Chengguang Power Tech Co., Ltd." width="1200" height="508" loading="lazy" decoding="async" />
+      </div>
+      <div class="factory-slot">
+        <img src="/images/factory/factory-08.jpg" alt="مصنع بطاريات Chengguang Power Tech Co., Ltd." width="1200" height="506" loading="lazy" decoding="async" />
+      </div>
+    </section>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">كيف تُصنَّع البطاريات</h2>
+    <p>
+      تتحكم Chengguang Power Tech في سلسلة الإنتاج بأكملها داخليًا — من البحث والتطوير
+      وتصنيع الألواح إلى التجميع والاختبار والتغليف. وتخضع كل خطوة لنظام إدارة جودة
+      متكامل، لذا لا تُجمَّع بطارية DINWEY من أجزاء موردة من جهات خارجية، بل تُنتَج
+      من البداية إلى النهاية على الخطوط الآلية الـ18 نفسها.
+    </p>
+    <ol style="padding-left:22px;">
+      <li><strong>صبّ الشبكات</strong> — شبكات سبيكة الرصاص التي تشكّل هيكل كل لوح.</li>
+      <li><strong>خلط العجينة</strong> — تُخلط عجينة أكسيد الرصاص وفق تركيبة مضبوطة.</li>
+      <li><strong>التلبيس بالعجينة</strong> — تُطبَّق العجينة على الشبكات لتشكيل الألواح.</li>
+      <li><strong>التقسية</strong> — تُجفَّف الألواح وتُصلَّب في ظروف خاضعة للرقابة.</li>
+      <li><strong>التشكيل</strong> — الشحن الأولي الذي يحوّل الألواح إلى مادة نشطة.</li>
+      <li><strong>التجميع</strong> — تُلحَم الألواح في عناصر وتُكدَّس في خلايا.</li>
+      <li><strong>الاختبار</strong> — فحوصات CCA والسعة والتسرب والأبعاد قبل التعبئة.</li>
+    </ol>
+    <p class="data-note">
+      تفاصيل العملية مستمدة من وثائق إنتاج Chengguang Power Tech Co., Ltd.
+      ضمن نظام إدارة جودة IATF 16949.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">مراقبة الجودة والاختبار</h2>
+    <p>
+      تُختبَر كل دفعة من DINWEY في خمسة مختبرات داخل المصنع قبل الإفراج عنها:
+    </p>
+    <table>
+      <thead>
+        <tr><th>المختبر</th><th>ما الذي يتحقق منه</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>المختبر الكيميائي</td><td>تحليل المواد الخام، وتركيب العجينة، ونقاء الإلكتروليت</td></tr>
+        <tr><td>مختبر الاختبارات الفيزيائية</td><td>متانة الألواح، ومسامية الفواصل، وسلامة الحاوية</td></tr>
+        <tr><td>مختبر الاختبارات الكهربائية</td><td>CCA، والسعة الاحتياطية، وقابلية قبول الشحن، والتفريغ بمعدل مرتفع</td></tr>
+        <tr><td>اختبار دورة الحياة</td><td>عمر الدورة وفق معايير JIS/DIN/BCI، ومقاومة التآكل، والتحمل للشحن الزائد</td></tr>
+        <tr><td>غرفة الاختبارات البيئية</td><td>الدورات الحرارية (−40°C إلى +80°C)، والرطوبة، والاهتزاز</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:16px;">
+      تُطبَّق مراقبة الجودة على خمس مراحل عبر السلسلة بأكملها:
+    </p>
+    <ol style="padding-left:22px;">
+      <li><strong>فحص المواد الواردة</strong> — تُختبر سبائك الرصاص وحمض الكبريتيك والبولي بروبيلين ومواد الفواصل قبل الإنتاج.</li>
+      <li><strong>مراقبة الجودة أثناء العملية</strong> — تُراقَب الخطوط الـ18 كافة في الوقت الفعلي من حيث كثافة العجينة ووزن الألواح وسلامة اللحام ومستويات تعبئة الإلكتروليت.</li>
+      <li><strong>اختبار المنتج النهائي</strong> — تخضع كل دفعة لاختبارات CCA والسعة الاحتياطية وقبول الشحن واختبار التسرب والفحص البصري.</li>
+      <li><strong>تدقيق ما قبل الشحن</strong> — أخذ عينات عشوائية وفق معايير AQL؛ مع التحقق من التغليف والملصقات والوثائق.</li>
+      <li><strong>التتبع</strong> — تتبع على مستوى الدفعة من المواد الخام إلى الحاوية، مع وثائق كاملة للامتثال لمتطلبات الاستيراد.</li>
+    </ol>
+    <p class="data-note">
+      المختبرات ومراحل مراقبة الجودة والوثائق (شهادة التحليل COA، وبيانات السلامة MSDS، وتقارير الفحص) بحسب ما هو منشور
+      على صفحة شهادات الجودة الخاصة بـ Chengguang Power Tech. ويتاح الاختبار المختبري
+      من طرف ثالث (SGS وTÜV وBV) بناءً على طلب المشتري.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">الشهادات</h2>
+    <p class="data-note">
+      يحملها المصنع، Chengguang Power Tech Co., Ltd. أرقام الشهادات وصلاحيتها
+      متاحة عند الطلب.
+    </p>
+    <table>
+      <thead>
+        <tr><th>الشهادة</th><th>النطاق</th><th>الحالة</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>IATF 16949</td><td>نظام إدارة جودة قطاع السيارات</td><td>يحملها المصنع</td></tr>
+        <tr><td>ISO 9001:2015</td><td>نظام إدارة الجودة</td><td>يحملها المصنع</td></tr>
+        <tr><td>ISO 14001:2015</td><td>الإدارة البيئية</td><td>يحملها المصنع</td></tr>
+        <tr><td>ISO 45001:2018</td><td>الصحة والسلامة المهنية</td><td>يحملها المصنع</td></tr>
+        <tr><td>OHSAS 18001</td><td>إدارة الصحة والسلامة</td><td>استُبدلت بـ ISO 45001 (كانت مملوكة سابقًا)</td></tr>
+        <tr><td>علامة CE</td><td>المطابقة الأوروبية</td><td>مطابقة وفق التوجيهات المعمول بها</td></tr>
+      </tbody>
+    </table>
+    <p class="data-note">
+      تُقدَّم أرقام الشهادات والجهات المُصدِرة وصلاحيتها مع عروض الأسعار. ويتاح الاختبار
+      المختبري من طرف ثالث (SGS وTÜV وBV) بناءً على طلب المشتري.
+    </p>
+    <p class="data-note">
+      المعايير التي نتبعها:
+      <a href="https://batterycouncil.org/" target="_blank" rel="noopener">Battery Council International (BCI)</a>
+      لأحجام المجموعات، و
+      <a href="https://www.sae.org/" target="_blank" rel="noopener">SAE International</a>
+      لاختبار أمبير التدوير البارد J537.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">ما يقدّره شركاؤنا</h2>
+    <p class="lead" style="margin-bottom:20px;">
+      موضوعات متكررة لدى الموزعين والمستوردين ومشغلي الأساطيل الذين نزوّدهم في أكثر من
+      70 دولة.
+    </p>
+    <div class="testimonial">
+      <blockquote>
+        "يبرز موزعو الشرق الأوسط باستمرار الاتساق من دفعة إلى أخرى — فكل شحنة تُرسل
+        مع بيانات اختبار CCA ووثائق كاملة."
+      </blockquote>
+      <p class="attribution">— شركاء التوزيع، الشرق الأوسط</p>
+    </div>
+    <div class="testimonial">
+      <blockquote>
+        "يقدّر مستوردو أمريكا الجنوبية سرعة التخصيص بتصنيع المعدات الأصلية — من الرسم
+        الهندسي إلى العينة المعتمدة، مع علامة تجارية وتغليف وفق المواصفات."
+      </blockquote>
+      <p class="attribution">— شركاء الاستيراد، أمريكا الجنوبية</p>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">مع من ستتعاملون</h2>
+    <p>
+      يتولى الجانب التجاري في DINWEY <strong>Martin Wong، مدير المبيعات</strong> —
+      بخبرة 14 عامًا في تصنيع البطاريات، من أرضية الإنتاج إلى مبيعات التصدير. وMartin
+      هو جهة الاتصال المعيّنة لبرامج تصنيع المعدات الأصلية والعلامات الخاصة والأساطيل، والمحرّر
+      المسؤول عن الإرشادات الفنية المنشورة على
+      <a href="https://docs.dinweysbattery.com/" style="color:#1e5aa8;">مركز DINWEY للمعرفة</a>.
+    </p>
+    <p class="data-note">
+      تُكتب الوثائق الفنية وتُراجَع مقابل أوراق بيانات الشركة المصنعة ضمن
+      نظام إدارة جودة IATF 16949.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">الاتصال</h2>
+    <p>
+      البريد الإلكتروني: <a href="mailto:martin@dinweys.com">martin@dinweys.com</a><br />
+      الهاتف / واتساب: <a href="tel:+8613323237275">+86 13323237275</a><br />
+      العنوان: قرية لوفياجينغ، مجمع مايو الصناعي، مدينة جينتشو، شيجياتشوانغ، خبي، الصين
+    </p>
+    <p>
+      <a href="https://chengguangenergy.com/" target="_blank" rel="noopener" style="color:#1e5aa8;">
+        🏭 زُر موقع مصنعنا: Chengguang Power Tech Co., Ltd.
+      </a>
+    </p>
+    <p>
+      <a href="https://docs.dinweysbattery.com/" style="color:#1e5aa8;">
+        📚 اقرأ الأدلة الفنية: مركز DINWEY للمعرفة
+      </a>
+    </p>
+    <div style="margin-top:20px;padding:16px 20px;background:#f4f7fb;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin-top:0;">استكشف DINWEY</h2>
+      <ul style="margin:0;padding-left:20px;">
+        <li><a href="https://docs.dinweysbattery.com/factory-manufacturing/" style="color:#1e5aa8;">كيف تُصنَّع بطاريات DINWEY وتُختبر (مركز المعرفة)</a></li>
+        <li><a href="/ar/products/jis-heavy-duty/" style="color:#1e5aa8;">بطاريات JIS للخدمة الشاقة (N150 / N200)</a></li>
+        <li><a href="/ar/products/din-heavy-duty/" style="color:#1e5aa8;">بطاريات DIN للخدمة الشاقة (DIN88 / DIN100)</a></li>
+        <li><a href="/ar/products/fleet/" style="color:#1e5aa8;">برامج الأساطيل وتصنيع المعدات الأصلية / العلامات الخاصة</a></li>
+        <li><a href="/ar/selection-tool/" style="color:#1e5aa8;">أداة اختيار البطارية</a></li>
+      </ul>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:40px;">الأسئلة الشائعة</h2>
+    <div class="faq-item">
+      <h3>هل DINWEY مصنع أم شركة تجارية؟</h3>
+      <p>DINWEY هي العلامة التجارية لبطاريات بدء التشغيل للشاحنات والخدمة الشاقة التابعة لشركة Chengguang Power Tech Co., Ltd.، وهي شركة مصنّعة تأسست عام 2002 في مدينة جينتشو بمقاطعة خبي في الصين. وتُنتَج البطاريات من البداية إلى النهاية على خطوط التجميع الآلية الـ18 الخاصة بالشركة، بدلًا من تجميعها من أجزاء موردة من جهات خارجية.</p>
+    </div>
+    <div class="faq-item">
+      <h3>أين تُصنَّع بطاريات DINWEY؟</h3>
+      <p>في منشأة Chengguang Power Tech في مدينة جينتشو، شيجياتشوانغ، مقاطعة خبي، الصين — مصنع بمساحة 200,000 م² يضم 18 خط تجميع آليًا. الأرقام الخاصة بالمنشأة معلنة من الشركة المصنعة وليست مدقّقة من طرف ثالث.</p>
+    </div>
+    <div class="faq-item">
+      <h3>ما الشهادات التي يحملها المصنع؟</h3>
+      <p>يعمل المصنع وفق نظام إدارة جودة IATF 16949، وتفيد الشركة المصنعة بحصوله على ISO 9001:2015 وISO 14001:2015 وISO 45001:2018 وOHSAS 18001 وعلامة CE. لم تُنشر أرقام الشهادات وجهات إصدارها ونطاقها على هذا الموقع بعد — اطلبها مع عرض السعر.</p>
+    </div>
+    <div class="faq-item">
+      <h3>هل تقدّم DINWEY إنتاجًا بتصنيع المعدات الأصلية والعلامات الخاصة؟</h3>
+      <p>نعم. يُعدّ التوريد بتصنيع المعدات الأصلية والعلامات الخاصة جزءًا من نطاق المنتجات؛ حيث يتم الاتفاق على العلامة التجارية والتغليف والوثائق وسجلات اختبار الدفعات لكل برنامج على حدة. أخبرنا بحجم المجموعة وCCA والسوق، وسنقدّم عرض سعر وفق مواصفاتك.</p>
+    </div>
+    <div class="faq-item">
+      <h3>ما أحجام البطاريات التي تنشر DINWEY مواصفاتها؟</h3>
+      <p>أربعة موديلات منشورة من الشركة نفسها: 145G51 (N150) و190H52 (N200) و58827 (DIN88) و60038 (DIN100). ويُصنَّع BCI مجموعة 31 / 8D حسب الطلب، كما تُدرَج ستة أحجام مجموعات إضافية (N70 وN100 وN120 وN220 وDIN66 وDIN74) كمرجع من طرف ثالث فقط — وليست تصنيفات منشورة لمخزون DINWEY.</p>
+    </div>
+
+    <p class="data-note">
+      كل ادعاء في هذه الصفحة موثّق في سجل <a href="/ar/data/" style="color:#1e5aa8;">الأدلة والبيانات</a>،
+      بما في ذلك الاثنان اللذان لم نتحقق منهما بعد (أرقام المنشأة ووثائق الشهادات).
+    </p>
+
+  </div>
+</BaseLayout>

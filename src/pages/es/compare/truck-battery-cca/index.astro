@@ -1,0 +1,147 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+
+const SITE = "https://dinweysbattery.com";
+
+const comparisonJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Guía de CCA para baterías de camión: ¿cuánto amperaje de arranque en frío necesita un camión?",
+  "description": "Cómo elegir los amperios de arranque en frío (CCA) para una batería de camión — por qué los motores diésel necesitan más CCA que los de gasolina, cómo el clima y el tamaño del motor determinan el requisito, y cómo especificarlo correctamente.",
+  "image": SITE + "/images/products/145G51-N150.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Martin Wong",
+    "jobTitle": "Director de Ventas",
+    "worksFor": { "@id": SITE + "/#organization" }
+  },
+  "publisher": { "@id": SITE + "/#organization" },
+  "datePublished": "2026-09-14",
+  "dateModified": "2026-09-14",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": SITE + "/es/compare/truck-battery-cca/" }
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto CCA necesita una batería de camión?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende del motor y del clima. Los motores diésel necesitan más CCA que los de gasolina porque la mayor compresión dificulta el arranque en frío, y los climas más fríos necesitan más CCA que los cálidos. Iguale el CCA al requisito de arranque en frío del motor y a la especificación OEM, no a un número más alto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Un CCA más alto es siempre mejor para un camión?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No necesariamente. La batería debe seguir entrando en la bandeja y coincidir con la disposición de los terminales. Más allá del requisito del motor, sobreespecificar el CCA agrega costo y superficie de placas que no usará — el CCA es un criterio de instalación, no un puntaje que haya que maximizar."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="¿Cuánto CCA necesita una batería de camión? — DINWEY"
+  description="Cómo elegir los amperios de arranque en frío de una batería de camión — por qué el diésel necesita más CCA, cómo el clima y el tamaño del motor determinan el requisito, y cómo especificarlo."
+  canonical={`${SITE}/es/compare/truck-battery-cca/`}
+  jsonLd={[comparisonJsonLd, faqJsonLd]}
+>
+  <div class="container section">
+    <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#6b5a54;margin-bottom:16px;">
+      <a href="/es/">Inicio</a> &rsaquo; <a href="/es/compare/">Comparar</a> &rsaquo; CCA de batería de camión
+    </nav>
+
+    <h1>Guía de CCA para baterías de camión: ¿cuánto amperaje de arranque en frío necesita un camión?</h1>
+    <p class="lead">
+      El amperaje de arranque en frío es el número que decide si un camión arranca en una mañana fría.
+      Pero el valor correcto no es «cuanto más, mejor» — se ajusta al motor y al clima.
+    </p>
+
+    <div class="takeaways">
+      <strong>Respuesta directa:</strong> El requisito de CCA de una batería de camión lo determinan el motor y el clima. <strong>Los motores diésel necesitan más CCA que los de gasolina</strong> porque la mayor compresión dificulta el arranque en frío; <strong>los motores más pesados necesitan más que los más livianos</strong>; y <strong>los climas más fríos necesitan más que los cálidos</strong>. Iguale el CCA a la demanda de arranque en frío del motor y a la especificación OEM — un número más alto que el requerido agrega costo, no beneficio.
+    </div>
+
+    <h2 style="margin-top:32px;">Por qué los camiones diésel necesitan más CCA</h2>
+    <p>
+      Un motor diésel comprime el aire mucho más que un motor de gasolina, así que el motor de
+      arranque debe vencer una compresión mayor a baja temperatura — donde el aceite del motor es más
+      viscoso y la demanda de arranque es máxima. Por eso una batería de camión se especifica y se
+      vende por CCA, y por eso una batería de camión <strong>no es simplemente una batería de
+      automóvil más grande</strong>: se construye con más superficie de placas para entregar un mayor
+      impulso de arranque en frío.
+    </p>
+
+    <h2 style="margin-top:32px;">Qué determina realmente el requisito</h2>
+    <ul>
+      <li><strong>Tipo de motor</strong> — diésel &gt; gasolina; mayor cilindrada &gt; menor.</li>
+      <li><strong>Clima</strong> — los climas fríos necesitan un CCA más alto que los cálidos para el mismo motor.</li>
+      <li><strong>Carga eléctrica</strong> — la telemática, las calefacciones y los accesorios con el motor apagado también elevan el requisito de reserva.</li>
+      <li><strong>Voltaje</strong> — un sistema de 24V son dos baterías de 12V en serie; consulte <a href="/es/compare/12v-vs-24v/">12V vs 24V</a>.</li>
+    </ul>
+
+    <h2 style="margin-top:32px;">CCA vs Ah: qué le dice cada uno para un camión</h2>
+    <p>
+      El CCA es potencia de arranque; los Ah son cuánto tiempo puede entregar corriente la batería
+      antes de agotarse. Un clima frío necesita CCA; un camión con cargas intensas con el motor
+      apagado también necesita Ah (y capacidad de reserva). Consulte las páginas de modelos — por
+      ejemplo, la <a href="/es/batteries/jis/n200/">190H52 (N200)</a> entrega 200Ah y 1100A de CCA, y
+      la <a href="/es/batteries/jis/n150/">145G51 (N150)</a> 135Ah y 900A de CCA — para encontrar la
+      clase de camión adecuada.
+    </p>
+
+    <h2 style="margin-top:32px;">La norma importa</h2>
+    <p>
+      Un número de CCA solo tiene sentido con su norma de prueba. JIS prueba a &minus;15&deg;C,
+      mientras que EN/SAE prueban a &minus;18&deg;C, así que la misma batería imprime un número
+      diferente bajo cada una. Confirme siempre la norma y compare dentro de una misma norma —
+      consulte <a href="/es/compare/jis-vs-din-vs-bci/">JIS vs DIN vs BCI</a>.
+    </p>
+
+    <h2 style="margin-top:32px;">Cómo especificarlo</h2>
+    <ol>
+      <li>Indique la <strong>norma</strong> (JIS, DIN/EN o BCI/SAE).</li>
+      <li>Indique el <strong>valor de CCA</strong> y si es nominal o probado por lote.</li>
+      <li>Indique el <strong>tamaño de grupo, la orientación de los terminales y el voltaje</strong> — el CCA es un criterio de instalación entre varios.</li>
+    </ol>
+
+    <h2 style="margin-top:32px;">La opinión del autor</h2>
+    <p>
+      <strong>Postura:</strong> En mi opinión, el error que hay que evitar con el CCA de camión es
+      comprar el número más alto disponible en lugar del número que el motor realmente necesita — una
+      batería que no entra en la bandeja o que desperdicia superficie de placas en CCA que nunca usará
+      es una peor compra que la del tamaño correcto.
+    </p>
+    <p>
+      <strong>Razonamiento:</strong> El CCA es un requisito de instalación, no un puntaje de
+      rendimiento. El diésel, el clima y la carga determinan el número; la especificación OEM es el
+      objetivo correcto. Igualarla — indicando la norma — consigue un arranque confiable sin pagar por
+      capacidad que no puede usar. Un proveedor que pregunta por su motor y su clima antes de cotizar
+      el CCA lo está haciendo bien.
+    </p>
+    <p>
+      <strong>Divulgación:</strong> Esta es mi opinión editorial como equipo técnico de un fabricante
+      de baterías, no una afirmación de laboratorio. Confirme el CCA, el tamaño de grupo y el voltaje
+      correctos para su vehículo.
+    </p>
+
+    <h2 style="margin-top:32px;">Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Cuánto CCA necesita una batería de camión?</h3>
+      <p>Depende del motor y del clima. Los motores diésel necesitan más CCA que los de gasolina, los motores más pesados más que los livianos, y los climas fríos más que los cálidos. Iguale el CCA al requisito de arranque en frío del motor y a la especificación OEM.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Un CCA más alto es siempre mejor para un camión?</h3>
+      <p>No necesariamente. La batería debe seguir entrando en la bandeja y coincidir con los terminales. Sobreespecificar el CCA agrega costo y superficie de placas que no usará — el CCA es un criterio de instalación, no un puntaje que haya que maximizar.</p>
+    </div>
+
+    <div style="margin-top:32px;">
+      <a class="cta" href="/es/products/">Ver baterías de servicio pesado</a>
+      <a class="cta cta-outline" href="/es/contact/" style="margin-left:8px;">Solicitar una cotización</a>
+    </div>
+  </div>
+</BaseLayout>

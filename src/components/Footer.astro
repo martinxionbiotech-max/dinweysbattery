@@ -1,69 +1,74 @@
 ---
+import { localeFromPath, t, type Locale } from "../i18n/ui";
+
+const locale: Locale = localeFromPath(Astro.url.pathname);
+const prefix = locale === "ar" ? "/ar" : locale === "es" ? "/es" : "";
+const p = (href: string) => `${prefix}${href}`;
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
   <div class="container footer-inner">
     <div class="footer-col">
-      <h2>Company</h2>
+      <h2>{t(locale, "footer.company")}</h2>
       <address>
-        <p><strong>DINWEY</strong> — a brand of Chengguang Power Tech Co., Ltd.</p>
+        <p><strong>DINWEY</strong> {t(locale, "footer.brandLine")}</p>
         <p>Lvjiaying Village, Mayu Industrial Park, Jinzhou City, Shijiazhuang, Hebei, China</p>
-        <p>Phone / WhatsApp: <a href="tel:+8613323237275">+86 13323237275</a></p>
-        <p>Email: <a href="mailto:martin@dinweys.com">martin@dinweys.com</a></p>
+        <p>{t(locale, "footer.phone")} <a href="tel:+8613323237275">+86 13323237275</a></p>
+        <p>{t(locale, "footer.email")} <a href="mailto:martin@dinweys.com">martin@dinweys.com</a></p>
       </address>
     </div>
     <div class="footer-col">
-      <h2>Products</h2>
+      <h2>{t(locale, "footer.products")}</h2>
       <nav aria-label="Product links">
-        <a href="/products/jis-heavy-duty/">JIS Heavy-Duty (N150/N200)</a>
-        <a href="/products/din-heavy-duty/">DIN Heavy-Duty (DIN88/DIN100)</a>
-        <a href="/products/bci-request/">BCI Group 31 / 8D (on request)</a>
-        <a href="/products/24v/">24V Truck Battery Systems</a>
-        <a href="/products/fleet/">Fleet &amp; OEM Solutions</a>
-        <a href="/products/">All Product Lines</a>
-        <a href="/compare/">Comparisons &amp; Buying Guides</a>
-        <a href="/data/">Evidence &amp; Data (datasets)</a>
+        <a href={p("/products/jis-heavy-duty/")}>{t(locale, "footer.jisHeavy")}</a>
+        <a href={p("/products/din-heavy-duty/")}>{t(locale, "footer.dinHeavy")}</a>
+        <a href={p("/products/bci-request/")}>{t(locale, "footer.bciRequest")}</a>
+        <a href={p("/products/24v/")}>{t(locale, "footer.24v")}</a>
+        <a href={p("/products/fleet/")}>{t(locale, "footer.fleet")}</a>
+        <a href={p("/products/")}>{t(locale, "footer.allLines")}</a>
+        <a href={p("/compare/")}>{t(locale, "footer.compare")}</a>
+        <a href={p("/data/")}>{t(locale, "footer.data")}</a>
       </nav>
     </div>
     <div class="footer-col">
-      <h2>Resources</h2>
+      <h2>{t(locale, "footer.resources")}</h2>
       <nav aria-label="Resource links">
-        <a href="/selection-tool/">Battery Selection Tool</a>
-        <a href="/about/">About DINWEY</a>
-        <a href="/contact/">Contact &amp; Inquiry</a>
-        <a href="https://docs.dinweysbattery.com/" target="_blank" rel="noopener">📚 Knowledge Hub</a>
-        <a href="https://chengguangenergy.com/" target="_blank" rel="noopener">🏭 Factory: Chengguang Power Tech Co., Ltd.</a>
+        <a href={p("/selection-tool/")}>{t(locale, "footer.selectionTool")}</a>
+        <a href={p("/about/")}>{t(locale, "footer.about")}</a>
+        <a href={p("/contact/")}>{t(locale, "footer.contact")}</a>
+        <a href="https://docs.dinweysbattery.com/" target="_blank" rel="noopener">📚 {t(locale, "footer.knowledgeHub")}</a>
+        <a href="https://chengguangenergy.com/" target="_blank" rel="noopener">🏭 {t(locale, "footer.factory")}</a>
       </nav>
     </div>
     <div class="footer-col">
-      <h2>Applications</h2>
+      <h2>{t(locale, "footer.applications")}</h2>
       <nav aria-label="Application links">
-        <a href="/applications/mining-off-highway/">Mining &amp; Off-Highway</a>
-        <a href="/applications/cold-chain-refrigerated/">Cold-Chain &amp; Refrigerated</a>
-        <a href="/applications/bus-coach/">Bus &amp; Coach</a>
-        <a href="/applications/diesel-generator/">Diesel Generators</a>
+        <a href={p("/applications/mining-off-highway/")}>{t(locale, "footer.mining")}</a>
+        <a href={p("/applications/cold-chain-refrigerated/")}>{t(locale, "footer.coldChain")}</a>
+        <a href={p("/applications/bus-coach/")}>{t(locale, "footer.busCoach")}</a>
+        <a href={p("/applications/diesel-generator/")}>{t(locale, "footer.dieselGen")}</a>
       </nav>
     </div>
     <div class="footer-col">
-      <h2>Markets</h2>
+      <h2>{t(locale, "footer.markets")}</h2>
       <nav aria-label="Market links">
-        <a href="/markets/middle-east/">Middle East</a>
-        <a href="/markets/africa/">Africa</a>
-        <a href="/markets/latin-america/">Latin America</a>
-        <a href="/markets/southeast-asia/">Southeast Asia</a>
+        <a href={p("/markets/middle-east/")}>{t(locale, "footer.middleEast")}</a>
+        <a href={p("/markets/africa/")}>{t(locale, "footer.africa")}</a>
+        <a href={p("/markets/latin-america/")}>{t(locale, "footer.latinAmerica")}</a>
+        <a href={p("/markets/southeast-asia/")}>{t(locale, "footer.seAsia")}</a>
       </nav>
     </div>
     <div class="footer-col">
-      <h2>Legal</h2>
+      <h2>{t(locale, "footer.legal")}</h2>
       <nav aria-label="Legal links">
-        <a href="/privacy-policy/">Privacy Policy</a>
-        <a href="/terms-and-conditions/">Terms &amp; Conditions</a>
-        <a href="/return-policy/">Return Policy</a>
+        <a href={p("/privacy-policy/")}>{t(locale, "footer.privacy")}</a>
+        <a href={p("/terms-and-conditions/")}>{t(locale, "footer.terms")}</a>
+        <a href={p("/return-policy/")}>{t(locale, "footer.return")}</a>
       </nav>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; {year} DINWEY — Chengguang Power Tech Co., Ltd. All rights reserved.</p>
+    <p>&copy; {year} DINWEY — Chengguang Power Tech Co., Ltd. {t(locale, "footer.rights")}</p>
   </div>
 </footer>
