@@ -3,12 +3,25 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 
 const SITE = "https://dinweysbattery.com";
 
-// 免责声明（每个 MEDIUM fitment 页面必须标注）
+// 免责声明（每个 fitment 页面必须标注）
 const disclaimer =
   "مرجع قطاعي، وليس تأكيدًا رسميًا من DINWEYS بصفة OEM. مجموعات البطاريات المدرجة أدناه مستمدة من أدلة ملاءمة مستقلة للمركبات التجارية (دليل Club Assist للملاءمة التجارية ودليل Century Batteries لاختيار البطاريات). تأكد دائمًا من حجم المجموعة ونوع الأقطاب واتجاه الأقطاب والقطبية وأبعاد حامل البطارية في مركبتك تحديدًا قبل الطلب.";
 
-// 7 辆 MEDIUM 车型（来自 knowledge/data/vehicles/vehicle-master.json）
-// 只用已核实的 T1 证据；Isuzu F 诚实标注 needs inquiry。
+// §11 四级置信度定义
+const confidenceLevels = [
+  { level: "HIGH", definition: "مصادر متعددة موثوقة أو وثائق من المصنّع" },
+  { level: "MEDIUM", definition: "مصدر مستقل موثوق بمعايير تقنية متطابقة" },
+  { level: "LOW", definition: "مرجع محدود من طرف ثالث" },
+  { level: "UNVERIFIED", definition: "أدلة غير كافية" },
+];
+
+const confidenceNote: Record<string, string> = {
+  HIGH: "مصادر متعددة موثوقة أو وثائق من المصنّع",
+  MEDIUM: "مرجع ملاءمة من طرف ثالث — وليس تأكيدًا بصفة OEM",
+  LOW: "مرجع محدود من طرف ثالث — وليس تأكيدًا بصفة OEM",
+  UNVERIFIED: "أدلة غير كافية",
+};
+
 const vehicles = [
   {
     id: "HINO-700",
@@ -24,7 +37,27 @@ const vehicles = [
     fitmentEvidence:
       "دليل Club Assist للملاءمة التجارية: Hino 700 Series FS/FY/SH/SS للفترة 2004-2016 = N150 (MF150/SN150/HCC150)؛ دليل Century Batteries لاختيار البطاريات: Hino 700 Series = N150.",
     source: "دليل Club Assist للملاءمة التجارية + دليل Century Batteries لاختيار البطاريات",
-    confidence: "متوسطة",
+    confidence: "MEDIUM",
+    needsInquiry: false,
+    recommendationLinks: [
+      { href: "/ar/batteries/jis/n150/", label: "145G51 (N150)" },
+    ],
+  },
+  {
+    id: "ISUZU-GIGA",
+    brand: "Isuzu",
+    model: "Giga",
+    generation: "CXZ / CXY / EXD / EXY GIGA الثقيلة",
+    year: "1994–حتى الآن",
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "N150 (JIS)",
+    batteryGroup: "N150",
+    dinweyRecommendation: "145G51 (N150)",
+    fitmentEvidence:
+      "دليل Club Assist للملاءمة التجارية: Isuzu CXY/CXZ GIGA منذ 1994 = N150 (RDPN150/MF150/SN150/4D/MFN150/HCC150)؛ Isuzu EXD/EXY GIGA منذ 1994 = N150؛ Isuzu GIGA 455hp = N150؛ Isuzu GIGA GXZ 415hp = N150.",
+    source: "دليل Club Assist للملاءمة التجارية",
+    confidence: "MEDIUM",
     needsInquiry: false,
     recommendationLinks: [
       { href: "/ar/batteries/jis/n150/", label: "145G51 (N150)" },
@@ -44,7 +77,7 @@ const vehicles = [
     fitmentEvidence:
       "ملاحظة Club Assist بشأن شاحنات Volvo: معظم شاحنات Volvo المجمَّعة في أستراليا حتى 2013 = 2×N150 خلف الكابينة؛ والمصنَّعة في أوروبا = 2×MFN150A (DIN). Volvo FH من 2014 فصاعدًا = N200. مرجع متقاطع من eBay: N150 يلائم Volvo FH580/FH12/FH16.",
     source: "دليل Club Assist للملاءمة التجارية",
-    confidence: "متوسطة",
+    confidence: "MEDIUM",
     needsInquiry: false,
     recommendationLinks: [
       { href: "/ar/batteries/jis/n150/", label: "145G51 (N150) — حتى 2013" },
@@ -65,7 +98,7 @@ const vehicles = [
     fitmentEvidence:
       "Club Assist: Volvo FM7/FM9/FM10/FM12 للفترة 1998-2013 = N150 (2×N150)؛ Volvo FM 410/540 من 2014 فصاعدًا = N200؛ Volvo FMX 11/13 من 2010 فصاعدًا = N200. ملاحظة: معظم المجمَّعة في أستراليا = N150، والمصنَّعة في أوروبا = مواصفة MFN150A الأوروبية/DIN.",
     source: "دليل Club Assist للملاءمة التجارية",
-    confidence: "متوسطة",
+    confidence: "MEDIUM",
     needsInquiry: false,
     recommendationLinks: [
       { href: "/ar/batteries/jis/n150/", label: "145G51 (N150) — حتى 2013" },
@@ -86,7 +119,7 @@ const vehicles = [
     fitmentEvidence:
       "دليل الملاءمة RDP / Club Assist: Scania R420/R480/R500/R560/R580 للفترة 2005-2014 = N150؛ Scania R490/R500/R580/R620/R730 بمعيار Euro VI من 2015 فصاعدًا = N200 (عرض 276mm). Scania R113/R143 للفترة 1987-1997 = N150.",
     source: "دليل RDP لملاءمة البطاريات + Club Assist",
-    confidence: "متوسطة",
+    confidence: "MEDIUM",
     needsInquiry: false,
     recommendationLinks: [
       { href: "/ar/batteries/jis/n150/", label: "145G51 (N150) — 2005–2014" },
@@ -107,7 +140,7 @@ const vehicles = [
     fitmentEvidence:
       "دليل Club Assist للملاءمة التجارية: MAN TGS Series من 2007 فصاعدًا = N150L (قياسي 222mm)، N200 (خيار الخدمة الشاقة 273mm).",
     source: "دليل Club Assist للملاءمة التجارية",
-    confidence: "متوسطة",
+    confidence: "MEDIUM",
     needsInquiry: false,
     recommendationLinks: [
       { href: "/ar/batteries/jis/n150/", label: "145G51 (N150L) — القياسي" },
@@ -128,7 +161,7 @@ const vehicles = [
     fitmentEvidence:
       "دليل Club Assist للملاءمة التجارية: MAN TGX Series للفترة 2007-2013 = N150L؛ خيار الخدمة الشاقة (273mm) = N200.",
     source: "دليل Club Assist للملاءمة التجارية",
-    confidence: "متوسطة",
+    confidence: "MEDIUM",
     needsInquiry: false,
     recommendationLinks: [
       { href: "/ar/batteries/jis/n150/", label: "145G51 (N150L) — 2007–2013" },
@@ -136,10 +169,176 @@ const vehicles = [
     ],
   },
   {
+    id: "MB-ACTROS",
+    brand: "Mercedes-Benz",
+    model: "Actros",
+    generation: "MP1 / MP2 / MP3 (1996–2013) / MP4 (من 2014)",
+    year: "1996–حتى الآن",
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "MFN150A (N150) قياسي / MFN200A (N200) خدمة شاقة / MFN180A BlueTec 6",
+    batteryGroup: "N150 (1996–2013) / N200 (خدمة شاقة من 2014)",
+    dinweyRecommendation: "145G51 (N150) للفترة 1996–2013؛ 190H52 (N200) لخيار الخدمة الشاقة من 2014",
+    fitmentEvidence:
+      "Club Assist: Actros MP1/MP2/MP3 لجميع الطرازات 1996-2013 = N150 (MFN150A)؛ Actros 3240/3341/4141 MP4 من 2014 = N150 (MFN150A)؛ Actros 2651/2655/2660 و2643/2646 بخيار الخدمة الشاقة من 2014 = N200 (MFN200A)؛ BlueTec 6 من 2016 = MFN180A.",
+    source: "دليل Club Assist للملاءمة التجارية",
+    confidence: "MEDIUM",
+    needsInquiry: false,
+    recommendationLinks: [
+      { href: "/ar/batteries/jis/n150/", label: "145G51 (N150) — 1996–2013" },
+      { href: "/ar/batteries/jis/n200/", label: "190H52 (N200) — الخدمة الشاقة من 2014" },
+    ],
+  },
+  {
+    id: "MB-ATEGO",
+    brand: "Mercedes-Benz",
+    model: "Atego",
+    generation: "توزيع / مهام متوسطة",
+    year: null,
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "MFN150A (N150) قياسي / MFN200A (N200) خدمة شاقة",
+    batteryGroup: "N150 (قياسي) / N200 (خيار خدمة شاقة)",
+    dinweyRecommendation: "145G51 (N150) قياسي؛ 190H52 (N200) لخيار الخدمة الشاقة",
+    fitmentEvidence:
+      "Club Assist: Atego 1224/1229/1623-1629/2324-2329 = N150 (MFN150A)؛ خيار الخدمة الشاقة في Atego = N200 (MFN200A).",
+    source: "دليل Club Assist للملاءمة التجارية",
+    confidence: "MEDIUM",
+    needsInquiry: false,
+    recommendationLinks: [
+      { href: "/ar/batteries/jis/n150/", label: "145G51 (N150) — القياسي" },
+      { href: "/ar/batteries/jis/n200/", label: "190H52 (N200) — خيار الخدمة الشاقة" },
+    ],
+  },
+  {
+    id: "DAF-XF",
+    brand: "DAF",
+    model: "XF",
+    generation: "XF95 (1997–2003) / XF105 (من 2001)",
+    year: "1997–حتى الآن",
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "MFN150A (N150) قياسي / MFN200A (N200) FAD 8x4",
+    batteryGroup: "N150 (1997–2013) / N200 (XF105 FAD 8x4 من 2013)",
+    dinweyRecommendation: "145G51 (N150) لـ XF95/XF105 1997–2013؛ 190H52 (N200) لـ XF105 FAD 8x4 من 2013",
+    fitmentEvidence:
+      "Club Assist: DAF 95 XF 1997-2003 = N150 (MFN150A 4D)؛ XF95-480 = N150؛ XF105-510 2001-2013 = N150؛ XF105 FAD 8x4 Rigid من 2013 = N200 (MFN200A).",
+    source: "دليل Club Assist للملاءمة التجارية",
+    confidence: "MEDIUM",
+    needsInquiry: false,
+    recommendationLinks: [
+      { href: "/ar/batteries/jis/n150/", label: "145G51 (N150) — 1997–2013" },
+      { href: "/ar/batteries/jis/n200/", label: "190H52 (N200) — XF105 FAD 8x4 من 2013" },
+    ],
+  },
+  {
+    id: "IVECO-STRALIS",
+    brand: "Iveco",
+    model: "Stralis",
+    generation: "ATi / 460 / AD / AS-L / AT",
+    year: "2002–حتى الآن",
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "MFN150A (N150) / MFN200A (N200) / HCC27SC (D31)",
+    batteryGroup: "N150 (ATi/460 2002–2013) / N200 (E5 من 2014) / HCC27SC (AD/AS-L/AT)",
+    dinweyRecommendation: "145G51 (N150) لـ ATi 360/450 وStralis 460 2002–2013؛ 190H52 (N200) لـ E5 من 2014",
+    fitmentEvidence:
+      "Club Assist: Stralis ATi 360/450 2002-2013 = N150 (MFN150A)؛ ATi 360/450 E5 من 2014 = N200 (MFN200A)؛ Stralis 460 2002-2013 = N150؛ Stralis 460 EEV من 2014 = N200؛ Stralis AD 505/AS-L/AT (من 2002) = HCC27SC (مجموعة أصغر).",
+    source: "دليل Club Assist للملاءمة التجارية",
+    confidence: "MEDIUM",
+    needsInquiry: true,
+    inquiryNote:
+      "تستخدم طرازات AD/AS-L/AT مجموعة HCC27SC (95D31/D31) الأصغر، وهي ليست ضمن خط DINWEYS القياسي — يستلزم استفسارًا. طرازا ATi 360/450 وStralis 460 يتوافقان مع 145G51/190H52.",
+    recommendationLinks: [
+      { href: "/ar/batteries/jis/n150/", label: "145G51 (N150) — 2002–2013" },
+      { href: "/ar/batteries/jis/n200/", label: "190H52 (N200) — من 2014" },
+    ],
+  },
+  {
+    id: "FUSO-FIGHTER",
+    brand: "Mitsubishi Fuso",
+    model: "Fighter",
+    generation: "FK / FM / FN (خفيف/متوسط) / FP / FS / FV (ثقيل)",
+    year: null,
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "N150 (ثقيل) / 55D23R·80D26R (خفيف/متوسط)",
+    batteryGroup: "N150 (FP/FS/FV الثقيلة) / 55D23R·80D26R (FK/FM/FN الخفيفة/المتوسطة)",
+    dinweyRecommendation: "145G51 (N150) — طرازات Fighter الثقيلة FP/FS/FV فقط",
+    fitmentEvidence:
+      "Club Assist: سلسلة Fuso FP/FS/FV = N150 (SN150x2/HCC150). Fuso Fighter FK1024/FK1424/FM1627/FN2427 = 55D23R/80D26R (مجموعات خفيفة/متوسطة).",
+    source: "دليل Club Assist للملاءمة التجارية",
+    confidence: "MEDIUM",
+    needsInquiry: true,
+    inquiryNote:
+      "تستخدم طرازات Fighter الخفيفة/المتوسطة FK/FM/FN مجموعة 55D23R/80D26R، وهي ليست ضمن خط DINWEYS القياسي — يستلزم استفسارًا. طرازات FP/FS/FV الثقيلة فقط تتوافق مع 145G51.",
+    recommendationLinks: [
+      { href: "/ar/batteries/jis/n150/", label: "145G51 (N150) — الطرازات الثقيلة" },
+    ],
+  },
+  {
+    id: "UD-QUON",
+    brand: "UD Trucks",
+    model: "Quon",
+    generation: "فئة CW / GK / GW الثقيلة",
+    year: null,
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "N150 (JIS)",
+    batteryGroup: "N150 (فئة CW/GK/GW الثقيلة)",
+    dinweyRecommendation: "145G51 (N150)",
+    fitmentEvidence:
+      "Club Assist: U.D. CK17-380/CW26-380/CWA310/CW385/CW445/GK17-420/GW26-420 = N150 (MF150/HCC150). Battery Brands Warehouse (T2): N150 مُدرج كملاءمة شائعة لـ 'UD Quon'.",
+    source: "دليل Club Assist للملاءمة التجارية + Battery Brands Warehouse (T2)",
+    confidence: "LOW",
+    needsInquiry: false,
+    recommendationLinks: [
+      { href: "/ar/batteries/jis/n150/", label: "145G51 (N150)" },
+    ],
+  },
+  {
+    id: "FUSO-SUPER-GREAT",
+    brand: "Mitsubishi Fuso",
+    model: "Super Great",
+    generation: "فئة FP / FS / FV الثقيلة",
+    year: null,
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "N150 (JIS)",
+    batteryGroup: "N150 (فئة FP/FS/FV الثقيلة)",
+    dinweyRecommendation: "145G51 (N150)",
+    fitmentEvidence:
+      "Club Assist: سلسلة Fuso FP/FS/FV = N150 (SN150x2/HCC150) — Super Great هي فئة FV/FP/FS الثقيلة. مرجع متقاطع من eBay (T2): N150 مُدرج لـ Fuso FU/FP/FS.",
+    source: "دليل Club Assist للملاءمة التجارية",
+    confidence: "LOW",
+    needsInquiry: false,
+    recommendationLinks: [
+      { href: "/ar/batteries/jis/n150/", label: "145G51 (N150)" },
+    ],
+  },
+  {
+    id: "HINO-500",
+    brand: "Hino",
+    model: "500 Series",
+    generation: "FC/FD/FE/FG (خفيف) / GH/GD/GT/FL (متوسط-أثقل)",
+    year: "2001–حتى الآن",
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "55D23L/75D23L (خفيف) / N120 (متوسط-أثقل)",
+    batteryGroup: "55D23L·75D23L (خفيف) / N120 (متوسط-أثقل)",
+    dinweyRecommendation: null,
+    fitmentEvidence:
+      "دليل Club Assist للملاءمة التجارية: Hino 500 FC1018/FC1022 2001-2016 = 55D23L؛ FD1027/1124/1126 = 55D23L؛ FD1124 Crew H/D = N120؛ FE1422/1426 = 55D23L؛ FG1527/1628 = 55D23L (بديل 80D26L)؛ FG1628 Crew H/D = N120؛ GH1727 1992-2013 = 80D26L؛ GH1728 2008-2016 = N120؛ GT1322 2004-2016 = N120؛ FL2628 من 2013 = N120. دليل Century للاختيار: Hino 500 Series FM/FT = N120، GD/GH = 75D23L/55D23L، GT = N120.",
+    source: "دليل Club Assist للملاءمة التجارية + دليل Century Batteries لاختيار البطاريات",
+    confidence: "MEDIUM",
+    needsInquiry: true,
+    recommendationLinks: [],
+  },
+  {
     id: "ISUZU-F",
     brand: "Isuzu",
     model: "F Series (Forward)",
-    generation: "FRR / FSR / FSD (Sitec series)",
+    generation: "FRR / FSR / FSD (serie Sitec)",
     year: "2009–حتى الآن (الحالي)",
     electricalSystem: "24V",
     batteryQuantity: 2,
@@ -149,7 +348,7 @@ const vehicles = [
     fitmentEvidence:
       "دليل Club Assist للملاءمة التجارية: Isuzu FRR600 (Sitec III) من 2009 فصاعدًا، وFSD 120-260/140-260 الحالي، وFSR 120-260 الحالي = N100L (SN100L/N100CMF/HCC100L-XHD).",
     source: "دليل Club Assist للملاءمة التجارية",
-    confidence: "متوسطة",
+    confidence: "MEDIUM",
     needsInquiry: true,
     recommendationLinks: [],
   },
@@ -188,11 +387,20 @@ const faqJsonLd = {
     },
     {
       "@type": "Question",
-      "name": "لماذا يظهر «يستلزم استفسارًا» لموديل Isuzu F Series بدلًا من موديل DINWEYS؟",
+      "name": "ماذا تعني مستويات درجة الثقة في الملاءمة؟",
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "يستخدم Isuzu F Series مجموعة JIS N100L، وهي ليست ضمن خط إنتاج DINWEYS القياسي حاليًا. تواصل مع DINWEYS للتأكد مما إذا كان موديل متوافق أو حل مخصص متاح.",
+          "HIGH تعني مصادر متعددة موثوقة أو وثائق من المصنّع؛ وMEDIUM تعني مصدرًا مستقلًا موثوقًا بمعايير تقنية متطابقة؛ وLOW تعني مرجعًا محدودًا من طرف ثالث؛ وUNVERIFIED تعني أدلة غير كافية. كل قائمة أدناه تُظهر مستواها، ولا يمثل أي منها تأكيدًا بصفة OEM.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "لماذا تظهر بعض الموديلات «يستلزم استفسارًا» بدلًا من موديل DINWEYS؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text":
+          "لأن مجموعة البطارية OEM الخاصة بها (مثل JIS N100L أو N120 أو فئات 55D23L/75D23L الأصغر) ليست ضمن خط إنتاج DINWEYS القياسي حاليًا. تواصل مع DINWEYS للتأكد مما إذا كان موديل متوافق أو حل مخصص متاح.",
       },
     },
     {
@@ -210,11 +418,11 @@ const faqJsonLd = {
 
 <BaseLayout
   title="ملاءمة بطاريات موديلات الشاحنات — مرجع DINWEYS للخدمة الشاقة"
-  description="اعثر على بطارية DINWEYS لموديل شاحنتك — Hino 700 وVolvo FH/FM وScania R وMAN TGS/TGX وIsuzu F Series — مع مجموعة البطارية OEM والموديل المرجعي المقابل."
+  description="اعثر على بطارية DINWEYS لموديل شاحنتك — Hino 700 وIsuzu Giga وVolvo FH/FM وScania R وMAN TGS/TGX وMercedes Actros/Atego وDAF XF وIveco Stralis وFuso وUD Quon — مع مجموعة البطارية OEM ودرجة الثقة في الملاءمة والموديل المرجعي."
   ogType="article"
   author="Martin Wong"
   datePublished="2026-09-07"
-  dateModified="2026-09-07"
+  dateModified="2026-09-23"
   jsonLd={[breadcrumbJsonLd, faqJsonLd]}
 >
   <div class="container section">
@@ -226,17 +434,31 @@ const faqJsonLd = {
     <p class="lead">
       اعثر على بطارية التشغيل للخدمة الشاقة من DINWEYS المناسبة لموديل شاحنتك. فيما يلي
       موديلات الشاحنات التي توثّق أدلة الملاءمة المستقلة لها مجموعة بطارية محددة، مقابَلةً
-      بموديل DINWEYS المناظر.
+      بموديل DINWEYS المناظر — مع درجة ثقة لكل مرجع.
     </p>
 
     <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
       <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">الإجابة المباشرة</h2>
-      <p style="margin:0;">تغطي مراجع الملاءمة أدناه Hino 700 وVolvo FH/FM وScania R Series وMAN TGS/TGX وIsuzu F Series. أحجام المجموعات مأخوذة من أدلة ملاءمة مستقلة — مرجع قطاعي، <strong>وليس تأكيدًا بصفة OEM</strong>. طابق دائمًا حجم المجموعة ونوع الأقطاب والقطبية وأبعاد حامل البطارية قبل الطلب.</p>
+      <p style="margin:0;">تغطي مراجع الملاءمة أدناه {vehicles.length} موديل شاحنات من Hino وIsuzu وVolvo وScania وMAN وMercedes-Benz وDAF وIveco وMitsubishi Fuso وUD Trucks. أحجام المجموعات مأخوذة من أدلة ملاءمة مستقلة — مرجع قطاعي، <strong>وليس تأكيدًا بصفة OEM</strong>. تعرض كل قائمة درجة الثقة في الملاءمة؛ طابق دائمًا حجم المجموعة ونوع الأقطاب والقطبية وأبعاد حامل البطارية قبل الطلب.</p>
     </div>
 
     <div style="margin:24px 0;padding:16px 20px;background:#fff8ec;border-left:4px solid #f5a623;border-radius:6px;">
       <p style="margin:0;">
         <strong>إخلاء المسؤولية:</strong> {disclaimer}
+      </p>
+    </div>
+
+    <div style="margin:24px 0;padding:16px 20px;background:#f4f7fb;border:1px solid #e3e8ef;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">مستويات درجة الثقة في الملاءمة</h2>
+      <ul style="margin:0;padding-left:20px;">
+        {confidenceLevels.map((c) => (
+          <li style="margin-bottom:6px;"><strong>{c.level}</strong> — {c.definition}</li>
+        ))}
+      </ul>
+      <p class="data-note" style="margin:8px 0 0;">
+        تصف هذه المستويات كيفية الحصول على المرجع، وليست ضمانًا من OEM. البطارية المعروضة
+        <strong>كمرجع متوافق</strong> ليست <strong>بديلًا بصفة OEM</strong> حتى تُؤكَّد مقابل
+        مواصفات المركبة نفسها.
       </p>
     </div>
 
@@ -247,10 +469,10 @@ const faqJsonLd = {
         <div class="fitment-card" style="margin:24px 0;padding:20px 24px;background:#ffffff;border:1px solid #e3e8ef;border-radius:8px;">
           <h3 style="color:#0f1f3d;margin:0 0 4px;">
             {v.brand} {v.model}
-            <span style="font-weight:400;font-size:0.85rem;color:#55606e;"> — {v.generation}</span>
+            {v.generation && <span style="font-weight:400;font-size:0.85rem;color:#55606e;"> — {v.generation}</span>}
           </h3>
           <p style="margin:0 0 12px;color:#55606e;font-size:0.95rem;">
-            {v.year} · نظام {v.electricalSystem} ({v.batteryQuantity} بطاريات على التوالي)
+            {v.year && <>{v.year} · </>}نظام {v.electricalSystem} ({v.batteryQuantity} بطاريات على التوالي)
           </p>
 
           <table style="margin-bottom:12px;">
@@ -263,7 +485,7 @@ const faqJsonLd = {
                 <td><strong>{v.batteryGroup}</strong>{v.oemBattery ? ` (${v.oemBattery})` : ""}</td>
               </tr>
               <tr>
-                <td>توصية DINWEYS</td>
+                <td>مرجع DINWEYS المتوافق</td>
                 <td>
                   {v.dinweyRecommendation ? (
                     <strong>{v.dinweyRecommendation}</strong>
@@ -273,8 +495,8 @@ const faqJsonLd = {
                 </td>
               </tr>
               <tr>
-                <td>درجة الثقة</td>
-                <td><strong>{v.confidence}</strong> — مرجع قطاعي، وليس تأكيدًا رسميًا من DINWEYS بصفة OEM</td>
+                <td>درجة الثقة في الملاءمة</td>
+                <td><strong>{v.confidence}</strong> — {confidenceNote[v.confidence]}</td>
               </tr>
             </tbody>
           </table>
@@ -294,8 +516,10 @@ const faqJsonLd = {
           {v.needsInquiry && (
             <div style="padding:12px 16px;background:#fdf2f2;border-left:4px solid #c0392b;border-radius:6px;margin-bottom:12px;">
               <p style="margin:0;">
-                <strong>يستلزم استفسارًا:</strong> يستخدم هذا الموديل مجموعة JIS {v.batteryGroup}، وهي
-                ليست ضمن خط إنتاج DINWEYS القياسي حاليًا.{" "}
+                <strong>يستلزم استفسارًا:</strong>{" "}
+                {v.inquiryNote
+                  ? v.inquiryNote
+                  : <>يستخدم هذا الموديل مجموعة JIS {v.batteryGroup}، وهي ليست ضمن خط إنتاج DINWEYS القياسي حاليًا.{" "}</>}
                 <a href="/ar/contact/" style="color:#1e5aa8;">تواصل مع DINWEYS</a> للتأكد مما إذا كان
                 موديل متوافق أو حل مخصص متاح.
               </p>
@@ -309,18 +533,42 @@ const faqJsonLd = {
       ))
     }
 
+    <h2 style="color:#0f1f3d;margin-top:40px;">الكيانات ذات الصلة</h2>
+    <div style="padding:20px;background:#f4f7fb;border-radius:8px;">
+      <p style="margin:0 0 6px;"><strong>البطارية</strong></p>
+      <ul style="margin:0 0 12px;">
+        <li><a href="/ar/batteries/" style="color:#1e5aa8;">مرجع موديلات البطاريات من DINWEYS (145G51 / 190H52 / 58827 / 60038)</a></li>
+        <li><a href="/ar/batteries/jis/n150/" style="color:#1e5aa8;">145G51 (N150) — JIS للخدمة الشاقة</a></li>
+        <li><a href="/ar/batteries/jis/n200/" style="color:#1e5aa8;">190H52 (N200) — JIS للخدمة الشاقة</a></li>
+      </ul>
+      <p style="margin:0 0 6px;"><strong>المعيار</strong></p>
+      <ul style="margin:0 0 12px;">
+        <li><a href="/ar/compare/jis-vs-din-vs-bci/" style="color:#1e5aa8;">JIS مقابل DIN مقابل BCI — لماذا لا يمكن مقارنة CCA مباشرة</a></li>
+      </ul>
+      <p style="margin:0 0 6px;"><strong>التطبيق</strong></p>
+      <ul style="margin:0;">
+        <li><a href="/ar/applications/mining-off-highway/" style="color:#1e5aa8;">بطاريات شاحنات التعدين والطرق الوعرة</a></li>
+        <li><a href="/ar/applications/diesel-generator/" style="color:#1e5aa8;">بطاريات تشغيل مولدات الديزل</a></li>
+        <li><a href="/ar/applications/bus-coach/" style="color:#1e5aa8;">بطاريات تشغيل الحافلات</a></li>
+      </ul>
+    </div>
+
     <h2 style="color:#0f1f3d;margin-top:40px;">الأسئلة الشائعة</h2>
     <div class="faq-item">
       <h3>كيف أجد بطارية DINWEYS المناسبة لموديل شاحنتي؟</h3>
-      <p>اعثر على موديل شاحنتك في القائمة أدناه. يعرض كل موديل مدرَج مجموعة البطارية OEM (مثل N150/N200) وموديل DINWEYS المقابل (145G51/190H52). هذه مراجع قطاعية — تأكد دائمًا من حجم المجموعة واتجاه الأقطاب وأبعاد حامل البطارية في مركبتك قبل الطلب.</p>
+      <p>اعثر على موديل شاحنتك في القائمة أعلاه. يعرض كل موديل مدرَج مجموعة البطارية OEM (مثل N150/N200) وموديل DINWEYS المقابل (145G51/190H52). هذه مراجع قطاعية — تأكد دائمًا من حجم المجموعة واتجاه الأقطاب وأبعاد حامل البطارية في مركبتك قبل الطلب.</p>
     </div>
     <div class="faq-item">
       <h3>هل هذه القوائم معتمدة رسميًا من مصنّعي المركبات؟</h3>
       <p>لا. مجموعات البطاريات مستمدة من أدلة ملاءمة مستقلة للمركبات التجارية (Club Assist وCentury Batteries). وهي مراجع قطاعية، وليست تأكيدات OEM رسمية من DINWEYS ولا مصادقات من مصنّعي المركبات. تحقق منها مقابل مواصفات مركبتك.</p>
     </div>
     <div class="faq-item">
-      <h3>لماذا يظهر «يستلزم استفسارًا» لموديل Isuzu F Series بدلًا من موديل DINWEYS؟</h3>
-      <p>يستخدم Isuzu F Series مجموعة JIS N100L، وهي ليست ضمن خط إنتاج DINWEYS القياسي حاليًا. تواصل مع DINWEYS للتأكد مما إذا كان موديل متوافق أو حل مخصص متاح.</p>
+      <h3>ماذا تعني مستويات درجة الثقة في الملاءمة؟</h3>
+      <p>HIGH تعني مصادر متعددة موثوقة أو وثائق من المصنّع؛ وMEDIUM تعني مصدرًا مستقلًا موثوقًا بمعايير تقنية متطابقة؛ وLOW تعني مرجعًا محدودًا من طرف ثالث؛ وUNVERIFIED تعني أدلة غير كافية. كل قائمة أعلاه تُظهر مستواها، ولا يمثل أي منها تأكيدًا بصفة OEM.</p>
+    </div>
+    <div class="faq-item">
+      <h3>لماذا تظهر بعض الموديلات «يستلزم استفسارًا» بدلًا من موديل DINWEYS؟</h3>
+      <p>لأن مجموعة البطارية OEM الخاصة بها (مثل JIS N100L أو N120 أو فئات 55D23L/75D23L الأصغر) ليست ضمن خط إنتاج DINWEYS القياسي حاليًا. تواصل مع DINWEYS للتأكد مما إذا كان موديل متوافق أو حل مخصص متاح.</p>
     </div>
     <div class="faq-item">
       <h3>هل تحتاج شاحنة بنظام 24V إلى بطاريتين؟</h3>

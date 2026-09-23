@@ -3,12 +3,28 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const SITE = "https://dinweysbattery.com";
 
-// 免责声明（每个 MEDIUM fitment 页面必须标注）
+// 免责声明（每个 fitment 页面必须标注）
 const disclaimer =
   "Industry reference, not DINWEYS official OEM confirmation. Battery groups listed below are sourced from independent commercial-vehicle fitment guides (Club Assist Commercial Fitment Guide and Century Batteries Selection Guide). Always confirm group size, terminal type, terminal orientation, polarity and tray dimensions against your specific vehicle before ordering.";
 
-// 7 辆 MEDIUM 车型（来自 knowledge/data/vehicles/vehicle-master.json）
-// 只用已核实的 T1 证据；Isuzu F 诚实标注 needs inquiry。
+// §11 四级置信度定义
+const confidenceLevels = [
+  { level: "HIGH", definition: "Multiple credible sources or manufacturer documentation" },
+  { level: "MEDIUM", definition: "Credible independent source with matching technical parameters" },
+  { level: "LOW", definition: "Limited third-party reference" },
+  { level: "UNVERIFIED", definition: "Insufficient evidence" },
+];
+
+// §28/§36 用词：compatible reference，而非 OEM replacement
+const confidenceNote: Record<string, string> = {
+  HIGH: "multiple credible sources or manufacturer documentation",
+  MEDIUM: "third-party fitment reference — not OEM confirmation",
+  LOW: "limited third-party reference — not OEM confirmation",
+  UNVERIFIED: "insufficient evidence",
+};
+
+// 16 辆车型（来自 ../data-dinweybattery/data/vehicles/vehicle-master.json，为其真值）
+// 只用数据层已有记录；Hino 500 / Isuzu F / Fuso Fighter(轻中) / Iveco Stralis(AD/AS-L/AT) 诚实标注 needs inquiry。
 const vehicles = [
   {
     id: "HINO-700",
@@ -24,6 +40,26 @@ const vehicles = [
     fitmentEvidence:
       "Club Assist Commercial Fitment Guide: Hino 700 Series FS/FY/SH/SS 2004-2016 = N150 (MF150/SN150/HCC150); Century Batteries Selection Guide: Hino 700 Series = N150.",
     source: "Club Assist Commercial Fitment Guide + Century Batteries Selection Guide",
+    confidence: "MEDIUM",
+    needsInquiry: false,
+    recommendationLinks: [
+      { href: "/batteries/jis/n150/", label: "145G51 (N150)" },
+    ],
+  },
+  {
+    id: "ISUZU-GIGA",
+    brand: "Isuzu",
+    model: "Giga",
+    generation: "CXZ / CXY / EXD / EXY GIGA heavy",
+    year: "1994–on",
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "N150 (JIS)",
+    batteryGroup: "N150",
+    dinweyRecommendation: "145G51 (N150)",
+    fitmentEvidence:
+      "Club Assist Commercial Fitment Guide: Isuzu CXY/CXZ GIGA 1994-on = N150 (RDPN150/MF150/SN150/4D/MFN150/HCC150); Isuzu EXD/EXY GIGA 1994-on = N150; Isuzu GIGA 455hp = N150; Isuzu GIGA GXZ 415hp = N150.",
+    source: "Club Assist Commercial Fitment Guide",
     confidence: "MEDIUM",
     needsInquiry: false,
     recommendationLinks: [
@@ -136,6 +172,172 @@ const vehicles = [
     ],
   },
   {
+    id: "MB-ACTROS",
+    brand: "Mercedes-Benz",
+    model: "Actros",
+    generation: "MP1 / MP2 / MP3 (1996–2013) / MP4 (2014-on)",
+    year: "1996–on",
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "MFN150A (N150) std / MFN200A (N200) H/D / MFN180A BlueTec 6",
+    batteryGroup: "N150 (1996–2013) / N200 (heavy-duty 2014-on)",
+    dinweyRecommendation: "145G51 (N150) 1996–2013; 190H52 (N200) heavy-duty option 2014-on",
+    fitmentEvidence:
+      "Club Assist: Actros MP1/MP2/MP3 all models 1996-2013 = N150 (MFN150A); Actros 3240/3341/4141 MP4 2014-on = N150 (MFN150A); Actros 2651/2655/2660 & 2643/2646 heavy-duty option 2014-on = N200 (MFN200A); BlueTec 6 2016-on = MFN180A.",
+    source: "Club Assist Commercial Fitment Guide",
+    confidence: "MEDIUM",
+    needsInquiry: false,
+    recommendationLinks: [
+      { href: "/batteries/jis/n150/", label: "145G51 (N150) — 1996–2013" },
+      { href: "/batteries/jis/n200/", label: "190H52 (N200) — heavy-duty 2014-on" },
+    ],
+  },
+  {
+    id: "MB-ATEGO",
+    brand: "Mercedes-Benz",
+    model: "Atego",
+    generation: "distribution / medium-duty",
+    year: null,
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "MFN150A (N150) std / MFN200A (N200) H/D",
+    batteryGroup: "N150 (standard) / N200 (heavy-duty option)",
+    dinweyRecommendation: "145G51 (N150) standard; 190H52 (N200) heavy-duty option",
+    fitmentEvidence:
+      "Club Assist: Atego 1224/1229/1623-1629/2324-2329 = N150 (MFN150A); Atego heavy-duty option = N200 (MFN200A).",
+    source: "Club Assist Commercial Fitment Guide",
+    confidence: "MEDIUM",
+    needsInquiry: false,
+    recommendationLinks: [
+      { href: "/batteries/jis/n150/", label: "145G51 (N150) — standard" },
+      { href: "/batteries/jis/n200/", label: "190H52 (N200) — heavy-duty option" },
+    ],
+  },
+  {
+    id: "DAF-XF",
+    brand: "DAF",
+    model: "XF",
+    generation: "XF95 (1997–2003) / XF105 (2001-on)",
+    year: "1997–on",
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "MFN150A (N150) std / MFN200A (N200) FAD 8x4",
+    batteryGroup: "N150 (1997–2013) / N200 (XF105 FAD 8x4 2013-on)",
+    dinweyRecommendation: "145G51 (N150) XF95/XF105 1997–2013; 190H52 (N200) XF105 FAD 8x4 2013-on",
+    fitmentEvidence:
+      "Club Assist: DAF 95 XF 1997-2003 = N150 (MFN150A 4D); XF95-480 = N150; XF105-510 2001-2013 = N150; XF105 FAD 8x4 Rigid 2013-on = N200 (MFN200A).",
+    source: "Club Assist Commercial Fitment Guide",
+    confidence: "MEDIUM",
+    needsInquiry: false,
+    recommendationLinks: [
+      { href: "/batteries/jis/n150/", label: "145G51 (N150) — 1997–2013" },
+      { href: "/batteries/jis/n200/", label: "190H52 (N200) — XF105 FAD 8x4 2013-on" },
+    ],
+  },
+  {
+    id: "IVECO-STRALIS",
+    brand: "Iveco",
+    model: "Stralis",
+    generation: "ATi / 460 / AD / AS-L / AT",
+    year: "2002–on",
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "MFN150A (N150) / MFN200A (N200) / HCC27SC (D31)",
+    batteryGroup: "N150 (ATi/460 2002–2013) / N200 (E5 2014-on) / HCC27SC (AD/AS-L/AT)",
+    dinweyRecommendation: "145G51 (N150) ATi 360/450 & Stralis 460 2002–2013; 190H52 (N200) E5 2014-on",
+    fitmentEvidence:
+      "Club Assist: Stralis ATi 360/450 2002-2013 = N150 (MFN150A); ATi 360/450 E5 2014-on = N200 (MFN200A); Stralis 460 2002-2013 = N150; Stralis 460 EEV 2014-on = N200; Stralis AD 505/AS-L/AT (2002-on) = HCC27SC (S95D31RHD/27H-750, smaller group).",
+    source: "Club Assist Commercial Fitment Guide",
+    confidence: "MEDIUM",
+    needsInquiry: true,
+    inquiryNote:
+      "AD/AS-L/AT variants use the smaller HCC27SC (95D31/D31) group, which is not in the DINWEYS standard line — needs inquiry. The ATi 360/450 and Stralis 460 map to 145G51/190H52.",
+    recommendationLinks: [
+      { href: "/batteries/jis/n150/", label: "145G51 (N150) — 2002–2013" },
+      { href: "/batteries/jis/n200/", label: "190H52 (N200) — 2014-on" },
+    ],
+  },
+  {
+    id: "FUSO-FIGHTER",
+    brand: "Mitsubishi Fuso",
+    model: "Fighter",
+    generation: "FK / FM / FN (light/medium) / FP / FS / FV (heavy)",
+    year: null,
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "N150 (heavy) / 55D23R·80D26R (light/medium)",
+    batteryGroup: "N150 (heavy FP/FS/FV) / 55D23R·80D26R (light/medium FK/FM/FN)",
+    dinweyRecommendation: "145G51 (N150) — heavy Fighter FP/FS/FV only",
+    fitmentEvidence:
+      "Club Assist: Fuso FP/FS/FV Series = N150 (SN150x2/HCC150). Fuso Fighter FK1024/FK1424/FM1627/FN2427 = 55D23R/80D26R (small light/medium groups).",
+    source: "Club Assist Commercial Fitment Guide",
+    confidence: "MEDIUM",
+    needsInquiry: true,
+    inquiryNote:
+      "Light/medium Fighter FK/FM/FN use 55D23R/80D26R, which is not in the DINWEYS standard line — needs inquiry. Only the heavy FP/FS/FV variants map to 145G51.",
+    recommendationLinks: [
+      { href: "/batteries/jis/n150/", label: "145G51 (N150) — heavy variants" },
+    ],
+  },
+  {
+    id: "UD-QUON",
+    brand: "UD Trucks",
+    model: "Quon",
+    generation: "CW / GK / GW heavy class",
+    year: null,
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "N150 (JIS)",
+    batteryGroup: "N150 (heavy CW/GK/GW class)",
+    dinweyRecommendation: "145G51 (N150)",
+    fitmentEvidence:
+      "Club Assist: U.D. CK17-380/CW26-380/CWA310/CW385/CW445/GK17-420/GW26-420 = N150 (MF150/HCC150). Battery Brands Warehouse (T2): N150 listed as common fitment for 'UD Quon'.",
+    source: "Club Assist Commercial Fitment Guide + Battery Brands Warehouse (T2)",
+    confidence: "LOW",
+    needsInquiry: false,
+    recommendationLinks: [
+      { href: "/batteries/jis/n150/", label: "145G51 (N150)" },
+    ],
+  },
+  {
+    id: "FUSO-SUPER-GREAT",
+    brand: "Mitsubishi Fuso",
+    model: "Super Great",
+    generation: "FP / FS / FV heavy class",
+    year: null,
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "N150 (JIS)",
+    batteryGroup: "N150 (heavy FP/FS/FV class)",
+    dinweyRecommendation: "145G51 (N150)",
+    fitmentEvidence:
+      "Club Assist: Fuso FP/FS/FV Series = N150 (SN150x2/HCC150) — Super Great is the heavy FV/FP/FS class. eBay cross-reference (T2): N150 listed for Fuso FU/FP/FS.",
+    source: "Club Assist Commercial Fitment Guide",
+    confidence: "LOW",
+    needsInquiry: false,
+    recommendationLinks: [
+      { href: "/batteries/jis/n150/", label: "145G51 (N150)" },
+    ],
+  },
+  {
+    id: "HINO-500",
+    brand: "Hino",
+    model: "500 Series",
+    generation: "FC/FD/FE/FG (light) / GH/GD/GT/FL (medium-heavier)",
+    year: "2001–on",
+    electricalSystem: "24V",
+    batteryQuantity: 2,
+    oemBattery: "55D23L/75D23L (light) / N120 (medium-heavier)",
+    batteryGroup: "55D23L·75D23L (light) / N120 (medium-heavier)",
+    dinweyRecommendation: null,
+    fitmentEvidence:
+      "Club Assist Commercial Fitment Guide: Hino 500 FC1018/FC1022 2001-2016 = 55D23L; FD1027/1124/1126 = 55D23L; FD1124 Crew H/D = N120; FE1422/1426 = 55D23L; FG1527/1628 = 55D23L (80D26L alt); FG1628 Crew H/D = N120; GH1727 1992-2013 = 80D26L; GH1728 2008-2016 = N120; GT1322 2004-2016 = N120; FL2628 2013-on = N120. Century Selection Guide: Hino 500 Series FM/FT = N120, GD/GH = 75D23L/55D23L, GT = N120.",
+    source: "Club Assist Commercial Fitment Guide + Century Batteries Selection Guide",
+    confidence: "MEDIUM",
+    needsInquiry: true,
+    recommendationLinks: [],
+  },
+  {
     id: "ISUZU-F",
     brand: "Isuzu",
     model: "F Series (Forward)",
@@ -188,11 +390,20 @@ const faqJsonLd = {
     },
     {
       "@type": "Question",
-      "name": "Why does the Isuzu F Series show 'needs inquiry' instead of a DINWEYS model?",
+      "name": "What do the fitment confidence levels mean?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "The Isuzu F Series uses the JIS N100L group, which is not currently in the DINWEYS standard product line. Contact DINWEYS to confirm whether a compatible model or custom solution is available.",
+          "HIGH means multiple credible sources or manufacturer documentation; MEDIUM means a credible independent source with matching technical parameters; LOW means a limited third-party reference; UNVERIFIED means insufficient evidence. Every listing below shows its level, and none are OEM confirmations.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "Why do some models show \"needs inquiry\" instead of a DINWEYS model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text":
+          "Because their OEM battery group (for example JIS N100L, N120 or the smaller 55D23L/75D23L classes) is not currently in the DINWEYS standard product line. Contact DINWEYS to confirm whether a compatible model or custom solution is available.",
       },
     },
     {
@@ -210,11 +421,11 @@ const faqJsonLd = {
 
 <BaseLayout
   title="Truck Model Battery Fitment — DINWEYS Heavy-Duty Reference"
-  description="Find the DINWEYS battery for your truck model — Hino 700, Volvo FH/FM, Scania R, MAN TGS/TGX, Isuzu F Series, with OEM battery group and reference model."
+  description="Find the DINWEYS battery for your truck model — Hino 700, Isuzu Giga, Volvo FH/FM, Scania R, MAN TGS/TGX, Mercedes Actros/Atego, DAF XF, Iveco Stralis, Fuso, UD Quon — with OEM battery group, fitment confidence and reference model."
   ogType="article"
   author="Martin Wong"
   datePublished="2026-09-07"
-  dateModified="2026-09-07"
+  dateModified="2026-09-23"
   jsonLd={[breadcrumbJsonLd, faqJsonLd]}
 >
   <div class="container section">
@@ -226,17 +437,31 @@ const faqJsonLd = {
     <p class="lead">
       Find the DINWEYS heavy-duty starting battery for your truck model. Below are the truck
       models for which independent fitment guides document a battery group, mapped to the
-      corresponding DINWEYS model.
+      corresponding DINWEYS model — with a confidence level for each reference.
     </p>
 
     <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
       <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">Direct Answer</h2>
-      <p style="margin:0;">Fitment references below cover Hino 700, Volvo FH/FM, Scania R Series, MAN TGS/TGX and Isuzu F Series. Group sizes come from independent fitment guides — an industry reference, <strong>not OEM confirmation</strong>. Always match group size, terminal type, polarity and tray dimensions before ordering.</p>
+      <p style="margin:0;">Fitment references below cover {vehicles.length} truck models across Hino, Isuzu, Volvo, Scania, MAN, Mercedes-Benz, DAF, Iveco, Mitsubishi Fuso and UD Trucks. Group sizes come from independent fitment guides — an industry reference, <strong>not OEM confirmation</strong>. Each listing shows its fitment confidence level; always match group size, terminal type, polarity and tray dimensions before ordering.</p>
     </div>
 
     <div style="margin:24px 0;padding:16px 20px;background:#fff8ec;border-left:4px solid #f5a623;border-radius:6px;">
       <p style="margin:0;">
         <strong>Disclaimer:</strong> {disclaimer}
+      </p>
+    </div>
+
+    <div style="margin:24px 0;padding:16px 20px;background:#f4f7fb;border:1px solid #e3e8ef;border-radius:8px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">Fitment Confidence Levels</h2>
+      <ul style="margin:0;padding-left:20px;">
+        {confidenceLevels.map((c) => (
+          <li style="margin-bottom:6px;"><strong>{c.level}</strong> — {c.definition}</li>
+        ))}
+      </ul>
+      <p class="data-note" style="margin:8px 0 0;">
+        These levels describe how the reference was sourced, not an OEM guarantee. A battery shown as a
+        <strong>compatible reference</strong> is not an <strong>OEM replacement</strong> until it is confirmed
+        against the vehicle's own specification.
       </p>
     </div>
 
@@ -247,10 +472,10 @@ const faqJsonLd = {
         <div class="fitment-card" style="margin:24px 0;padding:20px 24px;background:#ffffff;border:1px solid #e3e8ef;border-radius:8px;">
           <h3 style="color:#0f1f3d;margin:0 0 4px;">
             {v.brand} {v.model}
-            <span style="font-weight:400;font-size:0.85rem;color:#55606e;"> — {v.generation}</span>
+            {v.generation && <span style="font-weight:400;font-size:0.85rem;color:#55606e;"> — {v.generation}</span>}
           </h3>
           <p style="margin:0 0 12px;color:#55606e;font-size:0.95rem;">
-            {v.year} · {v.electricalSystem} system ({v.batteryQuantity} batteries in series)
+            {v.year && <>{v.year} · </>}{v.electricalSystem} system ({v.batteryQuantity} batteries in series)
           </p>
 
           <table style="margin-bottom:12px;">
@@ -263,7 +488,7 @@ const faqJsonLd = {
                 <td><strong>{v.batteryGroup}</strong>{v.oemBattery ? ` (${v.oemBattery})` : ""}</td>
               </tr>
               <tr>
-                <td>DINWEYS recommendation</td>
+                <td>DINWEYS compatible reference</td>
                 <td>
                   {v.dinweyRecommendation ? (
                     <strong>{v.dinweyRecommendation}</strong>
@@ -273,8 +498,8 @@ const faqJsonLd = {
                 </td>
               </tr>
               <tr>
-                <td>Confidence</td>
-                <td><strong>{v.confidence}</strong> — industry reference, not DINWEYS official OEM confirmation</td>
+                <td>Fitment confidence</td>
+                <td><strong>{v.confidence}</strong> — {confidenceNote[v.confidence]}</td>
               </tr>
             </tbody>
           </table>
@@ -294,8 +519,10 @@ const faqJsonLd = {
           {v.needsInquiry && (
             <div style="padding:12px 16px;background:#fdf2f2;border-left:4px solid #c0392b;border-radius:6px;margin-bottom:12px;">
               <p style="margin:0;">
-                <strong>Needs inquiry:</strong> This model uses the JIS {v.batteryGroup} group, which is
-                not currently in the DINWEYS standard product line.{" "}
+                <strong>Needs inquiry:</strong>{" "}
+                {v.inquiryNote
+                  ? v.inquiryNote
+                  : <>This model uses the JIS {v.batteryGroup} group, which is not currently in the DINWEYS standard product line.{" "}</>}
                 <a href="/contact/" style="color:#1e5aa8;">Contact DINWEYS</a> to confirm whether a
                 compatible or custom solution is available.
               </p>
@@ -309,6 +536,26 @@ const faqJsonLd = {
       ))
     }
 
+    <h2 style="color:#0f1f3d;margin-top:40px;">Related Entities</h2>
+    <div style="padding:20px;background:#f4f7fb;border-radius:8px;">
+      <p style="margin:0 0 6px;"><strong>Battery</strong></p>
+      <ul style="margin:0 0 12px;">
+        <li><a href="/batteries/" style="color:#1e5aa8;">DINWEYS battery model reference (145G51 / 190H52 / 58827 / 60038)</a></li>
+        <li><a href="/batteries/jis/n150/" style="color:#1e5aa8;">145G51 (N150) — JIS heavy-duty</a></li>
+        <li><a href="/batteries/jis/n200/" style="color:#1e5aa8;">190H52 (N200) — JIS heavy-duty</a></li>
+      </ul>
+      <p style="margin:0 0 6px;"><strong>Standard</strong></p>
+      <ul style="margin:0 0 12px;">
+        <li><a href="/compare/jis-vs-din-vs-bci/" style="color:#1e5aa8;">JIS vs DIN vs BCI — why CCA cannot be compared directly</a></li>
+      </ul>
+      <p style="margin:0 0 6px;"><strong>Application</strong></p>
+      <ul style="margin:0;">
+        <li><a href="/applications/mining-off-highway/" style="color:#1e5aa8;">Mining &amp; off-highway truck batteries</a></li>
+        <li><a href="/applications/diesel-generator/" style="color:#1e5aa8;">Diesel generator starting batteries</a></li>
+        <li><a href="/applications/bus-coach/" style="color:#1e5aa8;">Bus &amp; coach starting batteries</a></li>
+      </ul>
+    </div>
+
     <h2 style="color:#0f1f3d;margin-top:40px;">Frequently Asked Questions</h2>
     <div class="faq-item">
       <h3>How do I find the right DINWEYS battery for my truck model?</h3>
@@ -319,8 +566,12 @@ const faqJsonLd = {
       <p>No. The battery groups are sourced from independent commercial-vehicle fitment guides (Club Assist and Century Batteries). They are industry references, not DINWEYS official OEM confirmations or vehicle-manufacturer endorsements. Verify against your vehicle specification.</p>
     </div>
     <div class="faq-item">
-      <h3>Why does the Isuzu F Series show "needs inquiry" instead of a DINWEYS model?</h3>
-      <p>The Isuzu F Series uses the JIS N100L group, which is not currently in the DINWEYS standard product line. Contact DINWEYS to confirm whether a compatible model or custom solution is available.</p>
+      <h3>What do the fitment confidence levels mean?</h3>
+      <p>HIGH means multiple credible sources or manufacturer documentation; MEDIUM means a credible independent source with matching technical parameters; LOW means a limited third-party reference; UNVERIFIED means insufficient evidence. Every listing above shows its level, and none are OEM confirmations.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why do some models show "needs inquiry" instead of a DINWEYS model?</h3>
+      <p>Because their OEM battery group (for example JIS N100L, N120 or the smaller 55D23L/75D23L classes) is not currently in the DINWEYS standard product line. Contact DINWEYS to confirm whether a compatible model or custom solution is available.</p>
     </div>
     <div class="faq-item">
       <h3>Does a 24V truck need two batteries?</h3>
