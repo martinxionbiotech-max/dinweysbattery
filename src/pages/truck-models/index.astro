@@ -5,7 +5,7 @@ const SITE = "https://dinweysbattery.com";
 
 // 免责声明（每个 MEDIUM fitment 页面必须标注）
 const disclaimer =
-  "Industry reference, not DINWEY official OEM confirmation. Battery groups listed below are sourced from independent commercial-vehicle fitment guides (Club Assist Commercial Fitment Guide and Century Batteries Selection Guide). Always confirm group size, terminal type, terminal orientation, polarity and tray dimensions against your specific vehicle before ordering.";
+  "Industry reference, not DINWEYS official OEM confirmation. Battery groups listed below are sourced from independent commercial-vehicle fitment guides (Club Assist Commercial Fitment Guide and Century Batteries Selection Guide). Always confirm group size, terminal type, terminal orientation, polarity and tray dimensions against your specific vehicle before ordering.";
 
 // 7 辆 MEDIUM 车型（来自 knowledge/data/vehicles/vehicle-master.json）
 // 只用已核实的 T1 证据；Isuzu F 诚实标注 needs inquiry。
@@ -170,11 +170,11 @@ const faqJsonLd = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How do I find the right DINWEY battery for my truck model?",
+      "name": "How do I find the right DINWEYS battery for my truck model?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "Find your truck model below. Each listed model shows the OEM battery group (e.g. N150/N200) and the corresponding DINWEY model (145G51/190H52). These are industry references — always confirm your vehicle's group size, terminal orientation and tray dimensions before ordering.",
+          "Find your truck model below. Each listed model shows the OEM battery group (e.g. N150/N200) and the corresponding DINWEYS model (145G51/190H52). These are industry references — always confirm your vehicle's group size, terminal orientation and tray dimensions before ordering.",
       },
     },
     {
@@ -183,16 +183,16 @@ const faqJsonLd = {
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "No. The battery groups are sourced from independent commercial-vehicle fitment guides (Club Assist and Century Batteries). They are industry references, not DINWEY official OEM confirmations or vehicle-manufacturer endorsements. Verify against your vehicle specification.",
+          "No. The battery groups are sourced from independent commercial-vehicle fitment guides (Club Assist and Century Batteries). They are industry references, not DINWEYS official OEM confirmations or vehicle-manufacturer endorsements. Verify against your vehicle specification.",
       },
     },
     {
       "@type": "Question",
-      "name": "Why does the Isuzu F Series show 'needs inquiry' instead of a DINWEY model?",
+      "name": "Why does the Isuzu F Series show 'needs inquiry' instead of a DINWEYS model?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "The Isuzu F Series uses the JIS N100L group, which is not currently in the DINWEY standard product line. Contact DINWEY to confirm whether a compatible model or custom solution is available.",
+          "The Isuzu F Series uses the JIS N100L group, which is not currently in the DINWEYS standard product line. Contact DINWEYS to confirm whether a compatible model or custom solution is available.",
       },
     },
     {
@@ -209,8 +209,8 @@ const faqJsonLd = {
 ---
 
 <BaseLayout
-  title="Truck Model Battery Fitment — DINWEY Heavy-Duty Reference"
-  description="Find the DINWEY battery for your truck model — Hino 700, Volvo FH/FM, Scania R, MAN TGS/TGX, Isuzu F Series, with OEM battery group and reference model."
+  title="Truck Model Battery Fitment — DINWEYS Heavy-Duty Reference"
+  description="Find the DINWEYS battery for your truck model — Hino 700, Volvo FH/FM, Scania R, MAN TGS/TGX, Isuzu F Series, with OEM battery group and reference model."
   ogType="article"
   author="Martin Wong"
   datePublished="2026-09-07"
@@ -224,9 +224,9 @@ const faqJsonLd = {
 
     <h1 style="color:#0f1f3d;margin-bottom:12px;">Truck Model Battery Fitment Reference</h1>
     <p class="lead">
-      Find the DINWEY heavy-duty starting battery for your truck model. Below are the truck
+      Find the DINWEYS heavy-duty starting battery for your truck model. Below are the truck
       models for which independent fitment guides document a battery group, mapped to the
-      corresponding DINWEY model.
+      corresponding DINWEYS model.
     </p>
 
     <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
@@ -263,25 +263,25 @@ const faqJsonLd = {
                 <td><strong>{v.batteryGroup}</strong>{v.oemBattery ? ` (${v.oemBattery})` : ""}</td>
               </tr>
               <tr>
-                <td>DINWEY recommendation</td>
+                <td>DINWEYS recommendation</td>
                 <td>
                   {v.dinweyRecommendation ? (
                     <strong>{v.dinweyRecommendation}</strong>
                   ) : (
-                    <em style="color:#c0392b;">No direct DINWEY model — needs inquiry</em>
+                    <em style="color:#c0392b;">No direct DINWEYS model — needs inquiry</em>
                   )}
                 </td>
               </tr>
               <tr>
                 <td>Confidence</td>
-                <td><strong>{v.confidence}</strong> — industry reference, not DINWEY official OEM confirmation</td>
+                <td><strong>{v.confidence}</strong> — industry reference, not DINWEYS official OEM confirmation</td>
               </tr>
             </tbody>
           </table>
 
           {!v.needsInquiry && v.recommendationLinks.length > 0 && (
             <p style="margin:0 0 12px;">
-              <strong>DINWEY model pages:</strong>{" "}
+              <strong>DINWEYS model pages:</strong>{" "}
               {v.recommendationLinks.map((l, i) => (
                 <>
                   {i > 0 && " · "}
@@ -295,8 +295,8 @@ const faqJsonLd = {
             <div style="padding:12px 16px;background:#fdf2f2;border-left:4px solid #c0392b;border-radius:6px;margin-bottom:12px;">
               <p style="margin:0;">
                 <strong>Needs inquiry:</strong> This model uses the JIS {v.batteryGroup} group, which is
-                not currently in the DINWEY standard product line.{" "}
-                <a href="/contact/" style="color:#1e5aa8;">Contact DINWEY</a> to confirm whether a
+                not currently in the DINWEYS standard product line.{" "}
+                <a href="/contact/" style="color:#1e5aa8;">Contact DINWEYS</a> to confirm whether a
                 compatible or custom solution is available.
               </p>
             </div>
@@ -311,16 +311,16 @@ const faqJsonLd = {
 
     <h2 style="color:#0f1f3d;margin-top:40px;">Frequently Asked Questions</h2>
     <div class="faq-item">
-      <h3>How do I find the right DINWEY battery for my truck model?</h3>
-      <p>Find your truck model above. Each listed model shows the OEM battery group (e.g. N150/N200) and the corresponding DINWEY model (145G51/190H52). These are industry references — always confirm your vehicle's group size, terminal orientation and tray dimensions before ordering.</p>
+      <h3>How do I find the right DINWEYS battery for my truck model?</h3>
+      <p>Find your truck model above. Each listed model shows the OEM battery group (e.g. N150/N200) and the corresponding DINWEYS model (145G51/190H52). These are industry references — always confirm your vehicle's group size, terminal orientation and tray dimensions before ordering.</p>
     </div>
     <div class="faq-item">
       <h3>Are these fitment listings officially confirmed by the vehicle manufacturers?</h3>
-      <p>No. The battery groups are sourced from independent commercial-vehicle fitment guides (Club Assist and Century Batteries). They are industry references, not DINWEY official OEM confirmations or vehicle-manufacturer endorsements. Verify against your vehicle specification.</p>
+      <p>No. The battery groups are sourced from independent commercial-vehicle fitment guides (Club Assist and Century Batteries). They are industry references, not DINWEYS official OEM confirmations or vehicle-manufacturer endorsements. Verify against your vehicle specification.</p>
     </div>
     <div class="faq-item">
-      <h3>Why does the Isuzu F Series show "needs inquiry" instead of a DINWEY model?</h3>
-      <p>The Isuzu F Series uses the JIS N100L group, which is not currently in the DINWEY standard product line. Contact DINWEY to confirm whether a compatible model or custom solution is available.</p>
+      <h3>Why does the Isuzu F Series show "needs inquiry" instead of a DINWEYS model?</h3>
+      <p>The Isuzu F Series uses the JIS N100L group, which is not currently in the DINWEYS standard product line. Contact DINWEYS to confirm whether a compatible model or custom solution is available.</p>
     </div>
     <div class="faq-item">
       <h3>Does a 24V truck need two batteries?</h3>

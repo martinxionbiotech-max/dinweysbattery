@@ -63,4 +63,4 @@ starting batteries (SLI — Starting, Lighting, Ignition), including:
 - [Battery master data (JSON)](https://dinweysbattery.com/data/battery-master-data.json) — one record per model: voltage, capacity, CCA + test standard, RC, dimensions, verification status. Fields the manufacturer does not publish are null, never estimated.
 - [Claim ledger (JSON)](https://dinweysbattery.com/data/evidence/claims.json) — every technical/commercial claim with its source, evidence level and verification status (includes claims still marked NEEDS_VERIFICATION).
 - [Source registry (JSON)](https://dinweysbattery.com/data/evidence/sources.json) — level 1 independent standards, level 2 manufacturer documentation, level 3 third-party catalogs.
-- [Vehicle fitment database (JSON)](https://dinweysbattery.com/data/vehicle-fitment.json) — truck model → battery group → DINWEY model, each with a confidence level. Industry reference, not OEM confirmation.
+- [Vehicle fitment database (JSON)](https://dinweysbattery.com/data/vehicle-fitment.json) — truck model → battery group → DINWEYS model, each with a confidence level. Industry reference, not OEM confirmation.

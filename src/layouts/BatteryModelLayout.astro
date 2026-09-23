@@ -26,7 +26,7 @@ interface Props {
   complianceNote: string; // fitment 合规措辞
   siblingModels: { href: string; label: string }[];
   parentCategory: { href: string; label: string };
-  isReference?: boolean; // true = 第三方参考型号，非 DINWEY 一手发布规格
+  isReference?: boolean; // true = 第三方参考型号，非 DINWEYS 一手发布规格
 }
 
 const {
@@ -71,7 +71,7 @@ const definedTermJsonLd = {
   "name": model,
   "inDefinedTermSet": {
     "@type": "DefinedTermSet",
-    "name": "DINWEY Truck Battery Model Reference",
+    "name": "DINWEYS Truck Battery Model Reference",
     "url": "https://dinweysbattery.com/batteries/"
   },
   "termCode": model
@@ -88,7 +88,7 @@ const productJsonLd = {
   "model": model,
   // sku 只写一手发布的型号码；reference 型号（第三方目录规格）不写，避免虚假标识
   ...(isReference ? {} : { "sku": model }),
-  "brand": { "@type": "Brand", "name": "DINWEY" },
+  "brand": { "@type": "Brand", "name": "DINWEYS" },
   "manufacturer": { "@id": SITE + "/#manufacturer" },
   "category": "Truck starting battery (SLI)",
   "mainEntityOfPage": { "@id": `${SITE}${pageUrl.replace(/\/$/, "")}/#webpage` },
@@ -140,7 +140,7 @@ const productJsonLd = {
     { "@type": "PropertyValue", "name": "Dimensions", "value": dimensions }
   ],
   ...(isReference
-    ? { "disambiguatingDescription": "Third-party reference specification compiled from independent catalogs — not a DINWEY published stock rating." }
+    ? { "disambiguatingDescription": "Third-party reference specification compiled from independent catalogs — not a DINWEYS published stock rating." }
     : {})
 };
 
@@ -274,7 +274,7 @@ const faqJsonLd = {
             <li><a href={d.url} target="_blank" rel="noopener" style="color:#1e5aa8;">{d.title}</a></li>
           ))}
         </ul>
-        <p class="data-note" style="margin-top:12px;">{t(locale, "layout.fromKnowledgeHub")} <a href="https://docs.dinweysbattery.com/" target="_blank" rel="noopener">DINWEY Knowledge Hub</a>.</p>
+        <p class="data-note" style="margin-top:12px;">{t(locale, "layout.fromKnowledgeHub")} <a href="https://docs.dinweysbattery.com/" target="_blank" rel="noopener">DINWEYS Knowledge Hub</a>.</p>
       </div>
     )}
   </div>

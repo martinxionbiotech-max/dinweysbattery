@@ -2,7 +2,7 @@
 
 | source_id | title | url | publisher | tier | access_date | entity | claim_supported |
 |-----------|-------|-----|-----------|------|-------------|--------|-----------------|
-| S01 | DINWEYS battery-master-data.json | https://dinweysbattery.com/batteries/jis/n150/ | DINWEYS (Chengguang Power Tech) | 1 | 2026-09-09 | 145G51, 190H52 | First-party specs |
+| S01 | DINWEYS battery-master-data.json | https://dinweysbattery.com/batteries/jis/n150/ | DINWEYS (Chengguang Power Tech Co., Ltd.) | 1 | 2026-09-09 | 145G51, 190H52 | First-party specs |
 | S02 | Bosch battery brochure | https://www.boschaftermarket.com/xrm/media/images/country_specific/ph/services_and_support_4/downloads_16/final_bosch_battery_brochure.pdf | Bosch | 2 | 2026-09-09 | 145G51, 190H52 | JIS model cross-reference |
 | S03 | Century Battery Cross-Reference Chart | https://www.centurybatteries.com.au/media/3mmlm2ll/amktg-019-century-au-cross-reference-chart_rev.pdf | Century Batteries | 2 | 2026-09-09 | N150, N200 | Model cross-reference |
 | S04 | Club Assist Commercial Fitment Guide | (referenced in DINWEYS /truck-models/) | Club Assist | 2 | 2026-09-09 | Hino 700, Volvo FH/FM, MAN TGS/TGX, Scania R | Fitment mapping |

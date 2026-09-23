@@ -322,7 +322,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
   * { scroll-behavior: auto !important; transition: none !important; }
 }
 
-/* ===== DINWEY visual refresh (layered over the base styles above) ===== */
+/* ===== DINWEYS visual refresh (layered over the base styles above) ===== */
 :root {
   --radius-lg: 16px;
   --shadow-sm: 0 2px 12px rgba(15, 31, 61, 0.06);

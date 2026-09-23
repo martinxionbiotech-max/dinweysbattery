@@ -2,7 +2,7 @@
   "@context": {
     "schema": "https://schema.org/",
     "battery": "https://schema.org/",
-    "dinwey": "https://dinweysbattery.com/"
+    "dinweys": "https://dinweysbattery.com/"
   },
   "name": "DINWEYS Battery Master Data",
   "description": "Single source of truth for DINWEYS heavy-duty truck starting battery specifications across JIS, DIN and BCI standards. Manufacturer: Chengguang Power Tech Co., Ltd.",

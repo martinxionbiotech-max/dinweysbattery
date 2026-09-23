@@ -5,7 +5,7 @@ const SITE = "https://dinweysbattery.com";
 
 // 免责声明（每个 MEDIUM fitment 页面必须标注）
 const disclaimer =
-  "Referencia sectorial, no una confirmación oficial de DINWEY como OEM. Los grupos de batería indicados a continuación provienen de guías de aplicación independientes para vehículos comerciales (Guía de aplicación comercial de Club Assist y Guía de selección de Century Batteries). Confirme siempre el tamaño de grupo, el tipo y la orientación de los terminales, la polaridad y las dimensiones de la bandeja de su vehículo específico antes de realizar un pedido.";
+  "Referencia sectorial, no una confirmación oficial de DINWEYS como OEM. Los grupos de batería indicados a continuación provienen de guías de aplicación independientes para vehículos comerciales (Guía de aplicación comercial de Club Assist y Guía de selección de Century Batteries). Confirme siempre el tamaño de grupo, el tipo y la orientación de los terminales, la polaridad y las dimensiones de la bandeja de su vehículo específico antes de realizar un pedido.";
 
 // 7 辆 MEDIUM 车型（来自 knowledge/data/vehicles/vehicle-master.json）
 // 只用已核实的 T1 证据；Isuzu F 诚实标注 needs inquiry。
@@ -170,11 +170,11 @@ const faqJsonLd = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "¿Cómo encuentro la batería DINWEY correcta para el modelo de mi camión?",
+      "name": "¿Cómo encuentro la batería DINWEYS correcta para el modelo de mi camión?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "Busque el modelo de su camión en la lista a continuación. Cada modelo listado muestra el grupo de batería OEM (p. ej., N150/N200) y el modelo DINWEY correspondiente (145G51/190H52). Estas son referencias sectoriales: confirme siempre el tamaño de grupo, la orientación de los terminales y las dimensiones de la bandeja de su vehículo antes de realizar un pedido.",
+          "Busque el modelo de su camión en la lista a continuación. Cada modelo listado muestra el grupo de batería OEM (p. ej., N150/N200) y el modelo DINWEYS correspondiente (145G51/190H52). Estas son referencias sectoriales: confirme siempre el tamaño de grupo, la orientación de los terminales y las dimensiones de la bandeja de su vehículo antes de realizar un pedido.",
       },
     },
     {
@@ -183,16 +183,16 @@ const faqJsonLd = {
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "No. Los grupos de batería provienen de guías de aplicación independientes para vehículos comerciales (Club Assist y Century Batteries). Son referencias sectoriales, no confirmaciones oficiales de DINWEY como OEM ni avales de los fabricantes de vehículos. Verifíquelas con la especificación de su vehículo.",
+          "No. Los grupos de batería provienen de guías de aplicación independientes para vehículos comerciales (Club Assist y Century Batteries). Son referencias sectoriales, no confirmaciones oficiales de DINWEYS como OEM ni avales de los fabricantes de vehículos. Verifíquelas con la especificación de su vehículo.",
       },
     },
     {
       "@type": "Question",
-      "name": "¿Por qué el Isuzu F Series muestra «requiere consulta» en lugar de un modelo DINWEY?",
+      "name": "¿Por qué el Isuzu F Series muestra «requiere consulta» en lugar de un modelo DINWEYS?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "El Isuzu F Series utiliza el grupo JIS N100L, que actualmente no forma parte de la línea de productos estándar de DINWEY. Contacte a DINWEY para confirmar si hay disponible un modelo compatible o una solución personalizada.",
+          "El Isuzu F Series utiliza el grupo JIS N100L, que actualmente no forma parte de la línea de productos estándar de DINWEYS. Contacte a DINWEYS para confirmar si hay disponible un modelo compatible o una solución personalizada.",
       },
     },
     {
@@ -209,8 +209,8 @@ const faqJsonLd = {
 ---
 
 <BaseLayout
-  title="Aplicación de baterías por modelo de camión — Referencia DINWEY de servicio pesado"
-  description="Encuentre la batería DINWEY para el modelo de su camión: Hino 700, Volvo FH/FM, Scania R, MAN TGS/TGX e Isuzu F Series, con el grupo de batería OEM y el modelo de referencia."
+  title="Aplicación de baterías por modelo de camión — Referencia DINWEYS de servicio pesado"
+  description="Encuentre la batería DINWEYS para el modelo de su camión: Hino 700, Volvo FH/FM, Scania R, MAN TGS/TGX e Isuzu F Series, con el grupo de batería OEM y el modelo de referencia."
   ogType="article"
   author="Martin Wong"
   datePublished="2026-09-07"
@@ -224,9 +224,9 @@ const faqJsonLd = {
 
     <h1 style="color:#0f1f3d;margin-bottom:12px;">Referencia de aplicación de baterías por modelo de camión</h1>
     <p class="lead">
-      Encuentre la batería de arranque de servicio pesado DINWEY para el modelo de su camión. A continuación
+      Encuentre la batería de arranque de servicio pesado DINWEYS para el modelo de su camión. A continuación
       se muestran los modelos de camión para los que guías de aplicación independientes documentan un grupo
-      de batería, con su correspondencia al modelo DINWEY.
+      de batería, con su correspondencia al modelo DINWEYS.
     </p>
 
     <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
@@ -263,25 +263,25 @@ const faqJsonLd = {
                 <td><strong>{v.batteryGroup}</strong>{v.oemBattery ? ` (${v.oemBattery})` : ""}</td>
               </tr>
               <tr>
-                <td>Recomendación DINWEY</td>
+                <td>Recomendación DINWEYS</td>
                 <td>
                   {v.dinweyRecommendation ? (
                     <strong>{v.dinweyRecommendation}</strong>
                   ) : (
-                    <em style="color:#c0392b;">Sin modelo DINWEY directo — requiere consulta</em>
+                    <em style="color:#c0392b;">Sin modelo DINWEYS directo — requiere consulta</em>
                   )}
                 </td>
               </tr>
               <tr>
                 <td>Nivel de confianza</td>
-                <td><strong>{v.confidence}</strong> — referencia sectorial, no una confirmación oficial de DINWEY como OEM</td>
+                <td><strong>{v.confidence}</strong> — referencia sectorial, no una confirmación oficial de DINWEYS como OEM</td>
               </tr>
             </tbody>
           </table>
 
           {!v.needsInquiry && v.recommendationLinks.length > 0 && (
             <p style="margin:0 0 12px;">
-              <strong>Páginas de modelos DINWEY:</strong>{" "}
+              <strong>Páginas de modelos DINWEYS:</strong>{" "}
               {v.recommendationLinks.map((l, i) => (
                 <>
                   {i > 0 && " · "}
@@ -295,8 +295,8 @@ const faqJsonLd = {
             <div style="padding:12px 16px;background:#fdf2f2;border-left:4px solid #c0392b;border-radius:6px;margin-bottom:12px;">
               <p style="margin:0;">
                 <strong>Requiere consulta:</strong> este modelo utiliza el grupo JIS {v.batteryGroup}, que
-                actualmente no forma parte de la línea de productos estándar de DINWEY.{" "}
-                <a href="/es/contact/" style="color:#1e5aa8;">Contacte a DINWEY</a> para confirmar si hay
+                actualmente no forma parte de la línea de productos estándar de DINWEYS.{" "}
+                <a href="/es/contact/" style="color:#1e5aa8;">Contacte a DINWEYS</a> para confirmar si hay
                 disponible un modelo compatible o una solución personalizada.
               </p>
             </div>
@@ -311,16 +311,16 @@ const faqJsonLd = {
 
     <h2 style="color:#0f1f3d;margin-top:40px;">Preguntas frecuentes</h2>
     <div class="faq-item">
-      <h3>¿Cómo encuentro la batería DINWEY correcta para el modelo de mi camión?</h3>
-      <p>Busque el modelo de su camión en la lista a continuación. Cada modelo listado muestra el grupo de batería OEM (p. ej., N150/N200) y el modelo DINWEY correspondiente (145G51/190H52). Estas son referencias sectoriales: confirme siempre el tamaño de grupo, la orientación de los terminales y las dimensiones de la bandeja de su vehículo antes de realizar un pedido.</p>
+      <h3>¿Cómo encuentro la batería DINWEYS correcta para el modelo de mi camión?</h3>
+      <p>Busque el modelo de su camión en la lista a continuación. Cada modelo listado muestra el grupo de batería OEM (p. ej., N150/N200) y el modelo DINWEYS correspondiente (145G51/190H52). Estas son referencias sectoriales: confirme siempre el tamaño de grupo, la orientación de los terminales y las dimensiones de la bandeja de su vehículo antes de realizar un pedido.</p>
     </div>
     <div class="faq-item">
       <h3>¿Estas referencias de aplicación están confirmadas oficialmente por los fabricantes de vehículos?</h3>
-      <p>No. Los grupos de batería provienen de guías de aplicación independientes para vehículos comerciales (Club Assist y Century Batteries). Son referencias sectoriales, no confirmaciones oficiales de DINWEY como OEM ni avales de los fabricantes de vehículos. Verifíquelas con la especificación de su vehículo.</p>
+      <p>No. Los grupos de batería provienen de guías de aplicación independientes para vehículos comerciales (Club Assist y Century Batteries). Son referencias sectoriales, no confirmaciones oficiales de DINWEYS como OEM ni avales de los fabricantes de vehículos. Verifíquelas con la especificación de su vehículo.</p>
     </div>
     <div class="faq-item">
-      <h3>¿Por qué el Isuzu F Series muestra «requiere consulta» en lugar de un modelo DINWEY?</h3>
-      <p>El Isuzu F Series utiliza el grupo JIS N100L, que actualmente no forma parte de la línea de productos estándar de DINWEY. Contacte a DINWEY para confirmar si hay disponible un modelo compatible o una solución personalizada.</p>
+      <h3>¿Por qué el Isuzu F Series muestra «requiere consulta» en lugar de un modelo DINWEYS?</h3>
+      <p>El Isuzu F Series utiliza el grupo JIS N100L, que actualmente no forma parte de la línea de productos estándar de DINWEYS. Contacte a DINWEYS para confirmar si hay disponible un modelo compatible o una solución personalizada.</p>
     </div>
     <div class="faq-item">
       <h3>¿Un camión de 24V necesita dos baterías?</h3>

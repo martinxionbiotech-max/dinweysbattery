@@ -74,7 +74,7 @@ const en: Dict = {
   "footer.data": "Evidence & Data (datasets)",
   "footer.resources": "Resources",
   "footer.selectionTool": "Battery Selection Tool",
-  "footer.about": "About DINWEY",
+  "footer.about": "About DINWEYS",
   "footer.contact": "Contact & Inquiry",
   "footer.knowledgeHub": "Knowledge Hub",
   "footer.factory": "Factory: Chengguang Power Tech Co., Ltd.",
@@ -112,12 +112,12 @@ const en: Dict = {
   "layout.modelComparison": "Model Comparison",
   "layout.appScenarios": "Application Scenarios in Detail",
   "layout.maintenance": "Maintenance & Care",
-  "layout.exploreLines": "Explore Other DINWEY Product Lines",
+  "layout.exploreLines": "Explore Other DINWEYS Product Lines",
   "layout.home": "Home",
   "layout.indicativePrice": "Indicative minimum unit price",
   "layout.fromPrice": "From",
   "layout.priceNote": "per unit — final pricing confirmed on quotation (quantity, market and OEM terms apply)",
-  "layout.dinweyModel": "DINWEY Model",
+  "layout.dinweyModel": "DINWEYS Model",
   "layout.group": "Group",
   "layout.standard": "Standard",
   "layout.voltage": "Voltage",
@@ -132,11 +132,11 @@ const en: Dict = {
   "layout.confirmSpec": "Confirm {model} Specification & Availability",
   "layout.whatsapp": "WhatsApp — Contact Now",
   "layout.refSpecNote":
-    "Third-party reference specification — NOT a DINWEY published stock rating. Values are compiled from independent catalogs and vary by manufacturer; confirm exact CCA, capacity and dimensions before replacement.",
+    "Third-party reference specification — NOT a DINWEYS published stock rating. Values are compiled from independent catalogs and vary by manufacturer; confirm exact CCA, capacity and dimensions before replacement.",
   "layout.repSpecNote":
     "Specifications are representative for this model. Exact CCA, capacity and dimensions are confirmed per batch on the certificate of analysis — contact us for a full datasheet.",
   "layout.techReview":
-    "Technical review — Reviewed by the DINWEY technical team. Manufacturer: Chengguang Power Tech Co., Ltd. Data source: manufacturer specification and test documentation. Specifications vary by model and standard; confirm final values with the manufacturer.",
+    "Technical review — Reviewed by the DINWEYS technical team. Manufacturer: Chengguang Power Tech Co., Ltd. Data source: manufacturer specification and test documentation. Specifications vary by model and standard; confirm final values with the manufacturer.",
 
   // Language switcher
   "lang.label": "Language",
@@ -196,7 +196,7 @@ const ar: Dict = {
   "footer.data": "الأدلة والبيانات (مجموعات البيانات)",
   "footer.resources": "الموارد",
   "footer.selectionTool": "أداة اختيار البطارية",
-  "footer.about": "عن DINWEY",
+  "footer.about": "عن DINWEYS",
   "footer.contact": "الاتصال والاستفسار",
   "footer.knowledgeHub": "مركز المعرفة",
   "footer.factory": "المصنع: Chengguang Power Tech Co., Ltd.",
@@ -234,12 +234,12 @@ const ar: Dict = {
   "layout.modelComparison": "مقارنة الموديلات",
   "layout.appScenarios": "سيناريوهات التطبيق بالتفصيل",
   "layout.maintenance": "الصيانة والعناية",
-  "layout.exploreLines": "استكشف خطوط منتجات DINWEY الأخرى",
+  "layout.exploreLines": "استكشف خطوط منتجات DINWEYS الأخرى",
   "layout.home": "الرئيسية",
   "layout.indicativePrice": "الحد الأدنى الإرشادي لسعر الوحدة",
   "layout.fromPrice": "ابتداءً من",
   "layout.priceNote": "للوحدة — يتم تأكيد السعر النهائي عند عرض الأسعار (تنطبق شروط الكمية والسوق وتصنيع المعدات الأصلية)",
-  "layout.dinweyModel": "موديل DINWEY",
+  "layout.dinweyModel": "موديل DINWEYS",
   "layout.group": "المجموعة",
   "layout.standard": "المعيار",
   "layout.voltage": "الجهد",
@@ -254,11 +254,11 @@ const ar: Dict = {
   "layout.confirmSpec": "تأكد من مواصفات {model} وتوافره",
   "layout.whatsapp": "واتساب — تواصل الآن",
   "layout.refSpecNote":
-    "مواصفة مرجعية من طرف ثالث — ليست تصنيفًا منشورًا لمخزون DINWEY. القيم مجمّعة من كتالوجات مستقلة وتختلف حسب الشركة المصنعة؛ تأكد من CCA والسعة والأبعاد الدقيقة قبل الاستبدال.",
+    "مواصفة مرجعية من طرف ثالث — ليست تصنيفًا منشورًا لمخزون DINWEYS. القيم مجمّعة من كتالوجات مستقلة وتختلف حسب الشركة المصنعة؛ تأكد من CCA والسعة والأبعاد الدقيقة قبل الاستبدال.",
   "layout.repSpecNote":
     "المواصفات تمثيلية لهذا الموديل. يتم تأكيد CCA والسعة والأبعاد الدقيقة لكل دفعة في شهادة التحليل — تواصل معنا للحصول على ورقة البيانات الكاملة.",
   "layout.techReview":
-    "المراجعة الفنية — راجعها الفريق الفني لـ DINWEY. الشركة المصنعة: Chengguang Power Tech Co., Ltd. مصدر البيانات: مواصفات الشركة المصنعة ووثائق الاختبار. تختلف المواصفات حسب الموديل والمعيار؛ تأكد من القيم النهائية مع الشركة المصنعة.",
+    "المراجعة الفنية — راجعها الفريق الفني لـ DINWEYS. الشركة المصنعة: Chengguang Power Tech Co., Ltd. مصدر البيانات: مواصفات الشركة المصنعة ووثائق الاختبار. تختلف المواصفات حسب الموديل والمعيار؛ تأكد من القيم النهائية مع الشركة المصنعة.",
 
   // Language switcher
   "lang.label": "اللغة",
@@ -318,7 +318,7 @@ const es: Dict = {
   "footer.data": "Evidencia y datos (conjuntos de datos)",
   "footer.resources": "Recursos",
   "footer.selectionTool": "Herramienta de selección de baterías",
-  "footer.about": "Sobre DINWEY",
+  "footer.about": "Sobre DINWEYS",
   "footer.contact": "Contacto y consultas",
   "footer.knowledgeHub": "Centro de conocimiento",
   "footer.factory": "Fábrica: Chengguang Power Tech Co., Ltd.",
@@ -356,12 +356,12 @@ const es: Dict = {
   "layout.modelComparison": "Comparación de modelos",
   "layout.appScenarios": "Escenarios de aplicación en detalle",
   "layout.maintenance": "Mantenimiento y cuidado",
-  "layout.exploreLines": "Explora otras líneas de producto DINWEY",
+  "layout.exploreLines": "Explora otras líneas de producto DINWEYS",
   "layout.home": "Inicio",
   "layout.indicativePrice": "Precio unitario mínimo indicativo",
   "layout.fromPrice": "Desde",
   "layout.priceNote": "por unidad — el precio final se confirma en la cotización (aplican condiciones de cantidad, mercado y OEM)",
-  "layout.dinweyModel": "Modelo DINWEY",
+  "layout.dinweyModel": "Modelo DINWEYS",
   "layout.group": "Grupo",
   "layout.standard": "Norma",
   "layout.voltage": "Voltaje",
@@ -376,11 +376,11 @@ const es: Dict = {
   "layout.confirmSpec": "Confirmar especificaciones y disponibilidad del {model}",
   "layout.whatsapp": "WhatsApp — Contactar ahora",
   "layout.refSpecNote":
-    "Especificación de referencia de terceros — NO es una clasificación publicada del stock de DINWEY. Los valores proceden de catálogos independientes y varían según el fabricante; confirme el CCA, la capacidad y las dimensiones exactas antes de sustituir.",
+    "Especificación de referencia de terceros — NO es una clasificación publicada del stock de DINWEYS. Los valores proceden de catálogos independientes y varían según el fabricante; confirme el CCA, la capacidad y las dimensiones exactas antes de sustituir.",
   "layout.repSpecNote":
     "Las especificaciones son representativas de este modelo. El CCA, la capacidad y las dimensiones exactas se confirman por lote en el certificado de análisis; contáctenos para la ficha técnica completa.",
   "layout.techReview":
-    "Revisión técnica — revisado por el equipo técnico de DINWEY. Fabricante: Chengguang Power Tech Co., Ltd. Fuente de datos: especificaciones del fabricante y documentación de ensayos. Las especificaciones varían según modelo y norma; confirme los valores finales con el fabricante.",
+    "Revisión técnica — revisado por el equipo técnico de DINWEYS. Fabricante: Chengguang Power Tech Co., Ltd. Fuente de datos: especificaciones del fabricante y documentación de ensayos. Las especificaciones varían según modelo y norma; confirme los valores finales con el fabricante.",
 
   // Language switcher
   "lang.label": "Idioma",

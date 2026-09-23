@@ -38,7 +38,7 @@ const DATASETS = [
     name: fitment.name,
     date: fitment.dateModified,
     description: fitment.description,
-    what: "Truck model → battery group → DINWEY model mapping, each entry carrying a confidence level and its source.",
+    what: "Truck model → battery group → DINWEYS model mapping, each entry carrying a confidence level and its source.",
   },
 ];
 
@@ -113,7 +113,7 @@ const faqJsonLd = {
       "name": "What does \"reference\" mean in the model data?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It means the value was compiled from third-party catalogs rather than a DINWEY datasheet. Those models are listed so you can cross-reference a replacement; they are not DINWEY published stock ratings and are quoted on request if you need them."
+        "text": "It means the value was compiled from third-party catalogs rather than a DINWEYS datasheet. Those models are listed so you can cross-reference a replacement; they are not DINWEYS published stock ratings and are quoted on request if you need them."
       }
     },
     {
@@ -129,8 +129,8 @@ const faqJsonLd = {
 ---
 
 <BaseLayout
-  title="Evidence & Data — DINWEY Battery Specifications"
-  description="The datasets behind DINWEY battery specs: claim ledger with verification status, source registry by level, master model data and fitment database."
+  title="Evidence & Data — DINWEYS Battery Specifications"
+  description="The datasets behind DINWEYS battery specs: claim ledger with verification status, source registry by level, master model data and fitment database."
   jsonLd={[datasetJsonLd, faqJsonLd]}
   canonical="/data/"
   pageType="CollectionPage"
@@ -178,7 +178,7 @@ const faqJsonLd = {
     <p>
       Every figure asserted across the site maps to one of these claims. "Verified (first-party)" means the value comes
       from our own engineering datasheet; "reference" means it is compiled from third-party catalogs and is
-      <strong>not</strong> a DINWEY published stock rating; "needs verification" means we have not yet obtained a
+      <strong>not</strong> a DINWEYS published stock rating; "needs verification" means we have not yet obtained a
       document that would support it.
     </p>
     <div style="overflow-x:auto;">
@@ -224,7 +224,7 @@ const faqJsonLd = {
 
     <h2 style="color:#0f1f3d;margin-top:40px;">Model verification status</h2>
     <p>
-      {statusCount["confirmed first party"] ?? 0} models carry a first-party DINWEY specification;{" "}
+      {statusCount["confirmed first party"] ?? 0} models carry a first-party DINWEYS specification;{" "}
       {statusCount["reference"] ?? 0} are listed as third-party reference only (widely used group sizes we do not
       publish as stock ratings); {statusCount["on request"] ?? 0} are made to order with no published specification.
       The per-model breakdown is in <a href="/data/battery-master-data.json" style="color:#1e5aa8;">battery-master-data.json</a>.
@@ -278,7 +278,7 @@ const faqJsonLd = {
     </div>
     <div class="faq-item">
       <h3>What does "reference" mean in the model data?</h3>
-      <p>It means the value was compiled from third-party catalogs rather than a DINWEY datasheet. Those models are listed so you can cross-reference a replacement; they are not DINWEY published stock ratings and are quoted on request if you need them.</p>
+      <p>It means the value was compiled from third-party catalogs rather than a DINWEYS datasheet. Those models are listed so you can cross-reference a replacement; they are not DINWEYS published stock ratings and are quoted on request if you need them.</p>
     </div>
     <div class="faq-item">
       <h3>How current are these datasets?</h3>

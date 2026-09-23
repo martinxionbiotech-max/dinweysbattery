@@ -25,7 +25,7 @@ interface Props {
 
 const {
   title,
-  description = "DINWEY is a truck & heavy-duty starting battery brand — JIS N150/N200, DIN88/DIN100, EFB and AGM. Manufactured by Chengguang Power Tech Co., Ltd. (founded 2002). OEM and private label programs.",
+  description = "DINWEYS is a truck & heavy-duty starting battery brand — JIS N150/N200, DIN88/DIN100, EFB and AGM. Manufactured by Chengguang Power Tech Co., Ltd. (founded 2002). OEM and private label programs.",
   canonical,
   ogType = "website",
   ogImage = "/images/og-default.jpg",
@@ -45,12 +45,12 @@ const pathLocale = localeFromPath(Astro.url.pathname);
 const htmlLang = pathLocale;
 const htmlDir = pathLocale === "ar" ? "rtl" : "ltr";
 const ogLocale = pathLocale === "ar" ? "ar_SA" : pathLocale === "es" ? "es_ES" : "en_US";
-const BRAND = "DINWEY";
-const BRAND_FULL = "DINWEY — Truck & Heavy-Duty Starting Batteries";
+const BRAND = "DINWEYS";
+const BRAND_FULL = "DINWEYS — Truck & Heavy-Duty Starting Batteries";
 
 // 标题规范化
 const cleanTitle = title.replace(/\u200b/gi, "").trim();
-const hasBrand = cleanTitle.toUpperCase().includes("DINWEY");
+const hasBrand = cleanTitle.toUpperCase().includes("DINWEYS");
 const baseTitle = cleanTitle || BRAND_FULL;
 const fullTitle = hasBrand ? baseTitle : `${baseTitle} | ${BRAND}`;
 
@@ -87,12 +87,12 @@ const articleJsonLd =
       }
     : null;
 
-// Organization 实体 schema（DINWEY 品牌 + Chengguang Power Tech Co., Ltd. 母公司）
+// Organization 实体 schema（DINWEYS 品牌 + Chengguang Power Tech Co., Ltd. 母公司）
 const orgJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": SITE + "/#organization",
-  "name": "DINWEY",
+  "name": "DINWEYS",
   // 站级退货政策（Google：标准退货政策放在 Organization 上，供商品/商家信息复用）
   "hasMerchantReturnPolicy": {
     "@type": "MerchantReturnPolicy",
@@ -101,10 +101,10 @@ const orgJsonLd = {
     "returnMethod": "https://schema.org/ReturnByMail",
     "merchantReturnLink": SITE + "/return-policy/"
   },
-  "legalName": "DINWEY (brand of Chengguang Power Tech Co., Ltd.)",
+  "legalName": "DINWEYS (brand of Chengguang Power Tech Co., Ltd.)",
   "url": SITE,
   "logo": SITE + "/images/logo.png",
-  "brand": { "@type": "Brand", "name": "DINWEY" },
+  "brand": { "@type": "Brand", "name": "DINWEYS" },
   "manufacturer": { "@id": SITE + "/#manufacturer" },
   "parentOrganization": { "@id": SITE + "/#manufacturer" },
   "foundingDate": "2002",
@@ -260,7 +260,7 @@ const webPageJsonLd = {
     <main id="main">
       <slot />
       <div class="container" style="margin-top:40px;padding:16px 0;border-top:1px solid #e5e9f0;font-size:0.85rem;color:#475569;">
-        <p style="margin:0;">{t(pathLocale, "layout.techReview").replace("DINWEY", BRAND)}</p>
+        <p style="margin:0;">{t(pathLocale, "layout.techReview").replace("DINWEYS", BRAND)}</p>
       </div>
     </main>
     <Footer />

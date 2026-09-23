@@ -38,7 +38,7 @@ const DATASETS = [
     name: fitment.name,
     date: fitment.dateModified,
     description: fitment.description,
-    what: "Correspondencia modelo de camión → grupo de batería → modelo DINWEY, con un nivel de confianza y su fuente en cada entrada.",
+    what: "Correspondencia modelo de camión → grupo de batería → modelo DINWEYS, con un nivel de confianza y su fuente en cada entrada.",
   },
 ];
 
@@ -113,7 +113,7 @@ const faqJsonLd = {
       "name": "¿Qué significa «referencia» en los datos de los modelos?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Significa que el valor se recopiló de catálogos de terceros y no de una ficha técnica de DINWEY. Esos modelos se listan para que pueda cruzar referencias al buscar un reemplazo; no son especificaciones publicadas por DINWEY para productos de catálogo y se cotizan bajo pedido si las necesita."
+        "text": "Significa que el valor se recopiló de catálogos de terceros y no de una ficha técnica de DINWEYS. Esos modelos se listan para que pueda cruzar referencias al buscar un reemplazo; no son especificaciones publicadas por DINWEYS para productos de catálogo y se cotizan bajo pedido si las necesita."
       }
     },
     {
@@ -129,8 +129,8 @@ const faqJsonLd = {
 ---
 
 <BaseLayout
-  title="Evidencia y datos — Especificaciones de baterías DINWEY"
-  description="Los conjuntos de datos detrás de las especificaciones de baterías DINWEY: registro de afirmaciones con estado de verificación, registro de fuentes por nivel, datos maestros de modelos y base de datos de aplicación."
+  title="Evidencia y datos — Especificaciones de baterías DINWEYS"
+  description="Los conjuntos de datos detrás de las especificaciones de baterías DINWEYS: registro de afirmaciones con estado de verificación, registro de fuentes por nivel, datos maestros de modelos y base de datos de aplicación."
   jsonLd={[datasetJsonLd, faqJsonLd]}
   canonical="/es/data/"
   pageType="CollectionPage"
@@ -180,7 +180,7 @@ const faqJsonLd = {
     <p>
       Cada cifra que se afirma en el sitio corresponde a una de estas afirmaciones. «Verificado (de fuente propia)» significa
       que el valor proviene de nuestra propia ficha técnica de ingeniería; «referencia» significa que se recopiló de catálogos
-      de terceros y <strong>no</strong> es una especificación publicada por DINWEY para productos de catálogo; «necesita
+      de terceros y <strong>no</strong> es una especificación publicada por DINWEYS para productos de catálogo; «necesita
       verificación» significa que aún no hemos obtenido un documento que la respalde.
     </p>
     <div style="overflow-x:auto;">
@@ -226,7 +226,7 @@ const faqJsonLd = {
 
     <h2 style="color:#0f1f3d;margin-top:40px;">Estado de verificación de los modelos</h2>
     <p>
-      {statusCount["confirmed first party"] ?? 0} modelos cuentan con una especificación DINWEY de fuente propia;{" "}
+      {statusCount["confirmed first party"] ?? 0} modelos cuentan con una especificación DINWEYS de fuente propia;{" "}
       {statusCount["reference"] ?? 0} se listan únicamente como referencia de terceros (tamaños de grupo ampliamente
       utilizados que no publicamos como especificaciones de catálogo); {statusCount["on request"] ?? 0} se fabrican
       bajo pedido sin especificación publicada. El desglose por modelo está en
@@ -281,7 +281,7 @@ const faqJsonLd = {
     </div>
     <div class="faq-item">
       <h3>¿Qué significa «referencia» en los datos de los modelos?</h3>
-      <p>Significa que el valor se recopiló de catálogos de terceros y no de una ficha técnica de DINWEY. Esos modelos se listan para que pueda cruzar referencias al buscar un reemplazo; no son especificaciones publicadas por DINWEY para productos de catálogo y se cotizan bajo pedido si las necesita.</p>
+      <p>Significa que el valor se recopiló de catálogos de terceros y no de una ficha técnica de DINWEYS. Esos modelos se listan para que pueda cruzar referencias al buscar un reemplazo; no son especificaciones publicadas por DINWEYS para productos de catálogo y se cotizan bajo pedido si las necesita.</p>
     </div>
     <div class="faq-item">
       <h3>¿Qué tan actualizados están estos conjuntos de datos?</h3>
