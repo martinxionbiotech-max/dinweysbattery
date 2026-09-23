@@ -57,6 +57,11 @@ const faqJsonLd = {
       reserve capacity.
     </p>
 
+    <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">Direct Answer</h2>
+      <p style="margin:0;">Buses and coaches use heavy-duty starting batteries matched to the engine &mdash; typically 24V for large intercity coaches (two 12V batteries in series) and 12V for smaller city buses. Their duty cycle is harder than a line-haul truck&rsquo;s: frequent starts, long idling and constant accessory load (doors, lighting, HVAC, passenger information) draw on the battery all service day, so thick-plate construction and generous reserve capacity matter as much as CCA. Group size follows the market &mdash; JIS N150/N200 or DIN88/DIN100 &mdash; and must be confirmed against the vehicle.</p>
+    </div>
+
     <h2 style="color:#0f1f3d;margin-top:32px;">Key Takeaways</h2>
     <ol class="takeaways-list">
       <li><strong>Buses cycle harder than trucks</strong> — frequent stops, long idling and constant accessory load (lighting, doors, HVAC, passenger information) draw on the battery all service day.</li>
@@ -79,6 +84,20 @@ const faqJsonLd = {
       tolerating repeated partial discharge and recharge while still delivering the high CCA a
       large diesel needs on every start.
     </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Duty Cycle &amp; Environment</h2>
+    <table>
+      <thead>
+        <tr><th>Factor</th><th>Bus &amp; coach duty</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Duty cycle</td><td>Frequent stops, long idling and constant accessory load across a service day &mdash; repeated partial discharge and recharge.</td></tr>
+        <tr><td>Starting demand</td><td>Large diesel &mdash; 850&ndash;1100+ CCA; 24V (2&times; 12V series) for large coaches, 12V for small buses.</td></tr>
+        <tr><td>Environment</td><td>Road vibration and regional temperature swings; doors, lighting and passenger electronics run engine-off.</td></tr>
+        <tr><td>Battery requirements</td><td>Thick-plate Pb-Sb flooded construction that tolerates deep cycling; generous reserve capacity (N150 220 min / N200 320 min).</td></tr>
+        <tr><td>Recommended characteristics</td><td>High CCA for the crank plus high RC/Ah for the accessory load &mdash; match voltage and group to the vehicle (confirm against the manual).</td></tr>
+      </tbody>
+    </table>
 
     <h2 style="color:#0f1f3d;margin-top:32px;">Recommended Specifications</h2>
     <table>
@@ -114,7 +133,10 @@ const faqJsonLd = {
 
     <p style="margin-top:20px;">
       Related DINWEYS model pages: <a href="/batteries/jis/n150/" style="color:#1e5aa8;">145G51 (N150) — 900 A CCA, 220 min RC</a> ·
-      <a href="/batteries/jis/n200/" style="color:#1e5aa8;">190H52 (N200) — 1100 A CCA, 320 min RC</a>
+      <a href="/batteries/jis/n200/" style="color:#1e5aa8;">190H52 (N200) — 1100 A CCA, 320 min RC</a>.
+      Standard reference: <a href="/compare/jis-vs-din-vs-bci/" style="color:#1e5aa8;">JIS vs DIN vs BCI</a> and
+      <a href="/compare/12v-vs-24v/" style="color:#1e5aa8;">12V vs 24V systems</a>.
+      Match a vehicle with the <a href="/selection-tool/" style="color:#1e5aa8;">battery selection tool</a>.
     </p>
 
     <h2 style="color:#0f1f3d;margin-top:32px;">Frequently Asked Questions</h2>
