@@ -8,6 +8,7 @@ import BatteryModelLayout from "../../../../layouts/BatteryModelLayout.astro";
   standard="JIS"
   productName="DINWEYS 190H52 (N200) Heavy-Duty Truck Battery"
   description="DINWEYS 190H52 (JIS N200) battery — 12V, 200 Ah, 1100 A CCA, 320 min RC, 520×278×220 mm. For the largest trucks and cold-climate starting."
+  directAnswer="The DINWEYS 190H52 is the JIS N200-class heavy-duty starting battery — 12V, 200 Ah, 1100 A JIS CCA, 320 min reserve capacity, 520×278×220 mm — for the largest trucks, heavy buses and cold-climate starting. It is larger than the N150, so confirm your tray accepts the bigger footprint before upgrading."
   voltage="12V"
   ah="200 Ah"
   cca="1100 A"
@@ -53,6 +54,23 @@ import BatteryModelLayout from "../../../../layouts/BatteryModelLayout.astro";
     { title: "12V vs 24V Truck Electrical Systems", url: "https://docs.dinweysbattery.com/12v-vs-24v/" }
   ]}
   complianceNote="This model is a JIS N200-class heavy-duty starting battery. Whether it fits a specific vehicle depends on the vehicle's battery standard, group size, terminal type, polarity and tray dimensions — which vary by model and generation. Always confirm the exact configuration in your vehicle manual before replacement."
+  relatedEntities={{
+    battery: [
+      { href: "/batteries/jis/n150/", label: "145G51 (N150) — standard JIS model" },
+      { href: "/batteries/din/din88/", label: "58827 (DIN88) — European standard" },
+      { href: "/batteries/din/din100/", label: "60038 (DIN100) — European standard" }
+    ],
+    standard: [
+      { href: "/compare/jis-vs-din-vs-bci/", label: "JIS vs DIN vs BCI — why CCA cannot be compared directly" }
+    ],
+    truck: [
+      { href: "/truck-models/", label: "Truck model fitment reference" }
+    ],
+    application: [
+      { href: "/applications/bus-coach/", label: "Bus & coach starting batteries" },
+      { href: "/applications/cold-chain-refrigerated/", label: "Cold-chain & refrigerated truck batteries" }
+    ]
+  }}
   parentCategory={{ href: "/products/jis-heavy-duty/", label: "JIS Heavy-Duty Batteries" }}
   siblingModels={[
     { href: "/batteries/jis/n150/", label: "145G51 (N150) — standard tray, 900A CCA" },

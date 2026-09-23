@@ -8,6 +8,7 @@ import BatteryModelLayout from "../../../../layouts/BatteryModelLayout.astro";
   standard="DIN"
   productName="DINWEYS 58827 (DIN88) Heavy-Duty Truck Battery"
   description="DINWEYS 58827 (DIN88) battery — 12V, 88 Ah, 800 A EN cold-cranking, 150 min RC, 353×175×190 mm. For MAN, Scania, Volvo and Mercedes trucks."
+  directAnswer="The DINWEYS 58827 is the DIN88-class heavy-duty starting battery — 12V, 88 Ah, 800 A EN cold-cranking, 150 min reserve capacity, 353×175×190 mm — for European commercial trucks such as MAN, Scania, Volvo, Mercedes and DAF. EN cold-cranking is measured to EN 50342-1 and is not directly comparable to JIS CCA."
   voltage="12V"
   ah="88 Ah"
   cca="800 A (EN)"
@@ -53,6 +54,23 @@ import BatteryModelLayout from "../../../../layouts/BatteryModelLayout.astro";
     { title: "AGM vs Flooded for Heavy-Duty Trucks", url: "https://docs.dinweysbattery.com/agm-vs-flooded/" }
   ]}
   complianceNote="This model is a DIN88-class heavy-duty starting battery. Whether it fits a specific vehicle depends on the vehicle's battery standard, group size, terminal type (European conical vs others), polarity and tray dimensions — which vary by model and generation. Always confirm the exact configuration in your vehicle manual before replacement."
+  relatedEntities={{
+    battery: [
+      { href: "/batteries/din/din100/", label: "60038 (DIN100) — larger, 100 Ah" },
+      { href: "/batteries/jis/n150/", label: "145G51 (N150) — JIS standard" },
+      { href: "/batteries/jis/n200/", label: "190H52 (N200) — JIS largest" }
+    ],
+    standard: [
+      { href: "/compare/jis-vs-din-vs-bci/", label: "JIS vs DIN vs BCI — why CCA cannot be compared directly" }
+    ],
+    truck: [
+      { href: "/truck-models/", label: "Truck model fitment reference" }
+    ],
+    application: [
+      { href: "/applications/bus-coach/", label: "Bus & coach starting batteries" },
+      { href: "/applications/diesel-generator/", label: "Diesel generator starting batteries" }
+    ]
+  }}
   parentCategory={{ href: "/products/din-heavy-duty/", label: "DIN Heavy-Duty Batteries" }}
   siblingModels={[
     { href: "/batteries/din/din100/", label: "60038 (DIN100) — larger, 100Ah" },

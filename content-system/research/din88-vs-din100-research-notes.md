@@ -48,3 +48,7 @@ Competitors (Bosch, Yuasa, Century, SSB, Powsea, The Battery Centre) publish DIN
 3. **EN CCA is its own test** — 800A EN ≠ 800A SAE ≠ 800A JIS. Comparing a DIN battery's EN rating to a JIS battery's CCA is the most common European-market buyer error.
 4. **Size and technology are independent axes** — you can choose DIN88 in AGM (smaller, maintenance-free) or DIN100 in flooded (larger, lower cost). Don't let the size decision force a technology decision.
 5. **Same-width stacking** — because DIN88 and DIN100 share width/height, a tray that fits a DIN100 will usually fit a DIN88 (with a spacer/block), making DIN88 the safe "downgrade" when the larger case is not needed.
+
+## Direct Answer
+
+> **DIN88 → DIN100 is a length-only upgrade.** DIN88 (58827) and DIN100 (60038) share width (175mm) and height (190mm); the DIN100 adds 40mm of length, buying 12Ah and 70A EN cold-cranking. So the only fit question is tray length. EN cold-cranking (EN 50342) is not comparable to JIS or SAE CCA — compare within one standard.

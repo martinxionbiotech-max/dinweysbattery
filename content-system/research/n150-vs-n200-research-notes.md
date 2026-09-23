@@ -51,3 +51,7 @@ Competitors (Bosch, Yuasa, Century, SSB, Powsea, 247 Auto) publish spec tables a
 3. **Same standard, different numbers** — CCA must be compared within JIS D5301. Third-party N150 CCA ranges from 750–1100A, so "900A" only means something against the specific datasheet, not against another vendor's N150.
 4. **Series-pair symmetry rule** — in a 24V truck, two N150s (or two N200s) must be identical; you cannot pair an N150 with an N200.
 5. **Cold-climate + high-load = N200 only if tray fits** — the RC jump (220→320 min) and CCA jump (900→1100A) matter most for cold starts and heavy accessory load, but only the larger tray accepts it.
+
+## Direct Answer
+
+> **N150 vs N200 is a tray-fit decision, not a power decision.** N150 (145G51) is the standard JIS heavy-truck battery at 508×222×212mm; N200 (190H52) is wider (278mm), taller and higher-output (200Ah / 1100A vs 135Ah / 900A). The N200 usually will not fit an N150 tray, so the upgrade is blocked by footprint more often than by power. In a 24V truck, always pair two identical units — never mix N150 and N200.

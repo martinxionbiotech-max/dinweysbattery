@@ -27,6 +27,13 @@ interface Props {
   siblingModels: { href: string; label: string }[];
   parentCategory: { href: string; label: string };
   isReference?: boolean; // true = 第三方参考型号，非 DINWEYS 一手发布规格
+  directAnswer?: string; // §16 Direct Answer：2-4 句结论先行（AIO 可提取）
+  relatedEntities?: {
+    battery?: { href: string; label: string }[];
+    standard?: { href: string; label: string }[];
+    truck?: { href: string; label: string }[];
+    application?: { href: string; label: string }[];
+  }; // §16 Related Entities 尾部实体链接
 }
 
 const {
@@ -52,7 +59,9 @@ const {
   complianceNote,
   siblingModels,
   parentCategory,
-  isReference = false
+  isReference = false,
+  directAnswer,
+  relatedEntities
 } = Astro.props;
 
 const locale = localeFromPath(Astro.url.pathname);
@@ -178,6 +187,13 @@ const faqJsonLd = {
     <p style="color:#55606e;font-size:1.1rem;">{t(locale, "layout.modelWord")} {model} · {standard} {t(locale, "layout.groupWord")} {groupLabel} · {voltage} · {ah} · {cca} CCA</p>
     <p class="lead">{description}</p>
 
+    {directAnswer && (
+      <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+        <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">Direct Answer</h2>
+        <p style="margin:0;">{directAnswer}</p>
+      </div>
+    )}
+
     {takeaways.length > 0 && (
       <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
         <h2 style="color:#0f1f3d;margin:0 0 10px;">{t(locale, "layout.keyTakeaways")}</h2>
@@ -275,6 +291,44 @@ const faqJsonLd = {
           ))}
         </ul>
         <p class="data-note" style="margin-top:12px;">{t(locale, "layout.fromKnowledgeHub")} <a href="https://docs.dinweysbattery.com/" target="_blank" rel="noopener">DINWEYS Knowledge Hub</a>.</p>
+      </div>
+    )}
+
+    {relatedEntities && (
+      <div style="margin-top:32px;padding:20px;background:#f4f7fb;border-radius:8px;">
+        <h2 style="color:#0f1f3d;margin-top:0;">Related Entities</h2>
+        {relatedEntities.battery && relatedEntities.battery.length > 0 && (
+          <p style="margin:0 0 6px;"><strong>Battery</strong></p>
+        )}
+        <ul style="margin:0 0 12px;">
+          {(relatedEntities.battery ?? []).map((s) => (
+            <li><a href={lh(s.href)} style="color:#1e5aa8;">{s.label}</a></li>
+          ))}
+        </ul>
+        {relatedEntities.standard && relatedEntities.standard.length > 0 && (
+          <p style="margin:0 0 6px;"><strong>Standard</strong></p>
+        )}
+        <ul style="margin:0 0 12px;">
+          {(relatedEntities.standard ?? []).map((s) => (
+            <li><a href={lh(s.href)} style="color:#1e5aa8;">{s.label}</a></li>
+          ))}
+        </ul>
+        {relatedEntities.truck && relatedEntities.truck.length > 0 && (
+          <p style="margin:0 0 6px;"><strong>Truck</strong></p>
+        )}
+        <ul style="margin:0 0 12px;">
+          {(relatedEntities.truck ?? []).map((s) => (
+            <li><a href={lh(s.href)} style="color:#1e5aa8;">{s.label}</a></li>
+          ))}
+        </ul>
+        {relatedEntities.application && relatedEntities.application.length > 0 && (
+          <p style="margin:0 0 6px;"><strong>Application</strong></p>
+        )}
+        <ul style="margin:0;">
+          {(relatedEntities.application ?? []).map((s) => (
+            <li><a href={lh(s.href)} style="color:#1e5aa8;">{s.label}</a></li>
+          ))}
+        </ul>
       </div>
     )}
   </div>
