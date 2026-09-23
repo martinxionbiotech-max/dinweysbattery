@@ -1,0 +1,250 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const SITE = "https://dinweysbattery.com";
+
+const comparisonJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "CCA vs Capacity (Ah): Starting Power vs Energy Reserve",
+  "description": "CCA measures the burst current that starts an engine; amp-hours measure stored energy. How the two ratings divide the job — and where reserve capacity sits between them.",
+  "image": SITE + "/images/products/145G51-N150.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Martin Wong",
+    "jobTitle": "Sales Director",
+    "worksFor": { "@id": SITE + "/#organization" }
+  },
+  "publisher": { "@id": SITE + "/#organization" },
+  "datePublished": "2026-09-23",
+  "dateModified": "2026-09-23",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": SITE + "/compare/cca-vs-capacity/" }
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between CCA and amp-hours (Ah)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CCA measures the short burst of current that starts a cold engine; amp-hours (Ah) measure how much total energy the battery stores. A battery can be strong at one and weak at the other, so a datasheet should list both."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is CCA or Ah more important for a truck battery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the duty. Cold-climate starting and high-compression diesel engines need CCA; engine-off loads such as sleeper-cab electronics, liftgates and refrigeration need Ah and reserve capacity. Match each rating to the job, not to a single headline number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is reserve capacity the same as amp-hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Reserve capacity is minutes at a fixed 25 A load until voltage drops below 10.5 V; amp-hours is total energy at a specified discharge rate. Converting RC minutes to Ah (25 A × minutes ÷ 60) is an estimate, not the rated capacity."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="CCA vs Capacity (Ah): Starting Power vs Energy Reserve — DINWEYS"
+  description="CCA measures burst starting power; amp-hours measure stored energy. How the two ratings divide the job, where reserve capacity fits, and what each means for a heavy-duty truck."
+  canonical={`${SITE}/compare/cca-vs-capacity/`}
+  jsonLd={[comparisonJsonLd, faqJsonLd]}
+>
+  <div class="container section">
+    <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#6b5a54;margin-bottom:16px;">
+      <a href="/">Home</a> &rsaquo; <a href="/compare/">Compare</a> &rsaquo; CCA vs Capacity
+    </nav>
+
+    <h1>CCA vs Capacity (Ah): Starting Power vs Energy Reserve</h1>
+    <p class="lead">
+      Cold cranking amps and amp-hours are two different things, and buying on one alone is the
+      classic truck-battery mistake. CCA is the burst that starts the engine; Ah is the stored
+      energy that keeps loads alive once it is running — and reserve capacity sits between the two.
+    </p>
+
+    <div class="takeaways">
+      <strong>Direct answer:</strong> CCA (cold cranking amps) measures the short, cold burst of current that starts an engine; amp-hours (Ah) measure how much total energy the battery stores. A battery can be strong at one and weak at the other. Reserve capacity (RC) sits between them &mdash; the minutes a battery can sustain a 25 A load &mdash; and RC does not equal Ah. Match each rating to the job: CCA for cold starts, Ah and RC for engine-off loads.
+    </div>
+
+    <h2 style="margin-top:32px;">Two ratings, two jobs</h2>
+    <table style="width:100%;border-collapse:collapse;">
+      <thead>
+        <tr style="border-bottom:1px solid #d8c9c0;text-align:left;">
+          <th style="padding:8px;">Criterion</th>
+          <th style="padding:8px;">CCA (cold cranking amps)</th>
+          <th style="padding:8px;">Capacity (Ah)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><strong>What it measures</strong></td>
+          <td style="padding:8px;">Burst current to crank a cold engine</td>
+          <td style="padding:8px;">Total energy stored</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><strong>Unit</strong></td>
+          <td style="padding:8px;">Amps</td>
+          <td style="padding:8px;">Amp-hours (C20 rate)</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><strong>Test basis</strong></td>
+          <td style="padding:8px;">JIS D5301 (&minus;15&deg;C) or EN 50342-1 / SAE J537 (&minus;18&deg;C)</td>
+          <td style="padding:8px;">20-hour discharge to a cut-off voltage</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><strong>The job it serves</strong></td>
+          <td style="padding:8px;">Starting</td>
+          <td style="padding:8px;">Sustained load / runtime</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;"><strong>When it dominates</strong></td>
+          <td style="padding:8px;">Cold climates, high-compression diesel</td>
+          <td style="padding:8px;">Engine-off loads, long idle, accessory draw</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin-top:32px;">Why a battery can be strong at one and weak at the other</h2>
+    <p>
+      A starting battery is built for the burst: thin, high-surface-area plates that dump current
+      fast. A battery built for capacity uses different plate design to hold more total energy. The
+      two goals trade against each other inside the same case, so a high-CCA battery does not
+      automatically carry a high Ah &mdash; and vice versa. A datasheet that lists only one rating
+      is telling you half the story.
+    </p>
+
+    <h2 style="margin-top:32px;">Where reserve capacity (RC) fits</h2>
+    <p>
+      Reserve capacity is a third rating that answers a third question: if the alternator fails or
+      the engine is off, how long can the battery keep critical systems running? It is measured in
+      <strong>minutes at a steady 25 A load at 27&deg;C, until voltage drops below 10.5 V</strong>
+      (SAE J537).
+    </p>
+    <p>
+      RC is <strong>not the same as Ah</strong>. The energy behind an RC figure is one multiplication
+      away &mdash; <em>25 A &times; minutes &divide; 60</em> &mdash; but the result is an
+      <strong>estimate, not the rated capacity</strong>. Because a 25 A draw is far faster than the
+      20-hour rate, the converted figure reads lower than a full C20 Ah rating. That is why a
+      complete datasheet lists CCA, Ah and RC separately. For the engineering detail see the
+      <a href="https://docs.dinweysbattery.com/what-is-reserve-capacity/" target="_blank" rel="noopener">reserve capacity explainer</a> on the technical hub.
+    </p>
+
+    <h2 style="margin-top:32px;">The DINWEYS range: all three ratings side by side</h2>
+    <table style="width:100%;border-collapse:collapse;">
+      <thead>
+        <tr style="border-bottom:1px solid #d8c9c0;text-align:left;">
+          <th style="padding:8px;">Model</th>
+          <th style="padding:8px;">Standard</th>
+          <th style="padding:8px;">Capacity (Ah)</th>
+          <th style="padding:8px;">CCA</th>
+          <th style="padding:8px;">Reserve capacity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><a href="/batteries/jis/n150/" style="color:#1e5aa8;">145G51 (N150)</a></td>
+          <td style="padding:8px;">JIS</td>
+          <td style="padding:8px;">135</td>
+          <td style="padding:8px;">900 A (JIS D5301)</td>
+          <td style="padding:8px;">220 min</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><a href="/batteries/jis/n200/" style="color:#1e5aa8;">190H52 (N200)</a></td>
+          <td style="padding:8px;">JIS</td>
+          <td style="padding:8px;">200</td>
+          <td style="padding:8px;">1100 A (JIS D5301)</td>
+          <td style="padding:8px;">320 min</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><a href="/batteries/din/din88/" style="color:#1e5aa8;">58827 (DIN88)</a></td>
+          <td style="padding:8px;">DIN/EN</td>
+          <td style="padding:8px;">88</td>
+          <td style="padding:8px;">800 A (EN 50342-1)</td>
+          <td style="padding:8px;">150 min</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;"><a href="/batteries/din/din100/" style="color:#1e5aa8;">60038 (DIN100)</a></td>
+          <td style="padding:8px;">DIN/EN</td>
+          <td style="padding:8px;">100</td>
+          <td style="padding:8px;">870 A (EN 50342-1)</td>
+          <td style="padding:8px;">170 min</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="data-note">
+      All figures are DINWEYS first-party manufacturer specifications. Note the DIN codes encode
+      capacity directly &mdash; DIN88 is 88 Ah, DIN100 is 100 Ah &mdash; while the JIS N150/N200
+      codes do not; the type numbers (145G51 / 190H52) carry the precise spec.
+    </p>
+
+    <h2 style="margin-top:32px;">How to choose, without over-specifying</h2>
+    <ol>
+      <li><strong>State the standard beside every number</strong> &mdash; JIS, EN and SAE CCA are measured differently and are not interchangeable (see <a href="/compare/jis-vs-din-vs-bci/">JIS vs DIN vs BCI</a>).</li>
+      <li><strong>Match CCA to the engine and climate</strong> &mdash; diesel and cold climates need more; a higher number than required adds cost, not benefit.</li>
+      <li><strong>Match Ah and RC to the engine-off load</strong> &mdash; sleeper cabs, liftgates, telematics and refrigeration need energy reserve, not burst.</li>
+      <li><strong>Confirm fitment separately</strong> &mdash; none of the three ratings is a fitment check; case size and terminal layout decide whether it fits the tray.</li>
+    </ol>
+
+    <h2 style="margin-top:32px;">The Author&rsquo;s Take</h2>
+    <p>
+      <strong>Position:</strong> In my view, most truck-battery mis-buys come from treating CCA as the
+      whole specification. A cold-climate long-haul truck needs CCA; a sleeper-cab or liftgate truck
+      needs Ah and RC &mdash; and a battery optimised for one is not automatically optimised for the
+      other.
+    </p>
+    <p>
+      <strong>Reasoning:</strong> The DINWEYS range shows the split plainly: the JIS 190H52 pairs
+      1100 A CCA with 320 minutes RC, biased toward endurance, while the DIN 58827 pairs 800 A EN
+      with only 150 minutes, biased toward burst. Both are correctly called heavy-duty, yet they serve
+      opposite duties &mdash; so the battery must be matched to what the truck does with the engine
+      off, not to the highest number on the shelf.
+    </p>
+    <p>
+      <strong>Disclosure:</strong> This is my editorial view as a battery manufacturer&rsquo;s technical
+      team, not a laboratory claim. Confirm CCA, capacity, RC and fitment against the vehicle before purchase.
+    </p>
+
+    <h2 style="margin-top:32px;">Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>What is the difference between CCA and amp-hours (Ah)?</h3>
+      <p>CCA measures the short burst of current that starts a cold engine; amp-hours measure how much total energy the battery stores. A battery can be strong at one and weak at the other, so a datasheet should list both.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is CCA or Ah more important for a truck battery?</h3>
+      <p>It depends on the duty. Cold-climate starting and high-compression diesel engines need CCA; engine-off loads such as sleeper-cab electronics, liftgates and refrigeration need Ah and reserve capacity. Match each rating to the job.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is reserve capacity the same as amp-hours?</h3>
+      <p>No. Reserve capacity is minutes at a fixed 25 A load until voltage drops below 10.5 V; amp-hours is total energy at a specified discharge rate. Converting RC minutes to Ah (25 A &times; minutes &divide; 60) is an estimate, not the rated capacity.</p>
+    </div>
+
+    <h2 style="margin-top:32px;">Evidence</h2>
+    <ul style="margin-bottom:0;">
+      <li><strong>DINWEYS manufacturer specification</strong> (first-party) &mdash; capacity, CCA and reserve capacity for 145G51, 190H52, 58827 and 60038.</li>
+      <li><strong>Standards</strong> &mdash; JIS D5301, EN 50342-1 and SAE J537 define the CCA and RC test methods referenced above (institutional source).</li>
+      <li><strong>Reserve-capacity method and conversion note</strong> &mdash; 25 A at 27&deg;C to 10.5 V, and the &ldquo;estimate, not rated capacity&rdquo; caveat, per the technical hub&rsquo;s <a href="https://docs.dinweysbattery.com/what-is-reserve-capacity/" target="_blank" rel="noopener">reserve capacity guide</a>.</li>
+    </ul>
+
+    <h2 style="margin-top:32px;">Related</h2>
+    <ul>
+      <li><a href="/compare/truck-battery-cca/" style="color:#1e5aa8;">How much CCA does a truck need?</a></li>
+      <li><a href="/compare/jis-vs-din-vs-bci/" style="color:#1e5aa8;">JIS vs DIN vs BCI &mdash; why CCA cannot be compared directly</a></li>
+      <li><a href="/compare/12v-vs-24v/" style="color:#1e5aa8;">12V vs 24V truck battery systems</a></li>
+      <li><a href="https://docs.dinweysbattery.com/cca-vs-reserve-capacity/" target="_blank" rel="noopener">Deep dive: CCA vs reserve capacity</a> (technical hub)</li>
+    </ul>
+
+    <div style="margin-top:32px;">
+      <a class="cta" href="/products/">Browse Heavy-Duty Batteries</a>
+      <a class="cta cta-outline" href="/contact/" style="margin-left:8px;">Ask for a Full Datasheet</a>
+    </div>
+  </div>
+</BaseLayout>
