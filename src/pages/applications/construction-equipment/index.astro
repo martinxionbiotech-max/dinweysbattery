@@ -1,0 +1,165 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What battery does construction equipment use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Excavators, wheel loaders, dozers and dump trucks commonly run 24V systems built from two 12V heavy-duty batteries in series, with 850–1100+ CCA to crank the large diesel. Group size follows the machine's origin — JIS N150/N200 on Japanese/Korean equipment, DIN88/DIN100 on European machines — always matched to the tray, terminal layout and CCA specification."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do batteries fail faster on construction equipment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Constant vibration from unmade ground, conductive dust, temperature swings and an irregular duty cycle (long idle, then a full-load crank) shorten service life compared with on-road starting. Loose hold-downs, terminal corrosion and repeated partial discharge are the main causes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is AGM better than flooded for construction machinery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually yes in heavy vibration and dusty sites. AGM's absorbent glass mat resists vibration better than vented flooded designs, its sealed case prevents electrolyte loss and protects against conductive dust, and it tolerates deeper cycling. The choice is still conditional on the machine's group, voltage and charging profile."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should construction equipment batteries be inspected?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Inspect hold-downs and terminals at every service interval, and load-test at least twice a year. Vibration loosens brackets and corrodes terminals faster than in on-road trucks, so a stricter schedule catches a weakening battery before a job-site stall."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Construction Equipment Batteries — DINWEYS OEM"
+  description="Heavy-duty batteries for excavators, wheel loaders, dozers and dump trucks — vibration-resistant construction, 24V systems and 850–1100+ CCA. OEM supply from Chengguang Power Tech Co., Ltd."
+  jsonLd={faqJsonLd}
+>
+  <div class="container section">
+    <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
+      <a href="/" style="color:#1e5aa8;">Home</a> &rsaquo; Applications &rsaquo; Construction Equipment
+    </nav>
+    <h1 style="color:#0f1f3d;">Construction Equipment Batteries</h1>
+    <p class="lead">
+      Excavators, wheel loaders, bulldozers, dump trucks, graders and cranes subject batteries to
+      constant vibration, conductive dust and an irregular duty cycle — long idle spells, then a
+      full-load crank on demand — that destroys ordinary automotive units in months.
+    </p>
+
+    <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">Direct Answer</h2>
+      <p style="margin:0;">Construction machines subject batteries to constant vibration, dust and an irregular duty cycle, and commonly run 24V from two 12V batteries in series with 850&ndash;1100+ CCA for the large diesel. A sealed AGM or thick-plate flooded construction tolerates this duty, and a stricter schedule &mdash; hold-down and terminal inspection every service plus a load test at least twice a year &mdash; catches a weakening battery before a job-site stall.</p>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Key Takeaways</h2>
+    <ol class="takeaways-list">
+      <li><strong>Site duty shortens battery life.</strong> Vibration from unmade ground, conductive dust, temperature swings and an irregular duty cycle reduce service life compared with on-road starting; rugged construction and a stricter test schedule are non-negotiable.</li>
+      <li><strong>AGM's sealed design matters as much as its vibration resistance.</strong> A vented flooded battery loses electrolyte on slopes and is vulnerable to conductive dust; AGM removes both risks and tolerates deeper cycling.</li>
+      <li><strong>Large machines run 24V.</strong> Two 12V batteries in series with 850&ndash;1100+ CCA for the big diesel, replaced as a matched pair (same model, age and rating).</li>
+      <li><strong>Inspect hold-downs every service, load-test at least twice a year.</strong> Vibration loosens brackets and corrodes terminals faster than in road trucks, so the annual-test habit is not enough.</li>
+    </ol>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Why Construction Equipment Needs a Different Battery</h2>
+    <p>
+      A job-site machine combines the worst of several environments. Vibration from operating over
+      unmade ground and rubble shakes plates and loosens terminals. Conductive dust from excavation,
+      crushing and concrete work can bridge exposed terminals and slowly drain a battery. Machines
+      idle for long spells between movements, then are expected to crank a large diesel on demand —
+      an irregular cycle that favours a battery that tolerates partial discharge.
+    </p>
+    <p>
+      The answer is a heavy-duty battery engineered for the duty: thick Pb-Sb (lead-antimony) plates
+      that tolerate deep cycling and vibration, or a sealed AGM design that sheds the electrolyte-loss
+      and dust problems of a vented flooded unit. DINWEYS supplies both — flooded JIS N150/N200 and
+      DIN88/DIN100 for standard budgets, and AGM where the duty justifies a maintenance-free option.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Duty Cycle &amp; Environment</h2>
+    <table>
+      <thead>
+        <tr><th>Factor</th><th>Construction duty</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Duty cycle</td><td>Irregular: long idle periods between movements, then a full-load crank on demand; frequent partial discharge.</td></tr>
+        <tr><td>Starting demand</td><td>850&ndash;1100+ CCA (SAE J537) for large diesels; 24V (2&times; 12V series) on excavators, dozers and haulers; 12V on smaller units.</td></tr>
+        <tr><td>Environment</td><td>Severe vibration on unmade ground, conductive dust (excavation, crushing, concrete), and temperature swings between night idle and daytime work.</td></tr>
+        <tr><td>Battery requirements</td><td>Thick-plate Pb-Sb flooded or sealed AGM (vibration- and dust-tolerant); matched 24V pairs.</td></tr>
+        <tr><td>Recommended characteristics</td><td>AGM generally tolerates vibration and dust better than vented flooded, but the choice is conditional on the duty &mdash; confirm group, voltage and terminal against the machine.</td></tr>
+      </tbody>
+    </table>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Recommended Specifications</h2>
+    <table>
+      <thead>
+        <tr><th>Requirement</th><th>Specification</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>System voltage</td><td>24V (two 12V batteries in series) for excavators, dozers and haulers; 12V for smaller units</td></tr>
+        <tr><td>Cold Cranking Amps</td><td>850–1100+ CCA (SAE J537) for large diesels</td></tr>
+        <tr><td>Group size</td><td>JIS N150/N200 (Japanese/Korean machines) or DIN88/DIN100 (European machines)</td></tr>
+        <tr><td>Construction</td><td>Thick-plate flooded (Pb-Sb) or sealed AGM</td></tr>
+        <tr><td>Cycle life</td><td>AGM generally offers higher cycling capability than conventional flooded starting batteries; actual life varies with depth of discharge, temperature and charging profile</td></tr>
+        <tr><td>Test schedule</td><td>Inspect hold-downs and terminals every service; load-test at least 2&times; per year</td></tr>
+      </tbody>
+    </table>
+    <p class="data-note">
+      Specifications are representative ranges. Exact CCA, capacity and dimensions vary by machine —
+      contact us for a datasheet matched to your equipment.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Product Lines for Construction Duty</h2>
+    <div class="grid grid-2" style="margin-top:16px;">
+      <div class="card">
+        <h3>JIS Heavy-Duty (N150/N200)</h3>
+        <p>Thick-plate flooded batteries for large machines — 145G51 (N150) 900A CCA, 190H52 (N200) 1100A CCA.</p>
+        <a href="/products/jis-heavy-duty/">View JIS Heavy-Duty →</a>
+      </div>
+      <div class="card">
+        <h3>AGM (maintenance-free)</h3>
+        <p>Sealed, vibration-tolerant AGM for dusty sites and slopes.</p>
+        <a href="/products/fleet/">View Fleet &amp; AGM →</a>
+      </div>
+    </div>
+
+    <p style="margin-top:20px;">
+      Related DINWEYS model pages: <a href="/batteries/jis/n150/" style="color:#1e5aa8;">145G51 (N150) — 900 A CCA</a> ·
+      <a href="/batteries/jis/n200/" style="color:#1e5aa8;">190H52 (N200) — 1100 A CCA</a>.
+      Standard reference: <a href="/compare/jis-vs-din-vs-bci/" style="color:#1e5aa8;">JIS vs DIN vs BCI</a>.
+      Match equipment with the <a href="/selection-tool/" style="color:#1e5aa8;">battery selection tool</a>.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>What battery does construction equipment use?</h3>
+      <p>Excavators, wheel loaders, dozers and dump trucks commonly run 24V systems built from two 12V heavy-duty batteries in series, with 850–1100+ CCA to crank the large diesel. Group size follows the machine's origin — JIS N150/N200 on Japanese/Korean equipment, DIN88/DIN100 on European machines — always matched to the tray, terminal layout and CCA specification.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why do batteries fail faster on construction equipment?</h3>
+      <p>Constant vibration from unmade ground, conductive dust, temperature swings and an irregular duty cycle (long idle, then a full-load crank) shorten service life compared with on-road starting. Loose hold-downs, terminal corrosion and repeated partial discharge are the main causes.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is AGM better than flooded for construction machinery?</h3>
+      <p>Usually yes in heavy vibration and dusty sites. AGM's absorbent glass mat resists vibration better than vented flooded designs, its sealed case prevents electrolyte loss and protects against conductive dust, and it tolerates deeper cycling. The choice is still conditional on the machine's group, voltage and charging profile.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How often should construction equipment batteries be inspected?</h3>
+      <p>Inspect hold-downs and terminals at every service interval, and load-test at least twice a year. Vibration loosens brackets and corrodes terminals faster than in on-road trucks, so a stricter schedule catches a weakening battery before a job-site stall.</p>
+    </div>
+
+    <p style="margin-top:24px;">
+      📚 Read the full guide: <a href="https://docs.dinweysbattery.com/agm-vs-flooded/" target="_blank" rel="noopener">AGM vs Flooded</a> ·
+      <a href="https://docs.dinweysbattery.com/24v-wiring-guide/" target="_blank" rel="noopener">24V System Wiring</a>
+    </p>
+  </div>
+</BaseLayout>
