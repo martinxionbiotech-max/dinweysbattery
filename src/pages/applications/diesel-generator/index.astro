@@ -57,6 +57,11 @@ const faqJsonLd = {
       is the same as a truck battery; the duty is not.
     </p>
 
+    <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">Direct Answer</h2>
+      <p style="margin:0;">A standby diesel generator needs a starting battery matched to the engine&rsquo;s cranking requirement &mdash; often heavy-duty flooded or AGM with 850&ndash;1100+ CCA, and 24V on larger sets. The failure risk is not use but idle: a battery that sits for months self-discharges 3&ndash;5% a month and progressively sulfates, so a float charger and an annual load test matter more than a high CCA label.</p>
+    </div>
+
     <h2 style="color:#0f1f3d;margin-top:32px;">Key Takeaways</h2>
     <ol class="takeaways-list">
       <li><strong>Idle is the enemy, not use</strong> — a battery with no load still self-discharges ~3–5% a month; a 135 Ah N150 sheds 9–15% of capacity in three idle months.</li>
@@ -79,6 +84,20 @@ const faqJsonLd = {
       maintainer that holds the battery at full charge, plus an annual load test that catches a
       weakening battery before it matters.
     </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Duty Cycle &amp; Environment</h2>
+    <table>
+      <thead>
+        <tr><th>Factor</th><th>Generator duty</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Duty cycle</td><td>Standby: idle for weeks or months, then a single full cold-crank on demand &mdash; no daily alternator recharge.</td></tr>
+        <tr><td>Starting demand</td><td>850&ndash;1100+ CCA on demand; 24V starting on larger sets.</td></tr>
+        <tr><td>Environment</td><td>Idle self-discharge of 3&ndash;5% per month; sulfation risk while below full charge.</td></tr>
+        <tr><td>Battery requirements</td><td>Heavy-duty flooded or AGM plus a float charger/maintainer that holds full charge.</td></tr>
+        <tr><td>Recommended characteristics</td><td>High CCA plus float-charge discipline and annual load testing; 3&ndash;5 year life is typical with maintenance &mdash; confirm voltage against the set.</td></tr>
+      </tbody>
+    </table>
 
     <h2 style="color:#0f1f3d;margin-top:32px;">Recommended Specifications</h2>
     <table>
@@ -115,7 +134,9 @@ const faqJsonLd = {
 
     <p style="margin-top:20px;">
       Related DINWEYS model pages: <a href="/batteries/jis/n150/" style="color:#1e5aa8;">145G51 (N150) — 135 Ah, 220 min RC</a> ·
-      <a href="/batteries/jis/n200/" style="color:#1e5aa8;">190H52 (N200) — 200 Ah, 320 min RC</a>
+      <a href="/batteries/jis/n200/" style="color:#1e5aa8;">190H52 (N200) — 200 Ah, 320 min RC</a>.
+      CCA vs capacity: <a href="/compare/cca-vs-capacity/" style="color:#1e5aa8;">starting power vs energy reserve</a>.
+      Match a generator with the <a href="/selection-tool/" style="color:#1e5aa8;">battery selection tool</a>.
     </p>
 
     <h2 style="color:#0f1f3d;margin-top:32px;">Frequently Asked Questions</h2>
