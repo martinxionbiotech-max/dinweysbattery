@@ -7,7 +7,7 @@ const faqJsonLd = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What battery standard does the Middle East use?",
+      "name": "What battery standard does the Middle East use for trucks?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "The Middle East predominantly uses JIS N-series batteries (N150/N200, models 145G51/190H52) for Japanese and Korean heavy trucks, with DIN/EN batteries (DIN88/DIN100) also common on European vehicles. Match the standard to the vehicle, not the region alone."
@@ -23,10 +23,10 @@ const faqJsonLd = {
     },
     {
       "@type": "Question",
-      "name": "What certifications do Middle East markets require?",
+      "name": "What certification do Middle East markets require?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Many Gulf markets require product conformity marking such as the GCC mark, with Gulf-standard import documentation. Requirements vary by country, so confirm the current certification and labelling rules with your importer before shipping."
+        "text": "GCC member states require the Gulf Conformity Mark (G-Mark) under the Gulf Technical Regulation for Low Voltage Electrical Equipment (LVE), which covers products rated 50–1000V AC or 75–1500V DC. Individual markets add schemes such as SASO/SABER in Saudi Arabia and ECAS/EQM in the UAE. Confirm the current scheme with your importer before shipping."
       }
     },
     {
@@ -34,7 +34,7 @@ const faqJsonLd = {
       "name": "Do you supply batteries to the Middle East?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. DINWEYS exports JIS N150/N200 and DIN heavy-duty batteries to distributors across the Middle East, with batch CCA test data and full shipping documentation on every delivery."
+        "text": "Yes. DINWEYS exports JIS N150/N200 and DIN88/DIN100 heavy-duty batteries to distributors across the GCC and wider Middle East, with batch CCA test data and full shipping documentation on every delivery."
       }
     }
   ]
@@ -43,7 +43,7 @@ const faqJsonLd = {
 
 <BaseLayout
   title="Truck Batteries for the Middle East — DINWEYS OEM"
-  description="Heavy-duty truck batteries for Middle East distributors — hot-climate JIS/DIN construction and GCC-ready documentation. OEM supply from Chengguang Power Tech Co., Ltd."
+  description="Heavy-duty truck batteries for Middle East distributors — hot-climate JIS N150/N200 and DIN88/DIN100 construction, G-Mark/GCC-ready documentation. OEM supply from Chengguang Power Tech Co., Ltd."
   jsonLd={faqJsonLd}
 >
   <div class="container section">
@@ -54,70 +54,152 @@ const faqJsonLd = {
     <p class="lead">
       The Middle East is a core JIS market — Japanese and Korean heavy trucks dominate, running
       JIS N150/N200 batteries — with European vehicles calling for DIN88/DIN100 alongside them.
-      DINWEYS stocks both, with hot-climate construction and complete shipping documentation.
+      DINWEYS stocks both, with hot-climate construction and GCC-ready documentation.
     </p>
 
-    <h2 style="color:#0f1f3d;margin-top:32px;">Key Takeaways</h2>
-    <ol class="takeaways-list">
-      <li><strong>Two standards run side by side</strong> — JIS N150/N200 for Japanese/Korean trucks, DIN88/DIN100 for European vehicles; match the battery to the vehicle, not the region alone.</li>
-      <li><strong>Heat is the primary stress</strong> — high ambient temperatures accelerate lead-acid ageing and water loss, so thick-plate construction and disciplined electrolyte care matter in Gulf duty.</li>
-      <li><strong>Documentation drives trade</strong> — distributors repeatedly value batch CCA test data and complete shipping paperwork, which DINWEYS ships on every order.</li>
-      <li><strong>Certification varies by country</strong> — Gulf markets commonly require conformity marking; confirm current rules with your importer before shipping.</li>
-    </ol>
+    <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">Direct Answer</h2>
+      <p style="margin:0;">The Middle East runs a Japanese and Korean heavy-truck base (Hino, Isuzu, Mitsubishi Fuso, UD Trucks) using JIS N150 (145G51) and N200 (190H52), alongside a premium European segment (Mercedes-Benz, Volvo, Scania, MAN) that in Gulf fitment references is also commonly specified in the N150/N200 group, with DIN88 (58827) and DIN100 (60038) as the European-code alternative. Heat is the dominant stress — summer temperatures of 35&ndash;45&deg;C accelerate lead-acid ageing — and imports clear through the GCC G-Mark under the Gulf LVE regulation, with Jebel Ali, Jeddah and Dammam as the main entry points.</p>
+    </div>
 
-    <h2 style="color:#0f1f3d;margin-top:32px;">Battery Standards for the Region</h2>
+    <h2 style="color:#0f1f3d;margin-top:32px;">Market Overview</h2>
     <p>
-      Pick the standard by the vehicle. Japanese and Korean heavy trucks — the backbone of Gulf
-      fleets — take JIS N-series batteries in model codes N150 (145G51) and N200 (190H52). European
-      commercial vehicles from MAN, Scania, Volvo and Mercedes take DIN/EN batteries in codes
-      DIN88 (58827) and DIN100 (60038). DINWEYS stocks both families so a distributor can cover a
-      mixed fleet from one source.
+      The GCC heavy commercial vehicle market was valued at roughly <strong>USD 17.17&nbsp;billion (2024)</strong>,
+      projected to reach about USD 23.49&nbsp;billion by 2030 at a 5.3% CAGR
+      (<a href="https://www.researchandmarkets.com/report/middle-east-heavy-commercial-vehicle-market" target="_blank" rel="noopener">ResearchAndMarkets</a>).
+      IMARC Group's estimate puts the market at about USD 19.2&nbsp;billion in 2026, growing at a 4.7%
+      CAGR toward 2034
+      (<a href="https://www.imarcgroup.com/gcc-heavy-commercial-vehicle-market" target="_blank" rel="noopener">IMARC Group</a>).
+      The GCC truck market is import-reliant: established global heavyweights (Mercedes-Benz, Volvo,
+      Scania, MAN) lead the premium heavy-duty segment, while Isuzu, Hino and Fuso hold strong positions
+      in medium and light duty
+      (<a href="https://www.indexbox.io/store/gcc-trucks-market-analysis-forecast-size-trends-and-insights/" target="_blank" rel="noopener">IndexBox</a>).
+      Frost &amp; Sullivan lists Daimler, Mitsubishi Fuso, Hino, Isuzu, Scania and SinoTruk among the
+      major players, with Saudi Arabia the dominant GCC market
+      (<a href="https://store.frost.com/commercial-vehicle-cv-market-gulf-cooperation-council-2024-2028.html" target="_blank" rel="noopener">Frost &amp; Sullivan</a>).
+    </p>
+    <p>
+      The precise installed-fleet split by brand is not published in a single official source, so
+      treat the mix above as structure rather than exact share. <em>Precise brand share: Not publicly verified.</em>
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Climate &amp; Duty Demands</h2>
+    <p>
+      Heat is the defining stress across the Gulf. The region has a hot desert climate, with summer
+      averages typically running <strong>35&ndash;45&deg;C</strong> and peaks beyond 45&deg;C in the interior
+      (<a href="https://www.worlddata.info/asia/arab-emirates/climate.php" target="_blank" rel="noopener">WorldData — UAE climate</a>;
+      <a href="https://www.climatestotravel.com/climate/united-arab-emirates" target="_blank" rel="noopener">Climates to Travel</a>).
+      For a lead-acid starting battery this is harder duty than cold. Elevated temperature accelerates
+      plate ageing and increases electrolyte water loss in flooded designs, which shortens service life
+      and raises self-discharge while a vehicle sits.
+    </p>
+    <p>
+      The practical consequence for buyers is the same across the GCC: thick-plate flooded construction
+      with disciplined electrolyte care, or a sealed AGM option where a fleet prefers maintenance-free
+      operation. Coastal hubs add humidity and salt air, which promote terminal corrosion — see the
+      <a href="/markets/uae/" style="color:#1e5aa8;">UAE</a> page for the humidity detail.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Vehicle Mix &amp; Common Battery Groups</h2>
+    <p>
+      The battery group follows the vehicle. Japanese trucks — Hino 500/700, Isuzu F/Giga, Mitsubishi
+      Fuso Fighter/Super Great and UD Quon — are specified in JIS <strong>N150</strong> (and N200 where
+      heavier cranking or a taller case is required). European trucks (Mercedes-Benz Actros/Atego,
+      Volvo FH/FM, Scania R, MAN TGS/TGX, DAF XF, Iveco Stralis) are commonly listed in the N150/N200
+      group in Middle East fitment references, with DIN88/DIN100 as the alternative European code. The
+      groups that dominate GCC fleets:
     </p>
     <table>
       <thead>
-        <tr><th>Vehicle origin</th><th>Standard</th><th>DINWEYS models</th></tr>
+        <tr><th>Battery group</th><th>DINWEYS model</th><th>Capacity / CCA</th><th>Typical vehicle class</th></tr>
       </thead>
       <tbody>
-        <tr><td>Japanese / Korean heavy trucks</td><td>JIS</td><td>N150 (145G51) 900A CCA · N200 (190H52) 1100A CCA</td></tr>
-        <tr><td>European commercial vehicles</td><td>DIN/EN</td><td>DIN88 (58827) · DIN100 (60038)</td></tr>
+        <tr><td>JIS N150</td><td>145G51</td><td>135 Ah · 900 A (JIS)</td><td>Japanese &amp; European heavy trucks, buses</td></tr>
+        <tr><td>JIS N200</td><td>190H52</td><td>200 Ah · 1100 A (JIS)</td><td>Heavy trucks, semi-trailers, high-load buses</td></tr>
+        <tr><td>DIN88</td><td>58827</td><td>88 Ah · 800 A (EN)</td><td>European trucks (MAN, Scania, Volvo, Mercedes)</td></tr>
+        <tr><td>DIN100</td><td>60038</td><td>100 Ah · 870 A (EN)</td><td>European trucks (MAN, Scania, Volvo, Mercedes)</td></tr>
       </tbody>
     </table>
-
-    <h2 style="color:#0f1f3d;margin-top:32px;">Hot-Climate Considerations</h2>
-    <p>
-      Heat is harder on a lead-acid battery than cold. High ambient temperatures speed up the
-      chemical reactions that age plates and increase electrolyte water loss in flooded designs.
-      The practical consequences: shorter service life, faster self-discharge while a vehicle sits,
-      and — for flooded batteries — a greater need for electrolyte checks. DINWEYS's heavy-duty
-      thick-plate (Pb-Sb) construction is built to hold up under this duty, and AGM versions are
-      available where fleets prefer a sealed, maintenance-free option.
+    <p class="data-note">
+      Group-to-vehicle mapping is a third-party fitment reference (Club Assist / Century selection
+      guides) — a compatible reference, not a DINWEYS OEM confirmation. Confirm dimensions, terminal
+      layout and voltage against the specific truck before ordering.
     </p>
 
-    <h2 style="color:#0f1f3d;margin-top:32px;">Import &amp; Compliance</h2>
+    <h2 style="color:#0f1f3d;margin-top:32px;">Standards</h2>
     <p>
-      Many Gulf Cooperation Council (GCC) markets require product conformity marking and
-      Gulf-standard import documentation. Rules and labelling evolve, so treat the numbers as
-      indicative and confirm the current certification and tariff position with your importer or
-      freight forwarder before each shipment.
+      Two standards run side by side. JIS N-series batteries (N150/N200) serve the Japanese and Korean
+      truck base — and, in the Gulf, most European trucks are also specified in the N150/N200 group by
+      independent fitment references. DIN/EN batteries in codes DIN88 and DIN100 cover European vehicles
+      where the original fitment uses that code. Match the battery to the vehicle's group, dimensions
+      and terminal orientation rather than to the region alone. For a technical comparison, see
+      <a href="/compare/jis-vs-din-vs-bci/" style="color:#1e5aa8;">JIS vs DIN vs BCI</a>.
     </p>
 
-    <h2 style="color:#0f1f3d;margin-top:32px;">Product Lines for the Region</h2>
+    <h2 style="color:#0f1f3d;margin-top:32px;">DINWEYS Relevance</h2>
+    <p>
+      DINWEYS — manufactured by Chengguang Power Tech Co., Ltd. — carries the two group families that
+      dominate Gulf fleets in one line: JIS N150 (145G51) and N200 (190H52) for the Japanese truck base
+      and the European trucks specified in the N150/N200 group, plus DIN88 (58827) and DIN100 (60038)
+      for European vehicles using the DIN code. These are positioned as <strong>compatible references</strong>
+      matched by group, dimensions and CCA — not as OEM replacements — so a distributor can cover the
+      region's mixed fleet from a single manufacturer and shipment.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Buyer Considerations</h2>
+    <ol class="takeaways-list">
+      <li><strong>Match the battery to the vehicle.</strong> Confirm group size, physical dimensions, terminal orientation and system voltage (many GCC heavy trucks are 24V — two 12V batteries in series) against the specific unit.</li>
+      <li><strong>Budget for heat-shortened life.</strong> High ambient temperatures reduce service life, so a thick-plate flooded design or sealed AGM and a disciplined electrolyte/test schedule are worth more in the Gulf than in temperate markets.</li>
+      <li><strong>Clear the G-Mark before shipment.</strong> GCC member states require the Gulf Conformity Mark under the LVE regulation (50&ndash;1000V AC / 75&ndash;1500V DC), with country-level schemes on top — SASO/SABER in Saudi Arabia, ECAS/EQM in the UAE. Confirm the current scheme and labelling with your importer.</li>
+      <li><strong>Plan the port.</strong> Jebel Ali (Dubai) is the region's largest container hub and re-export gateway; Jeddah Islamic Port and King Abdulaziz Port Dammam serve Saudi Arabia. Choose the entry point nearest your distribution centre.</li>
+    </ol>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Evidence &amp; Sources</h2>
+    <table>
+      <thead>
+        <tr><th>Claim</th><th>Source</th><th>Level</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>GCC heavy CV market ~USD 17.17B (2024) &rarr; 23.49B (2030), 5.3% CAGR</td><td>ResearchAndMarkets</td><td>LEVEL 3</td></tr>
+        <tr><td>Market ~USD 19.2B (2026), 4.7% CAGR</td><td>IMARC Group</td><td>LEVEL 3</td></tr>
+        <tr><td>Premium heavy = Mercedes/Volvo/Scania/MAN; medium/light = Isuzu/Hino/Fuso</td><td>IndexBox</td><td>LEVEL 3</td></tr>
+        <tr><td>Import-reliant; majors Daimler, Fuso, Hino, Isuzu, Scania, SinoTruk</td><td>Frost &amp; Sullivan</td><td>LEVEL 3</td></tr>
+        <tr><td>Hot desert climate; summer averages 35&ndash;45&deg;C</td><td>WorldData; Climates to Travel</td><td>LEVEL 2</td></tr>
+        <tr><td>G-Mark mandatory for LVE (BD-142004-01; 50&ndash;1000V AC / 75&ndash;1500V DC)</td><td>GSO (gso.org.sa); QIMA; T&Uuml;V S&Uuml;D; Intertek</td><td>LEVEL 2</td></tr>
+        <tr><td>Ports: Jebel Ali hub; Jeddah and Dammam for Saudi Arabia</td><td>DP World; Mawani port profiles</td><td>LEVEL 3</td></tr>
+        <tr><td>DINWEYS 145G51/190H52/58827/60038 specifications</td><td>Chengguang Power Tech manufacturer data</td><td>LEVEL 1</td></tr>
+        <tr><td>Vehicle-to-group fitment (Hino 700 = N150, etc.)</td><td>Club Assist / Century selection guides</td><td>LEVEL 4</td></tr>
+      </tbody>
+    </table>
+    <p class="data-note">
+      Evidence levels: LEVEL 1 = manufacturer first-party · LEVEL 2 = official/government/institutional ·
+      LEVEL 3 = credible industry source · LEVEL 4 = independent fitment reference. Brand-share breakdown
+      of the installed fleet is not published in one official source and is marked "Not publicly verified."
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Related Entities</h2>
     <div class="grid grid-2" style="margin-top:16px;">
       <div class="card">
-        <h3>JIS Heavy-Duty (N150/N200)</h3>
-        <p>145G51 and 190H52 for Japanese/Korean trucks — the region's core battery.</p>
-        <a href="/products/jis-heavy-duty/">View JIS Heavy-Duty →</a>
+        <h3>Batteries</h3>
+        <p><a href="/batteries/jis/n150/">145G51 (N150)</a> · <a href="/batteries/jis/n200/">190H52 (N200)</a> · <a href="/products/din-heavy-duty/">DIN88 / DIN100</a></p>
       </div>
       <div class="card">
-        <h3>DIN Heavy-Duty (DIN88/DIN100)</h3>
-        <p>European-standard batteries for MAN, Scania, Volvo and Mercedes fleets.</p>
-        <a href="/products/din-heavy-duty/">View DIN Heavy-Duty →</a>
+        <h3>Standards</h3>
+        <p><a href="/compare/jis-vs-din-vs-bci/">JIS vs DIN vs BCI</a> · <a href="/compare/n150-vs-n200/">N150 vs N200</a></p>
+      </div>
+      <div class="card">
+        <h3>Applications</h3>
+        <p><a href="/truck-models/">Truck fitment database</a> · <a href="/applications/bus-coach/">Bus &amp; Coach</a></p>
+      </div>
+      <div class="card">
+        <h3>Markets</h3>
+        <p><a href="/markets/saudi-arabia/">Saudi Arabia</a> · <a href="/markets/uae/">UAE</a></p>
       </div>
     </div>
 
     <h2 style="color:#0f1f3d;margin-top:32px;">Frequently Asked Questions</h2>
     <div class="faq-item">
-      <h3>What battery standard does the Middle East use?</h3>
+      <h3>What battery standard does the Middle East use for trucks?</h3>
       <p>The Middle East predominantly uses JIS N-series batteries (N150/N200, models 145G51/190H52) for Japanese and Korean heavy trucks, with DIN/EN batteries (DIN88/DIN100) also common on European vehicles. Match the standard to the vehicle, not the region alone.</p>
     </div>
     <div class="faq-item">
@@ -125,16 +207,17 @@ const faqJsonLd = {
       <p>Heat accelerates lead-acid ageing and increases water loss in flooded batteries. High ambient temperatures shorten service life and raise self-discharge, so a robust thick-plate construction and correct electrolyte care are important in Gulf conditions.</p>
     </div>
     <div class="faq-item">
-      <h3>What certifications do Middle East markets require?</h3>
-      <p>Many Gulf markets require product conformity marking such as the GCC mark, with Gulf-standard import documentation. Requirements vary by country, so confirm the current certification and labelling rules with your importer before shipping.</p>
+      <h3>What certification do Middle East markets require?</h3>
+      <p>GCC member states require the Gulf Conformity Mark (G-Mark) under the Gulf Technical Regulation for Low Voltage Electrical Equipment (LVE), which covers products rated 50–1000V AC or 75–1500V DC. Individual markets add schemes such as SASO/SABER in Saudi Arabia and ECAS/EQM in the UAE. Confirm the current scheme with your importer before shipping.</p>
     </div>
     <div class="faq-item">
       <h3>Do you supply batteries to the Middle East?</h3>
-      <p>Yes. DINWEYS exports JIS N150/N200 and DIN heavy-duty batteries to distributors across the Middle East, with batch CCA test data and full shipping documentation on every delivery.</p>
+      <p>Yes. DINWEYS exports JIS N150/N200 and DIN88/DIN100 heavy-duty batteries to distributors across the GCC and wider Middle East, with batch CCA test data and full shipping documentation on every delivery.</p>
     </div>
 
     <p style="margin-top:24px;">
-      📚 Read more: <a href="https://docs.dinweysbattery.com/jis-vs-din-vs-bci/" target="_blank" rel="noopener">JIS vs DIN vs BCI Standards</a>
+      📚 Read more: <a href="https://docs.dinweysbattery.com/jis-vs-din-vs-bci/" target="_blank" rel="noopener">JIS vs DIN vs BCI Standards</a> ·
+      <a href="https://docs.dinweysbattery.com/battery-shipping-transport/" target="_blank" rel="noopener">Battery Shipping &amp; Transport</a>
     </p>
   </div>
 </BaseLayout>
