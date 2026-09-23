@@ -57,6 +57,11 @@ const faqJsonLd = {
       two strands drivers mid-route.
     </p>
 
+    <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">Direct Answer</h2>
+      <p style="margin:0;">A refrigerated truck needs two separate systems: a starting battery with 850&ndash;1100+ CCA for the engine, and a deep-cycle or AGM auxiliary bank for the refrigeration unit &mdash; one battery cannot serve both jobs. The engine wants a short cold-crank burst; the reefer wants a continuous, hours-long draw that deep-discharges a starting battery and strands the driver. Size the auxiliary bank to the reefer&rsquo;s specified draw and depth-of-discharge limit.</p>
+    </div>
+
     <h2 style="color:#0f1f3d;margin-top:32px;">Key Takeaways</h2>
     <ol class="takeaways-list">
       <li><strong>Two loads demand two battery types</strong> — a starting (SLI) battery for the 850–1100+ CCA crank, and a separate deep-cycle bank for the reefer's continuous draw.</li>
@@ -78,6 +83,20 @@ const faqJsonLd = {
       but won't crank the next morning. The fix is a separate deep-cycle or AGM bank dedicated to
       the reefer, with the two banks isolated so neither can drag the other down.
     </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Duty Cycle &amp; Environment</h2>
+    <table>
+      <thead>
+        <tr><th>Factor</th><th>Cold-chain duty</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Duty cycle</td><td>Two separate loads: an intermittent engine-start burst and a continuous, hours-long reefer draw (often parked overnight).</td></tr>
+        <tr><td>Starting demand</td><td>850&ndash;1100+ CCA for a large diesel tractor.</td></tr>
+        <tr><td>Environment</td><td>Continuous refrigeration current draw regardless of ambient temperature; long engine-off periods during loading and overnight stops.</td></tr>
+        <tr><td>Battery requirements</td><td>A starting (SLI) battery for the crank plus a separate deep-cycle or AGM auxiliary bank, isolated from the starting battery.</td></tr>
+        <tr><td>Recommended characteristics</td><td>High CCA for the engine, and an auxiliary bank sized to the reefer&rsquo;s draw at ~50% depth of discharge &mdash; confirm the unit&rsquo;s specified current and runtime.</td></tr>
+      </tbody>
+    </table>
 
     <h2 style="color:#0f1f3d;margin-top:32px;">Recommended Specifications</h2>
     <table>
@@ -112,7 +131,9 @@ const faqJsonLd = {
 
     <p style="margin-top:20px;">
       Related DINWEYS model pages (starting): <a href="/batteries/jis/n150/" style="color:#1e5aa8;">145G51 (N150) — 900 A CCA</a> ·
-      <a href="/batteries/jis/n200/" style="color:#1e5aa8;">190H52 (N200) — 1100 A CCA</a>
+      <a href="/batteries/jis/n200/" style="color:#1e5aa8;">190H52 (N200) — 1100 A CCA</a>.
+      The two-battery split explained: <a href="/compare/cca-vs-capacity/" style="color:#1e5aa8;">CCA vs capacity (Ah)</a>.
+      Match a vehicle with the <a href="/selection-tool/" style="color:#1e5aa8;">battery selection tool</a>.
     </p>
 
     <h2 style="color:#0f1f3d;margin-top:32px;">Frequently Asked Questions</h2>
