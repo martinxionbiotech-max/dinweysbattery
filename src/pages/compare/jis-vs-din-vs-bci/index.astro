@@ -75,6 +75,78 @@ const faqJsonLd = {
       <strong>Direct answer:</strong> Cold cranking amps (CCA) is not one universal test. JIS D 5301 tests at &minus;15&deg;C, while EN 50342 and SAE J537 test at &minus;18&deg;C, and each uses a different cut-off voltage and duration. Because the test conditions differ, the same physical battery prints a different CCA under each standard — so you can only compare CCA within a single standard.
     </div>
 
+    <h2 style="margin-top:32px;">The three systems: size, terminals and markets</h2>
+    <p>
+      Before the CCA question, there is a sizing question. JIS, DIN and BCI are three separate
+      regional systems, each with its own case dimensions, terminal type and market &mdash; and they
+      are not interchangeable. The table below is the practical map.
+    </p>
+    <table style="width:100%;border-collapse:collapse;">
+      <thead>
+        <tr style="border-bottom:1px solid #d8c9c0;text-align:left;">
+          <th style="padding:8px;">Criterion</th>
+          <th style="padding:8px;">JIS (Japan/Asia)</th>
+          <th style="padding:8px;">DIN (Europe)</th>
+          <th style="padding:8px;">BCI (North America)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><strong>Heavy-duty codes</strong></td>
+          <td style="padding:8px;">N150, N200</td>
+          <td style="padding:8px;">DIN88, DIN100</td>
+          <td style="padding:8px;">Group 31, 8D, 4D, 6D</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><strong>What the code means</strong></td>
+          <td style="padding:8px;">Model code (145G51 = N150)</td>
+          <td style="padding:8px;">Capacity in Ah (DIN88 = 88 Ah)</td>
+          <td style="padding:8px;">Physical size only, independent of rating</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><strong>Case size (example)</strong></td>
+          <td style="padding:8px;">N150 &approx; 508&times;222&times;212 mm</td>
+          <td style="padding:8px;">DIN88 &approx; 353&times;175&times;190 mm</td>
+          <td style="padding:8px;">Group 31 &approx; 330&times;173&times;240 mm (reference)</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><strong>Terminal</strong></td>
+          <td style="padding:8px;">JIS type A (large taper post)</td>
+          <td style="padding:8px;">European conical (T1)</td>
+          <td style="padding:8px;">Stud or post (to specification)</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><strong>Polarity</strong></td>
+          <td style="padding:8px;">Not published (industry typically right-positive)</td>
+          <td style="padding:8px;">Left positive</td>
+          <td style="padding:8px;">To specification</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee0d8;">
+          <td style="padding:8px;"><strong>Primary markets</strong></td>
+          <td style="padding:8px;">Japan, Asia, Africa, Middle East</td>
+          <td style="padding:8px;">Europe, Middle East, North Africa</td>
+          <td style="padding:8px;">North America, Latin America</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;"><strong>DINWEYS availability</strong></td>
+          <td style="padding:8px;">Stocked (N150/N200)</td>
+          <td style="padding:8px;">Stocked (DIN88/DIN100)</td>
+          <td style="padding:8px;">Made-to-order (on request)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin-top:32px;">The recognition boundary</h2>
+    <p>
+      The three systems are not mutually recognised in a way that makes batteries interchangeable.
+      Each defines its own case dimensions, terminal type and cold-cranking test, and there is no
+      universal conversion between their CCA ratings. A JIS N150, a DIN88 and a BCI Group 31 are
+      different physical batteries for different markets &mdash; a <strong>compatible reference</strong>
+      in one system has no automatic equivalent in another. When a vehicle moves between markets, the
+      correct group must be <strong>confirmed against the tray, terminals and rating standard</strong>,
+      not assumed.
+    </p>
+
     <h2 style="margin-top:32px;">The four standards, and how each moves the number</h2>
     <table style="width:100%;border-collapse:collapse;">
       <thead>
@@ -148,6 +220,26 @@ const faqJsonLd = {
       <strong>nominal or batch-tested</strong>. See the
       <a href="/compare/n150-vs-n200/">N150 vs N200</a> comparison for how this applies to DINWEYS's
       JIS range, and the <a href="/selection-tool/">selection tool</a> to match a vehicle.
+    </p>
+
+    <h2 style="margin-top:32px;">What to verify before a cross-standard swap</h2>
+    <ol>
+      <li><strong>Which standard the vehicle uses</strong> &mdash; read the label or manual; JIS, DIN and BCI group sizes are not interchangeable.</li>
+      <li><strong>Case dimensions and tray fitment</strong> &mdash; a size-compatible swap still has to match the tray exactly.</li>
+      <li><strong>Terminal type and polarity</strong> &mdash; DIN88/DIN100 are left-positive; JIS polarity is not published in the DINWEYS datasheet (industry convention is typically right-positive) &mdash; confirm the layout before buying.</li>
+      <li><strong>CCA within the correct standard</strong> &mdash; never compare a JIS number with an EN or SAE number.</li>
+      <li><strong>BCI on inquiry</strong> &mdash; DINWEYS BCI groups are made-to-order, with dimensions and ratings confirmed on inquiry.</li>
+    </ol>
+
+    <h2 style="margin-top:32px;">Evidence</h2>
+    <ul style="margin-bottom:0;">
+      <li><strong>Standards</strong> &mdash; JIS D5301, EN 50342-1 and SAE J537 define the cold-cranking tests (institutional source).</li>
+      <li><strong>DINWEYS manufacturer specification</strong> (first-party) &mdash; case dimensions, terminals and ratings for N150/N200 and DIN88/DIN100.</li>
+      <li><strong>BCI Group Sizes</strong> (industry reference) &mdash; nominal dimensions for Group 31/8D/4D; not DINWEYS stock ratings.</li>
+    </ul>
+    <p style="margin-top:12px;">
+      For the engineering-level comparison of the same topic, see the technical hub:
+      <a href="https://docs.dinweysbattery.com/jis-vs-din-vs-bci/" target="_blank" rel="noopener">JIS vs DIN vs BCI standards</a>.
     </p>
 
     <h2 style="margin-top:32px;">The Author&rsquo;s Take</h2>
