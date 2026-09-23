@@ -58,12 +58,35 @@ const statusCount = models.reduce((acc: any, m: any) => {
   return acc;
 }, {});
 
+// §28 evidence → reader-friendly source label (kept concise on the page)
+const sourceTypeLabel: Record<string, string> = {
+  first_party: "DINWEYS manufacturer specification",
+  standard: "Official standard",
+  industry: "Industry reference",
+  third_party_catalog: "Third-party fitment reference — not OEM confirmation",
+  unverified: "Unverified",
+};
+
+const statusLabel = (s: string) =>
+  ({
+    "VERIFIED": "Verified",
+    "VERIFIED (first-party)": "Verified (first-party)",
+    "REFERENCE (third-party catalogs)": "Reference (third-party catalogs)",
+    "NEEDS_VERIFICATION": "Needs verification",
+  } as Record<string, string>)[s] ?? s;
+
 const claimRows = claims.claims.map((c: any) => ({
-  id: c.id,
+  id: c.claim_id,
   claim: c.claim,
-  status: c.verification,
-  sources: (c.sources ?? []).join(", ") || "—",
+  entity: c.entity ?? "—",
+  value: c.value != null ? `${c.value}${c.unit ? " " + c.unit : ""}` : "—",
+  status: statusLabel(String(c.verification_status ?? "")),
+  confidence: c.confidence ?? "—",
+  level: c.evidence_level ?? null,
+  sourceType: sourceTypeLabel[c.source_type] ?? String(c.source_type ?? "—"),
 }));
+
+const levelRows = Object.entries(claims.evidenceLevels ?? {}).map(([k, v]) => ({ key: k, value: String(v) }));
 
 const sourceRows = sources.sources.map((s: any) => ({
   id: s.id,
@@ -176,23 +199,36 @@ const faqJsonLd = {
 
     <h2 style="color:#0f1f3d;margin-top:40px;">Claim ledger</h2>
     <p>
-      Every figure asserted across the site maps to one of these claims. "Verified (first-party)" means the value comes
-      from our own engineering datasheet; "reference" means it is compiled from third-party catalogs and is
-      <strong>not</strong> a DINWEYS published stock rating; "needs verification" means we have not yet obtained a
-      document that would support it.
+      Every figure asserted across the site maps to one of these claims, each carrying its entity, value, unit,
+      evidence level and verification status. "Verified (first-party)" means the value comes from our own engineering
+      datasheet; "reference" means it is compiled from third-party catalogs and is <strong>not</strong> a DINWEYS
+      published stock rating; "needs verification" means we have not yet obtained a document that would support it.
     </p>
+
+    <div style="margin:16px 0;padding:16px 20px;background:#f4f7fb;border:1px solid #e3e8ef;border-radius:8px;">
+      <h3 style="color:#0f1f3d;margin:0 0 8px;font-size:1rem;">Evidence levels</h3>
+      <ul style="margin:0;padding-left:20px;">
+        {levelRows.map((r: any) => (
+          <li style="margin-bottom:4px;"><strong>Level {r.key}</strong> — {r.value}</li>
+        ))}
+      </ul>
+    </div>
+
     <div style="overflow-x:auto;">
       <table>
         <thead>
-          <tr><th>ID</th><th>Claim</th><th>Status</th><th>Sources</th></tr>
+          <tr><th>ID</th><th>Claim</th><th>Entity</th><th>Value</th><th>Status</th><th>Evidence</th><th>Source</th></tr>
         </thead>
         <tbody>
           {claimRows.map((c: any) => (
             <tr>
               <td><code>{c.id}</code></td>
               <td>{c.claim}</td>
-              <td>{c.status}</td>
-              <td>{c.sources}</td>
+              <td>{c.entity}</td>
+              <td>{c.value}</td>
+              <td>{c.status}{c.confidence !== "—" ? ` (${c.confidence})` : ""}</td>
+              <td>{c.level != null ? `Level ${c.level}` : "—"}</td>
+              <td>{c.sourceType}</td>
             </tr>
           ))}
         </tbody>
