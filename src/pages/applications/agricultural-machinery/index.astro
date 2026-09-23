@@ -1,0 +1,168 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What battery does agricultural machinery use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tractors, combines and harvesters run diesel engines, so they need a high-CCA starting battery — typically 12V on smaller tractors and 24V on larger machines built from two 12V batteries in series. Group size follows the machine, commonly JIS N150/N200 or DIN88/DIN100 depending on origin, matched to the tray and CCA specification."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do batteries fail during the off-season on farms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Agricultural machines sit idle for long periods between seasons, so batteries self-discharge while parked. A partially discharged battery left standing sulphates and loses capacity, and the first cold or heavy start of the new season is then too much for it. A maintenance routine or a charger during storage prevents this."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is AGM better than flooded for farm equipment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AGM handles vibration and dust better than vented flooded designs and is sealed, which helps on rough fields and sloping ground. But flooded thick-plate batteries remain the standard, lower-cost choice where the duty is simple starting. The choice is conditional on the machine's duty and charging system."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should I store a tractor battery over the off-season?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Keep it charged — a fully charged battery self-discharges more slowly and is far less prone to sulphation. Either disconnect and trickle-charge periodically, or use a maintenance charger during storage, and store the battery in a cool, dry place."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Agricultural Machinery Batteries — DINWEYS OEM"
+  description="Heavy-duty starting batteries for tractors, combines and harvesters — high-CCA diesel starting, vibration-resistant construction, and off-season storage resilience. OEM supply from Chengguang Power Tech Co., Ltd."
+  jsonLd={faqJsonLd}
+>
+  <div class="container section">
+    <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#55606e;margin-bottom:16px;">
+      <a href="/" style="color:#1e5aa8;">Home</a> &rsaquo; Applications &rsaquo; Agricultural Machinery
+    </nav>
+    <h1 style="color:#0f1f3d;">Agricultural Machinery Batteries</h1>
+    <p class="lead">
+      Tractors, combines, harvesters and sprayers run diesel engines in rough, dusty, uneven fields —
+      and then sit idle for weeks or months between seasons. The battery has to deliver a hard crank
+      on demand while surviving long storage spells that quietly drain it.
+    </p>
+
+    <div style="margin:20px 0;padding:16px 20px;background:#f4f7fb;border-left:4px solid #f5a623;border-radius:6px;">
+      <h2 style="color:#0f1f3d;margin:0 0 10px;font-size:1.15rem;">Direct Answer</h2>
+      <p style="margin:0;">Agricultural machinery needs a high-CCA diesel starting battery that also survives long idle spells between seasons. Tractors and combines commonly run 12V on smaller units and 24V (two 12V in series) on larger machines, with 850&ndash;1100+ CCA for the diesel. The battery group follows the machine &mdash; JIS N150/N200 or DIN88/DIN100 &mdash; and the biggest preventable failure is off-season self-discharge: a charged, maintained battery survives storage, while a flat one sulphates and dies before the first start.</p>
+    </div>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Key Takeaways</h2>
+    <ol class="takeaways-list">
+      <li><strong>Diesel starting is the core demand.</strong> High CCA (850&ndash;1100+) to crank the diesel, with the group and voltage matched to the specific machine.</li>
+      <li><strong>Off-season storage is the biggest killer.</strong> A battery left discharged over winter or between harvests sulphates and loses capacity, then fails on the first hard start.</li>
+      <li><strong>Vibration and dust are constant on the field.</strong> Rough ground and airborne dust demand a rugged, securely held battery — flooded thick-plate or sealed AGM.</li>
+      <li><strong>Keep it charged during storage.</strong> A fully charged battery self-discharges slowly; a maintenance charger or periodic top-up prevents the seasonal failure.</li>
+    </ol>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Why Farm Machinery Needs a Different Battery</h2>
+    <p>
+      A farm machine faces two opposing stresses. In use, it works on rough, uneven ground that
+      transmits constant vibration, and in dry conditions airborne dust settles on terminals and
+      battery tops. Out of use, it sits for weeks or months between seasons — and a lead-acid
+      battery left standing self-discharges, then sulphates if it is not recharged, permanently
+      losing capacity. The first cold or heavy start of the new season is then the moment the
+      weakened battery finally fails.
+    </p>
+    <p>
+      The answer is a heavy-duty battery engineered for diesel cranking plus a storage routine.
+      Thick Pb-Sb (lead-antimony) flooded plates deliver the high CCA and tolerate vibration, while
+      a sealed AGM removes the electrolyte-loss and dust problems of a vented unit and resists the
+      deeper cycling that comes with repeated cold starts and auxiliary loads. DINWEYS supplies both
+      — flooded JIS N150/N200 and DIN88/DIN100 for standard budgets, and AGM where the duty justifies
+      a maintenance-free option.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Duty Cycle &amp; Environment</h2>
+    <table>
+      <thead>
+        <tr><th>Factor</th><th>Agricultural duty</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Duty cycle</td><td>Seasonal and intermittent: intense use during planting and harvest, then long idle periods between seasons that drain a standing battery.</td></tr>
+        <tr><td>Starting demand</td><td>850&ndash;1100+ CCA (SAE J537) for diesel engines; 12V on smaller tractors, 24V (2&times; 12V series) on larger machines.</td></tr>
+        <tr><td>Environment</td><td>Vibration on rough, uneven fields; airborne dust; temperature swings including cold-morning starts; occasional slope operation.</td></tr>
+        <tr><td>Battery requirements</td><td>High-CCA diesel starting, thick-plate flooded or sealed AGM construction, and a storage/charging routine for the off-season.</td></tr>
+        <tr><td>Recommended characteristics</td><td>Choose by cranking demand and storage pattern &mdash; AGM resists vibration and self-discharges slower than flooded, but flooded remains the lower-cost standard for simple starting duty.</td></tr>
+      </tbody>
+    </table>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Recommended Specifications</h2>
+    <table>
+      <thead>
+        <tr><th>Requirement</th><th>Specification</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>System voltage</td><td>12V for smaller tractors; 24V (two 12V batteries in series) for larger tractors, combines and harvesters</td></tr>
+        <tr><td>Cold Cranking Amps</td><td>850–1100+ CCA (SAE J537) for diesel engines</td></tr>
+        <tr><td>Group size</td><td>JIS N150/N200 (Japanese/Korean machines) or DIN88/DIN100 (European machines)</td></tr>
+        <tr><td>Construction</td><td>Thick-plate flooded (Pb-Sb) or sealed AGM</td></tr>
+        <tr><td>Storage behaviour</td><td>AGM self-discharges more slowly than flooded and resists sulphation better when standing; both benefit from a maintenance charge during storage</td></tr>
+        <tr><td>Test schedule</td><td>Load-test before each season; inspect hold-downs and terminals every service</td></tr>
+      </tbody>
+    </table>
+    <p class="data-note">
+      Specifications are representative ranges. Exact CCA, capacity and dimensions vary by machine —
+      contact us for a datasheet matched to your equipment.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Product Lines for Agricultural Duty</h2>
+    <div class="grid grid-2" style="margin-top:16px;">
+      <div class="card">
+        <h3>JIS Heavy-Duty (N150/N200)</h3>
+        <p>Thick-plate flooded batteries for large machines — 145G51 (N150) 900A CCA, 190H52 (N200) 1100A CCA.</p>
+        <a href="/products/jis-heavy-duty/">View JIS Heavy-Duty →</a>
+      </div>
+      <div class="card">
+        <h3>AGM (maintenance-free)</h3>
+        <p>Sealed AGM that resists vibration and self-discharges more slowly during the off-season.</p>
+        <a href="/products/fleet/">View Fleet &amp; AGM →</a>
+      </div>
+    </div>
+
+    <p style="margin-top:20px;">
+      Related DINWEYS model pages: <a href="/batteries/jis/n150/" style="color:#1e5aa8;">145G51 (N150) — 900 A CCA</a> ·
+      <a href="/batteries/jis/n200/" style="color:#1e5aa8;">190H52 (N200) — 1100 A CCA</a>.
+      Standard reference: <a href="/compare/jis-vs-din-vs-bci/" style="color:#1e5aa8;">JIS vs DIN vs BCI</a>.
+      Match equipment with the <a href="/selection-tool/" style="color:#1e5aa8;">battery selection tool</a>.
+    </p>
+
+    <h2 style="color:#0f1f3d;margin-top:32px;">Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>What battery does agricultural machinery use?</h3>
+      <p>Tractors, combines and harvesters run diesel engines, so they need a high-CCA starting battery — typically 12V on smaller tractors and 24V on larger machines built from two 12V batteries in series. Group size follows the machine, commonly JIS N150/N200 or DIN88/DIN100 depending on origin, matched to the tray and CCA specification.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Why do batteries fail during the off-season on farms?</h3>
+      <p>Agricultural machines sit idle for long periods between seasons, so batteries self-discharge while parked. A partially discharged battery left standing sulphates and loses capacity, and the first cold or heavy start of the new season is then too much for it. A maintenance routine or a charger during storage prevents this.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is AGM better than flooded for farm equipment?</h3>
+      <p>AGM handles vibration and dust better than vented flooded designs and is sealed, which helps on rough fields and sloping ground. But flooded thick-plate batteries remain the standard, lower-cost choice where the duty is simple starting. The choice is conditional on the machine's duty and charging system.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How should I store a tractor battery over the off-season?</h3>
+      <p>Keep it charged — a fully charged battery self-discharges more slowly and is far less prone to sulphation. Either disconnect and trickle-charge periodically, or use a maintenance charger during storage, and store the battery in a cool, dry place.</p>
+    </div>
+
+    <p style="margin-top:24px;">
+      📚 Read the full guide: <a href="https://docs.dinweysbattery.com/agm-vs-flooded/" target="_blank" rel="noopener">AGM vs Flooded</a> ·
+      <a href="https://docs.dinweysbattery.com/how-to-maintain-truck-battery/" target="_blank" rel="noopener">Battery Maintenance</a>
+    </p>
+  </div>
+</BaseLayout>
