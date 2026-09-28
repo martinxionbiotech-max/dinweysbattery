@@ -41,6 +41,27 @@ const {
 } = Astro.props;
 
 const SITE = "https://dinweysbattery.com";
+
+// P1: hreflang 白名单——仅当目标语言页实际存在时才输出 alternate
+// （import.meta.glob 在构建期解析；5 个 en-only 页面无 ar/es 对应页）
+const AR_PAGES = new Set(
+  Object.keys(import.meta.glob('/src/pages/ar/**/*.astro')).map((p) => {
+    const rel = p.replace('/src/pages/ar', '').replace(/\/index\.astro$/, '');
+    return rel === '' ? '/' : rel;
+  }),
+);
+const ES_PAGES = new Set(
+  Object.keys(import.meta.glob('/src/pages/es/**/*.astro')).map((p) => {
+    const rel = p.replace('/src/pages/es', '').replace(/\/index\.astro$/, '');
+    return rel === '' ? '/' : rel;
+  }),
+);
+// 当前页面去 locale 前缀的核心路径（尾斜杠归一）
+const corePath =
+  (Astro.url.pathname.replace(/^\/(ar|es)(?=\/)/, '') || '/').replace(/\/+$/, '') || '/';
+const hasAr = AR_PAGES.has(corePath);
+const hasEs = ES_PAGES.has(corePath);
+
 const pathLocale = localeFromPath(Astro.url.pathname);
 const htmlLang = pathLocale;
 const htmlDir = pathLocale === "ar" ? "rtl" : "ltr";
@@ -229,8 +250,8 @@ const webPageJsonLd = {
     <meta property="og:locale" content={ogLocale} />
 
     <link rel="alternate" hreflang="en" href={SITE + localizePath(Astro.url.pathname, "en")} />
-    <link rel="alternate" hreflang="ar" href={SITE + localizePath(Astro.url.pathname, "ar")} />
-    <link rel="alternate" hreflang="es" href={SITE + localizePath(Astro.url.pathname, "es")} />
+    {hasAr && <link rel="alternate" hreflang="ar" href={SITE + localizePath(Astro.url.pathname, "ar")} />}
+    {hasEs && <link rel="alternate" hreflang="es" href={SITE + localizePath(Astro.url.pathname, "es")} />}
     <link rel="alternate" hreflang="x-default" href={SITE + localizePath(Astro.url.pathname, "en")} />
 
     <meta name="twitter:card" content="summary_large_image" />
