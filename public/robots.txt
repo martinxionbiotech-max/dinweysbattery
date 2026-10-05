@@ -5,10 +5,9 @@ Allow: /
 
 # AI crawlers explicitly welcome (AIO strategy)
 
-# Google-Extended: allow crawling for Gemini/AI Overviews, but opt out of training (ai-train)
+# Google-Extended: allow crawling for Gemini/AI Overviews
 User-agent: Google-Extended
 Allow: /
-ai-train: no
 
 # OpenAI
 User-agent: GPTBot
