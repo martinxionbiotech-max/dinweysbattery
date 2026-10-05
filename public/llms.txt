@@ -64,3 +64,44 @@ starting batteries (SLI — Starting, Lighting, Ignition), including:
 - [Claim ledger (JSON)](https://dinweysbattery.com/data/evidence/claims.json) — every technical/commercial claim with its source, evidence level and verification status (includes claims still marked NEEDS_VERIFICATION).
 - [Source registry (JSON)](https://dinweysbattery.com/data/evidence/sources.json) — level 1 independent standards, level 2 manufacturer documentation, level 3 third-party catalogs.
 - [Vehicle fitment database (JSON)](https://dinweysbattery.com/data/vehicle-fitment.json) — truck model → battery group → DINWEYS model, each with a confidence level. Industry reference, not OEM confirmation.
+
+## Machine-readable markdown
+
+Every battery model and truck fitment record has a clean Markdown variant at the
+same path with a `.md` suffix — generated at build time from the same data layer
+as the HTML pages (no navigation, footer, or JavaScript). Each file carries a YAML
+frontmatter (title, description, canonical URL, updated date), an H1, a definition,
+a core data table, and a canonical link back to the human-readable HTML page.
+Available in English (`/...`), Arabic (`/ar/...`) and Spanish (`/es/...`).
+
+### Battery models (`/batteries/*.md`)
+
+- [145G51 (N150)](https://dinweysbattery.com/batteries/n150.md)
+- [190H52 (N200)](https://dinweysbattery.com/batteries/n200.md)
+- [58827 (DIN88)](https://dinweysbattery.com/batteries/din88.md)
+- [60038 (DIN100)](https://dinweysbattery.com/batteries/din100.md)
+- [65D31R (N70)](https://dinweysbattery.com/batteries/n70.md)
+- [95E41R (N100)](https://dinweysbattery.com/batteries/n100.md)
+- [N120](https://dinweysbattery.com/batteries/n120.md)
+- [245H52 (N220)](https://dinweysbattery.com/batteries/n220.md)
+- [56638 (DIN66)](https://dinweysbattery.com/batteries/din66.md)
+- [57412 (DIN74)](https://dinweysbattery.com/batteries/din74.md)
+
+### Truck model fitment (`/truck-models/*.md`)
+
+- [Hino 700 Series](https://dinweysbattery.com/truck-models/hino-700-series.md)
+- [Isuzu Giga](https://dinweysbattery.com/truck-models/isuzu-giga.md)
+- [Volvo FH](https://dinweysbattery.com/truck-models/volvo-trucks-fh.md)
+- [Volvo FM](https://dinweysbattery.com/truck-models/volvo-trucks-fm.md)
+- [Scania R Series](https://dinweysbattery.com/truck-models/scania-r-series.md)
+- [MAN TGS](https://dinweysbattery.com/truck-models/man-tgs.md)
+- [MAN TGX](https://dinweysbattery.com/truck-models/man-tgx.md)
+- [Mercedes-Benz Actros](https://dinweysbattery.com/truck-models/mercedes-benz-actros.md)
+- [Mercedes-Benz Atego](https://dinweysbattery.com/truck-models/mercedes-benz-atego.md)
+- [DAF XF](https://dinweysbattery.com/truck-models/daf-xf.md)
+- [Iveco Stralis](https://dinweysbattery.com/truck-models/iveco-stralis.md)
+- [Mitsubishi Fuso Fighter](https://dinweysbattery.com/truck-models/mitsubishi-fuso-fighter.md)
+- [UD Trucks Quon](https://dinweysbattery.com/truck-models/ud-trucks-quon.md)
+- [Mitsubishi Fuso Super Great](https://dinweysbattery.com/truck-models/mitsubishi-fuso-super-great.md)
+- [Hino 500 Series](https://dinweysbattery.com/truck-models/hino-500-series.md)
+- [Isuzu F Series (Forward)](https://dinweysbattery.com/truck-models/isuzu-f-series-forward.md)

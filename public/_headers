@@ -1,0 +1,37 @@
+# Machine-readable markdown variants — force text/markdown Content-Type
+# (Cloudflare's MIME table may not map .md; harden it explicitly for en/ar/es)
+/batteries/*.md
+  Content-Type: text/markdown; charset=utf-8
+
+/truck-models/*.md
+  Content-Type: text/markdown; charset=utf-8
+
+/ar/batteries/*.md
+  Content-Type: text/markdown; charset=utf-8
+
+/ar/truck-models/*.md
+  Content-Type: text/markdown; charset=utf-8
+
+/es/batteries/*.md
+  Content-Type: text/markdown; charset=utf-8
+
+/es/truck-models/*.md
+  Content-Type: text/markdown; charset=utf-8
+
+# Sitemap + machine-readable files — short edge cache
+/sitemap-index.xml
+  Cache-Control: public, max-age=3600
+
+/sitemap-*.xml
+  Cache-Control: public, max-age=3600
+
+/llms.txt
+  Cache-Control: public, max-age=3600
+
+/robots.txt
+  Cache-Control: public, max-age=3600
+
+# HTML pages — AI discovery headers (only real resources are declared)
+/*
+  Link: </sitemap-index.xml>; rel="sitemap"
+  Link: </llms.txt>; rel="llms"
