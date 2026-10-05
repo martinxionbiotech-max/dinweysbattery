@@ -12,7 +12,7 @@
     "legalName": "Chengguang Power Tech Co., Ltd.",
     "url": "https://dinweysbattery.com"
   },
-  "dateModified": "2026-09-09",
+  "dateModified": "2026-10-05",
   "dataProvenance": {
     "method": "First-party manufacturer specification (DINWEYS datasheet and published product pages), cross-referenced against independent industry fitment guides and third-party battery catalogs where available.",
     "verificationPolicy": "Fields not published by the manufacturer are left null and marked 'unverified'. Third-party catalog/industry reference specifications are marked 'reference' and always carry source + source_url. Ratings are never interpolated or assumed. Specifications vary by manufacturer — always confirm against the specific vehicle.",

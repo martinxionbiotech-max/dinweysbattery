@@ -35,7 +35,9 @@
       "entity": "DINWEYS (brand) / Chengguang Power Tech Co., Ltd. (manufacturer)",
       "value": null,
       "unit": null,
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": null,
       "evidence_level": 1,
@@ -53,15 +55,15 @@
       "value": null,
       "unit": null,
       "source": [],
-      "source_type": "unverified",
+      "source_type": "first_party",
       "evidence_url": null,
       "evidence_level": 5,
-      "verification_status": "NEEDS_VERIFICATION",
-      "confidence": "UNVERIFIED",
+      "verification_status": "FIRST-PARTY (manufacturer-reported)",
+      "confidence": "FIRST-PARTY",
       "first_published": null,
-      "last_verified": "2026-09-10",
+      "last_verified": "2026-10-05",
       "reviewer": null,
-      "notes": "No certificate number, issuer or scope published. Verification pending."
+      "notes": "Manufacturer-reported certifications. Certificate numbers, issuing bodies and scope are not published."
     },
     {
       "claim_id": "C-007",
@@ -73,12 +75,12 @@
       "source_type": "first_party",
       "evidence_url": null,
       "evidence_level": 5,
-      "verification_status": "NEEDS_VERIFICATION",
-      "confidence": "UNVERIFIED",
+      "verification_status": "FIRST-PARTY (manufacturer-reported)",
+      "confidence": "FIRST-PARTY",
       "first_published": null,
-      "last_verified": "2026-09-10",
+      "last_verified": "2026-10-05",
       "reviewer": null,
-      "notes": "First-party capacity claim without third-party confirmation."
+      "notes": "First-party capacity claim (manufacturer-reported, no third-party audit published)."
     },
     {
       "claim_id": "C-008",
@@ -86,7 +88,13 @@
       "entity": "N70 / N100 / N120 / N220 / DIN66 / DIN74",
       "value": null,
       "unit": null,
-      "source": ["S-BRAVA-N70", "S-SEBANG-JIS", "S-UPLUS-N220", "S-LANDPORT-DIN74", "S-KINGPOWER-DIN66"],
+      "source": [
+        "S-BRAVA-N70",
+        "S-SEBANG-JIS",
+        "S-UPLUS-N220",
+        "S-LANDPORT-DIN74",
+        "S-KINGPOWER-DIN66"
+      ],
       "source_type": "third_party_catalog",
       "evidence_url": null,
       "evidence_level": 4,
@@ -103,7 +111,11 @@
       "entity": "CCA (cross-standard comparability)",
       "value": null,
       "unit": null,
-      "source": ["S-JIS-D5301", "S-EN-50342-1", "S-SAE-J537"],
+      "source": [
+        "S-JIS-D5301",
+        "S-EN-50342-1",
+        "S-SAE-J537"
+      ],
       "source_type": "standard",
       "evidence_url": null,
       "evidence_level": 2,
@@ -120,7 +132,9 @@
       "entity": "145G51 (N150)",
       "value": "12",
       "unit": "V",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/jis/n150/",
       "evidence_level": 1,
@@ -137,7 +151,9 @@
       "entity": "145G51 (N150)",
       "value": 135,
       "unit": "Ah",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/jis/n150/",
       "evidence_level": 1,
@@ -155,7 +171,9 @@
       "value": 900,
       "unit": "A",
       "standard": "JIS D5301",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/jis/n150/",
       "evidence_level": 1,
@@ -173,7 +191,9 @@
       "value": 220,
       "unit": "min",
       "standard": "SAE J537",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/jis/n150/",
       "evidence_level": 1,
@@ -190,7 +210,9 @@
       "entity": "145G51 (N150)",
       "value": "508×222×212",
       "unit": "mm",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/jis/n150/",
       "evidence_level": 1,
@@ -207,7 +229,9 @@
       "entity": "190H52 (N200)",
       "value": "12",
       "unit": "V",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/jis/n200/",
       "evidence_level": 1,
@@ -224,7 +248,9 @@
       "entity": "190H52 (N200)",
       "value": 200,
       "unit": "Ah",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/jis/n200/",
       "evidence_level": 1,
@@ -242,7 +268,9 @@
       "value": 1100,
       "unit": "A",
       "standard": "JIS D5301",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/jis/n200/",
       "evidence_level": 1,
@@ -260,7 +288,9 @@
       "value": 320,
       "unit": "min",
       "standard": "SAE J537",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/jis/n200/",
       "evidence_level": 1,
@@ -277,7 +307,9 @@
       "entity": "190H52 (N200)",
       "value": "520×278×220",
       "unit": "mm",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/jis/n200/",
       "evidence_level": 1,
@@ -294,7 +326,9 @@
       "entity": "58827 (DIN88)",
       "value": "12",
       "unit": "V",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/din/din88/",
       "evidence_level": 1,
@@ -311,7 +345,9 @@
       "entity": "58827 (DIN88)",
       "value": 88,
       "unit": "Ah",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/din/din88/",
       "evidence_level": 1,
@@ -329,7 +365,9 @@
       "value": 800,
       "unit": "A",
       "standard": "EN 50342-1",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/din/din88/",
       "evidence_level": 1,
@@ -347,7 +385,9 @@
       "value": 150,
       "unit": "min",
       "standard": "SAE J537",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/din/din88/",
       "evidence_level": 1,
@@ -364,7 +404,9 @@
       "entity": "58827 (DIN88)",
       "value": "353×175×190",
       "unit": "mm",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/din/din88/",
       "evidence_level": 1,
@@ -381,7 +423,9 @@
       "entity": "60038 (DIN100)",
       "value": "12",
       "unit": "V",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/din/din100/",
       "evidence_level": 1,
@@ -398,7 +442,9 @@
       "entity": "60038 (DIN100)",
       "value": 100,
       "unit": "Ah",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/din/din100/",
       "evidence_level": 1,
@@ -416,7 +462,9 @@
       "value": 870,
       "unit": "A",
       "standard": "EN 50342-1",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/din/din100/",
       "evidence_level": 1,
@@ -434,7 +482,9 @@
       "value": 170,
       "unit": "min",
       "standard": "SAE J537",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/din/din100/",
       "evidence_level": 1,
@@ -451,7 +501,9 @@
       "entity": "60038 (DIN100)",
       "value": "393×175×190",
       "unit": "mm",
-      "source": ["S-CG-DATASHEET"],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": "https://dinweysbattery.com/batteries/din/din100/",
       "evidence_level": 1,
