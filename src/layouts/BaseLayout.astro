@@ -168,13 +168,13 @@ const manufacturerJsonLd = {
     "addressRegion": "Hebei",
     "addressCountry": "CN"
   },
-  "hasCredential": [
-    { "@type": "EducationalOccupationalCredential", "name": "IATF 16949" },
-    { "@type": "EducationalOccupationalCredential", "name": "ISO 9001:2015" },
-    { "@type": "EducationalOccupationalCredential", "name": "ISO 14001:2015" },
-    { "@type": "EducationalOccupationalCredential", "name": "ISO 45001:2018" },
-    { "@type": "EducationalOccupationalCredential", "name": "OHSAS 18001" },
-    { "@type": "EducationalOccupationalCredential", "name": "CE Marking" }
+  // Credentials intentionally omitted from structured data: the certifications are
+  // manufacturer-reported and certificate numbers are not published, so emitting
+  // hasCredential would assert unverified facts to search engines. (Audit P0-2)
+  "knowsAbout": [
+    "Automotive starting batteries",
+    "Truck and commercial vehicle batteries",
+    "JIS and DIN battery standards"
   ]
 };
 
