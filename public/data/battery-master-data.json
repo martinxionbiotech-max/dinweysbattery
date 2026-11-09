@@ -92,7 +92,7 @@
       "source": "DINWEYS manufacturer specification (first-party) + cross-reference Club Assist / Century Batteries fitment guides",
       "source_url": "https://dinweysbattery.com/batteries/jis/n150/",
       "verification_status": "confirmed_first_party",
-      "last_verified": "2026-09-09",
+      "last_verified": "2026-11-09",
       "notes": "Dimensions, CCA and RC are DINWEYS's first-party figures. Independent catalogs list N150 at 500–510mm length and 210–257mm height with CCA 750–1100 depending on manufacturer — confirm exact tray dimensions and rating before replacement. Weight not published by manufacturer."
     },
     {
@@ -128,7 +128,7 @@
       "source": "DINWEYS manufacturer specification (first-party) + cross-reference Club Assist / Century Batteries fitment guides",
       "source_url": "https://dinweysbattery.com/batteries/jis/n200/",
       "verification_status": "confirmed_first_party",
-      "last_verified": "2026-09-09",
+      "last_verified": "2026-11-09",
       "notes": "Independent catalogs list N200 at ~521–523×278–279×240–248mm with CCA up to ~1130 depending on manufacturer. DINWEYS's 520×278×220mm and 1100A are first-party figures. Confirm tray dimensions before upgrading from N150. Weight not published by manufacturer."
     },
     {
@@ -164,7 +164,7 @@
       "source": "DINWEYS manufacturer specification (first-party)",
       "source_url": "https://dinweysbattery.com/batteries/din/din88/",
       "verification_status": "confirmed_first_party",
-      "last_verified": "2026-09-09",
+      "last_verified": "2026-11-09",
       "notes": "DIN88 is a length-based size class (353mm case). EN cold-cranking (800A) is measured to EN 50342-1 and is NOT directly comparable to JIS CCA or SAE CCA. Weight not published by manufacturer."
     },
     {
@@ -200,7 +200,7 @@
       "source": "DINWEYS manufacturer specification (first-party)",
       "source_url": "https://dinweysbattery.com/batteries/din/din100/",
       "verification_status": "confirmed_first_party",
-      "last_verified": "2026-09-09",
+      "last_verified": "2026-11-09",
       "notes": "DIN100 is 40mm longer than DIN88 (393mm vs 353mm) with identical 175mm width and 190mm height. EN cold-cranking (870A) is measured to EN 50342-1 — not directly comparable to JIS/SAE CCA. Weight not published by manufacturer."
     },
     {
@@ -236,7 +236,7 @@
       "source": "DINWEYS made-to-order BCI line (no published stock specification)",
       "source_url": "https://dinweysbattery.com/products/bci-request/",
       "verification_status": "on_request",
-      "last_verified": "2026-09-09",
+      "last_verified": "2026-11-09",
       "notes": "Made-to-order — no shelf stock. Exact CCA, capacity, dimensions, terminal type and polarity are confirmed on inquiry. Reference only: BCI Group 31 is nominally 330×173×240mm with SAE J537 CCA; do not treat as DINWEYS rating."
     },
     {
@@ -272,7 +272,7 @@
       "source": "DINWEYS made-to-order BCI line (no published stock specification)",
       "source_url": "https://dinweysbattery.com/products/bci-request/",
       "verification_status": "on_request",
-      "last_verified": "2026-09-09",
+      "last_verified": "2026-11-09",
       "notes": "Made-to-order — legacy large-capacity size (larger than Group 31). No published DINWEYS stock rating; confirm on inquiry. Reference only: BCI 8D is nominally ~520×275×240mm with SAE J537 CCA."
     },
     {
@@ -308,7 +308,7 @@
       "source": "DINWEYS made-to-order BCI line (no published stock specification)",
       "source_url": "https://dinweysbattery.com/products/bci-request/",
       "verification_status": "on_request",
-      "last_verified": "2026-09-09",
+      "last_verified": "2026-11-09",
       "notes": "Made-to-order — legacy large-capacity size. No published DINWEYS stock rating; confirm on inquiry."
     },
     {
@@ -344,7 +344,7 @@
       "source": "Third-party reference: BRAVA N70 (65D31R) datasheet, Western Battery N70, BCI Group Sizes (Group 27 = 65D31R)",
       "source_url": "https://www.bravabatteries.com/product/n70-65d31r-12v70ah-smf-car-battery",
       "verification_status": "reference",
-      "last_verified": "2026-09-09",
+      "last_verified": "2026-11-09",
       "notes": "Third-party reference — NOT a DINWEYS published stock rating. BRAVA lists 70Ah (C20), CCA 580A (JIS), RC 118 min, case 304×170×203mm (total height 225mm); Western Battery lists 600A (EN) at 304×173×200mm; BCI lists max envelope 306×173×225mm. Confirm exact tray and rating before replacement."
     },
     {
@@ -380,7 +380,7 @@
       "source": "Third-party reference: Sebang JIS catalog (SMF N100 = 95E41R), BCI Group Sizes",
       "source_url": "https://sebangbattery.com/applications-product/jis",
       "verification_status": "reference",
-      "last_verified": "2026-09-09",
+      "last_verified": "2026-11-09",
       "notes": "Third-party reference — NOT a DINWEYS published stock rating. Sebang lists N100 (95E41R) at 100Ah (C20), RC 180 min, CCA 730A, 410×175×235mm; BCI lists max envelope 410×176×234mm. Third-party CCA varies ~700–870A across manufacturers."
     },
     {
@@ -416,7 +416,7 @@
       "source": "Third-party reference: Sebang JIS catalog (SMF N120), Continental Group N120",
       "source_url": "https://sebangbattery.com/applications-product/jis",
       "verification_status": "reference",
-      "last_verified": "2026-09-09",
+      "last_verified": "2026-11-09",
       "notes": "Third-party reference — NOT a DINWEYS published stock rating. Sebang lists N120 at 120Ah (C20), RC 230 min, CCA 820A, 505×183×240mm; Continental lists 880A CCA at 505×181×257mm. Third-party CCA varies ~800–900A; height varies 208–257mm across manufacturers. Confirm tray and rating before replacement."
     },
     {
@@ -452,7 +452,7 @@
       "source": "Third-party reference: UPLUS JIS catalog (245H52R = N220), Powsea 245H52",
       "source_url": "https://www.uplusbattery.com/Product/150.html",
       "verification_status": "reference",
-      "last_verified": "2026-09-09",
+      "last_verified": "2026-11-09",
       "notes": "Third-party reference — NOT a DINWEYS published stock rating. UPLUS lists 245H52 (N220) at 220Ah (C20), RC 456 min, CCA 1200A, 515×265×216mm (total height 254mm) — a capacity/CCA step above N200 (190H52). Powsea also lists 245H52 as 12V 220Ah. Confirm tray and rating before replacement."
     },
     {
@@ -488,7 +488,7 @@
       "source": "Third-party reference: King Power DIN66 (56638), Xiamen Songli DIN66 (56638mf)",
       "source_url": "https://westernbattery.en.made-in-china.com/product/qwDTvZFHfAUt/China-DIN66-56638-Maintenance-Free-Calcium-Plus-Mf-Car-Battery-12V-66ah.html",
       "verification_status": "reference",
-      "last_verified": "2026-09-09",
+      "last_verified": "2026-11-09",
       "notes": "Third-party reference — NOT a DINWEYS published stock rating. Sources list 66Ah (C20) at 278×175×190mm (King Power reports 278×174×189mm). EN cold-cranking not published in a single authoritative source for this size — left null. DIN66 shares the 278mm length class with DIN74 but lower capacity."
     },
     {
@@ -524,7 +524,7 @@
       "source": "Third-party reference: Landport 57412 datasheet, Marvel Battery 57412",
       "source_url": "https://www.landportbv.com/en/products/accu-57412",
       "verification_status": "reference",
-      "last_verified": "2026-09-09",
+      "last_verified": "2026-11-09",
       "notes": "Third-party reference — NOT a DINWEYS published stock rating. Landport lists 74Ah (C20), CCA 680A (EN), 278×175×190mm; third-party CCA ranges ~580–690A (EN). Same 278mm length class as DIN66/DIN74; higher capacity than DIN66. EN CCA is not directly comparable to JIS/SAE CCA."
     },
     {
@@ -560,7 +560,7 @@
       "source": "DINWEYS made-to-order BCI line + BCI Group Sizes reference dimensions",
       "source_url": "https://dinweysbattery.com/products/bci-request/",
       "verification_status": "on_request",
-      "last_verified": "2026-09-09",
+      "last_verified": "2026-11-09",
       "notes": "Made-to-order — no shelf stock. Exact CCA, capacity, terminal and polarity confirmed on inquiry. Reference only: BCI Group 6D nominal max dimensions 527×254×260mm (BCI Group Sizes) — wider than 4D (254mm vs 222mm). Do not treat as DINWEYS stock rating."
     }
   ]

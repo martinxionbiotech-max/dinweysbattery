@@ -54,16 +54,18 @@
       "entity": "Chengguang Power Tech Co., Ltd.",
       "value": null,
       "unit": null,
-      "source": [],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": null,
       "evidence_level": 5,
-      "verification_status": "FIRST-PARTY (manufacturer-reported)",
-      "confidence": "FIRST-PARTY",
+      "verification_status": "NEEDS_VERIFICATION",
+      "confidence": "NEEDS_VERIFICATION",
       "first_published": null,
-      "last_verified": "2026-10-05",
+      "last_verified": "2026-11-09",
       "reviewer": null,
-      "notes": "Manufacturer-reported certifications. Certificate numbers, issuing bodies and scope are not published."
+      "notes": "Manufacturer-reported certifications. Certificate numbers, issuing bodies and scope are not published. Status corrected to NEEDS_VERIFICATION: manufacturer-reported, certificate numbers and issuing bodies not published."
     },
     {
       "claim_id": "C-007",
@@ -71,16 +73,18 @@
       "entity": "Chengguang Power Tech Co., Ltd.",
       "value": null,
       "unit": null,
-      "source": [],
+      "source": [
+        "S-CG-DATASHEET"
+      ],
       "source_type": "first_party",
       "evidence_url": null,
       "evidence_level": 5,
-      "verification_status": "FIRST-PARTY (manufacturer-reported)",
-      "confidence": "FIRST-PARTY",
+      "verification_status": "NEEDS_VERIFICATION",
+      "confidence": "NEEDS_VERIFICATION",
       "first_published": null,
-      "last_verified": "2026-10-05",
+      "last_verified": "2026-11-09",
       "reviewer": null,
-      "notes": "First-party capacity claim (manufacturer-reported, no third-party audit published)."
+      "notes": "First-party capacity claim (manufacturer-reported, no third-party audit published). Status corrected to NEEDS_VERIFICATION: manufacturer-reported, certificate numbers and issuing bodies not published."
     },
     {
       "claim_id": "C-008",

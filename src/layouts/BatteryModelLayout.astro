@@ -153,6 +153,11 @@ const productJsonLd = {
     : {})
 };
 
+if (isReference) {
+  delete (productJsonLd as any).offers;
+  delete (productJsonLd as any).brand;
+}
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -217,7 +222,9 @@ const faqJsonLd = {
         <tr><th>{t(locale, "layout.specification")}</th><th>{t(locale, "layout.value")}</th></tr>
       </thead>
       <tbody>
+              {!isReference && (
               <tr><td>{t(locale, "layout.indicativePrice")}</td><td>{t(locale, "layout.fromPrice")} {PUBLIC_LIST_PRICE.display} {t(locale, "layout.priceNote")}</td></tr>
+              )}
         <tr><td>{t(locale, "layout.dinweyModel")}</td><td>{model}</td></tr>
         <tr><td>{t(locale, "layout.groupWord")}</td><td>{groupLabel}</td></tr>
         <tr><td>{t(locale, "layout.standard")}</td><td>{standard}</td></tr>
